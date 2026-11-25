@@ -158,7 +158,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return CLINICS.filter((c) => {
+    const list = CLINICS.filter((c) => {
       if (pricedOnly && c.prices.length === 0) return false;
       if (neighborhood && c.neighborhood !== neighborhood) return false;
       if (language && !c.languages.includes(language)) return false;
@@ -175,6 +175,32 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         if (!hay.includes(q)) return false;
       }
       return true;
+    });
+    // Rank: search relevance first, then price low to high.
+    // Relevance: name match (3) > treatment match (2) > service match (1).
+    // Price: the clinic's lowest comparable price for the current search/filter;
+    // clinics with no comparable price sort last, then alphabetical for stability.
+    const relevance = (c: SeedClinic) => {
+      if (!q) return 0;
+      let score = 0;
+      if (c.name.toLowerCase().includes(q)) score += 3;
+      if (c.prices.some((p) => p.treatment.toLowerCase().includes(q))) score += 2;
+      if (c.services.some((s) => s.toLowerCase().includes(q))) score += 1;
+      return score;
+    };
+    const priceOf = (c: SeedClinic) => {
+      const low = lowestMatchingPrice(c, query, service);
+      return low ? parsePriceNum(low.price) : null;
+    };
+    return list.sort((a, b) => {
+      const rel = relevance(b) - relevance(a);
+      if (rel !== 0) return rel;
+      const pa = priceOf(a);
+      const pb = priceOf(b);
+      if (pa !== null && pb !== null && pa !== pb) return pa - pb;
+      if (pa === null && pb !== null) return 1;
+      if (pa !== null && pb === null) return -1;
+      return a.name.localeCompare(b.name);
     });
   }, [query, neighborhood, service, language, pricedOnly]);
 
