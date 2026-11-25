@@ -61,8 +61,13 @@ function serviceMatchesCategory(service: string, category: string): boolean {
   return (SERVICE_KEYWORDS[category] ?? []).some((k) => s.includes(k));
 }
 
+// The first number in the price — for a range like "$100–$150" that's the
+// low end, which is what a "from $X" headline should show. (The old version
+// stripped all non-digits, turning "$100–$150" into 100150.)
 function parsePriceNum(price: string): number | null {
-  const n = parseFloat(price.replace(/[^0-9.]/g, ""));
+  const m = price.replace(/,/g, "").match(/\d+(\.\d+)?/);
+  if (!m) return null;
+  const n = parseFloat(m[0]);
   return Number.isFinite(n) ? n : null;
 }
 
