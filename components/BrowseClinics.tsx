@@ -457,14 +457,26 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 </p>
               )}
 
-              <button
-                type="button"
-                onClick={() => setExpanded(open ? null : c.name)}
-                aria-expanded={open}
-                className="mt-4 rounded-full border border-line px-4 py-2 text-sm font-semibold hover:border-brand"
-              >
-                {open ? t.browseHidePrices : t.browseViewPrices}
-              </button>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <button
+                  type="button"
+                  onClick={() => setExpanded(open ? null : c.name)}
+                  aria-expanded={open}
+                  className="rounded-full border border-line px-4 py-2 text-sm font-semibold hover:border-brand"
+                >
+                  {open ? t.browseHidePrices : t.browseViewPrices}
+                </button>
+                {c.website && (
+                  <a
+                    href={c.website}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+                  >
+                    {t.browseBookConsult} ↗
+                  </a>
+                )}
+              </div>
 
               {open && (
                 <div className="mt-4 rounded-2xl border border-line bg-cream p-4">
