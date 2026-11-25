@@ -59,8 +59,12 @@ function Logo({ className = "text-xl" }: { className?: string }) {
 
 const LANGUAGE_OPTIONS = ["English", "Chinese", "Korean"] as const;
 
+const US_STATES = [
+  "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
+] as const;
+
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("zh");
   useEffect(() => {
     const saved = window.localStorage.getItem("glow-nyc-lang");
     if (saved === "en" || saved === "zh" || saved === "ko") setLang(saved);
@@ -75,8 +79,10 @@ export default function Home() {
 
   // 1. Business name
   const [businessName, setBusinessName] = useState("");
-  // 2. City and ZIP
-  const [cityZip, setCityZip] = useState("");
+  // 2. City, State, ZIP (separate fields; ZIP auto-fills city and state)
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
   // 3. Services (pick any, one level only)
   const [services, setServices] = useState<string[]>([]);
   // 4. Your name
@@ -102,12 +108,31 @@ export default function Home() {
     setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
   }
 
+  // Look up city and state from a 5-digit US ZIP code (free, no key).
+  async function lookupZip(value: string) {
+    const cleaned = value.replace(/\D/g, "").slice(0, 5);
+    if (cleaned.length !== 5) return;
+    try {
+      const res = await fetch(`https://api.zippopotam.us/us/${cleaned}`);
+      if (!res.ok) return;
+      const data = await res.json();
+      const place = data.places?.[0];
+      if (!place) return;
+      if (place["place name"]) setCity(place["place name"]);
+      if (place["state abbreviation"]) setState(place["state abbreviation"]);
+    } catch {
+      // Lookup is a convenience only; the user can type city/state by hand.
+    }
+  }
+
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     if (
       !businessName.trim() ||
-      !cityZip.trim() ||
+      !city.trim() ||
+      !state.trim() ||
+      !zip.trim() ||
       services.length === 0 ||
       !contactName.trim()
     ) {
@@ -125,7 +150,7 @@ export default function Home() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           clinic_name: businessName.trim(),
-          address: cityZip.trim(),
+          address: `${city.trim()}, ${state.trim()} ${zip.trim()}`,
           neighborhood: "",
           contact_name: contactName.trim(),
           email: contactMethod === "email" ? contactValue.trim() : "",
@@ -160,7 +185,10 @@ export default function Home() {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) return setError(data.error || t.formError);
       setSubmitted({ id: data.application.id, status: data.application.status });
-      document.getElementById("submitted")?.scrollIntoView({ behavior: "smooth" });
+      // Jump to the confirmation: the form is replaced by it, so scroll to #apply.
+      requestAnimationFrame(() => {
+        document.getElementById("apply")?.scrollIntoView({ behavior: "smooth" });
+      });
     } catch {
       setError(t.formError);
     } finally {
@@ -266,9 +294,13 @@ export default function Home() {
           <p className="mt-4 rounded-2xl bg-ink px-5 py-3 text-sm font-semibold text-white">{t.parityNote}</p>
         </section>
 
-        {submitted && (
-          <section id="submitted" className="scroll-mt-20 py-6">
-            <div className="rounded-3xl border-2 border-brand bg-brand-soft p-6">
+        <section id="apply" className="scroll-mt-20 py-8">
+          <h2 className="text-2xl font-extrabold tracking-tight">{t.applyTitle}</h2>
+          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{t.applySub}</p>
+          <p className="mt-1 text-xs text-muted">{t.applyNote}</p>
+
+          {submitted ? (
+            <div id="submitted" className="mt-6 rounded-3xl border-2 border-brand bg-brand-soft p-6">
               <h2 className="text-xl font-extrabold text-brand-dark">{t.successTitle}</h2>
               <p className="mt-2 text-sm leading-relaxed">{t.successBody}</p>
               <p className="mt-3 text-sm">
@@ -292,14 +324,7 @@ export default function Home() {
               </ol>
               <p className="mt-3 text-xs text-muted">{t.trackerNote}</p>
             </div>
-          </section>
-        )}
-
-        <section id="apply" className="scroll-mt-20 py-8">
-          <h2 className="text-2xl font-extrabold tracking-tight">{t.applyTitle}</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{t.applySub}</p>
-          <p className="mt-1 text-xs text-muted">{t.applyNote}</p>
-
+          ) : (
           <form onSubmit={submit} className="mt-6 space-y-6 rounded-3xl border border-line bg-white p-5 md:p-8">
             <div className="grid gap-5 md:grid-cols-2">
               <div>
@@ -312,16 +337,52 @@ export default function Home() {
                   onChange={(e) => setBusinessName(e.target.value)}
                 />
               </div>
+            <div className="grid gap-5 md:grid-cols-[2fr_1fr_1fr]">
               <div>
-                <label className={labelCls} htmlFor="city_zip">{t.formCityZip}</label>
+                <label className={labelCls} htmlFor="city">{t.formCity}</label>
                 <input
-                  id="city_zip"
+                  id="city"
                   className={inputCls}
-                  placeholder={t.formCityZipPh}
-                  value={cityZip}
-                  onChange={(e) => setCityZip(e.target.value)}
+                  autoComplete="address-level2"
+                  placeholder={t.formCityPh}
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                 />
               </div>
+              <div>
+                <label className={labelCls} htmlFor="state">{t.formState}</label>
+                <select
+                  id="state"
+                  className={inputCls}
+                  autoComplete="address-level1"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                >
+                  <option value="">{t.formStatePh}</option>
+                  {US_STATES.map((s) => (
+                    <option key={s} value={s}>{s}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className={labelCls} htmlFor="zip">{t.formZip}</label>
+                <input
+                  id="zip"
+                  className={inputCls}
+                  autoComplete="postal-code"
+                  inputMode="numeric"
+                  maxLength={5}
+                  placeholder={t.formZipPh}
+                  value={zip}
+                  onChange={(e) => {
+                    const v = e.target.value.replace(/\D/g, "").slice(0, 5);
+                    setZip(v);
+                    if (v.length === 5) void lookupZip(v);
+                  }}
+                />
+              </div>
+            </div>
+            <p className="-mt-3 text-xs text-muted">{t.formZipHint}</p>
             </div>
 
             <div>
@@ -421,6 +482,7 @@ export default function Home() {
               {submitting ? t.formSubmitting : t.formSubmit}
             </button>
           </form>
+          )}
         </section>
 
         <section id="faq" className="scroll-mt-20 py-10">

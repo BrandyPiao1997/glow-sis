@@ -3,9 +3,9 @@
 import type { Lang, PricingModel, Status } from "./types";
 
 export const LANGS: { code: Lang; label: string }[] = [
-  { code: "en", label: "EN" },
   { code: "zh", label: "中文" },
   { code: "ko", label: "한국어" },
+  { code: "en", label: "EN" },
 ];
 
 export const WECHAT_ID = "brandy_piao";
@@ -30,7 +30,7 @@ const en = {
   step1Title: "Apply",
   step1Body: "Tell us about your business. It takes about 2 minutes.",
   step2Title: "We call you",
-  step2Body: "We reach out within 2 business days and check your licenses.",
+  step2Body: "We reach out within 2 business days and verify your information and business details.",
   step3Title: "Go live",
   step3Body: "We build your page in three languages. Nothing is published until you approve it.",
   parityNote: "The price on GlowSis is the price at your door.",
@@ -39,8 +39,13 @@ const en = {
   applyNote: "Your information is only used to contact you.",
   formBusinessName: "Business name *",
   formBusinessNamePh: "e.g. SeoulSkin Clinic",
-  formCityZip: "City and ZIP *",
-  formCityZipPh: "e.g. Flushing, NY 11354",
+  formCity: "City *",
+  formCityPh: "e.g. Flushing",
+  formState: "State *",
+  formStatePh: "Select state",
+  formZip: "ZIP code *",
+  formZipPh: "e.g. 11354",
+  formZipHint: "Enter your ZIP code and we'll fill in the city and state.",
   formBusinessType: "Business type *",
   businessTypes: {
     med_spa: "Med spa / clinic",
@@ -88,7 +93,7 @@ const en = {
     "Licensed beauty businesses: med spas and clinics, dermatology and plastic surgery practices, brow and lash studios, and laser hair removal. We verify licenses before your page goes live.",
   faq3Q: "What happens after I apply?",
   faq3A:
-    "We reach out within 2 business days, check your licenses and collect your price list, then build your page. Nothing is published until you approve it.",
+    "We reach out within 2 business days, verify your information and business details and collect your price list, then build your page. Nothing is published until you approve it.",
   faq4Q: "Do you only work in New York?",
   faq4A:
     "We're starting in the New York area, but businesses anywhere in the US can apply. We'll reach out as we open new cities.",
@@ -155,7 +160,7 @@ const zh: Dict = {
   step1Title: "申请",
   step1Body: "告诉我们您的商家信息，只需约 2 分钟。",
   step2Title: "我们联系您",
-  step2Body: "我们会在 2 个工作日内联系您，并核实您的执照。",
+  step2Body: "我们会在 2 个工作日内联系您，并核实您的信息、营业信息。",
   step3Title: "上线",
   step3Body: "我们会用三种语言为您搭建页面。未经您确认，不会发布任何内容。",
   parityNote: "GlowSis 上的价格，就是您到店支付的价格。",
@@ -164,8 +169,13 @@ const zh: Dict = {
   applyNote: "您的信息仅用于联系您。",
   formBusinessName: "商家名称 *",
   formBusinessNamePh: "例如：SeoulSkin Clinic",
-  formCityZip: "城市和邮编 *",
-  formCityZipPh: "例如：Flushing, NY 11354",
+  formCity: "城市 *",
+  formCityPh: "例如：Flushing",
+  formState: "州 *",
+  formStatePh: "选择州",
+  formZip: "邮编 *",
+  formZipPh: "例如：11354",
+  formZipHint: "输入邮编后会自动填写城市和州。",
   formBusinessType: "商家类型 *",
   businessTypes: {
     med_spa: "医美诊所 / 医疗水疗",
@@ -208,7 +218,7 @@ const zh: Dict = {
     "持牌美容商家：医美诊所、皮肤科与整形外科诊所、眉毛睫毛工作室和激光脱毛机构。我们会在您的页面上线前核实执照。",
   faq3Q: "申请后会发生什么？",
   faq3A:
-    "我们会在 2 个工作日内联系您，核实执照并收集价目表，然后为您搭建页面。未经您确认，不会发布任何内容。",
+    "我们会在 2 个工作日内联系您，核实您的信息、营业信息并收集价目表，然后为您搭建页面。未经您确认，不会发布任何内容。",
   faq4Q: "你们只在纽约开展业务吗？",
   faq4A: "我们从纽约地区开始，但全美各地的商家都可以申请。我们开通新城市时会联系您。",
   footerTag: "价格透明，商家可信，评价真实。",
@@ -256,7 +266,7 @@ const ko: Dict = {
   step1Title: "신청",
   step1Body: "업체에 대해 알려주세요. 약 2분이면 됩니다.",
   step2Title: "연락드립니다",
-  step2Body: "2영업일 이내에 연락드리고 면허를 확인합니다.",
+  step2Body: "2영업일 이내에 연락드리고 귀하의 정보와 사업 정보를 확인합니다.",
   step3Title: "오픈",
   step3Body: "3개 언어로 페이지를 제작합니다. 고객님 승인 없이는 게시하지 않습니다.",
   parityNote: "GlowSis 가격은 방문 시 지불하는 가격과 동일합니다.",
@@ -265,8 +275,13 @@ const ko: Dict = {
   applyNote: "귀하의 정보는 연락 목적으로만 사용됩니다.",
   formBusinessName: "업체명 *",
   formBusinessNamePh: "예: SeoulSkin Clinic",
-  formCityZip: "도시 및 우편번호 *",
-  formCityZipPh: "예: Flushing, NY 11354",
+  formCity: "도시 *",
+  formCityPh: "예: Flushing",
+  formState: "주 *",
+  formStatePh: "주 선택",
+  formZip: "우편번호 *",
+  formZipPh: "예: 11354",
+  formZipHint: "우편번호를 입력하면 도시와 주가 자동으로 채워집니다.",
   formBusinessType: "업체 유형 *",
   businessTypes: {
     med_spa: "메드 스파 / 클리닉",
@@ -309,7 +324,7 @@ const ko: Dict = {
     "면허를 보유한 뷰티 업체: 메드 스파 및 클리닉, 피부과·성형외과, 눈썹·속눈썹 스튜디오, 레이저 제모 업체입니다. 페이지가 오픈되기 전에 면허를 확인합니다.",
   faq3Q: "신청 후에는 어떻게 되나요?",
   faq3A:
-    "2영업일 이내에 연락드려 면허를 확인하고 가격표를 수집한 뒤 페이지를 제작합니다. 고객님 승인 없이는 게시하지 않습니다.",
+    "2영업일 이내에 연락드려 귀하의 정보와 사업 정보를 확인하고 가격표를 수집한 뒤 페이지를 제작합니다. 고객님 승인 없이는 게시하지 않습니다.",
   faq4Q: "뉴욕에서만 운영하나요?",
   faq4A:
     "뉴욕 지역에서 시작하지만, 미국 전역의 업체가 신청할 수 있습니다. 새 도시로 확장할 때 연락드리겠습니다.",
