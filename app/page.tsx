@@ -229,6 +229,7 @@ export default function Home() {
             <Logo />
           </a>
           <nav className="hidden items-center gap-5 text-sm font-medium text-muted md:flex">
+            <a href="/browse" className="hover:text-ink">{t.navBrowse}</a>
             <a href="#how" className="hover:text-ink">{t.navHow}</a>
             <a href="#faq" className="hover:text-ink">{t.navFaq}</a>
           </nav>
@@ -272,6 +273,9 @@ export default function Home() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a href="#apply" className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
               {t.heroCta}
+            </a>
+            <a href="/browse" className="rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold hover:border-brand">
+              {t.heroBrowseCta}
             </a>
           </div>
           <div className="mt-6 flex flex-wrap items-center gap-2 text-sm text-muted">
