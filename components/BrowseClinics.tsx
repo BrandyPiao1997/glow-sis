@@ -99,6 +99,86 @@ function serviceMatchesCategory(service: string, category: string): boolean {
   return classifyService(service) === category;
 }
 
+// Second layer: specific treatments within a category. Each sub-treatment
+// has keyword matchers, first match wins (specific before generic, e.g.
+// "Lip Flip" before "Botox", "Morpheus8" before "Laser"). A name only
+// counts for a sub-treatment when it already belongs to that category —
+// "Laser hair removal" can never be a Skin & laser sub-treatment.
+const SUB_TREATMENTS: Record<string, { label: string; keywords: string[] }[]> = {
+  "Botox & filler": [
+    { label: "Lip Flip", keywords: ["lip flip"] },
+    { label: "Masseter", keywords: ["masseter", "jaw slimming"] },
+    {
+      label: "Botox",
+      keywords: ["botox", "xeomin", "dysport", "jeuveau", "daxxify", "neurotoxin", "dermatoxin"],
+    },
+    {
+      label: "Filler",
+      keywords: ["filler", "juvederm", "sculptra", "radiesse", "skinvive"],
+    },
+  ],
+  "Skin & laser": [
+    { label: "HydraFacial", keywords: ["hydrafacial"] },
+    { label: "Microneedling", keywords: ["microneedling", "mts", "potenza", "sylfirm"] },
+    { label: "Morpheus8", keywords: ["morpheus8"] },
+    { label: "Pico Laser", keywords: ["pico"] },
+    { label: "Rejuran", keywords: ["rejuran", "pdrn"] },
+    { label: "Chemical Peel", keywords: ["chemical peel", "peel"] },
+    { label: "PRP", keywords: ["prp"] },
+    {
+      label: "Laser",
+      keywords: ["laser", "ipl", "photon", "genesis", "clear + brilliant", "aerolase"],
+    },
+    { label: "Facial", keywords: ["facial"] },
+  ],
+  Lifting: [
+    { label: "Ultherapy", keywords: ["ultherapy"] },
+    { label: "Thermage", keywords: ["thermage"] },
+    { label: "HIFU", keywords: ["hifu", "ultraformer"] },
+    { label: "Oligio", keywords: ["oligio"] },
+    { label: "Thread Lift", keywords: ["thread lift", "pdo"] },
+    {
+      label: "Skin Tightening",
+      keywords: ["skin tightening", "titan", "xerf", "forma"],
+    },
+    { label: "Facelift", keywords: ["facelift", "liquid facelift", "contouring"] },
+  ],
+  "Brows & lashes": [
+    { label: "Brow Lamination", keywords: ["brow lamination", "lamination"] },
+    { label: "Microblading", keywords: ["microblading", "powder brow", "ombre brow"] },
+    { label: "Lash Lift", keywords: ["lash lift"] },
+    { label: "Lash Tint", keywords: ["lash tint", "lash tinting"] },
+    {
+      label: "Lash Extensions",
+      keywords: ["lash extension", "cluster lash", "classic lash", "volume lash", "hybrid lash"],
+    },
+    { label: "Brow Tint", keywords: ["brow tint", "brow tinting"] },
+  ],
+  "Hair removal": [
+    { label: "Laser Hair Removal", keywords: ["laser hair", "hair removal"] },
+    { label: "Waxing", keywords: ["waxing", "wax"] },
+    { label: "Threading", keywords: ["threading"] },
+    { label: "Electrolysis", keywords: ["electrolysis"] },
+  ],
+  Other: [],
+};
+
+// The specific treatment a service/price name is, within a category —
+// or null when it doesn't match any sub-treatment of that category.
+function subTreatmentOf(name: string, category: string): string | null {
+  if (classifyService(name) !== category) return null;
+  const s = name.toLowerCase();
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const has = (w: string) =>
+    [w, ...(w.endsWith("s") ? [] : [`${w}s`])].some((f) =>
+      new RegExp(`\\b${esc(f)}\\b`).test(s),
+    );
+  for (const sub of SUB_TREATMENTS[category] ?? []) {
+    if (sub.keywords.some((k) => has(k))) return sub.label;
+  }
+  return null;
+}
+
 // The first number in the price — for a range like "$100–$150" that's the
 // low end, which is what a "from $X" headline should show. (The old version
 // stripped all non-digits, turning "$100–$150" into 100150.)
@@ -155,11 +235,15 @@ function lowestMatchingPrice(
   clinic: SeedClinic,
   query: string,
   service: string,
+  sub: string,
 ): SeedPrice | null {
   const q = query.trim().toLowerCase();
   let rows = clinic.prices;
   if (service) {
     rows = rows.filter((p) => serviceMatchesCategory(p.treatment, service));
+  }
+  if (sub) {
+    rows = rows.filter((p) => subTreatmentOf(p.treatment, service) === sub);
   }
   if (q) {
     const byTreatment = rows.filter((p) =>
@@ -185,9 +269,30 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [service, setService] = useState("");
+  const [sub, setSub] = useState("");
   const [language, setLanguage] = useState("");
   const [pricedOnly, setPricedOnly] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+
+  // Second-layer pills for the selected category, built from the data:
+  // only sub-treatments at least one clinic actually offers.
+  const availableSubs = useMemo(() => {
+    if (!service) return [];
+    const seen = new Set<string>();
+    for (const c of CLINICS) {
+      for (const s of c.services) {
+        const label = subTreatmentOf(s, service);
+        if (label) seen.add(label);
+      }
+      for (const p of c.prices) {
+        const label = subTreatmentOf(p.treatment, service);
+        if (label) seen.add(label);
+      }
+    }
+    return (SUB_TREATMENTS[service] ?? [])
+      .map((s) => s.label)
+      .filter((label) => seen.has(label));
+  }, [service]);
 
   const allLanguages = useMemo(
     () => [...new Set(CLINICS.flatMap((c) => c.languages))].sort(),
@@ -207,6 +312,12 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (language && !c.languages.includes(language)) return false;
       if (service && !c.services.some((s) => serviceMatchesCategory(s, service)))
         return false;
+      if (sub) {
+        const hasSub =
+          c.services.some((s) => subTreatmentOf(s, service) === sub) ||
+          c.prices.some((p) => subTreatmentOf(p.treatment, service) === sub);
+        if (!hasSub) return false;
+      }
       if (q) {
         const hay = [
           c.name,
@@ -232,7 +343,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       return score;
     };
     const priceOf = (c: SeedClinic) => {
-      const low = lowestMatchingPrice(c, query, service);
+      const low = lowestMatchingPrice(c, query, service, sub);
       return low ? parsePriceNum(low.price) : null;
     };
     return list.sort((a, b) => {
@@ -245,7 +356,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (pa !== null && pb === null) return -1;
       return a.name.localeCompare(b.name);
     });
-  }, [query, neighborhood, service, language, pricedOnly]);
+  }, [query, neighborhood, service, sub, language, pricedOnly]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -337,7 +448,10 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
-              onClick={() => setService("")}
+              onClick={() => {
+                setService("");
+                setSub("");
+              }}
               aria-pressed={service === ""}
               className={pill(service === "")}
             >
@@ -347,7 +461,10 @@ export default function BrowseClinics({ t }: { t: Dict }) {
               <button
                 key={s}
                 type="button"
-                onClick={() => setService(service === s ? "" : s)}
+                onClick={() => {
+                  setService(service === s ? "" : s);
+                  setSub("");
+                }}
                 aria-pressed={service === s}
                 className={pill(service === s)}
               >
@@ -356,6 +473,33 @@ export default function BrowseClinics({ t }: { t: Dict }) {
             ))}
           </div>
         </div>
+
+        {service !== "" && availableSubs.length > 0 && (
+          <div className="mt-4">
+            <span className={labelCls}>{t.browseTreatment}</span>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setSub("")}
+                aria-pressed={sub === ""}
+                className={pill(sub === "")}
+              >
+                {t.browseAll}
+              </button>
+              {availableSubs.map((label) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setSub(sub === label ? "" : label)}
+                  aria-pressed={sub === label}
+                  className={pill(sub === label)}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <p className="mt-6 text-sm font-semibold" aria-live="polite">
@@ -370,7 +514,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
 
       <div className="mt-4 space-y-4">
         {filtered.map((c) => {
-          const low = lowestMatchingPrice(c, query, service);
+          const low = lowestMatchingPrice(c, query, service, sub);
           const open = expanded === c.name;
           return (
             <article
