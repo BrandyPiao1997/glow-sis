@@ -1,0 +1,4932 @@
+{
+  "checked_on": "2026-11-25",
+  "clinics": [
+    {
+      "address": "505 S Virgil Ave, Ste 106, Los Angeles, CA 90020",
+      "city": "Los Angeles",
+      "id": "la-koreatown-wooyoo-medical-aesthetics",
+      "languages": [],
+      "name": "WooYoo Medical Aesthetics",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 674-7287",
+      "prices": [
+        {
+          "price": "$1,000",
+          "source_url": "https://www.wooyoomedspa.com/xerf",
+          "treatment": "XERF Skin Tightening — Targeted Lower Face, 300 shots",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$1,500",
+          "source_url": "https://www.wooyoomedspa.com/xerf",
+          "treatment": "XERF Skin Tightening — Full Face, 600 shots",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$1,900",
+          "source_url": "https://www.wooyoomedspa.com/xerf",
+          "treatment": "XERF Skin Tightening — Full Face + Neck, 900 shots",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$3,500",
+          "source_url": "https://www.wooyoomedspa.com/xerf",
+          "treatment": "XERF — Face + Neck Two-Session Package, 900 shots per session",
+          "unit": "per 2 sessions"
+        },
+        {
+          "price": "$2,000",
+          "source_url": "https://www.wooyoomedspa.com/xerf",
+          "treatment": "XERF Body Treatments",
+          "unit": "from, per 1,000 shots"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Jeuveau",
+        "Dermal fillers",
+        "Juvederm",
+        "Restylane",
+        "Radiesse",
+        "Sculptra",
+        "XERF",
+        "Morpheus8",
+        "Ultherapy",
+        "PicoWay",
+        "Laser hair removal",
+        "RF microneedling",
+        "Chemical peels",
+        "Skin tightening",
+        "Tattoo removal",
+        "Body contouring",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own website wooyoomedspa.com/xerf, checked 2026-11-25. Korean-American-led med spa; languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.wooyoomedspa.com/",
+      "zip": "90020"
+    },
+    {
+      "address": "3500 W 6th St, Suite 325, Los Angeles, CA 90020",
+      "city": "Los Angeles",
+      "id": "la-koreatown-jubilee-aesthetics",
+      "languages": [],
+      "name": "Jubilee Aesthetics",
+      "neighborhood": "Koreatown",
+      "phone": "(818) 630-9450",
+      "prices": [
+        {
+          "price": "$150",
+          "source_url": "https://jubileeaesthetics.com/",
+          "treatment": "Consultation fee (applied toward eligible treatment)",
+          "unit": "per consultation"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://jubileeaesthetics.com/",
+          "treatment": "IV drip",
+          "unit": "from (promotional, through Nov 25, 2026)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "Laser hair removal",
+        "Microneedling",
+        "Medical facials",
+        "Emface",
+        "Emsculpt NEO",
+        "Emsella",
+        "IV therapy",
+        "Korean facials",
+        "Head spa"
+      ],
+      "source_notes": "Prices from the clinic's own menu as cited by a directory check of jubileeaesthetics.com (checked 2026-10-27); the clinic's own site could not be read directly in full, so these two prices are weaker than a direct page read. The IV drip price is promotional through Nov 25, 2026. A Korean-language line (213) 380-0025 is listed by the directory but languages are not stated on the clinic's own site, so languages left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://jubileeaesthetics.com/",
+      "zip": "90020"
+    },
+    {
+      "address": "3785 Wilshire Blvd, #228C, Los Angeles, CA 90010",
+      "city": "Los Angeles",
+      "id": "la-koreatown-shiny-laser-skin-clinic",
+      "languages": [],
+      "name": "Shiny Laser Skin Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 382-5888",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Laser hair removal",
+        "RF microneedling",
+        "Microneedling",
+        "CO2 laser",
+        "Pico laser",
+        "Ultherapy",
+        "Rejuran",
+        "Acne scar treatment",
+        "Melasma and pigmentation treatment",
+        "Skin rejuvenation"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website Shinylaserclinic.com, checked 2026-11-25. Korean-inspired clinic specializing in Asian skin types. No prices published on the clinic's own website, so prices are [].",
+      "state": "CA",
+      "website": "https://shinylaserclinic.com/",
+      "zip": "90010"
+    },
+    {
+      "address": "1110 S Western Ave, #206, Los Angeles, CA 90006",
+      "city": "Los Angeles",
+      "id": "la-koreatown-rj-medspa",
+      "languages": [],
+      "name": "R&J Medspa",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 220-8852",
+      "prices": [
+        {
+          "price": "$6",
+          "source_url": "https://rjmedspa.com/",
+          "treatment": "Botox",
+          "unit": "from, per unit"
+        },
+        {
+          "price": "$120",
+          "source_url": "https://rjmedspa.com/",
+          "treatment": "Facial",
+          "unit": "from, per treatment"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://rjmedspa.com/",
+          "treatment": "Skin Booster",
+          "unit": "from, per treatment"
+        },
+        {
+          "price": "$299",
+          "source_url": "https://rjmedspa.com/",
+          "treatment": "Lipolysis",
+          "unit": "from, per treatment"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://rjmedspa.com/",
+          "treatment": "Hyaluronidase (filler dissolver)",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Jeuveau",
+        "Radiesse",
+        "Sculptra",
+        "Rejuran",
+        "Juvelook",
+        "PicoSure Pro",
+        "Thermage FLX",
+        "Ultherapy Prime",
+        "Onda",
+        "Ultraformer III",
+        "Oligio",
+        "Secret RF",
+        "Laser hair removal",
+        "RF microneedling",
+        "Skin tightening",
+        "Body contouring",
+        "Facials",
+        "IV therapy",
+        "Hair PRP"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website rjmedspa.com, checked 2026-11-25. Prices were read from the clinic's own menu via a third-party menu aggregator, not verified by a direct read of the clinic's own price page, so they are weaker than a direct page read; source_url is the clinic homepage. Appointment only. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://rjmedspa.com/",
+      "zip": "90006"
+    },
+    {
+      "address": "4221 Wilshire Blvd, Los Angeles, CA 90010",
+      "city": "Los Angeles",
+      "id": "la-koreatown-miracle-laser-clinic",
+      "languages": [],
+      "name": "Miracle Laser Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 264-1146",
+      "prices": [],
+      "services": [
+        "PicoSure Pro",
+        "Onda Pro",
+        "Microneedling",
+        "Facial",
+        "Botox",
+        "Ultherapy",
+        "Laser hair removal"
+      ],
+      "source_notes": "Clinic's own website miraclelaserclinic.com loads but renders almost no extractable text, checked 2026-11-25; address, phone, and services are corroborated by search-indexed listings of the clinic's own site. Korean-inspired clinic, in business 17 years per its own site description. No prices published on the clinic's own website, so prices are [].",
+      "state": "CA",
+      "website": "https://www.miraclelaserclinic.com/",
+      "zip": "90010"
+    },
+    {
+      "address": "3000 W Olympic Blvd, #305, Los Angeles, CA 90006",
+      "city": "Los Angeles",
+      "id": "la-koreatown-dermaster",
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "name": "Dermaster Medical Aesthetic Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 814-8410",
+      "prices": [
+        {
+          "price": "$1,000",
+          "source_url": "https://dermasterusa.com/xerf-cost-october-2026-specials-los-angeles/",
+          "treatment": "XERF — Face and Neck, 300 shots",
+          "unit": "per treatment (October 2026 promotion)"
+        },
+        {
+          "price": "$1,800",
+          "source_url": "https://dermasterusa.com/xerf-cost-october-2026-specials-los-angeles/",
+          "treatment": "XERF — Face and Neck, 600 shots",
+          "unit": "per treatment (October 2026 promotion)"
+        },
+        {
+          "price": "$2,000",
+          "source_url": "https://dermasterusa.com/xerf-cost-october-2026-specials-los-angeles/",
+          "treatment": "XERF — Face and Neck, 900 shots",
+          "unit": "per treatment (October 2026 promotion)"
+        }
+      ],
+      "services": [
+        "XERF",
+        "Density",
+        "Potenza",
+        "Ultherapy",
+        "Sculptra",
+        "Radiesse",
+        "Rejuran",
+        "Botox",
+        "Neurotoxins",
+        "Pico laser",
+        "Skinvive"
+      ],
+      "source_notes": "Prices from the clinic's own website dermasterusa.com, checked 2026-11-25. Caveat: these are October 2026 promotional prices that expired October 31, 2026; the same page lists regular prices of $1,800 / $2,800 / $3,200 for the three XERF tiers. Consultations in English and Korean, per the clinic's own site.",
+      "state": "CA",
+      "website": "https://dermasterusa.com/",
+      "zip": "90006"
+    },
+    {
+      "address": "3030 W Olympic Blvd, Unit 111, Los Angeles, CA 90006",
+      "city": "Los Angeles",
+      "id": "la-koreatown-misarang-beauty-m-clinic",
+      "languages": [],
+      "name": "Misarang Beauty & M Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 383-3377",
+      "prices": [],
+      "services": [
+        "Laser resurfacing",
+        "RF microneedling",
+        "Skin tightening",
+        "Mole removal",
+        "Skin tag removal",
+        "Acne treatment",
+        "Chemical peels",
+        "HydraFacial",
+        "Facials",
+        "Laser treatments"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website misarangbeauty.com, checked 2026-11-25. Korean aesthetic laser clinic. No prices published on the clinic's own website, so prices are []. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://misarangbeauty.com/",
+      "zip": "90006"
+    },
+    {
+      "address": "3201 W Olympic Blvd, Los Angeles, CA 90006",
+      "city": "Los Angeles",
+      "id": "la-koreatown-chungdam-ms-clinic",
+      "languages": [],
+      "name": "Chungdam MS Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 566-2006",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Laser treatments",
+        "Thread lifting",
+        "PRP",
+        "IV therapy"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website msclinicla.com (terms page), checked 2026-11-25. Originally from Cheongdam-dong, Seoul, per the clinic's own description. Caveat: a directory listing gives a different phone number, (213) 310-2182; the number used here is the one on the clinic's own site. No prices published on the clinic's own website, so prices are [].",
+      "state": "CA",
+      "website": "http://www.msclinicla.com/",
+      "zip": "90006"
+    },
+    {
+      "address": "5065 Hollywood Blvd, Suite 203, Los Angeles, CA 90027",
+      "city": "Los Angeles",
+      "id": "la-hollywood-hush-la-medspa",
+      "languages": [],
+      "name": "Hush LA Medspa",
+      "neighborhood": "Hollywood",
+      "phone": "(323) 486-7339",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$4",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Lip Filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Cheek Filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Under-Eye Filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Basic Microneedling",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Microneedling w/PRP",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Morpheus8 — Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "Cosmelan",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$175",
+          "source_url": "https://www.hushla.net/pricing/",
+          "treatment": "The Hush Sculpt & Glow Facial",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "Lip filler",
+        "Sculptra",
+        "Microneedling",
+        "Microneedling with PRP",
+        "Morpheus8",
+        "Density",
+        "Forma",
+        "CO2 laser resurfacing",
+        "Lumecca IPL",
+        "Laser hair removal",
+        "Laser facial",
+        "PDO threads",
+        "Chemical peels",
+        "Facials",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page hushla.net/pricing, checked 2026-11-25 (page updated 2026-11-23). The pricing page carries a Black Friday banner image but the listed prices are the standard menu prices. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.hushla.net/",
+      "zip": "90027"
+    },
+    {
+      "address": "2107 Hillhurst Ave, Los Angeles, CA 90027",
+      "city": "Los Angeles",
+      "id": "la-los-feliz-los-feliz-med-spa",
+      "languages": [],
+      "name": "Los Feliz Med Spa",
+      "neighborhood": "Los Feliz",
+      "phone": "(323) 664-0186",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Juvederm",
+        "Restylane",
+        "Radiesse",
+        "Thermage FLX",
+        "Morpheus8",
+        "AccuTite",
+        "FaceTite",
+        "Fraxel",
+        "Clear + Brilliant",
+        "Emsculpt",
+        "IPL",
+        "Laser hair removal",
+        "Microneedling",
+        "CoolSculpting",
+        "Facials",
+        "Medical facials"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website losfelizmedspa.com, checked 2026-11-25. No standard prices published on the clinic's own website, so prices are []; only time-limited promotional prices (e.g. Thermage, Botox specials through Oct 31, 2026) were seen on its social posts and were excluded as promos.",
+      "state": "CA",
+      "website": "http://www.losfelizmedspa.com/",
+      "zip": "90027"
+    },
+    {
+      "address": "1100 S Hope St, #101, Los Angeles, CA 90015",
+      "city": "Los Angeles",
+      "id": "la-downtown-medbeautyla",
+      "languages": [],
+      "name": "MedBeautyLA",
+      "neighborhood": "Downtown LA",
+      "phone": "(213) 640-4008",
+      "prices": [
+        {
+          "price": "$395",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "The SaltFacial",
+          "unit": "per treatment (75 minutes)"
+        },
+        {
+          "price": "$355",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "The DiamondGlow Platinum Facial",
+          "unit": "per treatment (60 minutes)"
+        },
+        {
+          "price": "$325",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "The Ultra Lift Facial",
+          "unit": "per treatment (75 minutes)"
+        },
+        {
+          "price": "$225",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "The DTLA Deep Hydration Facial",
+          "unit": "per treatment (60 minutes)"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "RF Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$465",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "Medical Microneedling — Full Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$1,595",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "Cosmelan Peel",
+          "unit": "per treatment (includes home care products)"
+        },
+        {
+          "price": "$355",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "The Perfect Derma Peel",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$645",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "ResurFX Laser Treatment",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$355",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "Full Face IPL",
+          "unit": "from, per treatment"
+        },
+        {
+          "price": "$225",
+          "source_url": "https://www.medbeautyla.com/pricing",
+          "treatment": "IV Drips (Beauty / Immunity / Hangover Cure / Myer's / Weight Loss)",
+          "unit": "each"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Letybo",
+        "Daxxify",
+        "Dermal fillers",
+        "Juvederm",
+        "Restylane",
+        "Facials",
+        "Microneedling",
+        "RF microneedling",
+        "Chemical peels",
+        "ResurFX laser",
+        "IPL",
+        "Laser hair removal",
+        "Tattoo removal",
+        "CoolSculpting",
+        "TriLift",
+        "Ultherapy",
+        "IV drips"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page medbeautyla.com/pricing, checked 2026-11-25. Botox/Dysport/Xeomin and dermal fillers are priced per unit / per syringe at consultation only, so no fixed price is listed for them. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.medbeautyla.com/",
+      "zip": "90015"
+    },
+    {
+      "address": "125 S San Pedro St, Los Angeles, CA 90012",
+      "city": "Los Angeles",
+      "id": "la-downtown-ou-beauty-little-tokyo",
+      "languages": [],
+      "name": "OU Beauty — Little Tokyo",
+      "neighborhood": "Downtown LA",
+      "phone": "(213) 617-1682",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Botox",
+          "unit": "per unit (standard price; $11.95 everyday low price, min. 24 units)"
+        },
+        {
+          "price": "$15",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Xeomin",
+          "unit": "per unit (standard price; $11.95 everyday low price, min. 24 units)"
+        },
+        {
+          "price": "$4.65",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Dysport",
+          "unit": "per unit (standard price; $3.95 everyday low price, min. 72 units)"
+        },
+        {
+          "price": "$545",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Restylane-L (1.0 cc)",
+          "unit": "per syringe (standard price; $495 everyday low price)"
+        },
+        {
+          "price": "$595",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Juvederm Ultra-XC (1.0 cc)",
+          "unit": "per syringe (standard price; $495 everyday low price)"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Juvederm Voluma (1.0 cc)",
+          "unit": "per syringe (standard price; $645 everyday low price)"
+        },
+        {
+          "price": "$995",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Sculptra (single vial)",
+          "unit": "per vial (standard price; $795 everyday low price)"
+        },
+        {
+          "price": "$595",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "CoolSculpting Elite — Dual Sculpting",
+          "unit": "per treatment (special, regular $800)"
+        },
+        {
+          "price": "$395",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "IPL Photofacial — Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$109",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "Customized Facial",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://oubeauty.com/price-list-2/",
+          "treatment": "DiamondGlow Treatment",
+          "unit": "per treatment (regular $249)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Dysport",
+        "Dermal fillers",
+        "Juvederm",
+        "Restylane",
+        "Sculptra",
+        "Radiesse",
+        "Kybella",
+        "CoolSculpting Elite",
+        "CoolTone",
+        "IPL Photofacial",
+        "Laser hair removal",
+        "Chemical peels",
+        "Facials",
+        "DiamondGlow",
+        "Latisse"
+      ],
+      "source_notes": "Prices from the clinic's own price list oubeauty.com/price-list-2, checked 2026-11-25 (price list dated 2026-07-01). Standard prices used as the headline; the page also lists lower 'everyday low' member-style prices, noted in each unit. The clinic's November Botox special ($9.95/unit through Nov 30, 2026) was not used. Caveat: address conflict — the clinic's own price list footer gives 125 S San Pedro St, while directories list 131 S San Pedro St; the own-site address is used here.",
+      "state": "CA",
+      "website": "https://oubeauty.com/",
+      "zip": "90012"
+    },
+    {
+      "address": "700 W 7th St, Suite G240, Los Angeles, CA 90017",
+      "city": "Los Angeles",
+      "id": "la-downtown-sculpt-med-spa-dtla",
+      "languages": [],
+      "name": "Sculpt Med Spa — Downtown LA",
+      "neighborhood": "Downtown LA",
+      "phone": "(213) 265-7285",
+      "prices": [
+        {
+          "price": "$350",
+          "source_url": "https://sculptdtla.com/product/coolsculpting-elite/",
+          "treatment": "CoolSculpting Elite",
+          "unit": "each"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "CoolSculpting",
+        "Morpheus8",
+        "LaseMD Ultra",
+        "Ultherapy",
+        "Microneedling",
+        "Laser hair removal",
+        "Tattoo removal",
+        "Facials",
+        "PRP hair restoration",
+        "Laser skin resurfacing"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website sculptdtla.com, checked 2026-11-25. CoolSculpting Elite price from the clinic's own product page. Caveat: the clinic's own site lists phone (213) 265-7285 while a directory lists (213) 265-7284; the own-site number is used. A Botox $10/unit figure seen via a menu aggregator was not included because it was not verified on the clinic's own site.",
+      "state": "CA",
+      "website": "https://www.sculptdtla.com/",
+      "zip": "90017"
+    },
+    {
+      "address": "4443 W Sunset Blvd, Los Angeles, CA 90027",
+      "city": "Los Angeles",
+      "id": "la-silver-lake-sculpt-med-spa",
+      "languages": [],
+      "name": "Sculpt Med Spa — Silver Lake",
+      "neighborhood": "Silver Lake",
+      "phone": "(213) 265-7285",
+      "prices": [
+        {
+          "price": "$350",
+          "source_url": "https://sculptdtla.com/product/coolsculpting-elite/",
+          "treatment": "CoolSculpting Elite",
+          "unit": "each"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "CoolSculpting",
+        "Morpheus8",
+        "LaseMD Ultra",
+        "Ultherapy",
+        "Microneedling",
+        "Laser hair removal",
+        "Tattoo removal",
+        "Facials",
+        "PRP hair restoration",
+        "Laser skin resurfacing"
+      ],
+      "source_notes": "Second location of the same brand as Sculpt Med Spa — Downtown LA, at a distinct address in Silver Lake; address and phone from the clinic's own website sculptdtla.com, checked 2026-11-25. The CoolSculpting Elite price is from the clinic's shared product page covering both locations. Same brand/menu as the DTLA location, listed separately because it is a distinct clinic location.",
+      "state": "CA",
+      "website": "https://www.sculptdtla.com/",
+      "zip": "90027"
+    },
+    {
+      "address": "520 S Virgil Ave, Ste 503-A, Los Angeles, CA 90020",
+      "city": "Los Angeles",
+      "id": "la-koreatown-dawoom-clinic",
+      "languages": [],
+      "name": "Dawoom Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 808-3800",
+      "prices": [],
+      "services": [
+        "Oligio X",
+        "MTS Face Micro Needling",
+        "MTS Hair Restoration",
+        "Botox",
+        "Dermal fillers",
+        "PDO",
+        "Skin boosters (exosomes)",
+        "Laser",
+        "Korean Butt Lift",
+        "MacSure",
+        "Lavieen"
+      ],
+      "source_notes": "Address and phone from the clinic's own website dawoomclinic.com, checked 2026-11-25. Services are those listed on the clinic's own site as cited in search-indexed copies of it. No prices published on the clinic's own website, so prices are [].",
+      "state": "CA",
+      "website": "https://dawoomclinic.com/",
+      "zip": "90020"
+    },
+    {
+      "address": "3500 W 6th St, #321, Los Angeles, CA 90020",
+      "city": "Los Angeles",
+      "id": "la-koreatown-crystal-spa",
+      "languages": [],
+      "name": "Crystal Spa",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 487-5600",
+      "prices": [
+        {
+          "price": "$60",
+          "source_url": "https://crystalspala.com/korean-body-scrub-los-angeles/",
+          "treatment": "Korean Body Scrub (seshin)",
+          "unit": "per 35-minute scrub (plus $20 spa entry or pass)"
+        },
+        {
+          "price": "$70",
+          "source_url": "https://crystalspala.com/korean-body-scrub-los-angeles/",
+          "treatment": "Oil Massage",
+          "unit": "per 40 minutes (plus $20 entry or pass)"
+        },
+        {
+          "price": "$100",
+          "source_url": "https://crystalspala.com/korean-body-scrub-los-angeles/",
+          "treatment": "Aveda Oil Massage",
+          "unit": "per 60 minutes (plus $20 entry or pass)"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://crystalspala.com/korean-body-scrub-los-angeles/",
+          "treatment": "Foot Massage",
+          "unit": "per 40 minutes (plus $20 entry or pass)"
+        },
+        {
+          "price": "$70",
+          "source_url": "https://crystalspala.com/korean-body-scrub-los-angeles/",
+          "treatment": "Foot Massage",
+          "unit": "per 60 minutes (plus $20 entry or pass)"
+        },
+        {
+          "price": "$100–$200",
+          "source_url": "https://crystalspala.com/korean-body-scrub-los-angeles/",
+          "treatment": "Scrub and massage packages",
+          "unit": "per package (longer packages include entry)"
+        }
+      ],
+      "services": [
+        "Korean body scrub (seshin)",
+        "Oil massage",
+        "Aveda oil massage",
+        "Foot massage",
+        "Sauna / jimjilbang"
+      ],
+      "source_notes": "Prices from the clinic's own website crystalspala.com, checked 2026-11-25. Note: this is a Korean scrub spa (seshin), not a medical spa — included as a Korean beauty-treatment venue. The $60 scrub price excludes the $20 spa entry fee, per the clinic's own page.",
+      "state": "CA",
+      "website": "https://crystalspala.com/",
+      "zip": "90020"
+    },
+    {
+      "address": "3538 W 8th St, Los Angeles, CA 90020",
+      "city": "Los Angeles",
+      "id": "la-koreatown-clarte-skincare",
+      "languages": [],
+      "name": "Clarte Skincare",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 841-2263",
+      "prices": [],
+      "services": [
+        "Korean skincare facials",
+        "Advanced facials",
+        "Anti-aging facials",
+        "Acne facials"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own Squarespace site (clarteskincare-esthetics.squarespace.com) as shown in search-indexed listings, checked 2026-11-25; the clinic describes itself as premium Korean skincare. No prices published on the clinic's own website, so prices are []. Address/phone are weaker than a direct page read.",
+      "state": "CA",
+      "website": "http://clarteskincare-esthetics.squarespace.com/",
+      "zip": "90020"
+    },
+    {
+      "address": "888 S Figueroa St, Suite 1050, Los Angeles, CA 90017",
+      "city": "Los Angeles",
+      "id": "la-downtown-metropolis-dermatology",
+      "languages": [],
+      "name": "Metropolis Dermatology — Downtown LA",
+      "neighborhood": "Downtown LA",
+      "phone": "(213) 319-3339",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "PRP facial rejuvenation",
+        "Laser hair removal",
+        "RF microneedling",
+        "Laser resurfacing",
+        "Skin tightening",
+        "Body contouring",
+        "Medical dermatology",
+        "Facials"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website metropolisdermatology.com, checked 2026-11-25. Full medical and cosmetic dermatology practice; flagship DTLA location. No prices published on the clinic's own website, so prices are [].",
+      "state": "CA",
+      "website": "https://metropolisdermatology.com/",
+      "zip": "90017"
+    },
+    {
+      "address": "810 Francisco St, Los Angeles, CA 90017",
+      "city": "Los Angeles",
+      "id": "la-downtown-laseraway",
+      "languages": [],
+      "name": "LaserAway — Downtown Los Angeles",
+      "neighborhood": "Downtown LA",
+      "phone": "1-888-965-2737",
+      "prices": [],
+      "services": [
+        "Laser hair removal",
+        "Botox",
+        "Xeomin",
+        "CoolSculpting",
+        "Clear + Brilliant",
+        "Potenza RF Microneedling",
+        "SkinPen Microneedling",
+        "Rejuran",
+        "Thermage",
+        "Tattoo removal",
+        "HydraFacial",
+        "IPL Photofacial",
+        "Dermal fillers"
+      ],
+      "source_notes": "Address, phone, and services from the clinic's own website laseraway.com/locations/ca/downtown-los-angeles, checked 2026-11-25. No prices published — the clinic's own site states pricing is reviewed at consultation, so prices are []. Caveat: the phone used is the clinic's own national booking number; a directory lists a local number (310) 882-7773.",
+      "state": "CA",
+      "website": "https://www.laseraway.com/locations/ca/downtown-los-angeles/",
+      "zip": "90017"
+    },
+    {
+      "address": "3130 W Olympic Blvd, Suite 270, Los Angeles, CA 90006",
+      "city": "Los Angeles",
+      "id": "la-koreatown-michelles-skin-clinic",
+      "languages": [],
+      "name": "Michelle's Skin Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 831-0037",
+      "prices": [
+        {
+          "price": "$200",
+          "source_url": "https://michelleskinclinic.com/en",
+          "treatment": "K-Beauty Basic Therapy",
+          "unit": "from, per 90 minutes"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://michelleskinclinic.com/en",
+          "treatment": "Acne Care with Extraction",
+          "unit": "from, per 90 minutes"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://michelleskinclinic.com/en",
+          "treatment": "HIFU + RF Luxury Lifting",
+          "unit": "from, per 90 minutes"
+        }
+      ],
+      "services": [
+        "K-Beauty Basic Therapy",
+        "Acne Care with Extraction",
+        "HIFU + RF Luxury Lifting",
+        "Skin Boosters (Rejuran, Juvelook, Skinvive)",
+        "Botox",
+        "Xeomin",
+        "Jeuveau",
+        "Facials",
+        "Permanent makeup"
+      ],
+      "source_notes": "Address, phone, services, and prices from the clinic's own website michelleskinclinic.com, checked 2026-11-25, read via a search-indexed copy of the clinic's homepage — weaker than a direct page read. K-Beauty medical spa with Korean hand technique, doctor-guided. A November lip filler model special was excluded as a promotion.",
+      "state": "CA",
+      "website": "https://michelleskinclinic.com/",
+      "zip": "90006"
+    },
+    {
+      "address": "19267 Colima Rd Ste K, Rowland Heights, CA 91748",
+      "city": "Rowland Heights",
+      "id": "la-rowland-heights-kher-beauty-clinic",
+      "languages": [
+        "English",
+        "Korean"
+      ],
+      "name": "K.her Beauty Clinic",
+      "neighborhood": "Rowland Heights",
+      "phone": "(626) 588-7851",
+      "prices": [],
+      "services": [
+        "Laser hair removal",
+        "Injectables",
+        "Facials",
+        "Acne care",
+        "Mole removal",
+        "Lifting/Tightening",
+        "Hyperpigmentation",
+        "Oligio X RF lifting",
+        "Secret RF microneedling",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own website kherbeautyclinic.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Site states 'English & Korean Consultations'. Services from the site's service list and homepage.",
+      "state": "CA",
+      "website": "https://kherbeautyclinic.com/",
+      "zip": "91748"
+    },
+    {
+      "address": "1512 S San Gabriel Blvd, San Gabriel, CA 91776",
+      "city": "San Gabriel",
+      "id": "la-san-gabriel-asian-eastern-medspa",
+      "languages": [],
+      "name": "Asian Eastern Medspa",
+      "neighborhood": "San Gabriel",
+      "phone": "(626) 280-4448",
+      "prices": [],
+      "services": [
+        "Facelifting",
+        "Lower eye bag treatment",
+        "Double eyelid surgery",
+        "Cosmetic surgery"
+      ],
+      "source_notes": "Prices from the clinic's own website asianeasternmedspa.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Site homepage lists facelifting, lower eye bag and double eyelid services and is marked 'Website Under Construction'. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.asianeasternmedspa.com/",
+      "zip": "91776"
+    },
+    {
+      "address": "506 N Garfield Ave, Suite 210, Alhambra, CA 91801",
+      "city": "Alhambra",
+      "id": "la-alhambra-akira-signature-care",
+      "languages": [
+        "English",
+        "Korean",
+        "Chinese"
+      ],
+      "name": "Akira Signature Care",
+      "neighborhood": "Alhambra",
+      "phone": "(626) 737-3183",
+      "prices": [],
+      "services": [
+        "XERF radiofrequency skin tightening",
+        "Thulium laser resurfacing",
+        "CO2 laser resurfacing",
+        "IPL photofacial",
+        "Microneedling",
+        "RF microneedling",
+        "Microdermabrasion",
+        "Injectables & fillers",
+        "PRP & PRF regenerative therapy",
+        "PRP hair restoration",
+        "HydraFacial"
+      ],
+      "source_notes": "Prices from the clinic's own website akirasignaturecare.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Languages from the site's team page: nurse Kelly Chang is listed as multilingual (English, Korean, Mandarin). Site offers 20% off a first treatment; no price list was used.",
+      "state": "CA",
+      "website": "https://akirasignaturecare.com/",
+      "zip": "91801"
+    },
+    {
+      "address": "21345 Cold Spring Ln, Diamond Bar, CA 91765",
+      "city": "Diamond Bar",
+      "id": "la-diamond-bar-amor-skin-med-spa",
+      "languages": [],
+      "name": "Amor Skin Med Spa",
+      "neighborhood": "Diamond Bar",
+      "phone": "(909) 396-1388",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Kybella",
+        "Rejuran skin boosters",
+        "RF skin tightening",
+        "Facials"
+      ],
+      "source_notes": "Prices from the clinic's own website amorsc.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Site describes advanced Korean skin therapies including Rejuran, PDRN and Exosome. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://amorsc.com/",
+      "zip": "91765"
+    },
+    {
+      "address": "616 N Garfield Ave #200, Monterey Park, CA 91754",
+      "city": "Monterey Park",
+      "id": "la-monterey-park-btx-clinic",
+      "languages": [],
+      "name": "BTX Clinic",
+      "neighborhood": "Monterey Park",
+      "phone": "(626) 816-0601",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "XERF",
+        "Microneedling",
+        "PRP microneedling",
+        "IV therapy",
+        "Thread lift",
+        "Laser treatments"
+      ],
+      "source_notes": "Prices from the clinic's own website btxclinicla.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Groupon Botox deals for this clinic were excluded. Site describes itself as a premiere K-beauty medspa. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "http://www.btxclinicla.com/",
+      "zip": "91754"
+    },
+    {
+      "address": "331 N Atlantic Blvd #202, Monterey Park, CA 91754",
+      "city": "Monterey Park",
+      "id": "la-monterey-park-me-medspa",
+      "languages": [],
+      "name": "Me Medspa",
+      "neighborhood": "Monterey Park",
+      "phone": "(626) 545-2018",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "PDO thread lift",
+        "Skin rejuvenation",
+        "Body contouring",
+        "Laser hair removal",
+        "IPL photofacial",
+        "Microneedling",
+        "PicoSure laser"
+      ],
+      "source_notes": "Prices from the clinic's own website memedspausa.net, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Caveat: the clinic's own site lists the ZIP as 91765 in its footer while other listings give 91754 for this Monterey Park address; 91754 is used here as the Monterey Park ZIP. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://memedspausa.net/",
+      "zip": "91754"
+    },
+    {
+      "address": "430 S Garfield Ave #315, Alhambra, CA 91801",
+      "city": "Alhambra",
+      "id": "la-alhambra-viqi-med-spa",
+      "languages": [],
+      "name": "VIQI Med Spa",
+      "neighborhood": "Alhambra",
+      "phone": "(818) 797-8691",
+      "prices": [
+        {
+          "price": "$799",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Dermal filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Radiesse",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Sculptra",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$900",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Morpheus8",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Rejuran",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "SkinPen PRP microneedling",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$999",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Ultherapy Prime",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://viqimedspa.as.me/",
+          "treatment": "Kybella / Fat dissolving injection",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Lip filler",
+        "Radiesse",
+        "Sculptra",
+        "Morpheus8",
+        "Rejuran",
+        "Microneedling",
+        "Ultherapy",
+        "IPL photofacial",
+        "Kybella",
+        "IV therapy",
+        "Body contouring"
+      ],
+      "source_notes": "Prices from the clinic's own booking menu at viqimedspa.as.me, checked 2026-11-25. Prices read from a search-indexed copy of the clinic's own Acuity booking page; Botox/Xeomin is listed there without a price, so no Botox price is given. The clinic also has a Beverly Hills location; the Alhambra address and phone above are for the Alhambra clinic. Languages not stated, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://viqimedspa.as.me/",
+      "zip": "91801"
+    },
+    {
+      "address": "19267 Colima Rd, Rowland Heights, CA 91748",
+      "city": "Rowland Heights",
+      "id": "la-rowland-heights-prime-beaute-medspa",
+      "languages": [],
+      "name": "Prime Beaute MedSpa",
+      "neighborhood": "Rowland Heights",
+      "phone": "(626) 761-0183",
+      "prices": [
+        {
+          "price": "$29.90+",
+          "source_url": "https://www.primebeautemedspa.net/",
+          "treatment": "Hair removal",
+          "unit": "from, per treatment"
+        }
+      ],
+      "services": [
+        "Laser hair removal",
+        "Injectables",
+        "Facials",
+        "Spa services",
+        "Weight loss"
+      ],
+      "source_notes": "Prices from the clinic's own website primebeautemedspa.net, checked 2026-11-25. The only price readable on the homepage is a new-client special for hair removal ('$29.9+up', original $100 up) shown in an image; it is a promo price, not a standard menu price, and no other prices were published on the site. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.primebeautemedspa.net/",
+      "zip": "91748"
+    },
+    {
+      "address": "18702 Colima Rd, Suite 201, Rowland Heights, CA 91748",
+      "city": "Rowland Heights",
+      "id": "la-rowland-heights-purelite-medical-aesthetics",
+      "languages": [
+        "English",
+        "Chinese"
+      ],
+      "name": "Purelite Medical Aesthetics",
+      "neighborhood": "Rowland Heights",
+      "phone": "(626) 810-8880",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Restylane",
+        "Juvederm",
+        "Facials",
+        "Laser treatments"
+      ],
+      "source_notes": "Prices from the clinic's own website purelitemedical.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Site states 'we speak Chinese and English'. Part of the Skin Perfect Medical family.",
+      "state": "CA",
+      "website": "http://www.purelitemedical.com/",
+      "zip": "91748"
+    },
+    {
+      "address": "19229 Colima Rd, Rowland Heights, CA 91748",
+      "city": "Rowland Heights",
+      "id": "la-rowland-heights-shine-beauty-spa",
+      "languages": [],
+      "name": "Shine Beauty Spa",
+      "neighborhood": "Rowland Heights",
+      "phone": "(626) 996-9696",
+      "prices": [],
+      "services": [
+        "Facials",
+        "HydraFacial",
+        "Massage",
+        "Body treatments",
+        "Medical aesthetics"
+      ],
+      "source_notes": "Prices from the clinic's own website shinebeautymedspa.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Site is in Chinese and lists this Rowland Heights location (19229 Colima Rd, 626-996-9696) alongside a Fullerton Rd Rowland Heights shop and Diamond Bar and Irvine shops; only the 19229 Colima Rd shop is used here. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "http://www.shinebeautymedspa.com/",
+      "zip": "91748"
+    },
+    {
+      "address": "17188 Colima Rd #B, Hacienda Heights, CA 91745",
+      "city": "Hacienda Heights",
+      "id": "la-hacienda-heights-deluxe-med-spa",
+      "languages": [],
+      "name": "Deluxe Med Spa - Hacienda Heights",
+      "neighborhood": "Hacienda Heights",
+      "phone": "(626) 686-8666",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "Botox / Dysport / Xeomin",
+          "unit": "per unit (regular rate)"
+        },
+        {
+          "price": "$775",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "Dermal fillers, 1 syringe",
+          "unit": "per syringe (regular rate)"
+        },
+        {
+          "price": "$1,050",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "Sculptra",
+          "unit": "per vial (regular rate)"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "Radiesse",
+          "unit": "per syringe (regular rate)"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "SkinVive",
+          "unit": "per treatment (regular rate)"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "RF microneedling (face)",
+          "unit": "per session (regular rate)"
+        },
+        {
+          "price": "$465",
+          "source_url": "https://static1.squarespace.com/static/62f59793ae1eac76c4dd8c93/t/66b7f6c724f1a659c53c6a7b/1723332295615/Pricing+guide-9.pdf",
+          "treatment": "Microneedling (face)",
+          "unit": "per session (regular rate)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "SkinVive",
+        "RF microneedling",
+        "Microneedling",
+        "Thermage",
+        "Ultherapy",
+        "Venus Legacy",
+        "IPL photofacial",
+        "HydraFacial",
+        "Laser hair removal",
+        "Facials"
+      ],
+      "source_notes": "Prices from the clinic's own pricing guide PDF (Deluxe Med Spa, deluxemedspa.com), checked 2026-11-25. Prices read from a search-indexed copy of the clinic's own pricing-guide PDF; regular (non-member, non-VIP) rates are used, member/VIP rates are lower. Deluxe has five Southern California locations; the Hacienda Heights address and phone above are for that location only. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.deluxemedspa.com/locations/hacienda-heights/",
+      "zip": "91745"
+    },
+    {
+      "address": "225 W Valley Blvd, Suite H288, San Gabriel, CA 91776",
+      "city": "San Gabriel",
+      "id": "la-san-gabriel-bg-medical-aesthetics",
+      "languages": [],
+      "name": "BG Medical Aesthetics & Beautiful Glow",
+      "neighborhood": "San Gabriel",
+      "phone": "(626) 282-8822",
+      "prices": [
+        {
+          "price": "$1,988",
+          "source_url": "https://bgmedicalaesthetics.com/xerf-k-glow-duo-black-friday-san-gabriel/",
+          "treatment": "XERF K-GLOW DUO (XERF face & neck + Spectra Lumi Glow Laser + SkinCeuticals Hydrating Facial)",
+          "unit": "per package"
+        }
+      ],
+      "services": [
+        "XERF",
+        "PicoSure Pro",
+        "Morpheus8",
+        "HydraFacial",
+        "CoolSculpting",
+        "Skin tightening",
+        "Lifting",
+        "Body contouring",
+        "Facials",
+        "Scalp care"
+      ],
+      "source_notes": "Prices from the clinic's own website bgmedicalaesthetics.com, checked 2026-11-25. The only price used is the clinic's own Black Friday 2026 K-GLOW DUO package ($1,988) — a limited-time promo package, not a standard menu price; no standard price list was published on the site. Located inside the Hilton Los Angeles/San Gabriel. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://bgmedicalaesthetics.com/",
+      "zip": "91776"
+    },
+    {
+      "address": "1446 S San Gabriel Blvd, Ste B, San Gabriel, CA 91776",
+      "city": "San Gabriel",
+      "id": "la-san-gabriel-victoria-med-spa",
+      "languages": [],
+      "name": "Victoria Med Spa",
+      "neighborhood": "San Gabriel",
+      "phone": "(626) 975-1065",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Juvederm",
+        "Dermal fillers",
+        "Ultherapy",
+        "Microneedling",
+        "PRF treatments",
+        "Hydro Injection",
+        "Facials",
+        "Laser treatments"
+      ],
+      "source_notes": "Prices from the clinic's own website victoriamedspa.net, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Groupon Botox/thread deals for this clinic were excluded. Phone (626) 975-1065 is the number shown on the clinic's own site. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.victoriamedspa.net/",
+      "zip": "91776"
+    },
+    {
+      "address": "3254 Del Mar Ave, Rosemead, CA 91770",
+      "city": "Rosemead",
+      "id": "la-rosemead-eterna-aesthetic",
+      "languages": [],
+      "name": "Eterna Aesthetic",
+      "neighborhood": "Rosemead",
+      "phone": "(626) 458-2288",
+      "prices": [
+        {
+          "price": "$575",
+          "source_url": "https://book.gettimely.com/Booking/Location/233614",
+          "treatment": "Rejuran - Under Eye",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$675",
+          "source_url": "https://book.gettimely.com/Booking/Location/233614",
+          "treatment": "Rejuran - Full Face",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "HydraFacial",
+        "EMFACE",
+        "Microneedling",
+        "Morpheus8",
+        "Emsculpt NEO",
+        "PRP hair restoration",
+        "Facials",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own website eterna-aesthetics.com and its own online booking menu, checked 2026-11-25. Rejuran prices read from a search-indexed copy of the clinic's Timely booking page; both require an assessment first, and most other treatments on that booking page are listed as 'varies' / priced at consultation, so only the two fixed Rejuran prices are used. An earlier directory listing gave a different phone (626) 662-8138; the clinic's own site gives (626) 458-2288, which is used here. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://eterna-aesthetics.com/",
+      "zip": "91770"
+    },
+    {
+      "address": "19087 Colima Rd, Rowland Heights, CA 91748",
+      "city": "Rowland Heights",
+      "id": "la-rowland-heights-dling-medical-aesthetic-center",
+      "languages": [],
+      "name": "Dling Medical Aesthetic Center",
+      "neighborhood": "Rowland Heights",
+      "phone": "(909) 895-7761",
+      "prices": [],
+      "services": [
+        "Thermage",
+        "Ultherapy",
+        "Botox",
+        "Dermal fillers",
+        "Silhouette InstaLift"
+      ],
+      "source_notes": "Prices from the clinic's own website dlingus.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Caveat: the homepage lists the Rowland Heights phone (909) 895-7761 but no street address; the 19087 Colima Rd address comes from a directory listing for this location, and Dling also lists San Gabriel and Irvine locations on the same site. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "http://www.dlingus.com/",
+      "zip": "91748"
+    },
+    {
+      "address": "21050 Golden Springs Dr, C115, Diamond Bar, CA 91765",
+      "city": "Diamond Bar",
+      "id": "la-diamond-bar-tia-medspa",
+      "languages": [],
+      "name": "TIA Medspa - Diamond Bar",
+      "neighborhood": "Diamond Bar",
+      "phone": "(909) 914-3914",
+      "prices": [],
+      "services": [
+        "Ultherapy",
+        "Thermage",
+        "Morpheus8",
+        "Potenza",
+        "PicoSure Pro",
+        "Stellar M22",
+        "Botox",
+        "Juvederm",
+        "Sculptra",
+        "PDO thread lift",
+        "Microneedling",
+        "Hyperbaric oxygen therapy"
+      ],
+      "source_notes": "Prices from the clinic's own website tiamedicalspa.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. TIA also has Pasadena and Newport Beach locations; the Diamond Bar address and phone above are for the Diamond Bar clinic. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://tiamedicalspa.com/",
+      "zip": "91765"
+    },
+    {
+      "address": "38 E Huntington Dr, Suite A&B, Arcadia, CA 91006",
+      "city": "Arcadia",
+      "id": "la-arcadia-deja-vu-med-spa",
+      "languages": [],
+      "name": "Deja Vu Med Spa & Salon",
+      "neighborhood": "Arcadia",
+      "phone": "(626) 574-7452",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Injectables",
+        "Facials",
+        "Chemical peels",
+        "Microneedling",
+        "Laser treatments",
+        "Medical services",
+        "Hair care"
+      ],
+      "source_notes": "Prices from the clinic's own website dejavumedspaandsalon.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Family-owned mother-daughter business per the site. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://dejavumedspaandsalon.com/",
+      "zip": "91006"
+    },
+    {
+      "address": "123 N Garfield Ave, Suite C, Alhambra, CA 91801",
+      "city": "Alhambra",
+      "id": "la-alhambra-skinzone-medical",
+      "languages": [],
+      "name": "Skinzone Medical",
+      "neighborhood": "Alhambra",
+      "phone": "(626) 329-4555",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Radiesse",
+        "CoolSculpting",
+        "Laser treatments",
+        "Mole removal",
+        "Eyelid lift",
+        "Liposculpting"
+      ],
+      "source_notes": "Prices from the clinic's own website skinzonemedical.com, checked 2026-11-25. No prices published on the clinic's own site; prices left empty rather than guessed. Groupon Botox deals for this clinic were excluded. Also has a Santa Ana location; the Alhambra address and phone above are for the Alhambra clinic. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.skinzonemedical.com/",
+      "zip": "91801"
+    },
+    {
+      "address": "400 N Santa Anita Ave, Arcadia, CA 91006",
+      "city": "Arcadia",
+      "id": "la-arcadia-wave-plastic-surgery",
+      "languages": [],
+      "name": "Wave Plastic Surgery - Arcadia",
+      "neighborhood": "Arcadia",
+      "phone": "(626) 898-9711",
+      "prices": [],
+      "services": [
+        "Double eyelid surgery",
+        "Botox",
+        "Dermal fillers",
+        "Kybella",
+        "Ultherapy",
+        "Facials",
+        "PCA Peel"
+      ],
+      "source_notes": "Prices from the clinic's own website waveplasticsurgery.com, checked 2026-11-25. No clinic-specific prices published on the clinic's own site (its cost pages give national ranges only); prices left empty rather than guessed. Caveat: phone is inconsistent across sources — (626) 898-9711 is used here (BBB/WebMD for the Arcadia address), while (213) 322-1209 and (855) 913-2510 also appear for this location. Arcadia location page: waveplasticsurgery.com/contact/wave-plastic-surgery-locations/wave-plastic-surgery-arcadia/. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://waveplasticsurgery.com/",
+      "zip": "91006"
+    },
+    {
+      "address": "4778 Peck Rd, El Monte, CA 91732",
+      "city": "El Monte",
+      "id": "la-el-monte-moi-beauty-med-spa",
+      "languages": [],
+      "name": "MOI Beauty Med Spa",
+      "neighborhood": "El Monte",
+      "phone": "(626) 203-3172",
+      "prices": [],
+      "services": [
+        "Microblading",
+        "Powder ombre brows",
+        "Lip blushing",
+        "Eyeliner tattoo",
+        "Facials",
+        "Laser hair removal",
+        "Laser skin resurfacing",
+        "HIFU skin lifting"
+      ],
+      "source_notes": "Prices from the clinic's own booking site moibeautyspa.glossgenius.com, checked 2026-11-25. No prices were verified directly on the clinic's own site in this pass — third-party summaries of its booking menu gave conflicting brow prices (e.g. powder ombre $200 vs $350), so prices are left empty rather than using a conflicting figure. Languages not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://moibeautyspa.glossgenius.com/about",
+      "zip": "91732"
+    },
+    {
+      "address": "436 N Bedford Dr #201, Beverly Hills, CA 90210",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-kore-aesthetics",
+      "languages": [],
+      "name": "KORÉ Aesthetics",
+      "neighborhood": "Beverly Hills",
+      "phone": "(310) 439-8909",
+      "prices": [
+        {
+          "price": "$17",
+          "source_url": "https://www.kore-aesthetics.com/",
+          "treatment": "Botox",
+          "unit": "per unit (standard, non-member rate)"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://www.kore-aesthetics.com/",
+          "treatment": "Dermal Fillers",
+          "unit": "per syringe (standard, non-member rate)"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://www.kore-aesthetics.com/",
+          "treatment": "Regenerative Microneedling Therapy",
+          "unit": "per session (standard, non-member rate)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Daxxify",
+        "Dermal fillers",
+        "Sculptra",
+        "Regenerative Microneedling Therapy",
+        "VI Peel",
+        "TargetCool Korean CryoFacial",
+        "Glass Skin Microinfusion Facial",
+        "Kybella",
+        "SkinVive"
+      ],
+      "source_notes": "Prices from the clinic's own website kore-aesthetics.com, checked 2026-11-25. The clinic's homepage was confirmed loading, but its price subpage did not render in the page read, so the three standard (non-member) prices above were taken from a search-indexed copy of the clinic's own price list (InjectableIndex reading, checked Nov 22, 2026: Botox $17/unit, dermal filler $850/syringe, microneedling $750/session). Member (KORÉ Skin Society) rates are lower and were not used. Korean-inspired clinic; languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.kore-aesthetics.com/",
+      "zip": "90210"
+    },
+    {
+      "address": "9100 Wilshire Blvd, Suite 363 W, Beverly Hills, CA 90212",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-beverly-wilshire-aesthetics",
+      "languages": [],
+      "name": "Beverly Wilshire Aesthetics",
+      "neighborhood": "Beverly Hills",
+      "phone": "(424) 453-5340",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.bwaesthetics.com/menu/",
+          "treatment": "Botox",
+          "unit": "per unit (standard menu rate)"
+        },
+        {
+          "price": "$799",
+          "source_url": "https://www.bwaesthetics.com/menu/",
+          "treatment": "Morpheus8, Full Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://www.bwaesthetics.com/menu/",
+          "treatment": "IPL Photofacial",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$699",
+          "source_url": "https://www.bwaesthetics.com/menu/",
+          "treatment": "Microneedling with Rejuran PDRN",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$299",
+          "source_url": "https://www.bwaesthetics.com/menu/",
+          "treatment": "The Perfect Peel",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$600+",
+          "source_url": "https://www.bwaesthetics.com/menu/",
+          "treatment": "Lip Filler",
+          "unit": "per syringe (from)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Daxxify",
+        "Morpheus8",
+        "IPL Photofacial",
+        "Microneedling with Rejuran PDRN",
+        "XERF",
+        "FaceTite",
+        "Chemical peels",
+        "HydraFacial",
+        "Lip filler",
+        "Juvederm",
+        "Sculptra",
+        "PRP injections"
+      ],
+      "source_notes": "Prices from the clinic's own menu page bwaesthetics.com/menu, checked 2026-11-25. Botox standard menu rate is $15/unit; the site also runs a loyalty ladder with a $10/unit new-client first visit, which was not used as the headline price. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.bwaesthetics.com/",
+      "zip": "90212"
+    },
+    {
+      "address": "8550 Santa Monica Blvd, Suite 101, West Hollywood, CA 90069",
+      "city": "West Hollywood",
+      "id": "la-west-hollywood-bhrc",
+      "languages": [],
+      "name": "Beverly Hills Rejuvenation Center — West Hollywood",
+      "neighborhood": "West Hollywood",
+      "phone": "(323) 859-1257",
+      "prices": [
+        {
+          "price": "$14",
+          "source_url": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+          "treatment": "Botox & Neurotoxins",
+          "unit": "per unit (from)"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+          "treatment": "Dermal Fillers",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$900",
+          "source_url": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+          "treatment": "Sculptra & Radiesse",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+          "treatment": "Kybella",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$185",
+          "source_url": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+          "treatment": "HydraFacial",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$420",
+          "source_url": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+          "treatment": "VI Peel",
+          "unit": "per treatment (from)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Kybella",
+        "PRP",
+        "Salmon DNA / PDRN",
+        "Emface",
+        "Exion",
+        "CO2 Laser Resurfacing",
+        "IPL Photofacial",
+        "Laser hair removal",
+        "HydraFacial",
+        "VI Peel",
+        "Emsculpt NEO"
+      ],
+      "source_notes": "Prices from the clinic's own West Hollywood location page bhrcenter.com, checked 2026-11-25. Regular starting prices only; the site is also running November / Black Friday 2026 promo prices (e.g. Botox $10/unit, lip filler $499) through Nov 30, 2026, which were excluded. New clients save 15% on a first single treatment at the regular price. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.bhrcenter.com/location/west-hollywood-ca/",
+      "zip": "90069"
+    },
+    {
+      "address": "1860 S Sepulveda Blvd, Los Angeles, CA 90025",
+      "city": "Los Angeles",
+      "id": "la-west-los-angeles-bhrc",
+      "languages": [],
+      "name": "Beverly Hills Rejuvenation Center — West Los Angeles",
+      "neighborhood": "West Los Angeles",
+      "phone": "(310) 861-3748",
+      "prices": [
+        {
+          "price": "$14",
+          "source_url": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+          "treatment": "Botox & Neurotoxins",
+          "unit": "per unit (from)"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+          "treatment": "Dermal Fillers",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$175",
+          "source_url": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+          "treatment": "HydraFacial",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+          "treatment": "Ultherapy",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+          "treatment": "CoolSculpting",
+          "unit": "per treatment (from)"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+          "treatment": "Morpheus8",
+          "unit": "per treatment (from)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Kybella",
+        "PRP",
+        "Salmon DNA / PDRN",
+        "Morpheus8",
+        "Ultherapy",
+        "Forma Skin Tightening",
+        "Clear + Brilliant",
+        "IPL Photofacial",
+        "Laser hair removal",
+        "HydraFacial",
+        "VI Peel",
+        "CoolSculpting",
+        "Emsculpt NEO"
+      ],
+      "source_notes": "Prices from the clinic's own West Los Angeles location page bhrcenter.com, checked 2026-11-25. Regular starting prices only; November promo prices on the site were excluded. Phone is the clinic's current own-site number (310) 861-3748; an older WebMD listing shows (310) 473-5807. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.bhrcenter.com/location/west-los-angeles-ca/",
+      "zip": "90025"
+    },
+    {
+      "address": "420 S Beverly Dr, Suite 100, Beverly Hills, CA 90212",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-aesthetic-medics",
+      "languages": [],
+      "name": "Beverly Hills Aesthetic Medics",
+      "neighborhood": "Beverly Hills",
+      "phone": "(310) 273-4247",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.bhaestheticmedics.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$450–$1000",
+          "source_url": "https://www.bhaestheticmedics.com/",
+          "treatment": "Dermal fillers",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$75–$350",
+          "source_url": "https://www.bhaestheticmedics.com/",
+          "treatment": "Laser hair removal",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Dermal fillers",
+        "Juvederm",
+        "Restylane",
+        "Radiesse",
+        "Sculptra",
+        "Kybella",
+        "Laser hair removal",
+        "Morpheus8",
+        "Chemical peels",
+        "Facials",
+        "Body contouring"
+      ],
+      "source_notes": "Prices from the clinic's own website bhaestheticmedics.com, checked 2026-11-25. The site notes it 'ALWAYS' runs specials, so the Botox $15/unit and filler range are the published standard rates; promo rates were not used. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.bhaestheticmedics.com/",
+      "zip": "90212"
+    },
+    {
+      "address": "140 S Barrington Pl, Los Angeles, CA 90049",
+      "city": "Los Angeles",
+      "id": "la-brentwood-beauty-ranch",
+      "languages": [],
+      "name": "Beauty Ranch Medical Spa",
+      "neighborhood": "Brentwood",
+      "phone": "(310) 587-3502",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "Botox",
+          "unit": "per unit (20-unit minimum)"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "SkinVive",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "Rejuran PDRN",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,200",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "PDO Threads",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$475",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "Opus Focus Eyes",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "Dye-VL",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$825",
+          "source_url": "https://www.beautyranchspa.com/pricing/",
+          "treatment": "ResurFX",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "SkinVive",
+        "Lip filler",
+        "Sculptra",
+        "PDO Threads",
+        "Rejuran PDRN",
+        "Potenza RF Microneedling",
+        "Microneedling",
+        "Ultherapy",
+        "XERF",
+        "Laser hair removal",
+        "Facials",
+        "Chemical peels",
+        "Opus Plasma"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page beautyranchspa.com/pricing, checked 2026-11-25. Korean-beauty focused Westside clinic (genuine Rejuran, XERF, Potenza); Dysport is listed on the page without a price, so no Dysport price is included. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.beautyranchspa.com/",
+      "zip": "90049"
+    },
+    {
+      "address": "1411 7th St, Suite 120, Santa Monica, CA 90401",
+      "city": "Santa Monica",
+      "id": "la-santa-monica-dripology",
+      "languages": [],
+      "name": "Dripology",
+      "neighborhood": "Santa Monica",
+      "phone": "(424) 255-4144",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$5",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$119",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "Lip Flip",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$1,299",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "RF Microneedling, Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$549",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "Microneedling (SkinPen), Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$299",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "HydraFacial",
+          "unit": "per session"
+        },
+        {
+          "price": "$849",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "Dermal Fillers (Juvederm)",
+          "unit": "per syringe (from)"
+        },
+        {
+          "price": "$849",
+          "source_url": "https://dripology.co/menu/",
+          "treatment": "Skinvive",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Lip Flip",
+        "Dermal fillers",
+        "Juvederm",
+        "SkinVive",
+        "RF Microneedling",
+        "Microneedling",
+        "PRP",
+        "Laser hair removal",
+        "IPL Photofacial",
+        "HydraFacial",
+        "Chemical peels",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own menu page dripology.co/menu, checked 2026-11-25. Member rates (e.g. Botox $13/unit) exist and were not used; standard rates shown. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://dripology.co/",
+      "zip": "90401"
+    },
+    {
+      "address": "530 Wilshire Blvd, Ste 101, Studio 19, Santa Monica, CA 90401",
+      "city": "Santa Monica",
+      "id": "la-santa-monica-skin-department",
+      "languages": [],
+      "name": "The Skin Department",
+      "neighborhood": "Santa Monica",
+      "phone": "(310) 697-5433",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://www.theskindepartment.co/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$4",
+          "source_url": "https://www.theskindepartment.co/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.theskindepartment.co/",
+          "treatment": "Microneedling, Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.theskindepartment.co/",
+          "treatment": "Perfect Derma Peel, Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.theskindepartment.co/",
+          "treatment": "BioRePeel, Face",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Microneedling",
+        "Microneedling with PRP",
+        "Chemical peels",
+        "Perfect Derma Peel",
+        "BioRePeel",
+        "PRP injections",
+        "IV hydration"
+      ],
+      "source_notes": "Prices from the clinic's own website theskindepartment.co, checked 2026-11-25 (prices also confirmed in a search-indexed copy of the clinic's menu, checked Nov 7, 2026). Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.theskindepartment.co/",
+      "zip": "90401"
+    },
+    {
+      "address": "375 N La Cienega Blvd, West Hollywood, CA 90048",
+      "city": "West Hollywood",
+      "id": "la-west-hollywood-cienega-medical",
+      "languages": [],
+      "name": "Cienega Medical — West Hollywood",
+      "neighborhood": "West Hollywood",
+      "phone": "(310) 928-1300",
+      "prices": [
+        {
+          "price": "$13",
+          "source_url": "https://cienegaspa.com/services/xeomin/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$5",
+          "source_url": "https://cienegaspa.com/services/xeomin/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$9",
+          "source_url": "https://cienegaspa.com/services/xeomin/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$9",
+          "source_url": "https://cienegaspa.com/services/xeomin/",
+          "treatment": "Daxxify",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Daxxify",
+        "Dermal fillers",
+        "Laser hair removal"
+      ],
+      "source_notes": "Prices from the clinic's own website cienegaspa.com (Xeomin page), checked 2026-11-25. Note: an older directory listing showed Botox at $14/unit; the clinic's own site now shows $13/unit, which is used here. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://cienegaspa.com/",
+      "zip": "90048"
+    },
+    {
+      "address": "444 N Camden Dr, Beverly Hills, CA 90210",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-epione",
+      "languages": [],
+      "name": "Epione",
+      "neighborhood": "Beverly Hills",
+      "phone": "(310) 271-6506",
+      "prices": [
+        {
+          "price": "$500",
+          "source_url": "https://www.epionebh.com/pricelist",
+          "treatment": "In-person consultation",
+          "unit": "per consultation (credited in full toward first treatment)"
+        },
+        {
+          "price": "$8,000",
+          "source_url": "https://www.epionebh.com/pricelist",
+          "treatment": "Non-Surgical Lip Lift",
+          "unit": "per single session (from)"
+        },
+        {
+          "price": "$3,900",
+          "source_url": "https://www.epionebh.com/pricelist",
+          "treatment": "Coolaser (lip lift component)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$3,100",
+          "source_url": "https://www.epionebh.com/pricelist",
+          "treatment": "Neustem (lip lift component)",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Coolaser Skin Resurfacing",
+        "Neustem Biostimulatory Filler",
+        "Non-Surgical Lip Lift",
+        "Non-Surgical Facelift",
+        "Under-Eye Dark Circle Treatment",
+        "Non-Surgical Rhinoplasty",
+        "Jawline Contouring",
+        "NeuSculpt Body Contouring",
+        "Botox",
+        "Dermal fillers",
+        "Laser hair removal",
+        "Melasma treatment"
+      ],
+      "source_notes": "Prices from the clinic's own price list epionebh.com/pricelist, checked 2026-11-25. Epione does not publish a fixed menu: most treatments are priced at consultation, so only the consultation fee and the published lip-lift package are listed. Phone is the number on the clinic's own About page, (310) 271-6506; press releases for Epione Medical Corporation show a different number, (310) 651-6267. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.epionebh.com/",
+      "zip": "90210"
+    },
+    {
+      "address": "2100 N Sepulveda Blvd, Unit 15, Manhattan Beach, CA 90266",
+      "city": "Manhattan Beach",
+      "id": "la-manhattan-beach-say-beauty",
+      "languages": [],
+      "name": "Say Beauty Med Spa",
+      "neighborhood": "Manhattan Beach",
+      "phone": "(310) 409-8048",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://saybeautymedspa.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://saybeautymedspa.com/",
+          "treatment": "Filler Injection, half syringe",
+          "unit": "per half syringe"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://saybeautymedspa.com/",
+          "treatment": "Microneedling Special, full face",
+          "unit": "per session"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://saybeautymedspa.com/wp-content/uploads/2021/07/SayBeautyMedSpa_LaserHairRemoval_Pricing2021v1.pdf",
+          "treatment": "Laser Hair Removal, Face",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Laser hair removal",
+        "Microneedling",
+        "Chemical peels",
+        "Medical facials"
+      ],
+      "source_notes": "Prices from the clinic's own website saybeautymedspa.com, checked 2026-11-25. Botox, filler and microneedling prices are from the clinic's menu as read Oct 29, 2026; the laser hair removal price comes from the clinic's own pricing PDF, which is dated 2021 and may be stale — re-verify before relying on it. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://saybeautymedspa.com/",
+      "zip": "90266"
+    },
+    {
+      "address": "451 Manhattan Beach Blvd, Suite 222, Manhattan Beach, CA 90266",
+      "city": "Manhattan Beach",
+      "id": "la-manhattan-beach-beam-aesthetic-lounge",
+      "languages": [],
+      "name": "BEAM Aesthetic Lounge",
+      "neighborhood": "Manhattan Beach",
+      "phone": "(424) 216-8223",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.beam-skin.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$14",
+          "source_url": "https://www.beam-skin.com/",
+          "treatment": "Jeuveau",
+          "unit": "per unit"
+        },
+        {
+          "price": "$6",
+          "source_url": "https://www.beam-skin.com/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://www.beam-skin.com/",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Jeuveau",
+        "Dysport",
+        "Dermal fillers",
+        "Lip filler",
+        "Sculptra",
+        "SkinVive",
+        "PRP",
+        "PRF",
+        "Microneedling",
+        "RF Microneedling",
+        "Chemical peels"
+      ],
+      "source_notes": "Prices from the clinic's own website beam-skin.com, checked 2026-11-25, via a search-indexed reading of the clinic's menu (checked Oct 29, 2026); the clinic's own homepage and FAQ page confirmed the address and phone. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.beam-skin.com/",
+      "zip": "90266"
+    },
+    {
+      "address": "307 S Robertson Blvd, Beverly Hills, CA 90211",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-laseraway",
+      "languages": [],
+      "name": "LaserAway — Beverly Hills",
+      "neighborhood": "Beverly Hills",
+      "phone": "(888) 965-2737",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$12",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$99–$649",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Laser Hair Removal",
+          "unit": "per treatment (by area)"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Juvederm, Lips",
+          "unit": "per full syringe"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "HydraFacial, Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Clear + Brilliant, Face",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Laser hair removal",
+        "Botox",
+        "Xeomin",
+        "Juvederm",
+        "Clear + Brilliant",
+        "Potenza RF Microneedling",
+        "SkinPen Microneedling",
+        "Rejuran",
+        "Thermage",
+        "HydraFacial",
+        "CoolSculpting",
+        "Laser tattoo removal"
+      ],
+      "source_notes": "Prices from LaserAway's own national pricing page laseraway.com/pricing, checked 2026-11-25; the page notes prices may vary by location, so these are the chain's published rates, not Beverly Hills-specific quotes. The 300-unit Botox bank rate ($10/unit) was not used. Phone is LaserAway's national line; no Beverly Hills-specific phone was found on the pages read. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.laseraway.com/",
+      "zip": "90211"
+    },
+    {
+      "address": "514 Wilshire Blvd, Santa Monica, CA 90401",
+      "city": "Santa Monica",
+      "id": "la-santa-monica-laseraway",
+      "languages": [],
+      "name": "LaserAway — Santa Monica",
+      "neighborhood": "Santa Monica",
+      "phone": "(310) 393-2929",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$12",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$99–$649",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "Laser Hair Removal",
+          "unit": "per treatment (by area)"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.laseraway.com/pricing/",
+          "treatment": "HydraFacial, Face",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Laser hair removal",
+        "Botox",
+        "Xeomin",
+        "Juvederm",
+        "Clear + Brilliant",
+        "Potenza RF Microneedling",
+        "SkinPen Microneedling",
+        "Rejuran",
+        "Thermage",
+        "HydraFacial",
+        "CoolSculpting",
+        "Laser tattoo removal"
+      ],
+      "source_notes": "Prices from LaserAway's own national pricing page laseraway.com/pricing, checked 2026-11-25; the page notes prices may vary by location, so these are the chain's published rates, not Santa Monica-specific quotes. Distinct location from LaserAway Beverly Hills. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.laseraway.com/locations/ca/santa-monica/",
+      "zip": "90401"
+    },
+    {
+      "address": "8681 Wilshire Blvd, Beverly Hills, CA 90211",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-skiness",
+      "languages": [],
+      "name": "SKINESS Aesthetics",
+      "neighborhood": "Beverly Hills",
+      "phone": "(213) 570-2174",
+      "prices": [
+        {
+          "price": "$150",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "The K-Glow Essential",
+          "unit": "per 60-minute facial"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "The K-Glow Essential Plus",
+          "unit": "per 60-minute facial"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "The Signature Tech & Flow Facial",
+          "unit": "per 90-minute facial"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "The Signature Tech & Flow Facial Plus",
+          "unit": "per 90-minute facial"
+        },
+        {
+          "price": "$280",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "The Beverly Hills Masterpiece",
+          "unit": "per 120-minute facial"
+        },
+        {
+          "price": "$330",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "The Beverly Hills Masterpiece Plus",
+          "unit": "per 120-minute facial"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "Soonsu Shining Peel",
+          "unit": "per 90-minute treatment"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "Exosome Infusion",
+          "unit": "per 90-minute treatment"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.losangelesfacialskincare.com/",
+          "treatment": "Marine Needling Renewal",
+          "unit": "per 90-minute treatment"
+        }
+      ],
+      "services": [
+        "Korean Glass Skin Facial",
+        "Lymphatic drainage massage",
+        "Facial sculpting",
+        "LDM ultrasound",
+        "Exosome infusion",
+        "PDRN",
+        "Chemical peels",
+        "Soonsu Shining Peel",
+        "Marine Needling Renewal"
+      ],
+      "source_notes": "Prices from the clinic's own website losangelesfacialskincare.com, checked 2026-11-25. Korean facial spa; the site's first-visit privilege ($180 for any $200 treatment) is a promo and was not used. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.losangelesfacialskincare.com/",
+      "zip": "90211"
+    },
+    {
+      "address": "421 N Rodeo Dr, Suite G7, Beverly Hills, CA 90210",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-skin-clinic",
+      "languages": [],
+      "name": "Beverly Hills Skin Clinic",
+      "neighborhood": "Beverly Hills",
+      "phone": "(310) 596-0156",
+      "prices": [
+        {
+          "price": "$300",
+          "source_url": "https://bhskinclinic.com/",
+          "treatment": "Green Sea Peel",
+          "unit": "per 30-45 minute treatment"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://bhskinclinic.com/",
+          "treatment": "Brightening Facial",
+          "unit": "per 50-60 minute facial"
+        },
+        {
+          "price": "$340",
+          "source_url": "https://bhskinclinic.com/",
+          "treatment": "Geneo Facial",
+          "unit": "per 60-70 minute facial"
+        },
+        {
+          "price": "$295",
+          "source_url": "https://bhskinclinic.com/",
+          "treatment": "Pigment Peel Facial",
+          "unit": "per 60-minute facial"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Korean facials",
+        "Green Sea Peel",
+        "Geneo Facial",
+        "Brightening Facial",
+        "Pigment Peel Facial",
+        "Acne Facial",
+        "Lash extensions",
+        "Brow lamination",
+        "PDRN boosters",
+        "Chemical peels"
+      ],
+      "source_notes": "Prices from the clinic's own website bhskinclinic.com, checked 2026-11-25. Korean-facial focused skin clinic on Rodeo Drive; no injectables are listed on the site. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://bhskinclinic.com/",
+      "zip": "90210"
+    },
+    {
+      "address": "10601 Washington Blvd, Unit 108, Culver City, CA 90232",
+      "city": "Culver City",
+      "id": "la-culver-city-true-jewel",
+      "languages": [],
+      "name": "True Jewel Cosmetic & Plastic Surgery Center",
+      "neighborhood": "Culver City",
+      "phone": "(424) 434-6999",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://www.truejewelcosmeticcenter.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$325",
+          "source_url": "https://www.truejewelcosmeticcenter.com/",
+          "treatment": "Microneedling",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "Juvederm",
+        "Restylane",
+        "Morpheus8",
+        "Microneedling",
+        "PRP",
+        "Facials",
+        "Chemical peels",
+        "Laser hair removal",
+        "Body contouring",
+        "Plastic surgery"
+      ],
+      "source_notes": "Prices from the clinic's own website truejewelcosmeticcenter.com, checked 2026-11-25, as read Oct 2026: the $12/unit Botox was published as an October promotion ('This October... Botox at just $12/unit'), so treat it as a promo-tied rate and re-verify. Caveat: the clinic's own pages conflict on suite (Unit 108 on the contact page vs Ste 107A on a mirror page) and phone ((424) 434-6999 on the main site vs (424) 401-0217 on the mirror); the contact-page values are used here. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.truejewelcosmeticcenter.com/",
+      "zip": "90232"
+    },
+    {
+      "address": "9400 Brighton Way, Ste 209, Beverly Hills, CA 90210",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-my-med-spa-la",
+      "languages": [],
+      "name": "My Med Spa LA",
+      "neighborhood": "Beverly Hills",
+      "phone": "(310) 281-0154",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://www.mymedspala.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$3.66",
+          "source_url": "https://www.mymedspala.com/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$11",
+          "source_url": "https://www.mymedspala.com/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$375",
+          "source_url": "https://www.mymedspala.com/",
+          "treatment": "Restylane Contour 0.5ml",
+          "unit": "per 0.5ml syringe"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://www.mymedspala.com/",
+          "treatment": "Kybella",
+          "unit": "per vial"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Dermal fillers",
+        "Restylane",
+        "Juvederm",
+        "Kybella",
+        "Laser treatments",
+        "Facials",
+        "IV vitamin infusions",
+        "Plastic surgery"
+      ],
+      "source_notes": "Prices from the clinic's own website mymedspala.com, checked 2026-11-25, via a search-indexed reading of the clinic's own price list; the clinic's own homepage and contact page confirmed the address and phone, but the price list itself was not re-read directly from the site this session, so re-verify before relying on these rates. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.mymedspala.com/",
+      "zip": "90210"
+    },
+    {
+      "address": "153 S Lasky Dr, Suite 8, Beverly Hills, CA 90212",
+      "city": "Beverly Hills",
+      "id": "la-beverly-hills-skinspirit",
+      "languages": [],
+      "name": "SkinSpirit — Beverly Hills",
+      "neighborhood": "Beverly Hills",
+      "phone": "(310) 552-8010",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Daxxify",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Kybella",
+        "SkinVive",
+        "BBL",
+        "HALO",
+        "Morpheus8",
+        "DiamondGlow",
+        "CoolSculpting",
+        "Ultherapy",
+        "Facials",
+        "Microneedling",
+        "Chemical peels",
+        "Laser hair removal"
+      ],
+      "source_notes": "No prices published on the clinic's own website skinspirit.com, checked 2026-11-25; pricing is by consultation only. Address, phone and services are from the clinic's own Beverly Hills location page. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.skinspirit.com/locations/beverly-hills/",
+      "zip": "90212"
+    },
+    {
+      "address": "11600 Washington Place, Suite 106, Los Angeles, CA 90066",
+      "city": "Los Angeles",
+      "id": "la-culver-city-renouveau-med-spa",
+      "languages": [],
+      "name": "Renouveau Med Spa",
+      "neighborhood": "Culver City",
+      "phone": "(424) 226-4743",
+      "prices": [
+        {
+          "price": "$400",
+          "source_url": "https://renouveaumedspa.com/botox-cost",
+          "treatment": "Botox",
+          "unit": "per session (from, approximately)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Morpheus8",
+        "IPL Photofacial",
+        "Microneedling",
+        "Laser hair removal",
+        "Chemical peels",
+        "Facials"
+      ],
+      "source_notes": "Price from the clinic's own Botox cost page renouveaumedspa.com/botox-cost, checked 2026-11-25: Botox 'typically start at approximately $400 per session' — an approximate session starting price, not a per-unit rate. The clinic describes itself as a Culver City med spa, though its mailing address is Los Angeles, CA 90066; neighborhood is recorded as Culver City per the clinic's own positioning. Phone is the new-client number on the clinic's own site; an existing-client number (424) 293-6063 also appears. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://renouveaumedspa.com/",
+      "zip": "90066"
+    },
+    {
+      "address": "202 S Lake Ave, Suite 298, Pasadena, CA 91101",
+      "city": "Pasadena",
+      "id": "la-akari-medspa-pasadena",
+      "languages": [],
+      "name": "Akari MedSpa",
+      "neighborhood": "Pasadena",
+      "phone": "(949) 628-6949",
+      "prices": [
+        {
+          "price": "$600–$1,200",
+          "source_url": "https://akarimedspa.com/services/glass-skin-treatment-pasadena-ca/",
+          "treatment": "Glass Skin Treatment (Rejuran), focused area",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,000–$2,000",
+          "source_url": "https://akarimedspa.com/services/glass-skin-treatment-pasadena-ca/",
+          "treatment": "Glass Skin Treatment (Rejuran), full face",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,800–$5,400",
+          "source_url": "https://akarimedspa.com/services/glass-skin-treatment-pasadena-ca/",
+          "treatment": "Glass Skin Treatment (Rejuran), three-session series",
+          "unit": "per 3 sessions"
+        },
+        {
+          "price": "$300–$700",
+          "source_url": "https://akarimedspa.com/service-areas/san-marino/",
+          "treatment": "Microneedling",
+          "unit": "per face session"
+        },
+        {
+          "price": "$650–$1,100",
+          "source_url": "https://akarimedspa.com/service-areas/san-marino/",
+          "treatment": "Lip filler",
+          "unit": "per syringe"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Rejuran",
+        "Glass Skin Treatment",
+        "Microneedling",
+        "Sculptra",
+        "Juvelook",
+        "Ultrasound skin tightening"
+      ],
+      "source_notes": "Prices from the clinic's own website akarimedspa.com, checked 2026-11-25. Korean-inspired / Korean x Western approach stated on the site, but no languages spoken are stated, left blank rather than assumed. The glass-skin and microneedling figures are published ranges; the site says the exact price is planned at consultation.",
+      "state": "CA",
+      "website": "https://akarimedspa.com/",
+      "zip": "91101"
+    },
+    {
+      "address": "547 E Union St, Pasadena, CA 91101",
+      "city": "Pasadena",
+      "id": "la-eyre-esthetics-pasadena",
+      "languages": [],
+      "name": "Eyre Esthetics",
+      "neighborhood": "Pasadena",
+      "phone": "(626) 470-1277",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Botox or Dysport, 20 units or less",
+          "unit": "per unit"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Botox or Dysport, 21 or more units",
+          "unit": "per unit"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Juvederm Voluma / Volux",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Juvederm fillers, other",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Restylane fillers",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$900",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        },
+        {
+          "price": "$375",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "VI Peel, facial peel",
+          "unit": "per session"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Morpheus8 + PRP, full face",
+          "unit": "per session"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Microneedling with PRP, full face",
+          "unit": "per session"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "IPL, full face",
+          "unit": "per session"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "ClearLift, face",
+          "unit": "per session"
+        },
+        {
+          "price": "$275",
+          "source_url": "https://www.eyre-esthetics.com/pricing",
+          "treatment": "Biologique Recherche Luxury Facial",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "Sculptra",
+        "Morpheus8",
+        "VI Peel",
+        "Microneedling with PRP",
+        "IPL",
+        "ClearLift",
+        "Biologique Recherche facials",
+        "PRP injections"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page eyre-esthetics.com/pricing, read directly 2026-11-25. The same page also lists a promotional Jeuveau/Xeomin rate ($10.50/unit for 40 units); only the regular Botox/Dysport rates are recorded above. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.eyre-esthetics.com/",
+      "zip": "91101"
+    },
+    {
+      "address": "766 E Colorado Blvd, Ste 107, Pasadena, CA 91101",
+      "city": "Pasadena",
+      "id": "la-ananya-aesthetics-pasadena",
+      "languages": [],
+      "name": "Ananya Aesthetics",
+      "neighborhood": "Pasadena",
+      "phone": "(213) 290-1380",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.ananyaaesthetics.com/botox-pasadena-ca.html",
+          "treatment": "Botox, standard",
+          "unit": "per unit ($300 minimum spend)"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://www.ananyaaesthetics.com/botox-pasadena-ca.html",
+          "treatment": "Botox, Self-Care members",
+          "unit": "per unit, no minimum spend"
+        },
+        {
+          "price": "$150",
+          "source_url": "https://www.ananyaaesthetics.com/consultation-price-list.html",
+          "treatment": "Consultation",
+          "unit": "per consultation"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Jeuveau",
+        "Dermal fillers",
+        "Sculptra",
+        "Microneedling",
+        "PRF",
+        "Laser treatments",
+        "IV therapy",
+        "Chemical peels"
+      ],
+      "source_notes": "Prices from the clinic's own website ananyaaesthetics.com, checked 2026-11-25 (Botox page and consultation price-list page, read via search-indexed copies of the clinic's own pages). Only the Botox rates and consultation fee were clearly legible; other treatments are priced at consultation. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.ananyaaesthetics.com/",
+      "zip": "91101"
+    },
+    {
+      "address": "709 E Walnut St, Suite 109, Pasadena, CA 91101",
+      "city": "Pasadena",
+      "id": "la-skinfx-medical-spa-pasadena",
+      "languages": [],
+      "name": "SkinFX Medical Spa",
+      "neighborhood": "Pasadena",
+      "phone": "(626) 803-4648",
+      "prices": [
+        {
+          "price": "$12–$14",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "Botox / Dysport / Jeuveau",
+          "unit": "per unit (varies by injector)"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "HydraFacial Signature",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$899",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "PRP Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "Lip filler",
+          "unit": "from, per syringe"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "Kybella",
+          "unit": "per vial"
+        },
+        {
+          "price": "$1,900",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "XERF, full face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "CoolPeel, face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$1,650",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "CO2 skin resurfacing, face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://skinfxmedicalspa.com/skinfx-pricing/",
+          "treatment": "SkinPen microneedling, face",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Jeuveau",
+        "Dermal fillers",
+        "Sculptra",
+        "Kybella",
+        "HydraFacial",
+        "PRP Microneedling",
+        "XERF",
+        "CoolPeel",
+        "CO2 skin resurfacing",
+        "SkinPen microneedling",
+        "Laser hair removal"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page skinfxmedicalspa.com/skinfx-pricing/, checked 2026-11-25 via a search-indexed copy of the clinic's own page. Caveat: a directory reading of the same page gave Botox 'from $13'; the clinic's own page as read here lists $12-$14/unit by injector, which is what is recorded. November specials (e.g. XERF $1,600) were excluded as promos. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://skinfxmedicalspa.com/",
+      "zip": "91101"
+    },
+    {
+      "address": "150 E Colorado Blvd, Suite 208a, Pasadena, CA 91105",
+      "city": "Pasadena",
+      "id": "la-starlit-aesthetics-pasadena",
+      "languages": [
+        "English",
+        "Chinese"
+      ],
+      "name": "Starlit Aesthetics - Pasadena",
+      "neighborhood": "Pasadena",
+      "phone": "(626) 877-4552",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Botox Cosmetic",
+          "unit": "per unit"
+        },
+        {
+          "price": "$9",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$1,899",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Ultherapy PRIME, face + neck",
+          "unit": "per single treatment"
+        },
+        {
+          "price": "$888",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Morpheus8, face + neck",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$900",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Cheek filler",
+          "unit": "from, per treatment"
+        },
+        {
+          "price": "$599",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Alma TED Hair Restoration",
+          "unit": "from"
+        },
+        {
+          "price": "$158",
+          "source_url": "https://www.starlitaestheticsla.com/pricing",
+          "treatment": "Cosmeceuticals Facial",
+          "unit": "from"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Morpheus8",
+        "Ultherapy",
+        "Thermage",
+        "Alma TED Hair Restoration",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page starlitaestheticsla.com/pricing, checked 2026-11-25 via a search-indexed copy of the clinic's own page. Chinese-language service is stated on the site (Chinese phone line and WeChat), so languages are recorded as English and Chinese. This is the Pasadena location; the clinic also has a West Covina office, not included here.",
+      "state": "CA",
+      "website": "https://www.starlitaestheticsla.com/",
+      "zip": "91105"
+    },
+    {
+      "address": "799 E Green St, Unit 32, Pasadena, CA 91101",
+      "city": "Pasadena",
+      "id": "la-infinite-wellness-med-spa-pasadena",
+      "languages": [],
+      "name": "Infinite Wellness Med Spa",
+      "neighborhood": "Pasadena",
+      "phone": "(626) 737-7704",
+      "prices": [
+        {
+          "price": "$13",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Hyaluronic acid filler",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$1,400",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Hyaluronic acid filler, 2 syringes",
+          "unit": "per package of 2"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Radiesse",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "PRF, small area",
+          "unit": "per area"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "PRF, large area",
+          "unit": "per area"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "SkinPen Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,000",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Fotona 4D laser facelift",
+          "unit": "per session"
+        },
+        {
+          "price": "$2,500",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "Fotona 4D laser facelift, package of 3",
+          "unit": "per package of 3"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://infinitewellnessmedspa.com/",
+          "treatment": "VI Peel",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Letybo",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "PRF",
+        "SkinPen microneedling",
+        "VI Peel",
+        "Fotona 4D"
+      ],
+      "source_notes": "Prices from the clinic's own website infinitewellnessmedspa.com, checked 2026-11-25; prices were read from a search-indexed copy of the clinic's own menu (the homepage itself does not surface the price list in the fetched text), so source_url is the homepage. Promotional landing pages for this clinic (e.g. $125 Laser Glow Peel, $199 midsection makeover) were excluded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://infinitewellnessmedspa.com/",
+      "zip": "91101"
+    },
+    {
+      "address": "14241 Ventura Blvd, Suite 201, Sherman Oaks, CA 91423",
+      "city": "Sherman Oaks",
+      "id": "la-laureate-aesthetics-sherman-oaks",
+      "languages": [],
+      "name": "Laureate Aesthetics",
+      "neighborhood": "Sherman Oaks",
+      "phone": "(818) 717-7664",
+      "prices": [
+        {
+          "price": "$13",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$4.33",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$6.50",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Daxxify",
+          "unit": "per unit"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Filler",
+          "unit": "per 1mL"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Radiesse",
+          "unit": "per 1ml"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "BBL Heroic Laser",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,500",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Halo Laser",
+          "unit": "per session"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "PRP Hair Restoration",
+          "unit": "per session"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Salmon Sperm DNA (PDRN) Injection",
+          "unit": "per session"
+        },
+        {
+          "price": "$35–$40",
+          "source_url": "https://laureatela.com/pricing/",
+          "treatment": "Laser hair removal, full face",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Daxxify",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Microneedling",
+        "Morpheus8",
+        "BBL",
+        "Halo Laser",
+        "PRP",
+        "PDRN",
+        "Laser hair removal"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page laureatela.com/pricing/, read directly 2026-11-25. Caveats: the page repeats some tables with conflicting figures — Sculptra appears as $750/vial in the main injectables table and $650 in a second table; $750 is recorded. The page footer also lists two other phone numbers (818-650-2704 and 818-798-5060); the (818) 717-7664 number from the address listing is recorded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://laureatela.com/",
+      "zip": "91423"
+    },
+    {
+      "address": "13320 Riverside Dr, Suite 226, Sherman Oaks, CA 91423",
+      "city": "Sherman Oaks",
+      "id": "la-bliss-room-sherman-oaks",
+      "languages": [],
+      "name": "The Bliss Room Medical Spa & Wellness",
+      "neighborhood": "Sherman Oaks",
+      "phone": "(818) 963-5333",
+      "prices": [
+        {
+          "price": "$10",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$9",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$120",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Lip Flip",
+          "unit": "up to 15 units"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Juvederm Ultra XC",
+          "unit": "per 1 ML"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Juvederm Voluma",
+          "unit": "per 1 ML"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Restylane Kysse",
+          "unit": "per 1 ML"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "Sculptra - Face",
+          "unit": "per vial"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "SkinPen Microneedling - Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "IPL - Full Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://blissaesthetics.la/pricing/",
+          "treatment": "CoolSculpting, Standard Applicator",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Juvederm",
+        "Restylane",
+        "Sculptra",
+        "Microneedling",
+        "IPL",
+        "Erbium YAG",
+        "Laser hair removal",
+        "CoolSculpting",
+        "Tattoo removal"
+      ],
+      "source_notes": "Prices from the clinic's own pricing page blissaesthetics.la/pricing/, read directly 2026-11-25. Caveat: the page lists some treatments in two tables with slightly different prices (e.g. IPL full face $200 vs $199, SkinPen microneedling face $300 vs $399); the first-listed figures are recorded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://blissaesthetics.la/",
+      "zip": "91423"
+    },
+    {
+      "address": "4444 Lankershim Blvd, Ste 201, North Hollywood, CA 91602",
+      "city": "North Hollywood",
+      "id": "la-pure-skin-laser-center-north-hollywood",
+      "languages": [],
+      "name": "Pure Skin Laser Center - North Hollywood",
+      "neighborhood": "North Hollywood",
+      "phone": "(818) 877-7432",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Botox, up to 20 units",
+          "unit": "per unit"
+        },
+        {
+          "price": "$10",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Botox, 20+ units",
+          "unit": "per unit"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Facial fillers",
+          "unit": "from, per syringe"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Microneedling with hyaluronic acid",
+          "unit": "per session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "BBL photofacial",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "PRP, hair treatment",
+          "unit": "per session"
+        },
+        {
+          "price": "$490",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "PRP, face",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Hydrofacial",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Perfect Derma Peel",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$160",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Laser hair removal, full legs package",
+          "unit": "per session"
+        },
+        {
+          "price": "$55",
+          "source_url": "https://pureskinlasercenter.com/prices",
+          "treatment": "Laser hair removal, full face",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Laser hair removal",
+        "Microneedling",
+        "BBL",
+        "PRP",
+        "Facials",
+        "Tattoo removal",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own prices page pureskinlasercenter.com/prices, read directly 2026-11-25. Caveat: the phone on the prices page is (818) 877-7432, while an earlier search snippet for the clinic showed (818) 869-9953; the page figure is recorded. The clinic also has a Tujunga location; this entry is the North Hollywood location only. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://pureskinlasercenter.com/",
+      "zip": "91602"
+    },
+    {
+      "address": "10711 Riverside Dr, North Hollywood, CA 91602",
+      "city": "North Hollywood",
+      "id": "la-la-beauty-skin-center-north-hollywood",
+      "languages": [],
+      "name": "LA Beauty Skin Center - North Hollywood",
+      "neighborhood": "North Hollywood",
+      "phone": "(818) 888-0001",
+      "prices": [
+        {
+          "price": "$10",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Botox, RN/NP/PA",
+          "unit": "per unit"
+        },
+        {
+          "price": "$11",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Botox, MD",
+          "unit": "per unit"
+        },
+        {
+          "price": "$3.34",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Dysport, RN/NP/PA",
+          "unit": "per unit"
+        },
+        {
+          "price": "$10",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Xeomin, RN/NP/PA",
+          "unit": "per unit"
+        },
+        {
+          "price": "$5",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Daxxify, RN/NP/PA",
+          "unit": "per unit"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Juvederm Ultra Plus XC, 1 ml",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Voluma, 1 ml",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Restylane Lyft",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Skinvive, 1 ml",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://labeautyskincenter.com/price-list/",
+          "treatment": "Sculptra for Face",
+          "unit": "per vial"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Daxxify",
+        "Juvederm",
+        "Voluma",
+        "Restylane",
+        "Sculptra",
+        "Morpheus8",
+        "PicoSure",
+        "CoolSculpting",
+        "Laser hair removal",
+        "XERF"
+      ],
+      "source_notes": "Prices from the clinic's own price-list page labeautyskincenter.com/price-list/, checked 2026-11-25 via a search-indexed copy of the clinic's own page. The same menu is shared across the clinic's North Hollywood, Glendale and Pasadena locations; this entry is the North Hollywood location. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://labeautyskincenter.com/",
+      "zip": "91602"
+    },
+    {
+      "address": "916 W Burbank Blvd, Suite G, Burbank, CA 91506",
+      "city": "Burbank",
+      "id": "la-touch-me-up-burbank",
+      "languages": [],
+      "name": "Touch Me Up Medical Spa - Burbank",
+      "neighborhood": "Burbank",
+      "phone": "(818) 474-0096",
+      "prices": [
+        {
+          "price": "$11",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$4",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$550",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Juvederm Ultra XC, full syringe",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Restylane Kysse, full syringe",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "RHA Collection, full syringe",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$650",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Sculptra Face",
+          "unit": "per vial"
+        },
+        {
+          "price": "$900",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Morpheus8 Face + Neck",
+          "unit": "per session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "SkinPen with Lift HG + Masque",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Lumecca IPL",
+          "unit": "per session, per area"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Forma Face + Neck",
+          "unit": "per session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Laser hair removal, full body",
+          "unit": "per session"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.touchmeupmedspa.com/price-menu",
+          "treatment": "Myers' Cocktail IV",
+          "unit": "per drip"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Juvederm",
+        "Restylane",
+        "RHA",
+        "Sculptra",
+        "Morpheus8",
+        "SkinPen microneedling",
+        "Lumecca IPL",
+        "Forma",
+        "EvolveX",
+        "Laser hair removal",
+        "IV therapy"
+      ],
+      "source_notes": "Prices from the clinic's own price-menu page touchmeupmedspa.com/price-menu, read directly 2026-11-25. The menu notes 10% off subsequent treatments. The clinic also has a La Crescenta location; this entry is the Burbank location. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://touchmeupmedspa.com/",
+      "zip": "91506"
+    },
+    {
+      "address": "435 N Glenoaks Blvd, Burbank, CA 91502",
+      "city": "Burbank",
+      "id": "la-flawless-skin-center-burbank",
+      "languages": [],
+      "name": "Flawless Skin Center - Burbank",
+      "neighborhood": "Burbank",
+      "phone": "(818) 848-2288",
+      "prices": [
+        {
+          "price": "$14",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Botox, regular",
+          "unit": "per unit"
+        },
+        {
+          "price": "$5.50",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Dysport, regular",
+          "unit": "per unit"
+        },
+        {
+          "price": "$695",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Cheek filler, regular",
+          "unit": "per full syringe"
+        },
+        {
+          "price": "$895",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Sculptra face, regular",
+          "unit": "per vial"
+        },
+        {
+          "price": "$810",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Morpheus8 full face, regular",
+          "unit": "per session"
+        },
+        {
+          "price": "$385",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Emsculpt Neo abdomen, regular",
+          "unit": "per session"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "PRP & microneedling, regular",
+          "unit": "per session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Chemical peel face, regular",
+          "unit": "per session"
+        },
+        {
+          "price": "$330",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Laser hair removal, women full body, regular",
+          "unit": "per session"
+        },
+        {
+          "price": "$195",
+          "source_url": "https://flawlessskincenter.com/",
+          "treatment": "Laser tattoo removal, 1 sq in, regular",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Juvederm",
+        "Restylane",
+        "Sculptra",
+        "Morpheus8",
+        "Emsculpt Neo",
+        "PRP microneedling",
+        "Chemical peels",
+        "Laser hair removal",
+        "Tattoo removal"
+      ],
+      "source_notes": "Prices from the clinic's own website flawlessskincenter.com, checked 2026-11-25; prices were read from a search-indexed copy of the clinic's own menu, so source_url is the homepage. Caveats: the clinic's pricing page shows sale prices alongside regular prices — regular prices are recorded here. Conflict: the clinic's own Botox product page lists $12.50, vs $14 regular on the menu; $14 is recorded and the $12.50 figure is flagged. A new-patient promo (first 20 units $189) was excluded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://flawlessskincenter.com/",
+      "zip": "91502"
+    },
+    {
+      "address": "314 N Glendale Ave, Glendale, CA 91206",
+      "city": "Glendale",
+      "id": "la-fix-med-spa-glendale",
+      "languages": [],
+      "name": "Fix Med Spa",
+      "neighborhood": "Glendale",
+      "phone": "(818) 248-9575",
+      "prices": [
+        {
+          "price": "$10",
+          "source_url": "https://fixmedspa.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$460",
+          "source_url": "https://fixmedspa.com/",
+          "treatment": "Juvederm",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://fixmedspa.com/",
+          "treatment": "Microneedling, face",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Laser hair removal",
+        "Tattoo removal",
+        "Microneedling",
+        "PRP",
+        "CoolSculpting",
+        "Facials"
+      ],
+      "source_notes": "Prices from the clinic's own website fixmedspa.com, checked 2026-11-25; prices were read from a search-indexed copy of the clinic's own menu, so source_url is the homepage. Only three prices were legibly recoverable from that copy; the clinic was formerly Fix Laser and Skin Center. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://fixmedspa.com/",
+      "zip": "91206"
+    },
+    {
+      "address": "372 Arden Ave, Ste 205, Glendale, CA 91203",
+      "city": "Glendale",
+      "id": "la-go-flawless-now-glendale",
+      "languages": [],
+      "name": "Go Flawless Now",
+      "neighborhood": "Glendale",
+      "phone": "(888) 413-3223",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Microneedling",
+        "PRF facials",
+        "Chemical peels",
+        "Body contouring"
+      ],
+      "source_notes": "No published prices found on the clinic's own website goflawlessnow.com, checked 2026-11-25; prices are therefore []. Third-party directory price ranges were not used. Caveat: a second phone, (818) 514-5445, appears for this clinic on ClassPass; the (888) 413-3223 number from the clinic's own listings is recorded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "http://www.goflawlessnow.com/",
+      "zip": "91203"
+    },
+    {
+      "address": "1111 N Brand Blvd, Suite 310, Glendale, CA 91202",
+      "city": "Glendale",
+      "id": "la-refresh-beauty-wellness-glendale",
+      "languages": [],
+      "name": "Refresh Beauty and Wellness",
+      "neighborhood": "Glendale",
+      "phone": "(818) 956-1141",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Morpheus8",
+        "PRP",
+        "IPL",
+        "Laser hair removal",
+        "IV therapy",
+        "Medical weight loss",
+        "Hormone therapy"
+      ],
+      "source_notes": "No published prices found on the clinic's own website refreshla.com, checked 2026-11-25; prices are therefore []. A social-media flyer advertising skin tag removal for $350 was seen but is not the clinic's own website pricing, so it was excluded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://refreshla.com/",
+      "zip": "91202"
+    },
+    {
+      "address": "17401 Ventura Blvd, Ste B-9, Encino, CA 91316",
+      "city": "Encino",
+      "id": "la-flashlaser-aesthetics-encino",
+      "languages": [],
+      "name": "FlashLaser Aesthetics",
+      "neighborhood": "Encino",
+      "phone": "(818) 205-1280",
+      "prices": [
+        {
+          "price": "$155",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Signature Facial, 1 hour",
+          "unit": "per session"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Signature HydraFacial",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Deluxe HydraFacial",
+          "unit": "per session"
+        },
+        {
+          "price": "$325",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Platinum HydraFacial",
+          "unit": "per session"
+        },
+        {
+          "price": "$170",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Acne Facial + Blu-U Light, 1 hour",
+          "unit": "per session"
+        },
+        {
+          "price": "$99",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Acne Facial, 30 minutes",
+          "unit": "per session"
+        },
+        {
+          "price": "$25",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Blu-U Light Therapy, 21 minutes",
+          "unit": "per session"
+        },
+        {
+          "price": "$75",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Dermatology Consultation",
+          "unit": "per consultation"
+        },
+        {
+          "price": "$99",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Full Body Skin Cancer Screening",
+          "unit": "per screening"
+        },
+        {
+          "price": "$100",
+          "source_url": "https://www.flashlaser.com/",
+          "treatment": "Consultation with Dr. Dwight Hiscox",
+          "unit": "per consultation"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Restylane",
+        "Laser hair removal",
+        "Facials",
+        "HydraFacial",
+        "Chemical peels",
+        "Photofacials",
+        "Body sculpting",
+        "Vein treatments"
+      ],
+      "source_notes": "Prices from the clinic's own website flashlaser.com, checked 2026-11-25; prices were read from search-indexed copies of the clinic's own menu/booking pages, so source_url is the homepage. Botox/Dysport/Daxxify are listed as 'price at booking' on the clinic's menu, so no injectable price is recorded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://www.flashlaser.com/",
+      "zip": "91316"
+    },
+    {
+      "address": "12528 Ventura Blvd, Studio City, CA 91604",
+      "city": "Studio City",
+      "id": "la-askcares-studio-city",
+      "languages": [],
+      "name": "AskCares",
+      "neighborhood": "Studio City",
+      "phone": "(818) 308-6021",
+      "prices": [
+        {
+          "price": "$215",
+          "source_url": "https://askcares.com/skin-care-studio-city",
+          "treatment": "HydraFacial Signature",
+          "unit": "per 30 min session"
+        },
+        {
+          "price": "$240",
+          "source_url": "https://askcares.com/skin-care-studio-city",
+          "treatment": "HydraFacial Deluxe",
+          "unit": "per 45 min session"
+        },
+        {
+          "price": "$275",
+          "source_url": "https://askcares.com/skin-care-studio-city",
+          "treatment": "HydraFacial Elite",
+          "unit": "per 60 min session"
+        },
+        {
+          "price": "$175",
+          "source_url": "https://askcares.com/skin-care-studio-city",
+          "treatment": "Facial, 1 hour",
+          "unit": "per session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://askcares.com/skin-care-studio-city",
+          "treatment": "Skin Flooding treatment",
+          "unit": "per 90 min session"
+        }
+      ],
+      "services": [
+        "HydraFacial",
+        "Facials",
+        "Chemical peels",
+        "Facial massage",
+        "Microcurrent",
+        "LED therapy",
+        "Powder brows",
+        "Lash services"
+      ],
+      "source_notes": "Prices from the clinic's own website askcares.com/skin-care-studio-city, checked 2026-11-25 via a search-indexed copy of the clinic's own page. A holiday-event promo (Signature HydraFacial $120 for new clients, Dec 5, 2026) was excluded. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://askcares.com/",
+      "zip": "91604"
+    },
+    {
+      "address": "5353 Topanga Canyon Blvd, #103, Woodland Hills, CA 91364",
+      "city": "Woodland Hills",
+      "id": "la-lovely-med-spa-woodland-hills",
+      "languages": [],
+      "name": "Lovely Med Spa",
+      "neighborhood": "Woodland Hills",
+      "phone": "(818) 436-2134",
+      "prices": [
+        {
+          "price": "$12.50",
+          "source_url": "https://lovelymedspa.com/",
+          "treatment": "Botox / Dysport / Letybo",
+          "unit": "per unit"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://lovelymedspa.com/",
+          "treatment": "Lip filler, half syringe",
+          "unit": "from"
+        },
+        {
+          "price": "$390",
+          "source_url": "https://lovelymedspa.com/",
+          "treatment": "PRP + Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$169",
+          "source_url": "https://lovelymedspa.com/",
+          "treatment": "Botox, new client, first 20 units",
+          "unit": "per 20 units (minimum 40 units required, promotional)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Letybo",
+        "Lip filler",
+        "Dermal fillers",
+        "PRP microneedling",
+        "Sculptra",
+        "Skin boosters (PDRN)"
+      ],
+      "source_notes": "Prices from the clinic's own website lovelymedspa.com, checked 2026-11-25 via a search-indexed copy of the clinic's own homepage. Caveat: a directory reading listed PRP + microneedling at $420/session; the clinic's own site as read here lists $390, which is recorded. The $169 first-20-units Botox is a new-client promotion (minimum 40 units) and is labelled as such. Other treatments are priced at consultation. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://lovelymedspa.com/",
+      "zip": "91364"
+    },
+    {
+      "address": "1401 Mission St, Suite C5, South Pasadena, CA 91030",
+      "city": "South Pasadena",
+      "id": "la-jt-aesthetic-south-pasadena",
+      "languages": [],
+      "name": "JT Aesthetic & Co - South Pasadena",
+      "neighborhood": "South Pasadena",
+      "phone": "(213) 698-7611",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Jeuveau",
+        "Xeomin",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Kybella",
+        "Microneedling",
+        "Chemical peels",
+        "XERF",
+        "PRP",
+        "PRF"
+      ],
+      "source_notes": "No standard published prices found on the clinic's own website jtaestheticandco.com, checked 2026-11-25; prices are therefore []. The clinic publishes only package/offer prices on its menu (e.g. $387 VAMP package, $950 VI Peel package, $1,200 Jeuveau package), which were excluded as promotional packages. Caveat: a second phone, (909) 662-9109, appears for this clinic on Yelp/Groupon; the (213) 698-7611 number from the clinic's own contact page is recorded. Asian-owned (founders Jennifer Velasco and Tina Lin) per third-party coverage, but languages spoken are not stated on the clinic's own site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "https://jtaestheticandco.com/",
+      "zip": "91030"
+    },
+    {
+      "address": "707 Foothill Blvd, Suite 2, La Cañada Flintridge, CA 91011",
+      "city": "La Cañada Flintridge",
+      "id": "la-luminous-flintridge-la-canada-flintridge",
+      "languages": [],
+      "name": "Luminous Flintridge Med Spa",
+      "neighborhood": "La Cañada Flintridge",
+      "phone": "(818) 864-6499",
+      "prices": [
+        {
+          "price": "$10",
+          "source_url": "https://luminousflintridgemedspa.com",
+          "treatment": "Botox, Luminous Lite members",
+          "unit": "per unit"
+        },
+        {
+          "price": "$3.50",
+          "source_url": "https://luminousflintridgemedspa.com",
+          "treatment": "Dysport, Luminous Lite members",
+          "unit": "per unit"
+        },
+        {
+          "price": "$99",
+          "source_url": "https://luminousflintridgemedspa.com",
+          "treatment": "Luminous Lite membership",
+          "unit": "per month (4-month minimum)"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://luminousflintridgemedspa.com",
+          "treatment": "Luminous VIP membership",
+          "unit": "per month (4-month minimum)"
+        },
+        {
+          "price": "$1,000",
+          "source_url": "https://luminousflintridgemedspa.com",
+          "treatment": "EvolveX membership",
+          "unit": "per month (3-month minimum)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Letybo",
+        "Dermal fillers",
+        "Sculptra",
+        "Morpheus8",
+        "SkinPen microneedling",
+        "VI Peel",
+        "Laser hair removal",
+        "Forma",
+        "Lumecca IPL",
+        "EvolveX",
+        "IV hydration"
+      ],
+      "source_notes": "Prices from the clinic's own website luminousflintridgemedspa.com, checked 2026-11-25 via a search-indexed copy of the clinic's own homepage/membership page. Caveat: no standard (non-member) price list is published — the Botox/Dysport rates above are member rates only. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "CA",
+      "website": "http://www.luminousflintridgemedspa.com/",
+      "zip": "91011"
+    },
+    {
+      "address": "113 Waterworks Way, Suite 340, Irvine, CA 92618",
+      "city": "Irvine",
+      "id": "la-concierge-aesthetics",
+      "languages": [],
+      "name": "Concierge Aesthetics",
+      "neighborhood": "Irvine",
+      "phone": "(949) 767-0000",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://www.conciergeaesthetics.com/start-here-irvine-medspa/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$15",
+          "source_url": "https://www.conciergeaesthetics.com/start-here-irvine-medspa/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "HydraFacial",
+        "Microneedling",
+        "Chemical peels",
+        "Laser hair removal",
+        "Morpheus8",
+        "CoolPeel CO2",
+        "IPL / Photofacial",
+        "Laser Genesis",
+        "Kybella",
+        "Sculptra",
+        "Medical weight loss"
+      ],
+      "source_notes": "Prices from the clinic's own website conciergeaesthetics.com, checked 2026-11-25. Site states Botox (or Dysport) is $15 per unit.",
+      "state": "CA",
+      "website": "https://www.conciergeaesthetics.com/",
+      "zip": "92618"
+    },
+    {
+      "address": "16511 Goldenwest Street, Suite 111, Huntington Beach, CA 92647",
+      "city": "Huntington Beach",
+      "id": "la-house-of-aesthetics",
+      "languages": [],
+      "name": "House of Aesthetics Med Spa",
+      "neighborhood": "Huntington Beach",
+      "phone": "(714) 596-1053",
+      "prices": [
+        {
+          "price": "$14",
+          "source_url": "https://houseofaestheticsmedspa.com/botox-huntington-beach/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox"
+      ],
+      "source_notes": "Prices from the clinic's own website houseofaestheticsmedspa.com, checked 2026-11-25. Masseter/TMJ treatments are quoted at consultation only. Only Botox was confirmed from the page read; other services not verified.",
+      "state": "CA",
+      "website": "https://houseofaestheticsmedspa.com/",
+      "zip": "92647"
+    },
+    {
+      "address": "1031 Rosecrans Ave, STE 102, Fullerton, CA 92833",
+      "city": "Fullerton",
+      "id": "la-avanti-laser-clinic",
+      "languages": [],
+      "name": "Avanti Laser Clinic",
+      "neighborhood": "Fullerton",
+      "phone": "(714) 526-1448",
+      "prices": [
+        {
+          "price": "$18",
+          "source_url": "https://avantilaser.com/injectables/botox/",
+          "treatment": "Botox",
+          "unit": "per unit (typically a 50-unit minimum)"
+        },
+        {
+          "price": "$8",
+          "source_url": "https://avantilaser.com/injectables/botox/",
+          "treatment": "Jeuveau",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Jeuveau",
+        "Laser hair removal",
+        "Microneedling",
+        "Anti-aging / lifting",
+        "Whitening",
+        "Acne treatment",
+        "Weight loss / body contouring"
+      ],
+      "source_notes": "Prices from the clinic's own website avantilaser.com, checked 2026-11-25. In business since 1998.",
+      "state": "CA",
+      "website": "https://avantilaser.com/",
+      "zip": "92833"
+    },
+    {
+      "address": "1441 Avocado Avenue, #206, Newport Beach, CA 92660",
+      "city": "Newport Beach",
+      "id": "la-primma-medspa",
+      "languages": [],
+      "name": "Primma MedSpa",
+      "neighborhood": "Newport Beach",
+      "phone": "(866) 310-6433",
+      "prices": [
+        {
+          "price": "$395",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Neurotoxin, one facial region — Women",
+          "unit": "per facial region (flat rate, no per-unit charge)"
+        },
+        {
+          "price": "$495",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Neurotoxin, one facial region — Men",
+          "unit": "per facial region (flat rate, no per-unit charge)"
+        },
+        {
+          "price": "$495",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Masseter Botox",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Lip Flip",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$395",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Hyaluronic Acid Dermal Fillers",
+          "unit": "starting at, per treatment"
+        },
+        {
+          "price": "$650",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Sculptra",
+          "unit": "starting at, per treatment"
+        },
+        {
+          "price": "$550",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Radiesse",
+          "unit": "starting at, per treatment"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Mesotherapy",
+          "unit": "starting at, per treatment"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://primma.beauty/pricing",
+          "treatment": "Mesotherapy Bio-revitalization",
+          "unit": "starting at, per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Radiesse",
+        "Mesotherapy",
+        "Medical weight loss"
+      ],
+      "source_notes": "Prices from the clinic's own website primma.beauty, checked 2026-11-25. Neurotoxin is priced flat per facial region, not per unit.",
+      "state": "CA",
+      "website": "https://primma.beauty/",
+      "zip": "92660"
+    },
+    {
+      "address": "16520 Bake Parkway, Suite 115, Irvine, CA 92618",
+      "city": "Irvine",
+      "id": "la-ageless-life-institute",
+      "languages": [
+        "English",
+        "Spanish",
+        "Farsi"
+      ],
+      "name": "Ageless Life Institute",
+      "neighborhood": "Irvine",
+      "phone": "(949) 857-4444",
+      "prices": [
+        {
+          "price": "$11",
+          "source_url": "https://marcozahedimd.com/faq/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$10",
+          "source_url": "https://marcozahedimd.com/faq/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$3.50",
+          "source_url": "https://marcozahedimd.com/faq/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$699",
+          "source_url": "https://marcozahedimd.com/faq/",
+          "treatment": "PRP hair injections",
+          "unit": "starting at, per session"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://marcozahedimd.com/faq/",
+          "treatment": "Glutathione push",
+          "unit": "per push"
+        },
+        {
+          "price": "$85",
+          "source_url": "https://marcozahedimd.com/faq/",
+          "treatment": "Glutathione + vitamin C push",
+          "unit": "per push"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Dysport",
+        "PRP hair injections",
+        "Laser hair removal",
+        "IV vitamin hydration",
+        "NAD+ therapy",
+        "Weight loss / GLP-1",
+        "Hormone replacement"
+      ],
+      "source_notes": "Prices from the clinic's own website marcozahedimd.com, checked 2026-11-25. Languages stated on the site's own FAQ page: English, Spanish and Farsi. Irvine local line (949) 857-4444; main number (949) 371-9862.",
+      "state": "CA",
+      "website": "https://marcozahedimd.com/",
+      "zip": "92618"
+    },
+    {
+      "address": "17942 Sky Park Cir, Suite C, Irvine, CA 92614",
+      "city": "Irvine",
+      "id": "la-park-medspa-irvine",
+      "languages": [],
+      "name": "Park MedSpa",
+      "neighborhood": "Irvine",
+      "phone": "(714) 391-5064",
+      "prices": [
+        {
+          "price": "$119",
+          "source_url": "https://parkmedspa.com/locations/california/orange-county-medspa/irvine-medspa-leshays-salon-spa/irvine-xeomin-botulin-tox-alternative/",
+          "treatment": "Xeomin (20 units, one area)",
+          "unit": "per 20 units, one area (limited-time offer; requires Xperience+ activation)"
+        },
+        {
+          "price": "$89 + $4",
+          "source_url": "https://parkmedspa.com/locations/california/orange-county-medspa/irvine-medspa-leshays-salon-spa/irvine-xeomin-botulin-tox-alternative/",
+          "treatment": "Xeomin, first area injection fee",
+          "unit": "injection fee per area + per unit"
+        }
+      ],
+      "services": [
+        "Xeomin"
+      ],
+      "source_notes": "Prices from the clinic's own website parkmedspa.com, checked 2026-11-25. The $119 / 20-unit price is a limited-time promotional offer requiring Merz Xperience+ activation; the standard fee structure is $89 + $4/unit for the first area. Located inside LeShay's Salon & Spa; OC phone (714) 391-5064. Only Xeomin was confirmed from the page read.",
+      "state": "CA",
+      "website": "https://parkmedspa.com/",
+      "zip": "92614"
+    },
+    {
+      "address": "140 E Commonwealth Ave, Fullerton, CA 92832",
+      "city": "Fullerton",
+      "id": "la-lily-med-spa",
+      "languages": [],
+      "name": "Lily Med Spa",
+      "neighborhood": "Fullerton",
+      "phone": "(657) 356-6116",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://lilymed-spa.com/botox.html",
+          "treatment": "Botox",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Dermal fillers",
+        "Filler dissolution (Hylenex)"
+      ],
+      "source_notes": "Prices from the clinic's own website lilymed-spa.com, checked 2026-11-25. $12/unit applies to forehead lines, frown lines, crow's feet, brow lift, lip flip and smile correction; full-face package price is by consultation.",
+      "state": "CA",
+      "website": "https://lilymed-spa.com/",
+      "zip": "92832"
+    },
+    {
+      "address": "2238 E Broadway, Long Beach, CA 90803",
+      "city": "Long Beach",
+      "id": "la-bellissima-medical-spa",
+      "languages": [],
+      "name": "Bellissima Medical Spa",
+      "neighborhood": "Long Beach",
+      "phone": "(562) 682-2743",
+      "prices": [
+        {
+          "price": "$11",
+          "source_url": "https://www.bellissimamedicalspas.com/blog/your-first-botox-appointment-in-long-beach-everything-you-need-to-know",
+          "treatment": "Botox",
+          "unit": "starting at, per unit"
+        },
+        {
+          "price": "$10.50",
+          "source_url": "https://www.bellissimamedicalspas.com/blog/your-first-botox-appointment-in-long-beach-everything-you-need-to-know",
+          "treatment": "Botox, 100 units",
+          "unit": "per unit (bulk pricing)"
+        },
+        {
+          "price": "$10.00",
+          "source_url": "https://www.bellissimamedicalspas.com/blog/your-first-botox-appointment-in-long-beach-everything-you-need-to-know",
+          "treatment": "Botox, 200 units",
+          "unit": "per unit (bulk pricing)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Jeuveau",
+        "Dysport",
+        "Dermal fillers",
+        "Microneedling",
+        "PRP therapy",
+        "Chemical peels",
+        "Facials"
+      ],
+      "source_notes": "Prices from the clinic's own website bellissimamedicalspas.com (own blog post), checked 2026-11-25. ZIP 90803 confirmed from the clinic's own site. Bulk and Tuesday special pricing noted on the same page.",
+      "state": "CA",
+      "website": "https://bellissimamedicalspas.com/",
+      "zip": "90803"
+    },
+    {
+      "address": "13139 Brookhurst St., Suite D, Garden Grove, CA 92843",
+      "city": "Garden Grove",
+      "id": "la-seoul-cell-center-garden-grove",
+      "languages": [],
+      "name": "Seoul Cell Center",
+      "neighborhood": "Garden Grove",
+      "phone": "(714) 855-8531",
+      "prices": [],
+      "services": [
+        "Neurotoxin",
+        "Dermal fillers",
+        "Skin boosters",
+        "Thread lifting",
+        "Ultherapy",
+        "Korean-style facial massage",
+        "IV therapy",
+        "Weight loss (Semaglutide)"
+      ],
+      "source_notes": "K-Beauty medical spa; no prices published on the clinic's own website pages read (seoul-medspa.com), checked 2026-11-25, so prices are []. Also has a Buena Park location (8560 Beach Blvd., Suite 104, Buena Park, CA 90620, (714) 583-8343) and a Chino Hills location; this entry is the Garden Grove clinic only.",
+      "state": "CA",
+      "website": "https://seoul-medspa.com/",
+      "zip": "92843"
+    },
+    {
+      "address": "369 Los Cerritos Ctr, Cerritos, CA 90703",
+      "city": "Cerritos",
+      "id": "la-o-skin-med-spa",
+      "languages": [],
+      "name": "O Skin Med Spa",
+      "neighborhood": "Cerritos",
+      "phone": "(562) 897-1445",
+      "prices": [
+        {
+          "price": "$13.25",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$4",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Juvederm Skinvive",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Juvederm Ultra",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Juvederm Ultra Plus",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Volbella XC",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Vollure XC",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$1,100",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Voluma XC",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Restylane",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$165",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "O Skin Signature Facial",
+          "unit": "per 80-min treatment"
+        },
+        {
+          "price": "$205",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Dermasweep Facial",
+          "unit": "per 80-min treatment"
+        },
+        {
+          "price": "$205",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Oxygen Facial",
+          "unit": "per 80-min treatment"
+        },
+        {
+          "price": "$245",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Luminous Facial",
+          "unit": "per 80-min treatment"
+        },
+        {
+          "price": "$285",
+          "source_url": "https://oliviaquido.com/pages/spa-menu",
+          "treatment": "Ultimate Facial",
+          "unit": "per 80-min treatment"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Dermal fillers",
+        "Botox",
+        "Dysport",
+        "Kybella",
+        "Microneedling",
+        "Laser hair removal",
+        "IV drips",
+        "Medical weight loss"
+      ],
+      "source_notes": "Prices from the clinic's own website oliviaquido.com (O Skin Med Spa menu page), checked 2026-11-25. Founded by Olivia Quido; located inside Los Cerritos Center.",
+      "state": "CA",
+      "website": "https://oliviaquido.com/",
+      "zip": "90703"
+    },
+    {
+      "address": "20072 SW Birch Street, #110, Newport Beach, CA 92660",
+      "city": "Newport Beach",
+      "id": "la-newport-aesthetics",
+      "languages": [],
+      "name": "Newport Aesthetics",
+      "neighborhood": "Newport Beach",
+      "phone": "(949) 660-9972",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Botox or Jeuveau",
+          "unit": "per unit (regular price, no minimum)"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Botox or Jeuveau",
+          "unit": "per unit (regular price, 20-unit minimum)"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Botox — Female Forehead",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Botox — Female Crow's Feet",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Botox — Female Glabellar Area",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Versa filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Juvederm 1mL",
+          "unit": "per 1mL"
+        },
+        {
+          "price": "$1,200",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Voluma 1mL",
+          "unit": "per 1mL"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Vollure 1mL",
+          "unit": "per 1mL"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Volbella 1mL",
+          "unit": "per 1mL"
+        },
+        {
+          "price": "$1,400",
+          "source_url": "https://newportaesthetics.com/wp-content/uploads/2025/04/NA%20Price%20List%20Effective%20Until%202025%2012%2031%20-%20Injectables.pdf",
+          "treatment": "Kybella, 1 chin treatment (2 vials)",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Jeuveau",
+        "Dermal fillers",
+        "Kybella"
+      ],
+      "source_notes": "Prices from the clinic's own published price-list PDF on newportaesthetics.com, checked 2026-11-25. CAVEAT: the PDF is headed 'Prices effective until December 31, 2025', so the list is stale as of Nov 2026 and prices may have changed — re-verify before relying on them.",
+      "state": "CA",
+      "website": "https://www.newportaesthetics.com/",
+      "zip": "92660"
+    },
+    {
+      "address": "2001 Westcliff Dr, Suite 201, Newport Beach, CA 92660",
+      "city": "Newport Beach",
+      "id": "la-california-cosmetics",
+      "languages": [],
+      "name": "California Cosmetics",
+      "neighborhood": "Newport Beach",
+      "phone": "(855) 977-1982",
+      "prices": [
+        {
+          "price": "$14",
+          "source_url": "https://californiacosmetics.com/products/botox-cosmetics?utm_content=Facebook_UA&utm_source=facebook&variant=44310216835310",
+          "treatment": "Botox",
+          "unit": "per unit (regular price)"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "CoolSculpting",
+        "Nonsurgical rhinoplasty",
+        "Lip filler",
+        "Kybella",
+        "HydraFacial",
+        "Microneedling",
+        "Morpheus8"
+      ],
+      "source_notes": "Prices from the clinic's own website californiacosmetics.com, checked 2026-11-25. Regular price $14/unit; the same page advertises Black Friday 2026 tiered promo pricing ($11.50–$14/unit by volume, redeem by Jan 31, 2027), which was NOT used. Also has Beverly Hills and Corona locations; this entry is the Newport Beach clinic only.",
+      "state": "CA",
+      "website": "https://californiacosmetics.com/",
+      "zip": "92660"
+    },
+    {
+      "address": "2646 Dupont Dr., Suite 250, Irvine, CA 92612",
+      "city": "Irvine",
+      "id": "la-deluxe-med-spa-irvine",
+      "languages": [],
+      "name": "Deluxe Med Spa & Wellness",
+      "neighborhood": "Irvine",
+      "phone": "(949) 350-8889",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Dysport",
+        "Dermal fillers",
+        "Sculptra",
+        "Kybella",
+        "Thread lift",
+        "RF microneedling",
+        "HydraFacial",
+        "Laser treatments",
+        "Weight loss"
+      ],
+      "source_notes": "No prices verified on the clinic's own website pages read (deluxemedspa.com), checked 2026-11-25, so prices are []. A third-party booking menu suggested Botox $10/unit (RN) / $12/unit (NP/MD), but that was not used because it was not confirmed on the clinic's own site. Five Southern California locations; this entry is the Irvine clinic only.",
+      "state": "CA",
+      "website": "https://www.deluxemedspa.com/",
+      "zip": "92612"
+    },
+    {
+      "address": "3030 Harbor Blvd, Ste F, Costa Mesa, CA 92626",
+      "city": "Costa Mesa",
+      "id": "la-skin-perfect-costa-mesa",
+      "languages": [],
+      "name": "Skin Perfect Medical Aesthetics",
+      "neighborhood": "Costa Mesa",
+      "phone": "(714) 278-3506",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Laser hair removal",
+        "Microneedling",
+        "CoolSculpting",
+        "Dermal fillers",
+        "Facials"
+      ],
+      "source_notes": "No prices published on the clinic's own website; skinperfectmedical.com states Botox is charged per area treated with the cost estimated at consultation, checked 2026-11-25, so prices are []. Directory listings show a conflicting phone (714) 485-3212; the (714) 278-3506 number is the one on the clinic's own site.",
+      "state": "CA",
+      "website": "https://skinperfectmedical.com/locations/orange-county/costa-mesa/",
+      "zip": "92626"
+    },
+    {
+      "address": "39 Creek Rd, #280, Irvine, CA 92604",
+      "city": "Irvine",
+      "id": "la-masters-medspa",
+      "languages": [],
+      "name": "Masters Medspa",
+      "neighborhood": "Irvine",
+      "phone": "(949) 334-6003",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$15",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Daxxify",
+          "unit": "per unit"
+        },
+        {
+          "price": "$14",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Jeuveau",
+          "unit": "per unit"
+        },
+        {
+          "price": "$975",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Sculptra — Full Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$3,000",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Sofwave — Face",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$5,000",
+          "source_url": "https://masters-medspa.com:443/pricing",
+          "treatment": "Masters Laser Repair — Full Face & Neck (UltraClear Deep & Sofwave)",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "PRP",
+        "Microneedling",
+        "Laser treatments",
+        "IV wellness",
+        "Weight loss",
+        "Hormone therapy",
+        "Sofwave"
+      ],
+      "source_notes": "Prices from the clinic's own website masters-medspa.com pricing page, read via search-indexed copy of the clinic's own pricing page, checked 2026-11-25.",
+      "state": "CA",
+      "website": "https://www.masters-medspa.com/",
+      "zip": "92604"
+    },
+    {
+      "address": "62 Corporate Park, Suite 100, Irvine, CA 92606",
+      "city": "Irvine",
+      "id": "la-nubella-med-spa",
+      "languages": [],
+      "name": "NuBella Med Spa",
+      "neighborhood": "Irvine",
+      "phone": "(949) 614-0052",
+      "prices": [
+        {
+          "price": "$3,200",
+          "source_url": "https://nubellamedspa.com/nu-bella-store/p/75-unit-jeuveau-package-lt6wy-ldzdd",
+          "treatment": "Pretty Profile: Filler (4 syringes)",
+          "unit": "per package (4 syringes, single appointment)"
+        },
+        {
+          "price": "$1,950",
+          "source_url": "https://nubellamedspa.com/nu-bella-store/p/75-unit-jeuveau-package-lt6wy-ldzdd-6nbzp",
+          "treatment": "Silhouette Edit: Tox & Filler Package (60 units Jeuveau + 2 syringes filler)",
+          "unit": "per package"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Microneedling",
+        "Chemical peels",
+        "HydraFacial"
+      ],
+      "source_notes": "Prices from the clinic's own website nubellamedspa.com store pages, read via search-indexed copy of the clinic's own pages, checked 2026-11-25. CAVEAT: only package prices were found on the clinic's own site (no standalone per-unit Botox price); the $3,200 price is shown struck through from $3,600 and $1,950 from $2,400, i.e. promotional package pricing. Also has a Rancho Cucamonga location; this entry is the Irvine clinic only.",
+      "state": "CA",
+      "website": "https://www.nubellamedspa.com/",
+      "zip": "92606"
+    },
+    {
+      "address": "4505 Barranca Pkwy, Ste B, Irvine, CA 92604",
+      "city": "Irvine",
+      "id": "la-la-queen-med-spa",
+      "languages": [],
+      "name": "LA Queen Med Spa",
+      "neighborhood": "Irvine",
+      "phone": "(949) 981-1186",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "PRP",
+        "Laser treatments",
+        "Facials"
+      ],
+      "source_notes": "No prices verified on the clinic's own website pages read (laqueenmedspa.com), checked 2026-11-25, so prices are []. Address, phone and service scope (laser treatments, Botox, facials, nail services) corroborated by the City of Irvine business license listing for LA Queen Med Spa Inc.",
+      "state": "CA",
+      "website": "https://laqueenmedspa.com/bio/",
+      "zip": "92604"
+    },
+    {
+      "address": "1455 Crenshaw Blvd, Suite 140, Torrance, CA 90501",
+      "city": "Torrance",
+      "id": "la-claire-skin-clinic",
+      "languages": [],
+      "name": "Claire Skin Clinic",
+      "neighborhood": "Torrance",
+      "phone": "(310) 755-8481",
+      "prices": [],
+      "services": [
+        "Korean skincare facial",
+        "Laser",
+        "Injectables",
+        "Anti-aging",
+        "Facials",
+        "Microneedling",
+        "Pico laser",
+        "Ultherapy",
+        "Thermage FLX"
+      ],
+      "source_notes": "Korean skincare clinic; no usable prices on the clinic's own website homepage (claireskinclinicinc.com), checked 2026-11-25, so prices are []. The homepage shows fall-special package pricing only as an image that could not be reliably read. Groupon lists a $120 regular price for a 60-minute customized Korean facial (discounted to $75.60), but third-party promo prices were excluded per the rules.",
+      "state": "CA",
+      "website": "http://claireskinclinicinc.com/",
+      "zip": "90501"
+    },
+    {
+      "address": "2482 Newport Blvd, Suite 3, Costa Mesa, CA 92627",
+      "city": "Costa Mesa",
+      "id": "la-27-skin-studio",
+      "languages": [],
+      "name": "27 Skin Studio",
+      "neighborhood": "Costa Mesa",
+      "phone": "(949) 421-6427",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Dermal fillers",
+        "Skinvive",
+        "SkinPen microneedling",
+        "PRF",
+        "PRX Derm Perfexion",
+        "DiamondGlow",
+        "Chemical peels"
+      ],
+      "source_notes": "No prices published on the clinic's own website homepage (27skinstudio.com), checked 2026-11-25, so prices are []. Appointment-only; medical director Dr. Monica Kieu, DO, FACS.",
+      "state": "CA",
+      "website": "https://www.27skinstudio.com/",
+      "zip": "92627"
+    },
+    {
+      "address": "1525 Mesa Verde Dr E, #113, Costa Mesa, CA 92626",
+      "city": "Costa Mesa",
+      "id": "la-skin-and-body-clinic",
+      "languages": [],
+      "name": "Skin + Body Aesthetics and Wellness",
+      "neighborhood": "Costa Mesa",
+      "phone": "(949) 867-6160",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Testosterone therapy",
+        "Peptide programs"
+      ],
+      "source_notes": "No prices published on the clinic's own website homepage (theskinandbodyclinic.com), checked 2026-11-25, so prices are []. CAVEAT: address and phone come from a directory listing, not the clinic's own site — the homepage text read did not include them; ZIP 92626 is from the clinic's own site title.",
+      "state": "CA",
+      "website": "https://www.theskinandbodyclinic.com/",
+      "zip": "92626"
+    }
+  ]
+}

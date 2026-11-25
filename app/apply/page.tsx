@@ -59,9 +59,10 @@ function Logo({ className = "text-xl" }: { className?: string }) {
 
 const LANGUAGE_OPTIONS = ["English", "Chinese", "Korean"] as const;
 
-const US_STATES = [
-  "AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY",
-] as const;
+// Launch cities only (Nov 25, 2026): New York and Los Angeles.
+const LAUNCH_STATES = ["NY", "CA"] as const;
+const STATE_CITY: Record<string, string> = { NY: "New York", CA: "Los Angeles" };
+const CITY_STATE: Record<string, string> = { "New York": "NY", "Los Angeles": "CA" };
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("zh");
@@ -79,9 +80,10 @@ export default function Home() {
 
   // 1. Business name
   const [businessName, setBusinessName] = useState("");
-  // 2. City, State, ZIP (separate fields; ZIP auto-fills city and state)
+  // 2. City, State, ZIP — launch cities only: New York (NY) and Los Angeles (CA).
+  // No default state; picking a state sets its city, and vice versa.
   const [city, setCity] = useState("");
-  const [state, setState] = useState("NY"); // Default NY for now (Nov 25, 2026); user can change it.
+  const [state, setState] = useState("");
   const [zip, setZip] = useState("");
   // Website (optional): a URL; bare domains get https:// so admin links work.
   const [website, setWebsite] = useState("");
@@ -121,6 +123,7 @@ export default function Home() {
   }
 
   // Look up city and state from a 5-digit US ZIP code (free, no key).
+  // Only NY/CA ZIPs apply — we only onboard in New York and Los Angeles.
   async function lookupZip(value: string) {
     const cleaned = value.replace(/\D/g, "").slice(0, 5);
     if (cleaned.length !== 5) return;
@@ -130,10 +133,13 @@ export default function Home() {
       const data = await res.json();
       const place = data.places?.[0];
       if (!place) return;
-      if (place["place name"]) setCity(place["place name"]);
-      if (place["state abbreviation"]) setState(place["state abbreviation"]);
+      const abbr = place["state abbreviation"] as string | undefined;
+      if (abbr && STATE_CITY[abbr]) {
+        setState(abbr);
+        setCity(STATE_CITY[abbr]);
+      }
     } catch {
-      // Lookup is a convenience only; the user can type city/state by hand.
+      // Lookup is a convenience only; the user can pick city/state by hand.
     }
   }
 
@@ -355,14 +361,22 @@ export default function Home() {
             <div className="grid gap-5 md:grid-cols-[2fr_1fr_1fr]">
               <div>
                 <label className={labelCls} htmlFor="city">{t.formCity}</label>
-                <input
+                <select
                   id="city"
                   className={inputCls}
                   autoComplete="address-level2"
-                  placeholder={t.formCityPh}
                   value={city}
-                  onChange={(e) => setCity(e.target.value)}
-                />
+                  onChange={(e) => {
+                    const v = e.target.value;
+                    setCity(v);
+                    setState(v ? CITY_STATE[v] : "");
+                  }}
+                >
+                  <option value="">{t.formCityPh}</option>
+                  {(state ? [STATE_CITY[state]] : ["New York", "Los Angeles"]).map((c) => (
+                    <option key={c} value={c}>{c}</option>
+                  ))}
+                </select>
               </div>
               <div>
                 <label className={labelCls} htmlFor="state">{t.formState}</label>
@@ -371,10 +385,14 @@ export default function Home() {
                   className={inputCls}
                   autoComplete="address-level1"
                   value={state}
-                  onChange={(e) => setState(e.target.value)}
+                  onChange={(e) => {
+                    const v = e.target.value;
+                    setState(v);
+                    setCity(v ? STATE_CITY[v] : "");
+                  }}
                 >
                   <option value="">{t.formStatePh}</option>
-                  {US_STATES.map((s) => (
+                  {LAUNCH_STATES.map((s) => (
                     <option key={s} value={s}>{s}</option>
                   ))}
                 </select>
