@@ -93,3 +93,6 @@ professionals; the license copy itself is requested by email during review
 and is never uploaded in the form. Price parity (no markup, no % of treatment
 price) is a product rule; get a New York healthcare lawyer's review before
 taking any cut of medical fees.
+
+
+Note: the code moved to the BrandyPiao1997/glow-sis repo on Nov 25, 2026 after the iworktolive GitHub account was suspended.
