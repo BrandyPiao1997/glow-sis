@@ -1,0 +1,617 @@
+[
+  {
+    "address": "2301 Broadway, New York, NY 10024",
+    "city": "New York",
+    "languages": [],
+    "name": "Sisu Clinic — Upper West Side",
+    "neighborhood": "Upper West Side",
+    "phone": "(646) 693-0132",
+    "prices": [
+      {
+        "price": "$575",
+        "source_url": "https://www.sisuclinic.com/botox-upper-west-side",
+        "treatment": "Dysport — 3 areas (forehead, frown lines, crow's feet)",
+        "unit": "per treatment (110 units, includes review and lip flip)"
+      },
+      {
+        "price": "$700",
+        "source_url": "https://www.sisuclinic.com/botox-upper-west-side",
+        "treatment": "Botox — 3 areas (forehead, frown lines, crow's feet)",
+        "unit": "per treatment (44 units, includes $125 brand charge, review and lip flip)"
+      }
+    ],
+    "services": [
+      "Botox",
+      "Dysport",
+      "Dermal fillers",
+      "Lip filler",
+      "Sculptra",
+      "Rejuran microneedling",
+      "TrapTox",
+      "Kybella"
+    ],
+    "source_notes": "Prices from the clinic's own Botox page (sisuclinic.com/botox-upper-west-side), read 2026-11-25. Pricing is the same across all four NYC Sisu clinics, per the same page. Languages spoken not stated on the site, left blank. Possible cross-batch overlap: Sisu is a well-known chain, flag for parent dedupe.",
+    "website": "https://www.sisuclinic.com/"
+  },
+  {
+    "address": "1384 Broadway, Suite 803, New York, NY 10018",
+    "city": "New York",
+    "languages": [],
+    "name": "Estheraphy",
+    "neighborhood": "Midtown",
+    "phone": "(917) 797-5252",
+    "prices": [
+      {
+        "price": "$600",
+        "source_url": "https://www.estheraphy.com/",
+        "treatment": "Jawline Contour + Lift Combo",
+        "unit": "per session"
+      },
+      {
+        "price": "$600",
+        "source_url": "https://www.estheraphy.com/",
+        "treatment": "Estheraphy Glow Lift",
+        "unit": "per session"
+      },
+      {
+        "price": "$195",
+        "source_url": "https://www.estheraphy.com/",
+        "treatment": "Vitamin C IV Cocktail",
+        "unit": "per session"
+      },
+      {
+        "price": "$295",
+        "source_url": "https://www.estheraphy.com/",
+        "treatment": "Estheraphy Signature IV Cocktail",
+        "unit": "per session"
+      },
+      {
+        "price": "$445",
+        "source_url": "https://www.estheraphy.com/",
+        "treatment": "Amino IV Cocktail",
+        "unit": "per session"
+      }
+    ],
+    "services": [
+      "Korean skincare",
+      "Microneedling",
+      "Xeomin",
+      "Jawline contouring and lifting",
+      "IV therapy",
+      "Facials"
+    ],
+    "source_notes": "Prices from the clinic's own homepage (estheraphy.com), read 2026-11-25. Korean skincare focus is stated on the site itself ('Personalized Korean skincare in New York'). Xeomin $8/unit was omitted: on the site it is labelled a November offer through November 30, not a regular price. Languages spoken not stated on the site, left blank.",
+    "website": "https://www.estheraphy.com/"
+  },
+  {
+    "address": "254 Baltic Street, Brooklyn, NY 11201",
+    "city": "New York",
+    "languages": [],
+    "name": "JECT — Cobble Hill",
+    "neighborhood": "Cobble Hill",
+    "phone": "(718) 790-4115",
+    "prices": [
+      {
+        "price": "$280",
+        "source_url": "https://ject.us/treatments/wrinkles-reducers/injectables",
+        "treatment": "Botox / Wrinkle Reducers — Upper Face (3 areas)",
+        "unit": "from, per area"
+      },
+      {
+        "price": "$500",
+        "source_url": "https://ject.us/treatments/wrinkles-reducers/injectables",
+        "treatment": "Botox / Wrinkle Reducers — Masseters",
+        "unit": "from, per treatment"
+      },
+      {
+        "price": "$150",
+        "source_url": "https://ject.us/treatments/wrinkles-reducers/injectables",
+        "treatment": "Botox / Wrinkle Reducers — Lip Flip",
+        "unit": "per treatment"
+      },
+      {
+        "price": "$75",
+        "source_url": "https://ject.us/treatments/wrinkles-reducers/injectables",
+        "treatment": "Botox / Wrinkle Reducers — Eyebrow Lift",
+        "unit": "from, per treatment"
+      }
+    ],
+    "services": [
+      "Botox",
+      "Wrinkle reducers (Daxxify, Dysport, Jeuveau)",
+      "Dermal fillers",
+      "Facial balancing",
+      "VI Peel"
+    ],
+    "source_notes": "Prices from the clinic's own treatment page (ject.us/treatments/wrinkles-reducers/injectables), read 2026-11-25. Prices are chain-wide, not Cobble Hill-specific, per the same page; member prices (20% off) were omitted. Address 254 Baltic St #7 and phone (718) 790-4115 from the clinic's own location/contact pages via search. Languages spoken not stated on the site, left blank. Possible cross-batch overlap: JECT is a well-known chain, flag for parent dedupe.",
+    "website": "https://ject.us/locations/brooklyn"
+  },
+  {
+    "address": "42 W 72nd St, New York, NY 10023",
+    "city": "New York",
+    "languages": [
+      "English",
+      "Russian"
+    ],
+    "name": "Future Face & Body Medspa",
+    "neighborhood": "Upper West Side",
+    "phone": "(212) 680-4069",
+    "prices": [
+      {
+        "price": "$200",
+        "source_url": "https://futurefaceandbody.com/",
+        "treatment": "Botox — single area (forehead, frown lines or crow's feet)",
+        "unit": "per area"
+      },
+      {
+        "price": "$499",
+        "source_url": "https://futurefaceandbody.com/",
+        "treatment": "Botox — all three areas (forehead, frown lines, crow's feet)",
+        "unit": "per visit"
+      },
+      {
+        "price": "$250",
+        "source_url": "https://futurefaceandbody.com/",
+        "treatment": "HydraFacial Deluxe",
+        "unit": "per session"
+      },
+      {
+        "price": "$300",
+        "source_url": "https://futurefaceandbody.com/",
+        "treatment": "HydraFacial Platinum",
+        "unit": "per session"
+      }
+    ],
+    "services": [
+      "Botox",
+      "Dysport",
+      "Jeuveau",
+      "Dermal fillers",
+      "Sculptra",
+      "HydraFacial",
+      "Facials",
+      "Morpheus8",
+      "CO2 laser",
+      "PRP hair restoration",
+      "PRP under eyes",
+      "IV therapy"
+    ],
+    "source_notes": "Prices from the clinic's own homepage (futurefaceandbody.com), read 2026-11-25. Languages: site states consultations can be in Russian and the injector speaks English and Russian. HydraFacial prices are listed with a new-client buy-one-get-one offer on the same page; the listed $250/$300 prices themselves are shown as the treatment prices.",
+    "website": "https://futurefaceandbody.com/"
+  },
+  {
+    "address": "68 Adams St, Brooklyn, NY 11201",
+    "city": "New York",
+    "languages": [],
+    "name": "MM Aesthetics Med Spa",
+    "neighborhood": "Downtown Brooklyn",
+    "phone": "(929) 389-3311",
+    "prices": [
+      {
+        "price": "$14",
+        "source_url": "https://mmaestheticss.com/",
+        "treatment": "Botulinum Toxin (Botox / Xeomin / Dysport / Daxxify)",
+        "unit": "per unit"
+      },
+      {
+        "price": "$750",
+        "source_url": "https://mmaestheticss.com/",
+        "treatment": "Facial Filler",
+        "unit": "from, per syringe"
+      },
+      {
+        "price": "$750",
+        "source_url": "https://mmaestheticss.com/",
+        "treatment": "Lip Augmentation",
+        "unit": "per syringe"
+      },
+      {
+        "price": "$250",
+        "source_url": "https://mmaestheticss.com/",
+        "treatment": "PDO COG Thread",
+        "unit": "from, per treatment"
+      }
+    ],
+    "services": [
+      "Botox",
+      "Xeomin",
+      "Dysport",
+      "Daxxify",
+      "Dermal fillers",
+      "Lip filler",
+      "PDO threads",
+      "Sculptra",
+      "PRP",
+      "Microneedling",
+      "SkinVive",
+      "IV therapy"
+    ],
+    "source_notes": "WEAK VERIFICATION: prices were not re-read on the clinic's own site today (browser rate-limited). They are from the clinic's own menu/booking as checked 2026-10-29 via a directory that links the clinic's menu, corroborated by the clinic's Acuity booking page listing the same treatments and prices. Re-verify on mmaestheticss.com before publishing. Languages spoken not stated, left blank. (checked 2026-11-25 via search/directory; fresh own-site read blocked by rate limit).",
+    "website": "https://mmaestheticss.com/"
+  },
+  {
+    "address": "138-07A Queens Blvd, Briarwood, NY 11435",
+    "city": "New York",
+    "languages": [],
+    "name": "BeautyMax Medical Spa Queens",
+    "neighborhood": "Briarwood",
+    "phone": "(718) 963-2500",
+    "prices": [
+      {
+        "price": "$420",
+        "source_url": "https://www.beautymaxmedispa.com/",
+        "treatment": "Wrinkle Reducer — Upper Half of Face",
+        "unit": "flat rate, per treatment"
+      },
+      {
+        "price": "$420",
+        "source_url": "https://www.beautymaxmedispa.com/",
+        "treatment": "Wrinkle Reducer — Lower Half of Face",
+        "unit": "flat rate, per treatment"
+      }
+    ],
+    "services": [
+      "Wrinkle reducer",
+      "Dermal fillers",
+      "Lasers",
+      "Body contouring",
+      "Facials",
+      "CoolSculpting"
+    ],
+    "source_notes": "Prices from the clinic's own homepage (beautymaxmedispa.com), read 2026-11-25. Address on the site is given as Briarwood, NY 11435 (13807A Queens Blvd), not Kew Gardens. Languages spoken not stated on the site, left blank.",
+    "website": "https://www.beautymaxmedispa.com/"
+  },
+  {
+    "address": "124-34 Queens Blvd, Kew Gardens, NY",
+    "city": "New York",
+    "languages": [],
+    "name": "True Laser Spa New York",
+    "neighborhood": "Kew Gardens",
+    "phone": "",
+    "prices": [
+      {
+        "price": "$155",
+        "source_url": "https://truelaserspanewyork.com/",
+        "treatment": "True Glow Membership (monthly facial or laser facial)",
+        "unit": "per month"
+      }
+    ],
+    "services": [
+      "Laser hair removal",
+      "RF microneedling",
+      "Microneedling",
+      "Fractional CO2 laser",
+      "Melasma and hyperpigmentation treatment",
+      "Hair restoration",
+      "Facials"
+    ],
+    "source_notes": "Membership price from the clinic's own homepage (truelaserspanewyork.com), read 2026-11-25. No per-treatment prices were shown on the homepage read. Phone not shown on the homepage read, left blank (directory lists (718) 404-7048, not used). Address from the clinic's directory listing; ZIP not stated there, omitted rather than guessed. Languages spoken not stated, left blank.",
+    "website": "https://truelaserspanewyork.com/"
+  },
+  {
+    "address": "2960 Ocean Ave, 2nd Floor, Brooklyn, NY 11235",
+    "city": "New York",
+    "languages": [],
+    "name": "Kleydman Dermatology",
+    "neighborhood": "Sheepshead Bay",
+    "phone": "(718) 676-6900",
+    "prices": [
+      {
+        "price": "$18",
+        "source_url": "https://kleydmandermatology.com/products/botox-and-neuromodulators-brooklyn",
+        "treatment": "Botox",
+        "unit": "from, per unit"
+      },
+      {
+        "price": "$6",
+        "source_url": "https://kleydmandermatology.com/products/botox-and-neuromodulators-brooklyn",
+        "treatment": "Dysport",
+        "unit": "from, per unit"
+      },
+      {
+        "price": "$900",
+        "source_url": "https://kleydmandermatology.com/products/botox-and-neuromodulators-brooklyn",
+        "treatment": "Dermal Fillers (Juvederm / Restylane)",
+        "unit": "from, per syringe"
+      },
+      {
+        "price": "$208",
+        "source_url": "https://kleydmandermatology.com/products/botox-and-neuromodulators-brooklyn",
+        "treatment": "HydraFacial (Signature)",
+        "unit": "from, per session"
+      },
+      {
+        "price": "$500",
+        "source_url": "https://kleydmandermatology.com/products/botox-and-neuromodulators-brooklyn",
+        "treatment": "VI Peel",
+        "unit": "from, per session"
+      }
+    ],
+    "services": [
+      "Botox",
+      "Dysport",
+      "Dermal fillers",
+      "Sculptra",
+      "Skinvive",
+      "PRP",
+      "Excel V+ laser",
+      "RF microneedling",
+      "Microneedling",
+      "VI Peel",
+      "Laser Genesis",
+      "HydraFacial"
+    ],
+    "source_notes": "Prices from the clinic's own Botox page (kleydmandermatology.com), read 2026-11-25; filler, HydraFacial and VI Peel prices are from the same page's treatment list. Languages spoken not stated on the site, left blank.",
+    "website": "https://kleydmandermatology.com/"
+  },
+  {
+    "address": "16 Sylvia St, Staten Island, NY 10312",
+    "city": "New York",
+    "languages": [],
+    "name": "The Formula by Nicole Frontera — Staten Island",
+    "neighborhood": "Staten Island",
+    "phone": "(929) 810-1835",
+    "prices": [
+      {
+        "price": "$11",
+        "source_url": "https://theformulamedspa.com/black-friday/",
+        "treatment": "Botox",
+        "unit": "per unit"
+      }
+    ],
+    "services": [
+      "Botox",
+      "Dermal fillers",
+      "Lip filler",
+      "Skinpen microneedling",
+      "IV vitamin therapy",
+      "Medical weight loss",
+      "PDO thread lifts",
+      "Ultherapy",
+      "RF skin tightening",
+      "Laser skin resurfacing"
+    ],
+    "source_notes": "WEAK VERIFICATION: the $11/unit price is listed on the clinic's own Black Friday page (theformulamedspa.com/black-friday/) as a November 1-30, 2026 offer for the Staten Island location, and was also reported in October 2026 as the clinic's own-site Botox price. Treat as a promotional price and re-verify before publishing. Address, phone and services from the clinic's own homepage, read 2026-11-25. This entry is the Staten Island location only; Rye and Rockaway Beach locations are outside NYC and not included.",
+    "website": "https://www.theformulamedspa.com/"
+  },
+  {
+    "address": "134-48 Blossom Ave, 2nd Floor, Suite 8C, Flushing, NY 11355",
+    "city": "New York",
+    "languages": [],
+    "name": "Well IV Infusion and Aesthetics",
+    "neighborhood": "Flushing",
+    "phone": "(718) 908-5658",
+    "prices": [],
+    "services": [
+      "IV therapy",
+      "Botox",
+      "Xeomin",
+      "Dermal fillers",
+      "Rejuran",
+      "Sculptra",
+      "Radiesse",
+      "PRP",
+      "Microneedling",
+      "Photofacial",
+      "Carbon peel"
+    ],
+    "source_notes": "Prices not published: the clinic's own menu page (wellivmedspa.com), read 2026-11-25, lists treatments (IV drips, Xeomin by area, fillers, Rejuran, PRP, microneedling, photofacial) but shows no dollar amounts in the page text, so the price list is left empty. Languages spoken not stated on the site, left blank.",
+    "website": "https://wellivmedspa.com/"
+  },
+  {
+    "address": "432 Avenue P, Brooklyn, NY 11223",
+    "city": "New York",
+    "languages": [],
+    "name": "Beauty Of Nature",
+    "neighborhood": "Gravesend",
+    "phone": "(347) 374-2717",
+    "prices": [],
+    "services": [
+      "Laser hair removal",
+      "Tattoo removal",
+      "PRP",
+      "Microneedling",
+      "Facials",
+      "Botox",
+      "Dermal fillers"
+    ],
+    "source_notes": "Prices not published: no prices were shown on the clinic's own homepage (beautyofnaturelaser.com), read 2026-11-25. Address and phone from the same site. Languages spoken not stated on the site, left blank.",
+    "website": "http://www.beautyofnaturelaser.com/"
+  },
+  {
+    "address": "253-02 147th Ave, Rosedale, NY 11422",
+    "city": "New York",
+    "languages": [],
+    "name": "Revolve Medical Spa",
+    "neighborhood": "Rosedale",
+    "phone": "(800) 383-7417",
+    "prices": [],
+    "services": [
+      "Botox",
+      "Dysport",
+      "Juvederm",
+      "Restylane"
+    ],
+    "source_notes": "Prices not published: no prices were shown on the clinic's own homepage (revolvemedspa.com), read 2026-11-25. Address, phone and services from the same site. Languages spoken not stated on the site, left blank.",
+    "website": "https://revolvemedspa.com/"
+  },
+  {
+    "address": "79-43 Metropolitan Ave, Middle Village, NY 11379",
+    "city": "New York",
+    "languages": [],
+    "name": "Vitaliy Aesthetics",
+    "neighborhood": "Middle Village",
+    "phone": "(347) 806-2666",
+    "prices": [],
+    "services": [
+      "Botox",
+      "Dermal fillers",
+      "Juvederm",
+      "PRP hair restoration"
+    ],
+    "source_notes": "Prices not published: no price menu was found on the clinic's own homepage (vitaliyaesthetics.com), read 2026-11-25. This entry is the Middle Village location only; the clinic also lists Greenpoint, Brooklyn and White Plains locations. Languages spoken not stated on the site, left blank.",
+    "website": "https://vitaliyaesthetics.com/"
+  },
+  {
+    "address": "72-44 Main St, Flushing, NY 11367",
+    "city": "New York",
+    "languages": [],
+    "name": "The Beauty Icon Med Spa",
+    "neighborhood": "Flushing",
+    "phone": "(929) 709-0009",
+    "prices": [],
+    "services": [
+      "Laser hair removal",
+      "HydraFacial",
+      "Botox",
+      "Dermal fillers",
+      "Microneedling",
+      "RF skin tightening",
+      "Body sculpting",
+      "PRP/PRF",
+      "IV hydration",
+      "Acupuncture",
+      "Microblading",
+      "Nano brows"
+    ],
+    "source_notes": "Prices not published: the clinic does not post prices online, per a directory check of its own site in October 2026. WEAK VERIFICATION: a fresh browser.open of beautyiconmedspa.com on 2026-11-25 failed with a rate-limit (429) error, so address/phone/services here rest on the clinic's own site via search results and the October directory check, not a fresh page read. Membership prices seen on a third-party listing were not used. Languages spoken not stated, left blank.",
+    "website": "https://beautyiconmedspa.com/"
+  },
+  {
+    "address": "98-10 Queens Blvd, Rego Park, NY 11374",
+    "city": "New York",
+    "languages": [],
+    "name": "Modrn Wellness",
+    "neighborhood": "Rego Park",
+    "phone": "(718) 400-7030",
+    "prices": [],
+    "services": [
+      "IV therapy",
+      "Medical weight loss",
+      "Testosterone replacement therapy",
+      "Botox",
+      "Dermal fillers",
+      "Chemical peels",
+      "Dermaplaning",
+      "Facials",
+      "Microneedling",
+      "PRF"
+    ],
+    "source_notes": "Prices not published: the clinic does not post prices online, per a directory check of its own site (modrnwellnessnyc.com) in October 2026. Groupon/LivingSocial promo prices for this clinic were not used. Address and phone from directory listings citing the clinic's own site. Languages spoken not stated, left blank. Prices checked 2026-11-25.",
+    "website": "https://modrnwellnessnyc.com/"
+  },
+  {
+    "address": "81-03 Myrtle Ave, Glendale, NY 11385",
+    "city": "New York",
+    "languages": [],
+    "name": "Dolce Aesthetics NY",
+    "neighborhood": "Glendale",
+    "phone": "(718) 365-2369",
+    "prices": [],
+    "services": [
+      "Botox",
+      "Juvederm",
+      "Lip fillers",
+      "Facial fillers",
+      "Laser hair removal",
+      "Facials",
+      "Chemical peels"
+    ],
+    "source_notes": "Prices not published: the clinic's own site states pricing is discussed at consultation before treatment, per its own Botox pages read via search 2026-11-25; no published price menu was verified. Social-media $9-$10/unit Botox posts are promos and were not used. This entry is the Glendale location only. Languages spoken not stated, left blank.",
+    "website": "http://dolceaestheticsny.com/"
+  },
+  {
+    "address": "36-36 Bell Blvd, Bayside, NY 11361",
+    "city": "New York",
+    "languages": [],
+    "name": "Beauty Forever Spa",
+    "neighborhood": "Bayside",
+    "phone": "(347) 768-0753",
+    "prices": [
+      {
+        "price": "$59",
+        "source_url": "https://beautyforeverskin.com/",
+        "treatment": "Lash Lift",
+        "unit": "per treatment"
+      },
+      {
+        "price": "$99",
+        "source_url": "https://beautyforeverskin.com/",
+        "treatment": "Lash Extensions",
+        "unit": "from, per treatment"
+      }
+    ],
+    "services": [
+      "Facials",
+      "Laser hair removal",
+      "Botox",
+      "Dermal fillers",
+      "Body contouring",
+      "Permanent makeup",
+      "Microblading",
+      "Eyelash extensions",
+      "Lash lift"
+    ],
+    "source_notes": "WEAK VERIFICATION: lash prices are from the clinic's own website as checked October 2026 via a directory listing, not a fresh page read today. The clinic describes itself on its own site as offering an 'Ultimate K-Beauty Experience'. Address and phone from the clinic's own site via search. Languages spoken not stated on the site, left blank. Prices checked 2026-11-25.",
+    "website": "https://beautyforeverskin.com/"
+  },
+  {
+    "address": "210-16 Northern Blvd, Unit 2A, Bayside, NY",
+    "city": "New York",
+    "languages": [],
+    "name": "Clear Laser Skin Clinic",
+    "neighborhood": "Bayside",
+    "phone": "(718) 224-1720",
+    "prices": [],
+    "services": [
+      "Morpheus8",
+      "Botox",
+      "Laser hair removal",
+      "Skin tightening",
+      "Radiofrequency",
+      "Facials"
+    ],
+    "source_notes": "Prices not published on the clinic's own website: November Ultherapy/Morpheus8 prices seen on the clinic's own Facebook page are time-limited specials and were not used, so the price list is left empty. Address and phone from directory listings; ZIP not stated there, omitted rather than guessed. Languages spoken not stated, left blank. Checked 2026-11-25.",
+    "website": "http://www.clearlaserskin.com/"
+  },
+  {
+    "address": "37-44 82nd St, Jackson Heights, NY 11372",
+    "city": "New York",
+    "languages": [],
+    "name": "Marbella Med Spa",
+    "neighborhood": "Jackson Heights",
+    "phone": "(718) 650-5558",
+    "prices": [],
+    "services": [
+      "Botox",
+      "Dermal fillers",
+      "Chemical peels",
+      "CO2 laser",
+      "Body contouring",
+      "Microneedling",
+      "Facials",
+      "Ultherapy",
+      "Laser hair removal"
+    ],
+    "source_notes": "Prices not published: the clinic does not post prices online, per a directory check of its own site (marbellamedspa.nyc) in October 2026. Booking-platform prices (e.g. Carbon Facial $150 on UbookToday) were not used, as they are not the clinic's own site. Address, phone and services from the clinic's own site via search. Languages spoken not stated, left blank. Checked 2026-11-25.",
+    "website": "https://marbellamedspa.nyc/"
+  },
+  {
+    "address": "1010 Rogers Ave, Brooklyn, NY 11226",
+    "city": "New York",
+    "languages": [],
+    "name": "Skin Like This",
+    "neighborhood": "Flatbush",
+    "phone": "(718) 702-5171",
+    "prices": [],
+    "services": [
+      "Facials",
+      "Chemical peels",
+      "Microneedling",
+      "Laser skin rejuvenation",
+      "Acne treatment"
+    ],
+    "source_notes": "WEAK VERIFICATION: prices not published on the clinic's own site as verified today; the clinic's own site was not freshly opened (browser rate-limited) and booking-platform prices could not be safely attributed to this clinic, so the price list is left empty. Services are from the clinic's own social/directory listings (facials, chemical peels, laser facials). Address and phone from directory listings citing the clinic. Languages spoken not stated, left blank. Checked 2026-11-25.",
+    "website": "http://getskinlikethis.com/"
+  }
+]
