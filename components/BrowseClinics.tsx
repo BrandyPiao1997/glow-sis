@@ -66,10 +66,69 @@ function parsePriceNum(price: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-function lowestPrice(clinic: SeedClinic): SeedPrice | null {
+// A price is "comparable" only if it buys a whole treatment: one session,
+// one area, one package, one syringe/vial, one full set, etc. Rates that
+// are only a fraction of a treatment must never be a clinic's headline
+// "from" price — e.g. Botox at $15/unit is not comparable to a $150 facial,
+// because one treatment takes many units. Excluded: bare per-unit / per-cc /
+// per-shot rates, fractional syringes (0.5 mL), memberships, consultations,
+// add-on enhancements, and member-only rates. Quantified full-treatment
+// amounts (per 300 shots, per 50 units for a full face, per 2cc syringe,
+// per 2 vials) ARE comparable — they are the price of the whole treatment.
+function isComparablePrice(p: SeedPrice): boolean {
+  const u = p.unit.toLowerCase();
+  const t = p.treatment.toLowerCase();
+  if (
+    t.includes("membership") ||
+    t.includes("consultation") ||
+    t.includes("visit fee")
+  )
+    return false;
+  if (
+    u.includes("per month") ||
+    u.includes("per consultation") ||
+    u.includes("per enhancement")
+  )
+    return false;
+  if (u.includes("member") && !u.includes("non-member")) return false;
+  if (/per 0\.5/.test(u)) return false;
+  if (/\bper unit\b/.test(u) && !/\bper \d+ units?\b/.test(u)) return false;
+  if (/\bper cc\b/.test(u) && !/\bper \d+cc/.test(u)) return false;
+  if (/\bper shots?\b/.test(u) && !/\bper \d+ shots?\b/.test(u)) return false;
+  if (/\bper lines?\b/.test(u) && !/\bper \d+ lines?\b/.test(u)) return false;
+  return true;
+}
+
+// The headline price, search-aware: when a search or service filter is
+// active, only price rows that match it count — the headline is the cheapest
+// comparable price among the treatments the user is actually looking at,
+// not the clinic's overall cheapest treatment. A row matches the search if
+// its treatment name contains the query; it matches a service filter if its
+// treatment falls in that category (same keyword match as the filter). If
+// the query matches only the clinic's name, fall back to all rows. Rows
+// that match nothing yield no headline price (the card then shows "See
+// price list" instead of a misleading figure).
+function lowestMatchingPrice(
+  clinic: SeedClinic,
+  query: string,
+  service: string,
+): SeedPrice | null {
+  const q = query.trim().toLowerCase();
+  let rows = clinic.prices;
+  if (service) {
+    rows = rows.filter((p) => serviceMatchesCategory(p.treatment, service));
+  }
+  if (q) {
+    const byTreatment = rows.filter((p) =>
+      p.treatment.toLowerCase().includes(q),
+    );
+    if (byTreatment.length > 0) rows = byTreatment;
+    else if (!clinic.name.toLowerCase().includes(q)) rows = [];
+  }
   let best: SeedPrice | null = null;
   let bestNum = Infinity;
-  for (const p of clinic.prices) {
+  for (const p of rows) {
+    if (!isComparablePrice(p)) continue;
     const n = parsePriceNum(p.price);
     if (n !== null && n < bestNum) {
       bestNum = n;
@@ -242,7 +301,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
 
       <div className="mt-4 space-y-4">
         {filtered.map((c) => {
-          const low = lowestPrice(c);
+          const low = lowestMatchingPrice(c, query, service);
           const open = expanded === c.name;
           return (
             <article
@@ -278,8 +337,20 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 </div>
                 <div className="text-right">
                   {low ? (
-                    <p className="text-lg font-extrabold text-brand-dark">
-                      {t.browseFrom} {low.price}
+                    <>
+                      <p className="text-lg font-extrabold text-brand-dark">
+                        {t.browseFrom} {low.price}
+                      </p>
+                      <p
+                        className="mt-0.5 max-w-[220px] truncate text-xs text-muted"
+                        title={low.treatment}
+                      >
+                        {low.treatment}
+                      </p>
+                    </>
+                  ) : c.prices.length > 0 ? (
+                    <p className="max-w-[220px] text-sm font-medium text-muted">
+                      {t.browseSeePrices}
                     </p>
                   ) : (
                     <p className="max-w-[220px] text-sm font-medium text-muted">

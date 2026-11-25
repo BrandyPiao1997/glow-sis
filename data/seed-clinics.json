@@ -11,9 +11,9 @@
       "prices": [
         {
           "price": "$6",
-          "source_url": "https://www.seoul.skin/",
+          "source_url": "https://www.seoul.skin/treatments/xeomin",
           "treatment": "Xeomin",
-          "unit": "per unit"
+          "unit": "per unit (20-unit / $120 minimum per appointment)"
         },
         {
           "price": "$290",
@@ -31,7 +31,7 @@
           "price": "$300",
           "source_url": "https://www.seoul.skin/treatments/xeomin/dermatoxin",
           "treatment": "Skin Botox (Dermatoxin), full face",
-          "unit": "per 50 units"
+          "unit": "per treatment (50 units, full face)"
         },
         {
           "price": "$75",
@@ -44,6 +44,36 @@
           "source_url": "https://www.seoul.skin/",
           "treatment": "Visit fee (in-home visits under $500)",
           "unit": "per visit"
+        },
+        {
+          "treatment": "Xeomin — Forehead Lines",
+          "price": "$60",
+          "unit": "per area (10 units)",
+          "source_url": "https://www.seoul.skin/treatments/xeomin"
+        },
+        {
+          "treatment": "Xeomin — Frown Lines (11s)",
+          "price": "$60",
+          "unit": "per area (10 units)",
+          "source_url": "https://www.seoul.skin/treatments/xeomin"
+        },
+        {
+          "treatment": "Xeomin — Crow's Feet",
+          "price": "$72",
+          "unit": "per area (12 units)",
+          "source_url": "https://www.seoul.skin/treatments/xeomin"
+        },
+        {
+          "treatment": "Xeomin — Masseter",
+          "price": "$300",
+          "unit": "per area (50 units)",
+          "source_url": "https://www.seoul.skin/treatments/xeomin"
+        },
+        {
+          "treatment": "Xeomin — Nefertiti Neck Lift",
+          "price": "$120",
+          "unit": "per area (20 units)",
+          "source_url": "https://www.seoul.skin/treatments/xeomin"
         }
       ],
       "services": [
@@ -55,7 +85,7 @@
         "Lip flip",
         "Masseter Botox"
       ],
-      "source_notes": "Prices from the clinic's own website seoul.skin, checked 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed.",
+      "source_notes": "Prices from the clinic's own website seoul.skin, checked 2026-11-25. Xeomin per-area prices are from the clinic's own Xeomin page (seoul.skin/treatments/xeomin): forehead $60, frown lines $60, crow's feet $72, masseter $300, Nefertiti neck lift $120. The $6/unit Xeomin rate carries a 20-unit ($120) minimum per appointment, so the per-unit rate is not used as the clinic's headline price. Languages spoken not stated on the site, left blank rather than assumed.",
       "state": "NY",
       "website": "https://www.seoul.skin/",
       "zip": "10001"
@@ -174,13 +204,13 @@
         {
           "price": "$500",
           "source_url": "https://kahunaskinclinic.com/facial/",
-          "treatment": "MTS (Exosome)",
+          "treatment": "MTS microneedling (Exosome)",
           "unit": "per session"
         },
         {
           "price": "$500",
           "source_url": "https://kahunaskinclinic.com/facial/",
-          "treatment": "MTS (Rejuran)",
+          "treatment": "MTS microneedling (Rejuran)",
           "unit": "per session"
         },
         {
@@ -192,7 +222,7 @@
         {
           "price": "$400",
           "source_url": "https://kahunaskinclinic.com/facial/",
-          "treatment": "V-Fraction + E-MTS",
+          "treatment": "V-Fraction + E-MTS microneedling",
           "unit": "per 300 shots"
         },
         {
@@ -436,7 +466,7 @@
         "IV therapy",
         "Weight loss injections"
       ],
-      "source_notes": "Botox price is from the clinic's own website (lovmedspa.com), as checked October 2026. Phone number could not be verified from the clinic's own site on 2026-11-25, left blank.",
+      "source_notes": "Botox price is from the clinic's own website (lovmedspa.com), as checked October 2026. Phone number could not be verified from the clinic's own site on 2026-11-25, left blank. No per-area Botox price is published — only the $15/unit retail rate (members $12/$11/$10), so the per-unit rate is shown in the price list but is not used as the clinic's headline price.",
       "state": "NY",
       "website": "https://lovmedspa.com/",
       "zip": "10011"
@@ -574,11 +604,13 @@
         "PRP microneedling",
         "Neurotoxin injections",
         "Dermal fillers",
-        "Medical weight loss"
+        "Medical weight loss",
+        "Rejuran Healer",
+        "SkinVive"
       ],
-      "source_notes": "Partially verified: address and services from a Flushing med-spa guide checked 2026-11-25, but phone and website could not be verified from the clinic's own site, so they are left blank. Prices not published.",
+      "source_notes": "Services from the clinic's own services-store page (ejwellnessplus.com/services-store), checked Nov 25, 2026 — the page lists IV therapy drips, PRP microneedling/injections/hair, Rejuran Healer, SkinVive, Botox/Xeomin/Jeuveau, Juvederm/RHA fillers and Semaglutide/Tirzepatide weight loss, but publishes no prices, so the price list is left empty. Phone could not be verified from the clinic's own site, left blank.",
       "state": "NY",
-      "website": "",
+      "website": "https://www.ejwellnessplus.com/",
       "zip": "11354"
     },
     {
@@ -1305,6 +1337,12 @@
           "source_url": "https://skandaesthetics.com/services/",
           "treatment": "PRP Hair Restoration - Scalp",
           "unit": "per session"
+        },
+        {
+          "treatment": "Lip Flip",
+          "price": "$99",
+          "unit": "per treatment",
+          "source_url": "https://skandaesthetics.com/services/"
         }
       ],
       "services": [
@@ -1325,7 +1363,7 @@
         "IV Therapy",
         "Permanent makeup"
       ],
-      "source_notes": "Prices from the clinic's own website (skandaesthetics.com/services/), checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "source_notes": "Prices from the clinic's own website (skandaesthetics.com/services/), checked 2026-11-25. Languages spoken not stated on the site, left blank. Botox, Xeomin and Dysport are priced per unit only on the clinic's own site — no per-area neurotoxin price is published, so the per-unit rates are shown in the price list but are not used as the clinic's headline price. Lip Flip ($99) is the per-treatment toxin price.",
       "state": "NY",
       "website": "https://skandaesthetics.com/",
       "zip": "11105"
@@ -1553,7 +1591,7 @@
         "HIFU / Ultherapy",
         "PRP"
       ],
-      "source_notes": "Prices from the clinic's own website (victoriasesthetics.com/prices/), checked 2026-11-25. Only non-promo regular prices are used here: the site's promo prices (e.g. Botox $7/unit promo vs $15 regular, valid through Dec 31, 2026) were excluded. Languages spoken not stated on the site, left blank.",
+      "source_notes": "Prices from the clinic's own website (victoriasesthetics.com/prices/), checked 2026-11-25. Only non-promo regular prices are used here: the site's promo prices (e.g. Botox $7/unit promo vs $15 regular, valid through Dec 31, 2026) were excluded. Languages spoken not stated on the site, left blank. No per-area Botox price is published; Botox is priced per unit only, so the per-unit rate is shown in the price list but is not used as the clinic's headline price.",
       "state": "NY",
       "website": "https://victoriasesthetics.com/",
       "zip": "11373"
@@ -1664,7 +1702,7 @@
         "Sofwave",
         "XERF"
       ],
-      "source_notes": "Regular neurotoxin prices from the clinic's own website (littlelaserclinic.com/about/beauty-bank/), checked 2026-11-25; the lower member prices on the same page were excluded. No other stable published price menu was verified on the clinic's own site. Languages spoken not stated on the site, left blank.",
+      "source_notes": "Regular neurotoxin prices from the clinic's own website (littlelaserclinic.com/about/beauty-bank/), checked 2026-11-25; the lower member prices on the same page were excluded. No other stable published price menu was verified on the clinic's own site. Languages spoken not stated on the site, left blank. No per-area neurotoxin price is published on the clinic's own site — only per-unit Beauty Bank rates, so the per-unit rates are shown in the price list but are not used as the clinic's headline price.",
       "state": "NY",
       "website": "http://www.littlelaserclinic.com/",
       "zip": "11101"
@@ -1834,7 +1872,7 @@
         "Tattoo removal",
         "Body contouring"
       ],
-      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own website, read 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed.",
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own website, read 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed. Botox is $15/unit with the unit count set at consultation; no per-area price is published, so the per-unit rate is shown in the price list but is not used as the clinic's headline price.",
       "state": "NY",
       "website": "https://upkeepmedspa.com/locations/brooklyn",
       "zip": "11215"
@@ -2328,7 +2366,7 @@
         "Lash lift",
         "Lash tint"
       ],
-      "source_notes": "General facial/laser spa (not Chinese/Korean-focused). Prices were ONLY verified via a directory reading of the clinic's own menu (HelloRevelle, which states these prices are from Tres Belle Spa's menu, updated weekly) \u2014 not a fresh own-site page read today; the clinic's own homepage, read 2026-11-25, showed address/phone but no prices. Languages spoken not stated on the site, left blank rather than assumed.",
+      "source_notes": "General facial/laser spa (not Chinese/Korean-focused). Prices were ONLY verified via a directory reading of the clinic's own menu (HelloRevelle, which states these prices are from Tres Belle Spa's menu, updated weekly) — not a fresh own-site page read today; the clinic's own homepage, read 2026-11-25, showed address/phone but no prices. Languages spoken not stated on the site, left blank rather than assumed.",
       "state": "NY",
       "website": "http://www.tresbellespa.com/",
       "zip": "11217"
@@ -2457,7 +2495,7 @@
         "Skin tightening",
         "Medical weight loss"
       ],
-      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own price list page trifectamedspanyc.com/pricelist, read fresh 2026-11-25. Phone (800) 757-4026 is the Downtown number listed in directories; the site footer also shows (212) 600-4112. Languages spoken not stated on the site, left blank.",
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own price list page trifectamedspanyc.com/pricelist, read fresh 2026-11-25. Phone (800) 757-4026 is the Downtown number listed in directories; the site footer also shows (212) 600-4112. Languages spoken not stated on the site, left blank. Wrinkle relaxers are priced per unit only; no per-area price is published, so the per-unit rates are shown in the price list but are not used as the clinic's headline price. Lip Flip ($70) is the per-treatment toxin price.",
       "state": "NY",
       "website": "https://trifectamedspanyc.com/",
       "zip": "10006"
@@ -2466,7 +2504,7 @@
       "address": "120 Broadway, New York, NY 10271",
       "city": "New York",
       "languages": [],
-      "name": "Peachy \u2014 FiDi",
+      "name": "Peachy — FiDi",
       "neighborhood": "Financial District",
       "phone": "(917) 694-8618",
       "prices": [
@@ -2785,6 +2823,18 @@
           "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
           "treatment": "Fat Dissolving Injection (Deoxycholic acid)",
           "unit": "per small area"
+        },
+        {
+          "treatment": "Glabellar (Between Brows)",
+          "price": "$225",
+          "unit": "per area",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/"
+        },
+        {
+          "treatment": "Crow's Feet",
+          "price": "$225",
+          "unit": "per area",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/"
         }
       ],
       "services": [
@@ -2798,7 +2848,7 @@
         "Fat Dissolving Injection",
         "Lip Flip"
       ],
-      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own services page thebeautiebar.com/services-item/botox-fillers-prp-staten-island, read fresh 2026-11-25. Note: the FAQ text on the same page states $12/unit Botox and $10/unit Dysport, conflicting with the menu header prices of $13/$11 used here; the menu header prices were used. Languages spoken not stated on the site, left blank.",
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own services page thebeautiebar.com/services-item/botox-fillers-prp-staten-island, read fresh 2026-11-25. Note: the FAQ text on the same page states $12/unit Botox and $10/unit Dysport, conflicting with the menu header prices of $13/$11 used here; the menu header prices were used. Languages spoken not stated on the site, left blank. Per-area neurotoxin prices from the same page: lip flip $100, Wrinkle Relaxer for 3 areas $425, glabellar $225, crow's feet $225; the per-unit Botox/Dysport rates carry a 35-unit minimum and are not used as the clinic's headline price.",
       "state": "NY",
       "website": "https://thebeautiebar.com/",
       "zip": "10304"
@@ -2935,7 +2985,7 @@
         "IV therapy",
         "Facials"
       ],
-      "source_notes": "Prices from the clinic's own website sereneskinclub.com/injectables, read fresh 2026-11-25. Korean-focused Koreatown studio (Rejuran / glass-skin boosters, Medical Director Margarita Chang, NP). Phone (213) 493-8597 is the text-to-book number on its own site. Distinct clinic from SeoulSkin, Serica and Genesys in the same building at 38-39 W 32nd St - different suite (1310) and different business. Languages spoken not stated on the site, left blank.",
+      "source_notes": "Prices from the clinic's own website sereneskinclub.com/injectables, read fresh 2026-11-25. Korean-focused Koreatown studio (Rejuran / glass-skin boosters, Medical Director Margarita Chang, NP). Phone (213) 493-8597 is the text-to-book number on its own site. Distinct clinic from SeoulSkin, Serica and Genesys in the same building at 38-39 W 32nd St - different suite (1310) and different business. Languages spoken not stated on the site, left blank. Botox is $12/unit with the unit count set at consultation; no per-area price is published, so the per-unit rate is shown in the price list but is not used as the clinic's headline price.",
       "state": "NY",
       "website": "https://www.sereneskinclub.com/",
       "zip": "10001"
