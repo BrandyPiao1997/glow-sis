@@ -589,7 +589,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                       key={s}
                       className="rounded-full bg-brand-soft px-2.5 py-1 text-xs font-semibold text-brand-dark"
                     >
-                      {s}
+                      {(t.serviceChipNames as Record<string, string>)[s] ?? s}
                     </span>
                   ))}
                 </div>
