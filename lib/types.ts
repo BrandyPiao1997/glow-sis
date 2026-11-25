@@ -39,6 +39,7 @@ export interface ApplicationInput {
   // Form fields (all optional at the API level; the form enforces its own).
   business_type: string;
   contact_method: string;
+  website: string; // Website or social media (optional): URL, handle, WeChat ID, RedNote account…
   services: string[];
   services_other: string;
   doctors_count: string;

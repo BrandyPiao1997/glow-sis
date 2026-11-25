@@ -71,6 +71,7 @@ async function ensurePostgresSchema(): Promise<void> {
       event_support TEXT NOT NULL DEFAULT '',
       business_type TEXT NOT NULL DEFAULT '',
       contact_method TEXT NOT NULL DEFAULT '',
+      website TEXT NOT NULL DEFAULT '',
       status TEXT NOT NULL DEFAULT 'submitted',
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
@@ -97,6 +98,7 @@ async function ensurePostgresSchema(): Promise<void> {
     ALTER TABLE applications ADD COLUMN IF NOT EXISTS event_support TEXT NOT NULL DEFAULT '';
     ALTER TABLE applications ADD COLUMN IF NOT EXISTS business_type TEXT NOT NULL DEFAULT '';
     ALTER TABLE applications ADD COLUMN IF NOT EXISTS contact_method TEXT NOT NULL DEFAULT '';
+    ALTER TABLE applications ADD COLUMN IF NOT EXISTS website TEXT NOT NULL DEFAULT '';
   `);
 }
 
@@ -127,7 +129,8 @@ function toApplication(row: Record<string, unknown>, priceRows: PriceRow[]): App
     referral_source: (row.referral_source as string) || "",
     event_support: (row.event_support as string) || "",
     business_type: (row.business_type as string) || "",
-    contact_method: (row.contact_method as string) || "", 
+    contact_method: (row.contact_method as string) || "",
+    website: (row.website as string) || "",
     price_rows: priceRows,
     status: row.status as Status,
     created_at: new Date(row.created_at as string).toISOString(),
@@ -174,8 +177,8 @@ async function createPostgres(input: ApplicationInput): Promise<Application> {
        consultation_contact, languages, licensed, about, treatments, hours,
        cases_opt_in, price_note, terms, services, services_other, doctors_count,
        applicant_affiliation, applicant_position, entry_type, referral_source,
-       event_support, business_type, contact_method, status, created_at, updated_at)
-     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,'submitted',$27,$27)`,
+       event_support, business_type, contact_method, website, status, created_at, updated_at)
+     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,'submitted',$28,$28)`,
     [
       id,
       input.clinic_name,
@@ -203,6 +206,7 @@ async function createPostgres(input: ApplicationInput): Promise<Application> {
       input.event_support ?? "",
       input.business_type ?? "",
       input.contact_method ?? "",
+      input.website ?? "",
       now,
     ]
   );
@@ -386,6 +390,7 @@ export function validateApplication(input: unknown): {
       event_support: str(b.event_support),
       business_type: str(b.business_type),
       contact_method: str(b.contact_method),
+      website: str(b.website),
     },
   };
 }

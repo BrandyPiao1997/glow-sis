@@ -83,6 +83,8 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("NY"); // Default NY for now (Nov 25, 2026); user can change it.
   const [zip, setZip] = useState("");
+  // Website or social media (optional): URL, handle, WeChat ID, RedNote account…
+  const [website, setWebsite] = useState("");
   // 3. Services (pick any, one level only)
   const [services, setServices] = useState<string[]>([]);
   // 4. Your name
@@ -106,6 +108,16 @@ export default function Home() {
   }
   function toggleService(s: string) {
     setServices((prev) => (prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s]));
+  }
+
+  // Normalize a website/social value: bare domains get https:// so admin links work;
+  // handles and IDs (e.g. @name, WeChat ID) are left as typed.
+  function normalizeWebsite(value: string) {
+    const v = value.trim();
+    if (!v) return "";
+    if (/^(https?:\/\/|@)/i.test(v)) return v;
+    if (/^[\w-]+(\.[\w-]+)+(\/\S*)?$/.test(v)) return `https://${v}`;
+    return v;
   }
 
   // Look up city and state from a 5-digit US ZIP code (free, no key).
@@ -179,6 +191,7 @@ export default function Home() {
           referral_source: "",
           event_support: "",
           business_type: "", // Field omitted Nov 25, 2026; kept in DB for old records.
+          website: normalizeWebsite(website),
           contact_method: contactMethod,
         }),
       });
@@ -386,6 +399,19 @@ export default function Home() {
               </div>
             </div>
             <p className="-mt-3 text-xs text-muted">{t.formZipHint}</p>
+
+            <div>
+              <label className={labelCls} htmlFor="website">{t.formWebsite}</label>
+              <input
+                id="website"
+                className={inputCls}
+                autoComplete="url"
+                placeholder={t.formWebsitePh}
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+              <p className="mt-1 text-xs text-muted">{t.formWebsiteHint}</p>
+            </div>
             </div>
 
             <div>

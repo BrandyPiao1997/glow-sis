@@ -186,6 +186,18 @@ export default function AdminPage() {
                     {t.adminContactMethod}: {t.contactMethods[a.contact_method] ?? a.contact_method}
                   </p>
                 )}
+                {a.website && (
+                  <p className="mt-1 text-muted">
+                    {t.adminWebsite}:{" "}
+                    {a.website.startsWith("http") ? (
+                      <a href={a.website} target="_blank" rel="noreferrer" className="font-medium text-brand hover:underline">
+                        {a.website} ↗
+                      </a>
+                    ) : (
+                      a.website
+                    )}
+                  </p>
+                )}
                 <p className="mt-1 text-muted">
                   {t.formLanguages}: {a.languages.join(", ") || "—"}
                 </p>

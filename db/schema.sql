@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS applications (
   event_support TEXT NOT NULL DEFAULT '',
   business_type TEXT NOT NULL DEFAULT '',
   contact_method TEXT NOT NULL DEFAULT '',
+  website TEXT NOT NULL DEFAULT '',
   status TEXT NOT NULL DEFAULT 'submitted'
     CHECK (status IN ('submitted', 'in_review', 'live')),
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -62,3 +63,4 @@ ALTER TABLE applications ADD COLUMN IF NOT EXISTS referral_source TEXT NOT NULL 
 ALTER TABLE applications ADD COLUMN IF NOT EXISTS event_support TEXT NOT NULL DEFAULT '';
 ALTER TABLE applications ADD COLUMN IF NOT EXISTS business_type TEXT NOT NULL DEFAULT '';
 ALTER TABLE applications ADD COLUMN IF NOT EXISTS contact_method TEXT NOT NULL DEFAULT '';
+ALTER TABLE applications ADD COLUMN IF NOT EXISTS website TEXT NOT NULL DEFAULT '';
