@@ -81,7 +81,7 @@ export default function Home() {
   const [businessName, setBusinessName] = useState("");
   // 2. City, State, ZIP (separate fields; ZIP auto-fills city and state)
   const [city, setCity] = useState("");
-  const [state, setState] = useState("");
+  const [state, setState] = useState("NY"); // Default NY for now (Nov 25, 2026); user can change it.
   const [zip, setZip] = useState("");
   // 3. Services (pick any, one level only)
   const [services, setServices] = useState<string[]>([]);
