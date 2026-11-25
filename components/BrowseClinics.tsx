@@ -194,7 +194,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         </h1>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">{t.browseSub}</p>
         <p className="mt-4 rounded-2xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
-          {t.browseSeedNote}
+          {t.browseSeedNote.replace("{count}", String(CLINICS.length))}
         </p>
       </section>
 

@@ -51,7 +51,7 @@ const en = {
   browseDisclaimer:
     "Prices are from the clinic's own website, as checked Nov 25, 2026. Confirm with the clinic before booking. Per-unit rates (e.g. Botox per unit) are shown as published, but they are not directly comparable to per-treatment prices — one treatment usually takes many units.",
   browseSeedNote:
-    "Seed listings: these 67 clinics come from clinics' own public websites, checked Nov 25, 2026. They will be replaced by clinic-submitted listings as clinics join GlowSis.",
+    "Seed listings: these {count} clinics come from clinics' own public websites, checked Nov 25, 2026. They will be replaced by clinic-submitted listings as clinics join GlowSis.",
   browseNoResults: "No clinics match. Try clearing a filter.",
   browseLanguages: "Languages",
   browseWebsite: "Website",
@@ -217,7 +217,7 @@ const zh: Dict = {
   browseSourceNotes: "关于这些价格",
   browseDisclaimer: "价格来自诊所自己的官网，核对日期为 2026 年 11 月 25 日。预约前请与诊所确认。按单位计价的价格（如肉毒素每单位）按诊所公布的原样列出，但不能直接与按次、按部位计价的价格比较——一次治疗通常需要多个单位。",
   browseSeedNote:
-    "种子商家：这 67 家诊所的信息来自诊所自己的公开网站，核对日期为 2026 年 11 月 25 日。随着诊所陆续入驻，将替换为诊所自己提交的信息。",
+    "种子商家：这 {count} 家诊所的信息来自诊所自己的公开网站，核对日期为 2026 年 11 月 25 日。随着诊所陆续入驻，将替换为诊所自己提交的信息。",
   browseNoResults: "没有符合条件的诊所，请清除筛选条件再试。",
   browseLanguages: "语言",
   browseWebsite: "官网",
@@ -358,7 +358,7 @@ const ko: Dict = {
   browseSourceNotes: "가격에 대해",
   browseDisclaimer: "가격은 각 클리닉 공식 홈페이지에서 가져왔으며, 2026년 11월 25일에 확인했습니다. 예약 전에 클리닉에 직접 확인하세요. 단위당 가격(예: 보톡스 단위당)은 게시된 그대로 표시되지만, 회당·부위당 가격과 직접 비교할 수는 없습니다. 한 번의 시술에는 보통 여러 단위가 필요합니다.",
   browseSeedNote:
-    "시드 목록: 이 67곳의 정보는 각 클리닉의 공개 홈페이지에서 가져왔으며, 2026년 11월 25일에 확인했습니다. 클리닉이 입점하면 업체가 직접 제출한 정보로 교체됩니다.",
+    "시드 목록: 이 {count}곳의 정보는 각 클리닉의 공개 홈페이지에서 가져왔으며, 2026년 11월 25일에 확인했습니다. 클리닉이 입점하면 업체가 직접 제출한 정보로 교체됩니다.",
   browseNoResults: "조건에 맞는 클리닉이 없습니다. 필터를 지우고 다시 시도하세요.",
   browseLanguages: "언어",
   browseWebsite: "홈페이지",
