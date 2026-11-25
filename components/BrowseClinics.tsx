@@ -273,6 +273,85 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   const [language, setLanguage] = useState("");
   const [pricedOnly, setPricedOnly] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [searchFocused, setSearchFocused] = useState(false);
+  const [activeIdx, setActiveIdx] = useState(-1);
+
+  // Translate a taxonomy/service label into the current language.
+  const trLabel = (map: Record<string, string>, key: string) => map[key] ?? key;
+
+  // Most-offered treatments across all clinics, by number of clinics
+  // offering each sub-treatment — the default "trending" suggestions
+  // shown before the user types anything.
+  const popularSubs = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const c of CLINICS) {
+      const seen = new Set<string>();
+      for (const s of c.services) {
+        const label = subTreatmentOf(s, classifyService(s));
+        if (label) seen.add(label);
+      }
+      for (const p of c.prices) {
+        const label = subTreatmentOf(p.treatment, classifyService(p.treatment));
+        if (label) seen.add(label);
+      }
+      for (const label of seen) counts.set(label, (counts.get(label) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6)
+      .map(([label]) => label);
+  }, []);
+
+  // Autocomplete suggestions for the current query. Each suggestion
+  // carries the English value the search actually matches against, and
+  // a display label in the current language — so typing in Chinese or
+  // Korean still finds the English treatment names in the data.
+  const suggestions = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const subMap = t.subTreatmentNames as Record<string, string>;
+    const chipMap = t.serviceChipNames as Record<string, string>;
+    const out: { value: string; display: string; kind: string }[] = [];
+    const seen = new Set<string>();
+    const push = (value: string, display: string, kind: string) => {
+      if (seen.has(value) || out.length >= 8) return;
+      seen.add(value);
+      out.push({ value, display, kind });
+    };
+    if (!q) {
+      for (const label of popularSubs) {
+        push(label, trLabel(subMap, label), t.browseTreatment);
+      }
+      return out;
+    }
+    // Sub-treatments first (match English or translated label).
+    for (const cat of Object.keys(SUB_TREATMENTS)) {
+      for (const s of SUB_TREATMENTS[cat]) {
+        const display = trLabel(subMap, s.label);
+        if (
+          s.label.toLowerCase().includes(q) ||
+          display.toLowerCase().includes(q)
+        ) {
+          push(s.label, display, t.browseTreatment);
+        }
+      }
+    }
+    // Clinic service names.
+    const services = new Set<string>();
+    for (const c of CLINICS) for (const s of c.services) services.add(s);
+    for (const s of services) {
+      const display = trLabel(chipMap, s);
+      if (s.toLowerCase().includes(q) || display.toLowerCase().includes(q)) {
+        push(s, display, t.browseService);
+      }
+    }
+    // Clinic names.
+    for (const c of CLINICS) {
+      if (c.name.toLowerCase().includes(q)) {
+        push(c.name, c.name, "");
+      }
+    }
+    return out;
+  }, [query, popularSubs, t]);
 
   // Second-layer pills for the selected category, built from the data:
   // only sub-treatments at least one clinic actually offers.
@@ -379,7 +458,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       </section>
 
       <section className="rounded-3xl border border-line bg-white p-5">
-        <div>
+        <div className="relative">
           <label className={labelCls} htmlFor="browse_search">
             {t.browseTitle}
           </label>
@@ -389,8 +468,59 @@ export default function BrowseClinics({ t }: { t: Dict }) {
             type="search"
             placeholder={t.browseSearchPh}
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            autoComplete="off"
+            onChange={(e) => {
+              setQuery(e.target.value);
+              setActiveIdx(-1);
+            }}
+            onFocus={() => setSearchFocused(true)}
+            onBlur={() => setTimeout(() => setSearchFocused(false), 150)}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowDown") {
+                e.preventDefault();
+                setActiveIdx((i) => Math.min(i + 1, suggestions.length - 1));
+              } else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                setActiveIdx((i) => Math.max(i - 1, -1));
+              } else if (e.key === "Enter" && activeIdx >= 0) {
+                e.preventDefault();
+                setQuery(suggestions[activeIdx].value);
+                setSearchFocused(false);
+              } else if (e.key === "Escape") {
+                setSearchFocused(false);
+              }
+            }}
           />
+          {searchFocused && suggestions.length > 0 && (
+            <div className="absolute inset-x-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-line bg-white shadow-lg">
+              <p className="border-b border-line px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted">
+                {query.trim() ? t.browseSuggestions : t.browseTrending}
+              </p>
+              <ul>
+                {suggestions.map((s, i) => (
+                  <li key={s.value}>
+                    <button
+                      type="button"
+                      onMouseDown={(e) => e.preventDefault()}
+                      onClick={() => {
+                        setQuery(s.value);
+                        setSearchFocused(false);
+                      }}
+                      onMouseEnter={() => setActiveIdx(i)}
+                      className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm ${
+                        i === activeIdx ? "bg-brand-soft" : "hover:bg-cream"
+                      }`}
+                    >
+                      <span className="font-medium">{s.display}</span>
+                      {s.kind && (
+                        <span className="shrink-0 text-xs text-muted">{s.kind}</span>
+                      )}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="mt-5 grid gap-4 sm:grid-cols-3">
