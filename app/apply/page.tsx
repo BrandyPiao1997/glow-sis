@@ -307,7 +307,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="mt-4 rounded-2xl bg-ink px-5 py-3 text-sm font-semibold text-white">{t.parityNote}</p>
         </section>
 
         <section id="apply" className="scroll-mt-20 py-8">
