@@ -83,7 +83,7 @@ export default function Home() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("NY"); // Default NY for now (Nov 25, 2026); user can change it.
   const [zip, setZip] = useState("");
-  // Website or social media (optional): URL, handle, WeChat ID, RedNote account…
+  // Website (optional): a URL; bare domains get https:// so admin links work.
   const [website, setWebsite] = useState("");
   // 3. Services (pick any, one level only)
   const [services, setServices] = useState<string[]>([]);
