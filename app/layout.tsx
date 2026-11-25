@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GlowSis — List your business",
+  title: "GlowSis — Find trusted beauty providers",
   description: "GlowSis - help you make the beauty choice with confidence",
 };
 

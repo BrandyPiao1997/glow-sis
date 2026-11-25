@@ -1,1 +1,3092 @@
-{"checked_on":"2026-11-25","clinics":[{"address":"38 W 32nd St, Unit 1300, New York, NY 10001","city":"New York","languages":[],"name":"SeoulSkin","neighborhood":"Koreatown","phone":"(929) 713-0059","prices":[{"price":"$6","source_url":"https://www.seoul.skin/","treatment":"Xeomin","unit":"per unit"},{"price":"$290","source_url":"https://www.seoul.skin/treatments/rejuran","treatment":"Rejuran with microneedling","unit":"per 2cc syringe"},{"price":"$990","source_url":"https://www.seoul.skin/","treatment":"Ultherapy (lower face & jawline, 300 shots)","unit":"per 300 shots"},{"price":"$300","source_url":"https://www.seoul.skin/treatments/xeomin/dermatoxin","treatment":"Skin Botox (Dermatoxin), full face","unit":"per 50 units"},{"price":"$75","source_url":"https://www.seoul.skin/","treatment":"LHALA Peel","unit":"from, per session"},{"price":"$100","source_url":"https://www.seoul.skin/","treatment":"Visit fee (in-home visits under $500)","unit":"per visit"}],"services":["Xeomin","Rejuran with microneedling","Ultherapy","Skin Botox (Dermatoxin)","LHALA Peel","Lip flip","Masseter Botox"],"source_notes":"Prices from the clinic's own website seoul.skin, checked 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed.","state":"NY","website":"https://www.seoul.skin/","zip":"10001"},{"address":"274 Madison Ave, Suite 1004, New York, NY 10016","city":"New York","languages":["English","Korean","Thai","Chinese"],"name":"Reset Cosmetic - Manhattan","neighborhood":"Midtown","phone":"(917) 930-0789","prices":[{"price":"$699","source_url":"https://www.resetmedclinic.com/neck-jawline-contouring-nyc/","treatment":"Neck & Jawline Contouring Program","unit":"per session"},{"price":"$1,800","source_url":"https://www.resetmedclinic.com/neck-jawline-contouring-nyc/","treatment":"Neck & Jawline Contouring Program, 3 sessions","unit":"per 3 sessions"},{"price":"$250","source_url":"https://www.resetmedclinic.com/","treatment":"Detox IV Therapy","unit":"per session"},{"price":"$250","source_url":"https://www.resetmedclinic.com/","treatment":"Anti-Aging IV","unit":"per session"},{"price":"$250","source_url":"https://www.resetmedclinic.com/","treatment":"Energy Boost IV Drip","unit":"per session"}],"services":["Ultherapy","Oligio","PDO thread lift","Dermal fillers","Botox / Xeomin","Laser skin therapy","Body contouring","IV therapy","Rejuran","Skinvive"],"source_notes":"Prices from the clinic's own website resetmedclinic.com, checked 2026-11-25. The clinic's booking page lists many promotion prices; only the stable program/IV prices from its own site are used here. Languages from the consultation phone lines listed on its own site.","state":"NY","website":"https://www.resetmedclinic.com/","zip":"10016"},{"address":"149-09 41st Ave, 2nd Floor, Flushing, NY 11354","city":"Flushing","languages":["English","Korean","Thai","Chinese"],"name":"Reset Cosmetic - Flushing","neighborhood":"Flushing","phone":"(347) 334-3326","prices":[],"services":["Ultherapy","Oligio","PDO thread lift","Dermal fillers","Botox / Xeomin","Laser skin therapy","Body contouring","IV therapy","Rejuran","Skinvive"],"source_notes":"Prices not published: the Flushing location's prices on the clinic's booking page are mostly limited-time promotions with no stable published menu verified on 2026-11-25, so the price list is left empty rather than using promo prices.","state":"NY","website":"https://www.resetmedclinic.com/","zip":"11354"},{"address":"306 5th Ave, 5th & 6th Floor, New York, NY 10001","city":"New York","languages":[],"name":"Kahuna Skin Clinic","neighborhood":"Koreatown","phone":"(646) 398-7556","prices":[{"price":"$300","source_url":"https://kahunaskinclinic.com/facial/","treatment":"Kahuna Signature Facial","unit":"per session"},{"price":"$600","source_url":"https://kahunaskinclinic.com/facial/","treatment":"Kahuna Acne Treatment","unit":"per session"},{"price":"$500","source_url":"https://kahunaskinclinic.com/facial/","treatment":"MTS (Exosome)","unit":"per session"},{"price":"$500","source_url":"https://kahunaskinclinic.com/facial/","treatment":"MTS (Rejuran)","unit":"per session"},{"price":"$300","source_url":"https://kahunaskinclinic.com/facial/","treatment":"LDM Tech Skin Rejuvenation","unit":"per session"},{"price":"$400","source_url":"https://kahunaskinclinic.com/facial/","treatment":"V-Fraction + E-MTS","unit":"per 300 shots"},{"price":"$400","source_url":"https://kahunaskinclinic.com/bodycare/","treatment":"N2 Natural Korean Lymphatic Drainage Massage (full body)","unit":"per session"},{"price":"$500","source_url":"https://kahunaskinclinic.com/bodycare/","treatment":"Kahuna Special Pure Silk Detox","unit":"per session"}],"services":["Kahuna Signature Facial","Acne treatment","MTS microneedling (Exosome / Rejuran)","Laser skin care","LDM skin rejuvenation","Korean lymphatic drainage massage","Body care","Scalp / abdominal / foot care"],"source_notes":"Prices from the clinic's own website kahunaskinclinic.com (facial and body care pages), checked 2026-11-25. Package prices (5/10 sessions) also exist on the site but are not listed here. Languages spoken not stated on the site, left blank.","state":"NY","website":"https://kahunaskinclinic.com/","zip":"10001"},{"address":"1441 Broadway, 24th Floor, New York, NY 10018","city":"New York","languages":["English","Korean","Japanese","Spanish"],"name":"riko","neighborhood":"Times Square","phone":"(212) 201-1043","prices":[{"price":"$899","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"Ultherapy Prime - Focus Area (200 lines)","unit":"per session"},{"price":"$1,499","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"Ultherapy Prime - Lower Face (400 lines)","unit":"per session"},{"price":"$1,899","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"Ultherapy Prime - Full Face (600 lines)","unit":"per session"},{"price":"$1,499","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"Thermage FLX - Eyelid and Undereye Tightening","unit":"per session"},{"price":"$1,899","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"Thermage FLX - Full Face","unit":"per session"},{"price":"$1,699","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"XERF - Full Face","unit":"per session"},{"price":"$2,199","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"XERF - Full Face + Neck","unit":"per session"},{"price":"$599","source_url":"https://www.rikomed.com/treatment/skin-tightening","treatment":"Eve Titan Skin Tightening - Full Face","unit":"per session"}],"services":["Ultherapy Prime","Thermage FLX","XERF","Eve Titan","Botox","Dermal fillers","Pico / Genesis lasers","Skin Botox","Rejuran"],"source_notes":"Skin-tightening prices from the clinic's own website rikomed.com, checked 2026-11-25. Botox/filler prices are not published on the clinic's own site, so they are not listed. Languages as stated on the clinic's own site (via its directory listing, read Nov 2026).","state":"NY","website":"https://www.rikomed.com/","zip":"10018"},{"address":"136-18 39th Ave, 11th Floor, Flushing, NY 11354","city":"Flushing","languages":[],"name":"Serica Skincare & MedSpa - Flushing","neighborhood":"Flushing","phone":"(718) 557-9998","prices":[{"price":"$699","source_url":"https://www.sericamedspa.com/","treatment":"RF Microneedling","unit":"per session"},{"price":"$1,800","source_url":"https://www.sericamedspa.com/","treatment":"RF Microneedling, package of 3 with Rejuran Skin Booster","unit":"per package of 3"}],"services":["RF microneedling","Rejuran Skin Booster","Laser hair removal","Laser resurfacing","PRP","Facials"],"source_notes":"Prices are the clinic's own published menu (sericamedspa.com), as checked 2026-10-29 and re-confirmed via the clinic's menu on 2026-11-25. Languages spoken not stated on the site, left blank.","state":"NY","website":"https://www.sericamedspa.com/","zip":"11354"},{"address":"39 W 32nd St, Suite 1400, New York, NY 10001","city":"New York","languages":[],"name":"Serica Skincare & MedSpa - Midtown","neighborhood":"Koreatown","phone":"(212) 226-6357","prices":[],"services":["RF microneedling","Rejuran Skin Booster","Laser hair removal","Laser resurfacing","PRP","Facials"],"source_notes":"Prices not published: the clinic's published menu prices are listed under its Flushing location; no separate published menu was verified for the Midtown location on 2026-11-25.","state":"NY","website":"https://www.sericamedspa.com/","zip":"10001"},{"address":"157-02 Northern Blvd, Flushing, NY 11354","city":"Flushing","languages":[],"name":"AestheticsMD by Jean Rhee - Flushing","neighborhood":"Flushing","phone":"(917) 563-1003","prices":[],"services":["Botox","Xeomin","Daxxify","Juvederm","Sculptra","Radiesse","Rejuran","Ultherapy Prime","Thermage FLX","Laser hair removal","HydraFacial"],"source_notes":"Prices not published: the clinic does not publish prices on its own website (aestheticsmd.co), confirmed 2026-11-25. Languages spoken not stated on the site, left blank.","state":"NY","website":"https://www.aestheticsmd.co/","zip":"11354"},{"address":"673 Madison Ave, 2nd Floor, New York, NY 10065","city":"New York","languages":[],"name":"AestheticsMD by Jean Rhee - Upper East Side","neighborhood":"Upper East Side","phone":"(212) 933-4001","prices":[],"services":["Botox","Xeomin","Daxxify","Juvederm","Sculptra","Radiesse","Rejuran","Ultherapy Prime","Thermage FLX","Laser hair removal","HydraFacial"],"source_notes":"Prices not published: the clinic does not publish prices on its own website (aestheticsmd.co), confirmed 2026-11-25. Languages spoken not stated on the site, left blank.","state":"NY","website":"https://www.aestheticsmd.co/","zip":"10065"},{"address":"124 W 24th St, Suite 41, New York, NY 10011","city":"New York","languages":[],"name":"Lov MedSpa New York","neighborhood":"Chelsea","phone":"","prices":[{"price":"$15","source_url":"https://lovmedspa.com/","treatment":"Botox","unit":"per unit"}],"services":["Botox","Dermal fillers","RF microneedling","PDO thread lift","CO2 laser skin resurfacing","Laser hair removal","Facials","Chemical peels","PRP therapy","IV therapy","Weight loss injections"],"source_notes":"Botox price is from the clinic's own website (lovmedspa.com), as checked October 2026. Phone number could not be verified from the clinic's own site on 2026-11-25, left blank.","state":"NY","website":"https://lovmedspa.com/","zip":"10011"},{"address":"140 W 58th St, Suite A, New York, NY 10019","city":"New York","languages":[],"name":"Dr. Lanna Aesthetics","neighborhood":"Midtown","phone":"(929) 325-2979","prices":[],"services":["Botox","Dermal fillers","PDO threads","Morpheus8","Forma","Liquid facelift","Meso Botox","PDRN Skin Booster","Glass Skin Facial"],"source_notes":"Prices not published: the clinic's own site states pricing is discussed at consultation rather than published per session (doctorlanna.com, checked 2026-11-25). Third-party directory price ranges were not used.","state":"NY","website":"https://doctorlanna.com/","zip":"10019"},{"address":"37-31 149th St, Flushing, NY 11354","city":"Flushing","languages":[],"name":"Kasuga Beauty","neighborhood":"Flushing","phone":"(929) 501-1369","prices":[],"services":["SPL Photon Skin Rejuvenation","Ultherapy","HydraFacial","Anti-wrinkle injections","Microneedling","GentleMax Pro laser hair removal","Facials","WMT Placenta Treatment"],"source_notes":"Prices not published: no prices were found on the clinic's own website (kasugabeauty.com) on 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed from the Chinese-language branding.","state":"NY","website":"https://www.kasugabeauty.com/","zip":"11354"},{"address":"136-82 39th Ave, Flushing, NY 11354","city":"Flushing","languages":[],"name":"Jourdenwell Aesthetics","neighborhood":"Flushing","phone":"(718) 866-0022","prices":[],"services":["Botox","Dermal fillers","Facials","RF microneedling","HydraFacial","PRP / PRF Skin Booster","Cosmetic surgery"],"source_notes":"Prices not published on the clinic's own website (jourdenwell.us), checked 2026-11-25. Groupon deals for this clinic exist but are third-party promotions, not the clinic's own published menu, so they were not used.","state":"NY","website":"https://www.jourdenwell.us/","zip":"11354"},{"address":"133-16 39th Ave, 2nd Floor, Flushing, NY 11354","city":"Flushing","languages":[],"name":"C2J Beauty","neighborhood":"Flushing","phone":"(917) 392-8333","prices":[{"price":"$89","source_url":"https://c2jbeauty.com/","treatment":"Microneedling","unit":"per session"}],"services":["Facials","Diode laser hair removal","Chemical peels","Rejuran microneedling","Microneedling"],"source_notes":"Microneedling price is from the clinic's own website (c2jbeauty.com), as checked 2026-10-29 and re-confirmed 2026-11-25. No other prices were verified on the clinic's own site.","state":"NY","website":"https://c2jbeauty.com/","zip":"11354"},{"address":"42-35 Main St, Suite 3B, Flushing, NY 11355","city":"Flushing","languages":["Chinese","English"],"name":"Dr. W&W Medical & Cosmetic Dermatology - Flushing","neighborhood":"Flushing","phone":"(718) 445-6000","prices":[],"services":["Botox","Juvederm","Radiesse","PRP","Medical dermatology","Laser dermatology"],"source_notes":"Prices not published: no prices were found on the clinic's own website (wwdermatology.com) on 2026-11-25. Bilingual (Chinese and English) as stated in the clinic's own directory listing.","state":"NY","website":"https://wwdermatology.com/","zip":"11355"},{"address":"36-34 Union St, 3rd Floor, Flushing, NY 11354","city":"Flushing","languages":[],"name":"EJ Wellness Plus","neighborhood":"Flushing","phone":"","prices":[],"services":["IV therapy","PRP microneedling","Neurotoxin injections","Dermal fillers","Medical weight loss"],"source_notes":"Partially verified: address and services from a Flushing med-spa guide checked 2026-11-25, but phone and website could not be verified from the clinic's own site, so they are left blank. Prices not published.","state":"NY","website":"","zip":"11354"}]}
+{
+  "checked_on": "2026-11-25",
+  "clinics": [
+    {
+      "address": "38 W 32nd St, Unit 1300, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "SeoulSkin",
+      "neighborhood": "Koreatown",
+      "phone": "(929) 713-0059",
+      "prices": [
+        {
+          "price": "$6",
+          "source_url": "https://www.seoul.skin/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$290",
+          "source_url": "https://www.seoul.skin/treatments/rejuran",
+          "treatment": "Rejuran with microneedling",
+          "unit": "per 2cc syringe"
+        },
+        {
+          "price": "$990",
+          "source_url": "https://www.seoul.skin/",
+          "treatment": "Ultherapy (lower face & jawline, 300 shots)",
+          "unit": "per 300 shots"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://www.seoul.skin/treatments/xeomin/dermatoxin",
+          "treatment": "Skin Botox (Dermatoxin), full face",
+          "unit": "per 50 units"
+        },
+        {
+          "price": "$75",
+          "source_url": "https://www.seoul.skin/",
+          "treatment": "LHALA Peel",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$100",
+          "source_url": "https://www.seoul.skin/",
+          "treatment": "Visit fee (in-home visits under $500)",
+          "unit": "per visit"
+        }
+      ],
+      "services": [
+        "Xeomin",
+        "Rejuran with microneedling",
+        "Ultherapy",
+        "Skin Botox (Dermatoxin)",
+        "LHALA Peel",
+        "Lip flip",
+        "Masseter Botox"
+      ],
+      "source_notes": "Prices from the clinic's own website seoul.skin, checked 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.seoul.skin/",
+      "zip": "10001"
+    },
+    {
+      "address": "274 Madison Ave, Suite 1004, New York, NY 10016",
+      "city": "New York",
+      "languages": [
+        "English",
+        "Korean",
+        "Thai",
+        "Chinese"
+      ],
+      "name": "Reset Cosmetic - Manhattan",
+      "neighborhood": "Midtown",
+      "phone": "(917) 930-0789",
+      "prices": [
+        {
+          "price": "$699",
+          "source_url": "https://www.resetmedclinic.com/neck-jawline-contouring-nyc/",
+          "treatment": "Neck & Jawline Contouring Program",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,800",
+          "source_url": "https://www.resetmedclinic.com/neck-jawline-contouring-nyc/",
+          "treatment": "Neck & Jawline Contouring Program, 3 sessions",
+          "unit": "per 3 sessions"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.resetmedclinic.com/",
+          "treatment": "Detox IV Therapy",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.resetmedclinic.com/",
+          "treatment": "Anti-Aging IV",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.resetmedclinic.com/",
+          "treatment": "Energy Boost IV Drip",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Ultherapy",
+        "Oligio",
+        "PDO thread lift",
+        "Dermal fillers",
+        "Botox / Xeomin",
+        "Laser skin therapy",
+        "Body contouring",
+        "IV therapy",
+        "Rejuran",
+        "Skinvive"
+      ],
+      "source_notes": "Prices from the clinic's own website resetmedclinic.com, checked 2026-11-25. The clinic's booking page lists many promotion prices; only the stable program/IV prices from its own site are used here. Languages from the consultation phone lines listed on its own site.",
+      "state": "NY",
+      "website": "https://www.resetmedclinic.com/",
+      "zip": "10016"
+    },
+    {
+      "address": "149-09 41st Ave, 2nd Floor, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [
+        "English",
+        "Korean",
+        "Thai",
+        "Chinese"
+      ],
+      "name": "Reset Cosmetic - Flushing",
+      "neighborhood": "Flushing",
+      "phone": "(347) 334-3326",
+      "prices": [],
+      "services": [
+        "Ultherapy",
+        "Oligio",
+        "PDO thread lift",
+        "Dermal fillers",
+        "Botox / Xeomin",
+        "Laser skin therapy",
+        "Body contouring",
+        "IV therapy",
+        "Rejuran",
+        "Skinvive"
+      ],
+      "source_notes": "Prices not published: the Flushing location's prices on the clinic's booking page are mostly limited-time promotions with no stable published menu verified on 2026-11-25, so the price list is left empty rather than using promo prices.",
+      "state": "NY",
+      "website": "https://www.resetmedclinic.com/",
+      "zip": "11354"
+    },
+    {
+      "address": "306 5th Ave, 5th & 6th Floor, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "Kahuna Skin Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(646) 398-7556",
+      "prices": [
+        {
+          "price": "$300",
+          "source_url": "https://kahunaskinclinic.com/facial/",
+          "treatment": "Kahuna Signature Facial",
+          "unit": "per session"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://kahunaskinclinic.com/facial/",
+          "treatment": "Kahuna Acne Treatment",
+          "unit": "per session"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://kahunaskinclinic.com/facial/",
+          "treatment": "MTS (Exosome)",
+          "unit": "per session"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://kahunaskinclinic.com/facial/",
+          "treatment": "MTS (Rejuran)",
+          "unit": "per session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://kahunaskinclinic.com/facial/",
+          "treatment": "LDM Tech Skin Rejuvenation",
+          "unit": "per session"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://kahunaskinclinic.com/facial/",
+          "treatment": "V-Fraction + E-MTS",
+          "unit": "per 300 shots"
+        },
+        {
+          "price": "$400",
+          "source_url": "https://kahunaskinclinic.com/bodycare/",
+          "treatment": "N2 Natural Korean Lymphatic Drainage Massage (full body)",
+          "unit": "per session"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://kahunaskinclinic.com/bodycare/",
+          "treatment": "Kahuna Special Pure Silk Detox",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Kahuna Signature Facial",
+        "Acne treatment",
+        "MTS microneedling (Exosome / Rejuran)",
+        "Laser skin care",
+        "LDM skin rejuvenation",
+        "Korean lymphatic drainage massage",
+        "Body care",
+        "Scalp / abdominal / foot care"
+      ],
+      "source_notes": "Prices from the clinic's own website kahunaskinclinic.com (facial and body care pages), checked 2026-11-25. Package prices (5/10 sessions) also exist on the site but are not listed here. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://kahunaskinclinic.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "1441 Broadway, 24th Floor, New York, NY 10018",
+      "city": "New York",
+      "languages": [
+        "English",
+        "Korean",
+        "Japanese",
+        "Spanish"
+      ],
+      "name": "riko",
+      "neighborhood": "Times Square",
+      "phone": "(212) 201-1043",
+      "prices": [
+        {
+          "price": "$899",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "Ultherapy Prime - Focus Area (200 lines)",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,499",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "Ultherapy Prime - Lower Face (400 lines)",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,899",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "Ultherapy Prime - Full Face (600 lines)",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,499",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "Thermage FLX - Eyelid and Undereye Tightening",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,899",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "Thermage FLX - Full Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,699",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "XERF - Full Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$2,199",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "XERF - Full Face + Neck",
+          "unit": "per session"
+        },
+        {
+          "price": "$599",
+          "source_url": "https://www.rikomed.com/treatment/skin-tightening",
+          "treatment": "Eve Titan Skin Tightening - Full Face",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Ultherapy Prime",
+        "Thermage FLX",
+        "XERF",
+        "Eve Titan",
+        "Botox",
+        "Dermal fillers",
+        "Pico / Genesis lasers",
+        "Skin Botox",
+        "Rejuran"
+      ],
+      "source_notes": "Skin-tightening prices from the clinic's own website rikomed.com, checked 2026-11-25. Botox/filler prices are not published on the clinic's own site, so they are not listed. Languages as stated on the clinic's own site (via its directory listing, read Nov 2026).",
+      "state": "NY",
+      "website": "https://www.rikomed.com/",
+      "zip": "10018"
+    },
+    {
+      "address": "136-18 39th Ave, 11th Floor, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "Serica Skincare & MedSpa - Flushing",
+      "neighborhood": "Flushing",
+      "phone": "(718) 557-9998",
+      "prices": [
+        {
+          "price": "$699",
+          "source_url": "https://www.sericamedspa.com/",
+          "treatment": "RF Microneedling",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,800",
+          "source_url": "https://www.sericamedspa.com/",
+          "treatment": "RF Microneedling, package of 3 with Rejuran Skin Booster",
+          "unit": "per package of 3"
+        }
+      ],
+      "services": [
+        "RF microneedling",
+        "Rejuran Skin Booster",
+        "Laser hair removal",
+        "Laser resurfacing",
+        "PRP",
+        "Facials"
+      ],
+      "source_notes": "Prices are the clinic's own published menu (sericamedspa.com), as checked 2026-10-29 and re-confirmed via the clinic's menu on 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.sericamedspa.com/",
+      "zip": "11354"
+    },
+    {
+      "address": "39 W 32nd St, Suite 1400, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "Serica Skincare & MedSpa - Midtown",
+      "neighborhood": "Koreatown",
+      "phone": "(212) 226-6357",
+      "prices": [],
+      "services": [
+        "RF microneedling",
+        "Rejuran Skin Booster",
+        "Laser hair removal",
+        "Laser resurfacing",
+        "PRP",
+        "Facials"
+      ],
+      "source_notes": "Prices not published: the clinic's published menu prices are listed under its Flushing location; no separate published menu was verified for the Midtown location on 2026-11-25.",
+      "state": "NY",
+      "website": "https://www.sericamedspa.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "157-02 Northern Blvd, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "AestheticsMD by Jean Rhee - Flushing",
+      "neighborhood": "Flushing",
+      "phone": "(917) 563-1003",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Daxxify",
+        "Juvederm",
+        "Sculptra",
+        "Radiesse",
+        "Rejuran",
+        "Ultherapy Prime",
+        "Thermage FLX",
+        "Laser hair removal",
+        "HydraFacial"
+      ],
+      "source_notes": "Prices not published: the clinic does not publish prices on its own website (aestheticsmd.co), confirmed 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.aestheticsmd.co/",
+      "zip": "11354"
+    },
+    {
+      "address": "673 Madison Ave, 2nd Floor, New York, NY 10065",
+      "city": "New York",
+      "languages": [],
+      "name": "AestheticsMD by Jean Rhee - Upper East Side",
+      "neighborhood": "Upper East Side",
+      "phone": "(212) 933-4001",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Xeomin",
+        "Daxxify",
+        "Juvederm",
+        "Sculptra",
+        "Radiesse",
+        "Rejuran",
+        "Ultherapy Prime",
+        "Thermage FLX",
+        "Laser hair removal",
+        "HydraFacial"
+      ],
+      "source_notes": "Prices not published: the clinic does not publish prices on its own website (aestheticsmd.co), confirmed 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.aestheticsmd.co/",
+      "zip": "10065"
+    },
+    {
+      "address": "124 W 24th St, Suite 41, New York, NY 10011",
+      "city": "New York",
+      "languages": [],
+      "name": "Lov MedSpa New York",
+      "neighborhood": "Chelsea",
+      "phone": "",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://lovmedspa.com/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "RF microneedling",
+        "PDO thread lift",
+        "CO2 laser skin resurfacing",
+        "Laser hair removal",
+        "Facials",
+        "Chemical peels",
+        "PRP therapy",
+        "IV therapy",
+        "Weight loss injections"
+      ],
+      "source_notes": "Botox price is from the clinic's own website (lovmedspa.com), as checked October 2026. Phone number could not be verified from the clinic's own site on 2026-11-25, left blank.",
+      "state": "NY",
+      "website": "https://lovmedspa.com/",
+      "zip": "10011"
+    },
+    {
+      "address": "140 W 58th St, Suite A, New York, NY 10019",
+      "city": "New York",
+      "languages": [],
+      "name": "Dr. Lanna Aesthetics",
+      "neighborhood": "Midtown",
+      "phone": "(929) 325-2979",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "PDO threads",
+        "Morpheus8",
+        "Forma",
+        "Liquid facelift",
+        "Meso Botox",
+        "PDRN Skin Booster",
+        "Glass Skin Facial"
+      ],
+      "source_notes": "Prices not published: the clinic's own site states pricing is discussed at consultation rather than published per session (doctorlanna.com, checked 2026-11-25). Third-party directory price ranges were not used.",
+      "state": "NY",
+      "website": "https://doctorlanna.com/",
+      "zip": "10019"
+    },
+    {
+      "address": "37-31 149th St, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "Kasuga Beauty",
+      "neighborhood": "Flushing",
+      "phone": "(929) 501-1369",
+      "prices": [],
+      "services": [
+        "SPL Photon Skin Rejuvenation",
+        "Ultherapy",
+        "HydraFacial",
+        "Anti-wrinkle injections",
+        "Microneedling",
+        "GentleMax Pro laser hair removal",
+        "Facials",
+        "WMT Placenta Treatment"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (kasugabeauty.com) on 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed from the Chinese-language branding.",
+      "state": "NY",
+      "website": "https://www.kasugabeauty.com/",
+      "zip": "11354"
+    },
+    {
+      "address": "136-82 39th Ave, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "Jourdenwell Aesthetics",
+      "neighborhood": "Flushing",
+      "phone": "(718) 866-0022",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Facials",
+        "RF microneedling",
+        "HydraFacial",
+        "PRP / PRF Skin Booster",
+        "Cosmetic surgery"
+      ],
+      "source_notes": "Prices not published on the clinic's own website (jourdenwell.us), checked 2026-11-25. Groupon deals for this clinic exist but are third-party promotions, not the clinic's own published menu, so they were not used.",
+      "state": "NY",
+      "website": "https://www.jourdenwell.us/",
+      "zip": "11354"
+    },
+    {
+      "address": "133-16 39th Ave, 2nd Floor, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "C2J Beauty",
+      "neighborhood": "Flushing",
+      "phone": "(917) 392-8333",
+      "prices": [
+        {
+          "price": "$89",
+          "source_url": "https://c2jbeauty.com/",
+          "treatment": "Microneedling",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Diode laser hair removal",
+        "Chemical peels",
+        "Rejuran microneedling",
+        "Microneedling"
+      ],
+      "source_notes": "Microneedling price is from the clinic's own website (c2jbeauty.com), as checked 2026-10-29 and re-confirmed 2026-11-25. No other prices were verified on the clinic's own site.",
+      "state": "NY",
+      "website": "https://c2jbeauty.com/",
+      "zip": "11354"
+    },
+    {
+      "address": "42-35 Main St, Suite 3B, Flushing, NY 11355",
+      "city": "Flushing",
+      "languages": [
+        "Chinese",
+        "English"
+      ],
+      "name": "Dr. W&W Medical & Cosmetic Dermatology - Flushing",
+      "neighborhood": "Flushing",
+      "phone": "(718) 445-6000",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Juvederm",
+        "Radiesse",
+        "PRP",
+        "Medical dermatology",
+        "Laser dermatology"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (wwdermatology.com) on 2026-11-25. Bilingual (Chinese and English) as stated in the clinic's own directory listing.",
+      "state": "NY",
+      "website": "https://wwdermatology.com/",
+      "zip": "11355"
+    },
+    {
+      "address": "36-34 Union St, 3rd Floor, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "EJ Wellness Plus",
+      "neighborhood": "Flushing",
+      "phone": "",
+      "prices": [],
+      "services": [
+        "IV therapy",
+        "PRP microneedling",
+        "Neurotoxin injections",
+        "Dermal fillers",
+        "Medical weight loss"
+      ],
+      "source_notes": "Partially verified: address and services from a Flushing med-spa guide checked 2026-11-25, but phone and website could not be verified from the clinic's own site, so they are left blank. Prices not published.",
+      "state": "NY",
+      "website": "",
+      "zip": "11354"
+    },
+    {
+      "address": "315 5th Ave, Suite 1004, New York, NY 10016",
+      "city": "New York",
+      "languages": [],
+      "name": "ANSO Med Spa",
+      "neighborhood": "Koreatown",
+      "phone": "(917) 900-8600",
+      "prices": [
+        {
+          "price": "$349",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "85 Min Facial Package (HydraFacial MD Platinum / Ultimate Collagen Facelift / Ultimate Vitamin C Brightening / Ultimate Lymphatic Radiance)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$299",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "70 Min Facial Package (HydraFacial MD Deluxe Glow / Ultimate Acne Facial / Lymphatic Lift & LED Facial)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$229",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "55 Min Facial Package (Classic Meridian Lymphatic / Classic Deep Cleansing Extraction / Classic Dermaplaning Hydrating)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$1,199",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "Fotona 4D Facelift",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$699",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "Fotona 4D Lifting Laser (eye / neck / intraoral)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "Fotona Smooth Laser (face / lip / spider vein / skin tag / HaiRestart)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$799",
+          "source_url": "https://www.annsofia.com/packages",
+          "treatment": "Potenza RF Microneedling (acne & acne scar / eye or neck lifting)",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Meridian Lymphatic Detox Facial",
+        "HydraFacial MD",
+        "Korean Hydro Magic Facial",
+        "Fotona 4D Laser",
+        "Potenza RF Microneedling",
+        "Laser hair removal",
+        "Massage (deep tissue / lymphatic drainage / Swedish)",
+        "Facials"
+      ],
+      "source_notes": "Prices from the clinic's own website annsofia.com/packages, read 2026-11-25. Address and phone from the same site's FAQ (315 Fifth Ave, Suite 1004; call or text 917-900-8600). Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.annsofia.com/",
+      "zip": "10016"
+    },
+    {
+      "address": "12 E 44th St, Floor 6, New York, NY 10017",
+      "city": "New York",
+      "languages": [],
+      "name": "Beauty Artist Studio New York",
+      "neighborhood": "Midtown",
+      "phone": "(929) 400-5855",
+      "prices": [
+        {
+          "price": "$150",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Intro Facial",
+          "unit": "per 60 min session"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Water Drop Lift",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "O2 Korean Glass Skin Facial",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "24K Gold Detox Facial",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "SOS Facial",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$175",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Deep Cleansing: Aqua Peel",
+          "unit": "per 60 min session"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Hydration: LHALA Peel",
+          "unit": "per 45 min session"
+        },
+        {
+          "price": "$225",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Kyung Rak K-Sculpting Facial",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Revival Shot Facial",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "Microneedling (MTS)",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$150",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "HIFU Mini Facial (1000 shots)",
+          "unit": "per 45 min session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "HIFU Full Facial (2500 shots)",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "HIFU Intensive Facial (4000 shots)",
+          "unit": "per 90 min session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://www.beautyartistny.com/pricesfacials",
+          "treatment": "POLKA RF Tightening",
+          "unit": "per 75 min session"
+        }
+      ],
+      "services": [
+        "Korean-style facials",
+        "Kyung Rak K-Sculpting Facial",
+        "Nano Brows / permanent makeup",
+        "Korean Keratin Lash Lift",
+        "Lash Lift & Tint",
+        "Lash Extensions",
+        "Brow Lamination & Tint",
+        "Microneedling (MTS)",
+        "HIFU Face Lifting",
+        "POLKA RF Tightening",
+        "Theranova Body Slim"
+      ],
+      "source_notes": "Prices from the clinic's own website beautyartistny.com/pricesfacials, read 2026-11-25. Address 12 E 44th St, Fl 6 and text number (929) 400-5855 from the same site. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.beautyartistny.com/",
+      "zip": "10017"
+    },
+    {
+      "address": "39 W 32nd St, Suite 1500, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "Genesys Laser Clinic",
+      "neighborhood": "Koreatown",
+      "phone": "(212) 564-7003",
+      "prices": [
+        {
+          "price": "$240",
+          "source_url": "https://genesyslaserclinic.com/collections/rejuvenated-skin-anti-againg",
+          "treatment": "Filorga 135 HA",
+          "unit": "per session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://genesyslaserclinic.com/collections/rejuvenated-skin-anti-againg",
+          "treatment": "Premium Aqua Lifting",
+          "unit": "per session"
+        },
+        {
+          "price": "$360",
+          "source_url": "https://genesyslaserclinic.com/collections/rejuvenated-skin-anti-againg",
+          "treatment": "Rejuran Healer",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$330",
+          "source_url": "https://genesyslaserclinic.com/collections/rejuvenated-skin-anti-againg",
+          "treatment": "Rejuran i (Rejuran Eye)",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Rejuran Healer",
+        "Rejuran i",
+        "Premium Aqua Lifting",
+        "Filorga 135 HA",
+        "Juvelook",
+        "PDRN",
+        "Thermage",
+        "Ultherapy",
+        "Botox",
+        "Juvederm filler",
+        "Fraxel Dual",
+        "Sciton BBL",
+        "Laser hair removal"
+      ],
+      "source_notes": "Prices from the clinic's own website genesyslaserclinic.com/collections/rejuvenated-skin-anti-againg, read 2026-11-25. Note: the site shows these as discounted prices (e.g. Filorga $240, was $400; Premium Aqua Lifting $300, was $500; Rejuran Healer from $360, was $600; Rejuran i $330, was $550). Address and phone from the clinic's own contact page (39 W 32nd St, Suite 1500; (212) 564-7003). Languages spoken not stated on the site, left blank. Additional prices merged from a duplicate entry (Genesys Laser Skin Clinic, 39 W 32nd St, Suite 1500, New York, NY 10001, Korean-focused clinic: Korean-inspired treatments including Rejuran, Ultherapy Prime and Thermage, per its own website g).",
+      "state": "NY",
+      "website": "https://genesyslaserclinic.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "162 W 56th St, Suite 304-305, New York, NY 10019",
+      "city": "New York",
+      "languages": [],
+      "name": "Dr. Jane Yoo MD",
+      "neighborhood": "Midtown",
+      "phone": "(646) 844-0424",
+      "prices": [
+        {
+          "price": "$550",
+          "source_url": "https://www.janeyoomd.com/faqs/",
+          "treatment": "Cosmetic consultation (with VISIA 3D skin analysis)",
+          "unit": "per consultation"
+        },
+        {
+          "price": "$925",
+          "source_url": "https://www.janeyoomd.com/faqs/",
+          "treatment": "Filler dissolution consultation (ultrasound-guided)",
+          "unit": "per consultation"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://www.janeyoomd.com/faqs/",
+          "treatment": "Self-pay appointment",
+          "unit": "from, per appointment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Chemical peels",
+        "Facial skin rejuvenation",
+        "Skin boosting",
+        "Skin tightening",
+        "Lasers",
+        "Laser hair removal",
+        "Microneedling",
+        "Medical dermatology",
+        "Mohs surgery",
+        "Acne scarring treatment",
+        "Hyperpigmentation treatment"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website janeyoomd.com, read 2026-11-25. Korean aesthetic focus is from the clinic's own Korean Aesthetic Center of Excellence page. Address and phone from janeyoomd.com. Languages spoken not stated on the site, left blank. Additional prices merged from a duplicate entry (Jane Yoo MD, 162 W 56th St, Suite 304-305, New York, NY 10019, Korean-focused: Korean-American board-certified dermatologist Dr. Jane Yoo, Korean Aesthetic Center of Excellence, per i).",
+      "state": "NY",
+      "website": "https://www.janeyoomd.com/",
+      "zip": "10019"
+    },
+    {
+      "address": "150 E 55th St, New York, NY 10022",
+      "city": "New York",
+      "languages": [],
+      "name": "PhoenixCare - Midtown East",
+      "neighborhood": "Midtown East",
+      "phone": "(888) 234-1588",
+      "prices": [
+        {
+          "price": "$299",
+          "source_url": "https://phoenixcarehealth.com/cosmetic-facial-acupuncture/",
+          "treatment": "Cosmetic Facial Acupuncture - First-time Trial",
+          "unit": "per 100 min session"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://phoenixcarehealth.com/cosmetic-facial-acupuncture/",
+          "treatment": "Cosmetic Acupuncture",
+          "unit": "per 100 min session"
+        }
+      ],
+      "services": [
+        "Cosmetic facial acupuncture (Korean-style)",
+        "Acupuncture",
+        "Facial gua sha",
+        "Facial acupressure",
+        "TCM herbal face mask",
+        "Moxibustion",
+        "TCM herbal medicine",
+        "Physical therapy",
+        "Tuina massage"
+      ],
+      "source_notes": "Prices from the clinic's own website phoenixcarehealth.com/cosmetic-facial-acupuncture/, read 2026-11-25 (page crawled 2026-11-14 in the fetch, prices as published there). Address and phone for the Midtown East location from the same site (150 E 55th St; 888-234-1588). The clinic also has a Midtown West location at 889 9th Ave, listed here as a separate location only if needed - this entry is the Midtown East location only. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://phoenixcarehealth.com/",
+      "zip": "10022"
+    },
+    {
+      "address": "25 W 32nd St, 5th Floor, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "Juvenex Spa",
+      "neighborhood": "Koreatown",
+      "phone": "(646) 733-1330",
+      "prices": [
+        {
+          "price": "$65",
+          "source_url": "https://www.juvenexspanyc1.com/spa-package-new-york-city",
+          "treatment": "Juvenex Jade Journey General Admission",
+          "unit": "per visit"
+        },
+        {
+          "price": "$135",
+          "source_url": "https://www.juvenexspanyc1.com/body-scrub-new-york",
+          "treatment": "Basic Purification Program (Korean-style salt glow scrub)",
+          "unit": "per program"
+        },
+        {
+          "price": "$165",
+          "source_url": "https://www.juvenexspanyc1.com/spa-package-new-york-city",
+          "treatment": "Basic Beautification Program",
+          "unit": "per program"
+        },
+        {
+          "price": "$235",
+          "source_url": "https://www.juvenexspanyc1.com/spa-package-new-york-city",
+          "treatment": "Enhanced Beautification Program",
+          "unit": "per 150 min program"
+        },
+        {
+          "price": "$135",
+          "source_url": "https://www.juvenexspanyc1.com/spa-package-new-york-city",
+          "treatment": "Basic Allurification Program",
+          "unit": "per 90 min program"
+        },
+        {
+          "price": "$255",
+          "source_url": "https://www.juvenexspanyc1.com/spa-package-new-york-city",
+          "treatment": "Enhanced Allurification Program",
+          "unit": "per 150 min program"
+        }
+      ],
+      "services": [
+        "Korean body scrub",
+        "Facials (seaweed / fango mud / back facial)",
+        "Massage",
+        "Saunas, steam sauna, soaking tubs, baked-clay sauna (Jade Journey)",
+        "Brow perfection",
+        "Couples spa packages"
+      ],
+      "source_notes": "Prices from the clinic's own website juvenexspanyc1.com (spa package and body scrub pages), read 2026-11-25. Address 25 W 32nd St, 5th Floor and phone (646) 733-1330 from the same site. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.juvenexspanyc1.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "90 Bowery, 4th Floor, #405, New York, NY 10013",
+      "city": "New York",
+      "languages": [],
+      "name": "Liwei Beauty Spa",
+      "neighborhood": "Chinatown",
+      "phone": "(917) 639-3900",
+      "prices": [
+        {
+          "price": "$139",
+          "source_url": "https://www.liweibeautyspa.com/memberships",
+          "treatment": "Essential Membership (1x 60-min facial/treatment per month)",
+          "unit": "per month"
+        },
+        {
+          "price": "$169",
+          "source_url": "https://www.liweibeautyspa.com/memberships",
+          "treatment": "Premium Membership (1x 90-min facial/treatment per month)",
+          "unit": "per month"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Gua sha facial",
+        "Lymphatic drainage facial",
+        "Deep cleansing facial",
+        "Acne facial",
+        "Scalp therapy / head spa",
+        "Microdermabrasion",
+        "Hydro-lifting facial",
+        "Oxygen infusion facial"
+      ],
+      "source_notes": "Membership prices from the clinic's own website liweibeautyspa.com/memberships, read 2026-11-25. The same page lists original single-treatment values ($200 for 60-min treatments, $250 for some 60-min facials, $280-$328 for 90-min treatments) but treatment names were not clearly labelled in the page text, so only the clearly labelled membership prices are listed here. Groupon promo prices for this clinic were not used. Address 90 Bowery, 4th Floor #405 and phone (917) 639-3900 from the clinic's own site/directory listing. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.liweibeautyspa.com/",
+      "zip": "10013"
+    },
+    {
+      "address": "25 W 45th St, Suite 507, New York, NY 10036",
+      "city": "New York",
+      "languages": [
+        "English",
+        "Russian"
+      ],
+      "name": "Fifth Element Acupuncture",
+      "neighborhood": "Times Square",
+      "phone": "(347) 596-0931",
+      "prices": [
+        {
+          "price": "$200",
+          "source_url": "https://www.fifthelementacupuncture.com/facial-acupuncture",
+          "treatment": "Cosmetic facial acupuncture",
+          "unit": "per 75 min session"
+        },
+        {
+          "price": "$1,800",
+          "source_url": "https://www.fifthelementacupuncture.com/facial-acupuncture",
+          "treatment": "Cosmetic facial acupuncture, series of 10",
+          "unit": "per 10 sessions"
+        }
+      ],
+      "services": [
+        "Cosmetic facial acupuncture",
+        "Acupuncture",
+        "Cupping therapy",
+        "Electroacupuncture",
+        "Chinese herbal medicine",
+        "Gua sha"
+      ],
+      "source_notes": "Prices from the clinic's own website fifthelementacupuncture.com/facial-acupuncture, read 2026-11-25. Address, phone and languages (English and Russian) from the same site. Chinese-medicine clinic near Bryant Park / Times Square.",
+      "state": "NY",
+      "website": "https://www.fifthelementacupuncture.com/",
+      "zip": "10036"
+    },
+    {
+      "address": "139 Fulton St, Suite 1012, New York, NY 10038",
+      "city": "New York",
+      "languages": [],
+      "name": "Sage Wellness",
+      "neighborhood": "Financial District",
+      "phone": "(917) 763-8560",
+      "prices": [],
+      "services": [
+        "Facial acupuncture",
+        "Microneedling",
+        "Facial cupping",
+        "Facial gua sha",
+        "Acupuncture",
+        "Chinese herbal medicine",
+        "Moxibustion"
+      ],
+      "source_notes": "Prices not published: no prices were found on the NYC clinic's own website sage-wellness.com, read 2026-11-25. Note: prices for a different California business named Sage Wellness Center (sagewellnesscenter.org) were found in search and were NOT used. Address and phone from sage-wellness.com. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://sage-wellness.com/",
+      "zip": "10038"
+    },
+    {
+      "address": "32 Pell St, New York, NY 10013",
+      "city": "New York",
+      "languages": [],
+      "name": "Candy Beauty Skin Care",
+      "neighborhood": "Chinatown",
+      "phone": "(646) 691-8273",
+      "prices": [
+        {
+          "price": "$89",
+          "source_url": "https://candybeauty.store/service/",
+          "treatment": "Deep layer cleansing facial",
+          "unit": "per single session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://candybeauty.store/service/",
+          "treatment": "Picosecond Laser freckle removal",
+          "unit": "per single session"
+        },
+        {
+          "price": "$128",
+          "source_url": "https://candybeauty.store/service/",
+          "treatment": "Intense Pulse Light (IPL)",
+          "unit": "per single session"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://candybeauty.store/service/",
+          "treatment": "HIFU non-surgical facelift",
+          "unit": "per single session"
+        },
+        {
+          "price": "$580",
+          "source_url": "https://candybeauty.store/service/",
+          "treatment": "Microblading Eyebrow",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$380",
+          "source_url": "https://candybeauty.store/service/",
+          "treatment": "Eyeliner (permanent makeup)",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Deep layer cleansing",
+        "Picosecond laser",
+        "IPL",
+        "HIFU non-surgical facelift",
+        "Microblading eyebrow",
+        "Eyeliner tattoo",
+        "Eyelash extensions",
+        "Eyelash perm / lash lift",
+        "Laser hair removal",
+        "Lymphatic drainage massage",
+        "Body scrub"
+      ],
+      "source_notes": "Prices from the clinic's own website candybeauty.store/service/, read 2026-11-25. Note: the service page lists prices with descriptions rather than formal treatment headings, so treatment names here are descriptive summaries of the page text (e.g. the $89 facial is described as deep layer cleansing with steaming and massage). Address and phone from the same site. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://candybeauty.store/",
+      "zip": "10013"
+    },
+    {
+      "address": "462 Greenwich St, New York, NY 10013",
+      "city": "New York",
+      "languages": [],
+      "name": "Tribeca Spa of Tranquility",
+      "neighborhood": "Tribeca",
+      "phone": "(212) 226-4141",
+      "prices": [
+        {
+          "price": "$239",
+          "source_url": "https://tribecaspa.nyc/packages/",
+          "treatment": "Cleopatra's Delight (60 min Korean Body Scrub + 45 min Signature Massage)",
+          "unit": "per package"
+        },
+        {
+          "price": "$359",
+          "source_url": "https://tribecaspa.nyc/packages/",
+          "treatment": "Cleopatra's Delight Deluxe Package (60 min Korean Body Scrub + 60 min Signature Massage + 45 min European Facial)",
+          "unit": "per package"
+        },
+        {
+          "price": "$520",
+          "source_url": "https://tribecaspa.nyc/packages/",
+          "treatment": "Couple's Romance (Couples 60 min Body Scrub + Couples 60 min Massage)",
+          "unit": "per package for 2 guests"
+        },
+        {
+          "price": "$799",
+          "source_url": "https://tribecaspa.nyc/packages/",
+          "treatment": "Anniversary Celebration Deluxe (Couples 60 min Body Scrub + Couples 60 min Massage + 2 x 60 min Facial)",
+          "unit": "per package for 2 guests"
+        }
+      ],
+      "services": [
+        "Korean body scrub",
+        "Massage",
+        "Facials",
+        "Waxing",
+        "Mani-pedi",
+        "Sauna (steam / dry)"
+      ],
+      "source_notes": "Prices not published: no prices were verified on the clinic's own website (tribecaspanyc.com) on 2026-11-25. Directory listings quote a $129 Korean body scrub, but that was not verified on the clinic's own site today, so the price list is left empty rather than using a directory price. Address and phone from directory listings for 462 Greenwich St, (212) 226-4141. Languages spoken not stated, left blank. Additional prices merged from a duplicate entry (Tribeca Spa of Tranquility, 462 Greenwich St, New York, NY 10013, Korean-focused: authentic Korean Body Scrub is its signature treatment, per its own website tribecaspa.nyc, checked 2026).",
+      "state": "NY",
+      "website": "https://www.tribecaspanyc.com/",
+      "zip": "10013"
+    },
+    {
+      "address": "30 W 32nd St, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "SPA 32",
+      "neighborhood": "Koreatown",
+      "phone": "(212) 967-3232",
+      "prices": [],
+      "services": [
+        "Foot massage / reflexology",
+        "Body massage",
+        "Deep cleansing facials",
+        "Korean massage"
+      ],
+      "source_notes": "Prices not published: no published price menu was verified on the clinic's own website (nyspa32.com) on 2026-11-25, so the price list is left empty; third-party price ranges were not used. Address 30 W 32nd St and phone (212) 967-3232 from directory listings. Languages spoken not stated, left blank. Partially verified: website could not be fully confirmed from a fresh page read today.",
+      "state": "NY",
+      "website": "http://www.nyspa32.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "22 W 32nd St, 4th Floor, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "The SPA Club",
+      "neighborhood": "Koreatown",
+      "phone": "(212) 502-4185",
+      "prices": [
+        {
+          "price": "$63",
+          "source_url": "https://thespaclub.com/products/general-admission?variant=48797197140282",
+          "treatment": "General Admission (online single ticket)",
+          "unit": "per visit"
+        },
+        {
+          "price": "$70",
+          "source_url": "https://thespaclub.com/products/general-admission?variant=48797197140282",
+          "treatment": "General Admission (on-site, weekdays)",
+          "unit": "per visit"
+        },
+        {
+          "price": "$90",
+          "source_url": "https://thespaclub.com/products/general-admission?variant=48797197140282",
+          "treatment": "General Admission (on-site, weekends & holidays)",
+          "unit": "per visit"
+        }
+      ],
+      "services": [
+        "Korean jjimjilbang saunas",
+        "Hot pools",
+        "Steam room",
+        "Korean body scrub",
+        "Body massage",
+        "Facials",
+        "Day spa"
+      ],
+      "source_notes": "Prices from the clinic's own website thespaclub.com/products/general-admission, read 2026-11-25. Address 22 W 32nd St, 4th Floor and phone (212) 502-4185 from the clinic's own site/directory listing. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://thespaclub.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "41-77 Kissena Blvd, Flushing, NY 11355",
+      "city": "Flushing",
+      "languages": [
+        "English",
+        "Chinese (Mandarin)",
+        "Spanish"
+      ],
+      "name": "HQ Med Spa",
+      "neighborhood": "Flushing",
+      "phone": "(718) 790-8678",
+      "prices": [],
+      "services": [
+        "NAD+ IV Therapy",
+        "Morpheus8",
+        "Ultherapy PRIME",
+        "Thermage FLX",
+        "Rejuran",
+        "HydraFacial",
+        "PicoWay Laser",
+        "Botox",
+        "Dermal fillers",
+        "PRP Hair Restoration",
+        "Laser hair removal",
+        "Sexual wellness (O-Shot / P-Shot)"
+      ],
+      "source_notes": "Prices not published: the clinic's own website (hqmedspa.com) states pricing is given at consultation, checked 2026-11-25. Languages as stated on the clinic's own website. Address, phone and services from hqmedspa.com, checked 2026-11-25.",
+      "state": "NY",
+      "website": "https://www.hqmedspa.com/",
+      "zip": "11355"
+    },
+    {
+      "address": "29-28 Ditmars Boulevard, Astoria, NY 11105",
+      "city": "Astoria",
+      "languages": [],
+      "name": "SKAND Aesthetics",
+      "neighborhood": "Astoria",
+      "phone": "(347) 344-8774",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$549",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "Lip Filler",
+          "unit": "per 1 mL syringe"
+        },
+        {
+          "price": "$99",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "Signature Facial",
+          "unit": "per 60-minute session"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "HIFU - Full Face (excluding neck)",
+          "unit": "per session"
+        },
+        {
+          "price": "$249",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "Microneedling - face",
+          "unit": "per session"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "IPL Photofacial - Full Face",
+          "unit": "per session"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "Powder / Ombre Brows",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://skandaesthetics.com/services/",
+          "treatment": "PRP Hair Restoration - Scalp",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Microneedling",
+        "RF Microneedling",
+        "IPL Photofacial",
+        "Picosecond laser",
+        "Fractional CO2 resurfacing",
+        "HIFU",
+        "PDO Thread Lift",
+        "Laser hair removal",
+        "Botox",
+        "Xeomin",
+        "Dysport",
+        "Dermal fillers",
+        "PRP / PRF Hair Restoration",
+        "IV Therapy",
+        "Permanent makeup"
+      ],
+      "source_notes": "Prices from the clinic's own website (skandaesthetics.com/services/), checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://skandaesthetics.com/",
+      "zip": "11105"
+    },
+    {
+      "address": "214-41 42nd Ave #3C, Bayside, NY 11361",
+      "city": "Bayside",
+      "languages": [],
+      "name": "UBLISS Medical Aesthetics",
+      "neighborhood": "Bayside",
+      "phone": "(631) 616-5615",
+      "prices": [],
+      "services": [
+        "Ultherapy Prime",
+        "Skin Booster (Rejuran, Exosome)",
+        "Dermal fillers",
+        "PRP",
+        "Neurotoxins (Xeomin, Letybo, Jeuveau)",
+        "Microneedling (SkinPen)"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (ublissny.com) on 2026-11-25. Address, phone and services from ublissny.com, checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.ublissny.com/",
+      "zip": "11361"
+    },
+    {
+      "address": "214-20 41st Ave, 1st Floor, Bayside, NY 11361",
+      "city": "Bayside",
+      "languages": [],
+      "name": "Beauty Street Spa",
+      "neighborhood": "Bayside",
+      "phone": "(929) 995-0804",
+      "prices": [
+        {
+          "price": "$75",
+          "source_url": "https://www.beautystreetspa.com/facial",
+          "treatment": "Express Glow Facial",
+          "unit": "per 30-minute session"
+        },
+        {
+          "price": "$120",
+          "source_url": "https://www.beautystreetspa.com/facial",
+          "treatment": "Glow Getter Facial",
+          "unit": "per 50-minute session"
+        },
+        {
+          "price": "$170",
+          "source_url": "https://www.beautystreetspa.com/facial",
+          "treatment": "Game Changer Facial",
+          "unit": "per 70-minute session"
+        },
+        {
+          "price": "$230",
+          "source_url": "https://www.beautystreetspa.com/facial",
+          "treatment": "The Peak Facial",
+          "unit": "per 90-minute session"
+        }
+      ],
+      "services": [
+        "Korean facials",
+        "Microneedling",
+        "Chemical peels",
+        "Dermaplaning",
+        "Lip Blushing",
+        "Microblading",
+        "Lymphatic Drainage Massage",
+        "Body contouring"
+      ],
+      "source_notes": "Prices from the clinic's own website (beautystreetspa.com/facial), checked 2026-11-25. Package prices also exist on the site but only single-session facial prices are listed here. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.beautystreetspa.com/",
+      "zip": "11361"
+    },
+    {
+      "address": "144-48 Roosevelt Ave, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [],
+      "name": "Skin Solutions New York",
+      "neighborhood": "Flushing",
+      "phone": "(718) 886-2455",
+      "prices": [],
+      "services": [
+        "Rejuran",
+        "Exosomes",
+        "Skin Boosters",
+        "XERF",
+        "Ultra laser",
+        "HydraFacial",
+        "Ultherapy Prime V-Lifting",
+        "Genius Microneedling RF",
+        "KeraLase Hair Restoration"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (skinsolutionsny.com) on 2026-11-25. Address and phone from the clinic's own website, ZIP 11354 confirmed on the clinic's own privacy-policy page (skinsolutionsny.com/privacy-policy). Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.skinsolutionsny.com/",
+      "zip": "11354"
+    },
+    {
+      "address": "32-12 Broadway, 2nd floor, Astoria, NY 11106",
+      "city": "Astoria",
+      "languages": [],
+      "name": "Diamond Works Medspa",
+      "neighborhood": "Astoria",
+      "phone": "(347) 631-0922",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Restylane",
+        "Juvederm",
+        "Radiesse",
+        "Belotero Balance",
+        "Sculptra",
+        "Kybella",
+        "PDO / PLLA Thread Lift",
+        "Vein Removal",
+        "Microneedling",
+        "Aveli Cellulite Treatment",
+        "IV Therapy"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (diamondworksmedspa.com/treatments/), checked 2026-11-25. Address, phone and services from diamondworksmedspa.com, checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.diamondworksmedspa.com/",
+      "zip": "11106"
+    },
+    {
+      "address": "28-34 38th Street, Astoria, NY 11103",
+      "city": "Astoria",
+      "languages": [],
+      "name": "Just Glam Aesthetics",
+      "neighborhood": "Astoria",
+      "phone": "(929) 919-2767",
+      "prices": [],
+      "services": [
+        "Neurotoxins (Botox, Xeomin, Dysport, Jeuveau)",
+        "Dermal fillers",
+        "Biostimulators",
+        "Body contouring"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (justglamaesthetics.com) on 2026-11-25. Address, phone and services from justglamaesthetics.com, checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://justglamaesthetics.com/",
+      "zip": "11103"
+    },
+    {
+      "address": "92-22 Corona Ave, Elmhurst, NY 11373",
+      "city": "Elmhurst",
+      "languages": [],
+      "name": "Victoria's Esthetics",
+      "neighborhood": "Elmhurst",
+      "phone": "(347) 620-0091",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Cheek filler",
+          "unit": "per 0.5 ml"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Cheek filler",
+          "unit": "per 1 ml"
+        },
+        {
+          "price": "$1,500",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Nasolabial folds filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$2,500",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Jawline filler",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$150",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Eyelash extensions, full set",
+          "unit": "per full set"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "PRP",
+          "unit": "per session"
+        },
+        {
+          "price": "$200",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Chemical peel",
+          "unit": "per session"
+        },
+        {
+          "price": "$150",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Basic HydraFacial (30 minutes)",
+          "unit": "per session"
+        },
+        {
+          "price": "$500",
+          "source_url": "https://victoriasesthetics.com/prices/",
+          "treatment": "Microneedling",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Permanent makeup (microblading, nano brows, ombre powder brows, lip blush, permanent eyeliner)",
+        "Lash extensions",
+        "Brow lamination",
+        "Laser hair removal",
+        "Botox",
+        "Dermal fillers",
+        "Facials",
+        "HydraFacial",
+        "Chemical peels",
+        "Microneedling",
+        "HIFU / Ultherapy",
+        "PRP"
+      ],
+      "source_notes": "Prices from the clinic's own website (victoriasesthetics.com/prices/), checked 2026-11-25. Only non-promo regular prices are used here: the site's promo prices (e.g. Botox $7/unit promo vs $15 regular, valid through Dec 31, 2026) were excluded. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://victoriasesthetics.com/",
+      "zip": "11373"
+    },
+    {
+      "address": "106-15 Queens Blvd #B15, Forest Hills, NY 11375",
+      "city": "Forest Hills",
+      "languages": [],
+      "name": "Dr V's Med-Spa",
+      "neighborhood": "Forest Hills",
+      "phone": "(917) 789-6963",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers (Juvederm, Restylane)",
+        "Laser treatments",
+        "Microneedling",
+        "Chemical peels",
+        "PRP Hair Restoration",
+        "IV Therapy",
+        "Facials",
+        "Body contouring",
+        "Emsculpt"
+      ],
+      "source_notes": "Prices not published: the clinic's own website (mymdspa.com) shows only limited-time promo offers (e.g. $100 off dermal filler with Botox), with no stable published price menu verified on 2026-11-25, so the price list is left empty rather than using promo prices. Address, phone and services from mymdspa.com, checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.mymdspa.com/",
+      "zip": "11375"
+    },
+    {
+      "address": "115-12 Queens Blvd, Forest Hills, NY 11375",
+      "city": "Forest Hills",
+      "languages": [],
+      "name": "Aesthetic Solutions NY",
+      "neighborhood": "Forest Hills",
+      "phone": "(718) 480-8000",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Juvederm",
+        "Restylane",
+        "Radiesse",
+        "Belotero",
+        "MicroBotox",
+        "Microneedling",
+        "AquaGold Microneedling",
+        "VI Peels",
+        "IV Therapy",
+        "PRP Hair Restoration",
+        "PRP Natural Facelift",
+        "Weight loss (Semaglutide, Tirzepatide)"
+      ],
+      "source_notes": "Prices not published: no prices were found on the clinic's own website (aestheticsolutionsny.com) on 2026-11-25. Address, phone and services from aestheticsolutionsny.com, checked 2026-11-25. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://aestheticsolutionsny.com/",
+      "zip": "11375"
+    },
+    {
+      "address": "11-42 46th Rd, Suite 1, Long Island City, NY 11101",
+      "city": "Long Island City",
+      "languages": [],
+      "name": "Little Laser Clinic",
+      "neighborhood": "Long Island City",
+      "phone": "(917) 765-5906",
+      "prices": [
+        {
+          "price": "$17",
+          "source_url": "https://littlelaserclinic.com/about/beauty-bank/",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$12",
+          "source_url": "https://littlelaserclinic.com/about/beauty-bank/",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$13",
+          "source_url": "https://littlelaserclinic.com/about/beauty-bank/",
+          "treatment": "Jeuveau",
+          "unit": "per unit"
+        },
+        {
+          "price": "$14",
+          "source_url": "https://littlelaserclinic.com/about/beauty-bank/",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "HydraFacial",
+        "Laser treatments",
+        "Chemical peels",
+        "Microneedling",
+        "Hair loss restoration",
+        "Skin lesion removal",
+        "Acne treatments",
+        "Facials",
+        "Rejuran",
+        "Sculptra",
+        "PRF",
+        "Sofwave",
+        "XERF"
+      ],
+      "source_notes": "Regular neurotoxin prices from the clinic's own website (littlelaserclinic.com/about/beauty-bank/), checked 2026-11-25; the lower member prices on the same page were excluded. No other stable published price menu was verified on the clinic's own site. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "http://www.littlelaserclinic.com/",
+      "zip": "11101"
+    },
+    {
+      "address": "44-40 23rd St, Long Island City, NY 11101",
+      "city": "Long Island City",
+      "languages": [],
+      "name": "Skin Philosophy",
+      "neighborhood": "Long Island City",
+      "phone": "(929) 232-0874",
+      "prices": [
+        {
+          "price": "$200",
+          "source_url": "https://skinphilosophy.squarespace.com/microneedling",
+          "treatment": "Glow Renewal Peel (AFA Chemical Peel)",
+          "unit": "per session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://skinphilosophy.squarespace.com/microneedling",
+          "treatment": "Clarifying Acne Peel (AFA Chemical Peel)",
+          "unit": "per session"
+        },
+        {
+          "price": "$300",
+          "source_url": "https://skinphilosophy.squarespace.com/microneedling",
+          "treatment": "Radiance Renew Pigmentation Peel (AFA Chemical Peel)",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Facials",
+        "Botox",
+        "Dermal fillers",
+        "Exosome treatments",
+        "Chemical peels",
+        "IPL Photofacial",
+        "Laser hair removal",
+        "Laser tattoo removal",
+        "Lymphatic Drainage Massage",
+        "Microneedling",
+        "AFA Chemical Peel"
+      ],
+      "source_notes": "Prices from the clinic's own Squarespace site (skinphilosophy.squarespace.com/microneedling, the AFA Chemical Peel page), checked 2026-11-25. Note: the domain skinphilosophylic.com listed in directories did not load the clinic on 2026-11-25 (it showed an unrelated parked/gambling page), so the Squarespace site is used as the website. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://skinphilosophy.squarespace.com/",
+      "zip": "11101"
+    },
+    {
+      "address": "35-29 Farrington St, 2nd Floor, Flushing, NY 11354",
+      "city": "Flushing",
+      "languages": [
+        "English",
+        "Chinese"
+      ],
+      "name": "COCO Beauty Lash & Korean Skincare",
+      "neighborhood": "Flushing",
+      "phone": "(848) 252-8691",
+      "prices": [
+        {
+          "price": "$100",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "Flat Lashes, full set",
+          "unit": "per full set"
+        },
+        {
+          "price": "$120",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "Cashmere Lashes, full set",
+          "unit": "per full set"
+        },
+        {
+          "price": "$120",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "YY Lashes, full set",
+          "unit": "per full set"
+        },
+        {
+          "price": "$140",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "Design Set lashes, full set",
+          "unit": "per full set"
+        },
+        {
+          "price": "$80",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "Lash lift",
+          "unit": "per session"
+        },
+        {
+          "price": "$20",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "Lash extension removal",
+          "unit": "per session"
+        },
+        {
+          "price": "$80",
+          "source_url": "https://cocobeautylash.com/",
+          "treatment": "Korean skincare facial",
+          "unit": "from, per session"
+        }
+      ],
+      "services": [
+        "Korean lash extensions (Flat, Cashmere, YY, Design)",
+        "Lash lift",
+        "Bottom lashes",
+        "Lash removal",
+        "Semi-permanent brows",
+        "Korean skincare facials"
+      ],
+      "source_notes": "Prices from the clinic's own website (cocobeautylash.com), checked 2026-11-25. Only regular prices are used; the 50% first-visit promo and $20-off new-skincare-client offer were excluded. Languages (English and Chinese) as stated on the clinic's own website for booking.",
+      "state": "NY",
+      "website": "https://cocobeautylash.com/",
+      "zip": "11354"
+    },
+    {
+      "address": "480 5th Ave, Brooklyn, NY 11215",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "UPKEEP Med Spa - Park Slope",
+      "neighborhood": "Park Slope",
+      "phone": "(833) 875-3377",
+      "prices": [
+        {
+          "price": "$15",
+          "source_url": "https://upkeepmedspa.com/locations/brooklyn",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$275",
+          "source_url": "https://upkeepmedspa.com/locations/brooklyn",
+          "treatment": "UPKEEP Quick Lips (lip filler, half syringe)",
+          "unit": "from, per half syringe"
+        },
+        {
+          "price": "$550",
+          "source_url": "https://upkeepmedspa.com/locations/brooklyn",
+          "treatment": "Lip filler (full syringe)",
+          "unit": "from, per full syringe"
+        },
+        {
+          "price": "$550",
+          "source_url": "https://upkeepmedspa.com/locations/brooklyn",
+          "treatment": "Laser hair removal, underarms",
+          "unit": "per 6 sessions"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Lip filler",
+        "Dermal fillers (cheek, jawline, chin, smile lines)",
+        "Specialty injectables (under-eye filler, non-surgical rhinoplasty, lip flip)",
+        "Sculptra",
+        "Radiesse",
+        "PRP",
+        "Kybella",
+        "PDO threads",
+        "Facials",
+        "Microneedling",
+        "RF microneedling",
+        "IPL",
+        "Laser hair removal",
+        "Tattoo removal",
+        "Body contouring"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own website, read 2026-11-25. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://upkeepmedspa.com/locations/brooklyn",
+      "zip": "11215"
+    },
+    {
+      "address": "285 Flatbush Ave, Brooklyn, NY 11217",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "BYou Laser Clinic - Brooklyn",
+      "neighborhood": "Prospect Heights",
+      "phone": "(800) 355-3308",
+      "prices": [
+        {
+          "price": "$86",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Underarms",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$211",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Brazilian",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$86",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Bikini Line",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$52",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Upper Lip / Chin",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$185",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Full Face",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$185",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Half Legs",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$358",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Full Legs",
+          "unit": "from, per session (9-session package, 25% savings)"
+        },
+        {
+          "price": "$173",
+          "source_url": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+          "treatment": "Laser hair removal - Back or Chest (Men)",
+          "unit": "from, per session (9-session package, 25% savings)"
+        }
+      ],
+      "services": [
+        "Laser hair removal",
+        "Botox",
+        "Dermal fillers",
+        "Skin treatments",
+        "Body procedures",
+        "Hair restoration"
+      ],
+      "source_notes": "General laser clinic (not Chinese/Korean-focused). Prices from the clinic's own website, read 2026-11-25. Phone is the clinic's general number shown on its Brooklyn page (1-800-355-3308). Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://byoulaserclinic.com/locations/brooklyn/laser-hair-removal/",
+      "zip": "11217"
+    },
+    {
+      "address": "103 Quentin Rd, 2nd Floor, Brooklyn, NY 11223",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "Brooklyn Laser Studio",
+      "neighborhood": "Sheepshead Bay",
+      "phone": "(646) 244-2544",
+      "prices": [
+        {
+          "price": "$34",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Laser hair removal - Signature Small (upper lip, chin, sideburns, hands, feet, happy trail, forehead, fingers & toes)",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$49",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Laser hair removal - Popular Medium (underarms, bikini line, neck, lower/upper arms, lower back, shoulders)",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$69",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Laser hair removal - Luxury Large (Brazilian, full face, abdomen, chest, upper back, full arms, buttocks, half legs)",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$99",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Laser hair removal - VIP X-Large (full legs, entire back, full body sections)",
+          "unit": "from, per session"
+        },
+        {
+          "price": "$269",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Full Body Laser Experience",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,999",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Full Body Laser Experience, 8 sessions",
+          "unit": "per 8 sessions"
+        },
+        {
+          "price": "$129",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Laser Facial Rejuvenation",
+          "unit": "per session"
+        },
+        {
+          "price": "$149",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Pigment Correction",
+          "unit": "per session"
+        },
+        {
+          "price": "$119",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Acne & Redness Therapy",
+          "unit": "per session"
+        },
+        {
+          "price": "$199",
+          "source_url": "https://www.brooklynlaserstudio.com/",
+          "treatment": "Skin Tightening",
+          "unit": "per session"
+        }
+      ],
+      "services": [
+        "Laser hair removal (women)",
+        "Laser hair removal (men)",
+        "Laser facial rejuvenation",
+        "Pigment correction",
+        "Acne & redness therapy",
+        "Skin tightening",
+        "Full body laser packages"
+      ],
+      "source_notes": "General laser studio (not Chinese/Korean-focused). Prices from the clinic's own website, read 2026-11-25. Limited-time package/event prices on the same page were not included. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.brooklynlaserstudio.com/",
+      "zip": "11223"
+    },
+    {
+      "address": "120 Montague St, 1st Floor, Brooklyn, NY 11201",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "SunMi James Aesthetics",
+      "neighborhood": "Brooklyn Heights",
+      "phone": "(917) 282-3478",
+      "prices": [
+        {
+          "price": "$125",
+          "source_url": "https://sunmijames.com/pages/membership-botox-skincare",
+          "treatment": "Membership (monthly choice of customized facial, microneedling or hydro-infusion facial)",
+          "unit": "from, per month"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Korean-inspired facials",
+        "Exosome & skin boosters",
+        "Microneedling",
+        "Hydro-infusion facial",
+        "Kybella",
+        "GLP-1 medical weight loss"
+      ],
+      "source_notes": "Korean-focused: Korean-inspired facials, K-beauty expert-led studio. Botox is listed as 'priced by area' on the clinic's own site with no per-unit price published, so no Botox price is included; only the membership price, read from the clinic's own website 2026-11-25, is listed. Kybella / GLP-1 / microneedling appear in directory listings of the clinic's services. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.sunmijames.com/",
+      "zip": "11201"
+    },
+    {
+      "address": "2148 Ocean Ave, 4th Floor, Brooklyn, NY 11229",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "Pari Med Spa - Brooklyn",
+      "neighborhood": "Midwood",
+      "phone": "(347) 967-2525",
+      "prices": [
+        {
+          "price": "$350",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Filler, any type, 0.5 mL",
+          "unit": "per 0.5 mL (special, regular $550)"
+        },
+        {
+          "price": "$550",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Filler, any type, 1 mL",
+          "unit": "per 1 mL (special, regular $750)"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Lip filler, 1 mL (Thanksgiving special)",
+          "unit": "per 1 mL (special, regular $750)"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Vi Peel + 30 units Botox",
+          "unit": "per package"
+        },
+        {
+          "price": "$499",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "0.5 mL filler + 20 units Botox",
+          "unit": "per package"
+        },
+        {
+          "price": "$650",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "1 mL filler + 20 units Botox",
+          "unit": "per package"
+        },
+        {
+          "price": "$650",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "0.5 mL filler + 40 units Botox",
+          "unit": "per package"
+        },
+        {
+          "price": "$1,499",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Facial balancing, 3 mL",
+          "unit": "per 3 mL package"
+        },
+        {
+          "price": "$799",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Morpheus8 + PRP",
+          "unit": "per session"
+        },
+        {
+          "price": "$1,999",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "Morpheus8, 3 sessions (3 areas)",
+          "unit": "per 3 sessions"
+        },
+        {
+          "price": "$1,999",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "CO2 CoolPeel, 3 sessions (3 areas)",
+          "unit": "per 3 sessions"
+        },
+        {
+          "price": "$999",
+          "source_url": "https://parimedspa.com/specials/",
+          "treatment": "PRP, 3 sessions",
+          "unit": "per 3 sessions"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Lip filler",
+        "Morpheus8",
+        "CO2 laser (CoolPeel)",
+        "Laser hair removal",
+        "PRP",
+        "Kybella",
+        "Daxxify",
+        "Xeomin",
+        "Vi Peel",
+        "Facial balancing"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices are the clinic's own published November specials, read from its own website 2026-11-25; the page states specials run through November 30, 2026 and are confirmed at consultation. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://parimedspa.com/specials/",
+      "zip": "11229"
+    },
+    {
+      "address": "159 5th Ave, Suite R, Brooklyn, NY 11217",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "LaserAway - Brooklyn, Park Slope",
+      "neighborhood": "Park Slope",
+      "phone": "(332) 456-6336",
+      "prices": [],
+      "services": [
+        "Laser hair removal",
+        "Botox & Xeomin",
+        "Dermal fillers",
+        "CoolSculpting",
+        "Clear + Brilliant",
+        "Potenza RF microneedling",
+        "SkinPen microneedling",
+        "Rejuran",
+        "Thermage",
+        "Tattoo removal",
+        "HydraFacial",
+        "IPL photofacial",
+        "Instant Glow Laser Facial"
+      ],
+      "source_notes": "General med spa chain location (not Chinese/Korean-focused). Prices not published: the clinic's own location page, read 2026-11-25, states pricing depends on treatment/area/package and is reviewed at consultation. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.laseraway.com/locations/ny/brooklyn-park-slope/",
+      "zip": "11217"
+    },
+    {
+      "address": "6804 20th Ave, Brooklyn, NY 11204",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "Yin's Beauty Spa",
+      "neighborhood": "Bensonhurst",
+      "phone": "(718) 256-3581",
+      "prices": [],
+      "services": [
+        "Facials (deep pore cleansing, collagen, vitamin C, hydrolifting, microdermabrasion)",
+        "Microblading",
+        "Ombre powder brows",
+        "Eyeliner tattoo",
+        "Lip tattoo",
+        "Eyelash extensions",
+        "Eyelash perming / lifting",
+        "Massage (deep tissue, hot stone, aromatherapy, reflexology)",
+        "Radiofrequency treatment",
+        "Body scrub / body wrap",
+        "Head & scalp shiatsu",
+        "Eye scraping therapy"
+      ],
+      "source_notes": "Chinese-focused: long-running Bensonhurst spa serving the local Chinese community, with Chinese-style services including eye scraping therapy and head/scalp shiatsu. Prices not published: the clinic's own website, read 2026-11-25, lists services but no prices; Booksy lists service names but its prices were not used as the clinic's own published menu. Address note: Booksy and Giftly list 6804 20th Ave, Brooklyn, NY 11204; some directories list an older 1786 66th St address. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.yinsbeauty.com/",
+      "zip": "11204"
+    },
+    {
+      "address": "21 Prospect Park W, Brooklyn, NY 11215",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "The Brightwood Skin",
+      "neighborhood": "Park Slope",
+      "phone": "(201) 552-4645",
+      "prices": [
+        {
+          "price": "$900",
+          "source_url": "https://www.thebrightwoodskin.com/skin/microneedling-prp",
+          "treatment": "Microneedling + PRP, one session",
+          "unit": "per session"
+        },
+        {
+          "price": "$2,295",
+          "source_url": "https://www.thebrightwoodskin.com/skin/microneedling-prp",
+          "treatment": "Microneedling + PRP, package of 3 sessions",
+          "unit": "per 3 sessions"
+        },
+        {
+          "price": "$4,320",
+          "source_url": "https://www.thebrightwoodskin.com/skin/microneedling-prp",
+          "treatment": "Microneedling + PRP, package of 6 sessions",
+          "unit": "per 6 sessions"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers",
+        "Sculptra",
+        "Microneedling with PRP",
+        "DiamondGlow facials",
+        "Chemical peels",
+        "Dermaplaning",
+        "AquaGold microinfusion",
+        "BBL photofacial",
+        "MOXI laser",
+        "Wedding prep programs"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own website, read 2026-11-25 (Microneedling + PRP page only; other treatment prices were not freshly read on the clinic's own site today and were not included). Phone is from the clinic's Google/directory listing; the own-site homepage read 2026-11-25 did not show a phone number in its text. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.thebrightwoodskin.com/",
+      "zip": "11215"
+    },
+    {
+      "address": "2102 Avenue Z, Suite 104, Brooklyn, NY 11235",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "Ai Soul Spa & Beauty",
+      "neighborhood": "Sheepshead Bay",
+      "phone": "(718) 872-5125",
+      "prices": [],
+      "services": [
+        "Laser hair removal",
+        "Facials",
+        "Chemical peels",
+        "Microdermabrasion",
+        "Microneedling",
+        "Body contouring",
+        "Lymphatic drainage massage",
+        "Massage",
+        "Skin tag removal",
+        "Skin rejuvenation"
+      ],
+      "source_notes": "General spa (not Chinese/Korean-focused); Asian-owned per its Google Business profile, founder Lazat Akilova, with Kazakh-rooted service descriptions in directories. Prices not published: directory listing states it does not post prices online (call for a quote), and its own website read via search 2026-11-25 showed no price menu. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.aisoulnyc.com/",
+      "zip": "11235"
+    },
+    {
+      "address": "7601 5th Ave, Brooklyn, NY 11209",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "LIME Aesthetics",
+      "neighborhood": "Bay Ridge",
+      "phone": "(718) 333-5245",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Lip filler",
+        "Dermal fillers",
+        "Microneedling",
+        "Laser hair removal",
+        "HydraFacial",
+        "Chemical peels",
+        "Radiesse",
+        "Eyebrow tinting and lamination",
+        "Eyelash lift and tint"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices not published: the clinic's own website, read 2026-11-25, lists services but no price menu. November/Black Friday specials seen on the clinic's Facebook page and Groupon laser deals were NOT counted as the clinic's own published menu. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://www.limemedspa.com/",
+      "zip": "11209"
+    },
+    {
+      "address": "105 Bond St, Brooklyn, NY 11217",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "Tres Belle Spa",
+      "neighborhood": "Boerum Hill",
+      "phone": "(718) 797-0033",
+      "prices": [
+        {
+          "price": "$310",
+          "source_url": "https://hellorevelle.com/professionals/allison-tray-brooklyn-ny",
+          "treatment": "Custom Facial",
+          "unit": "per 1 hour session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://hellorevelle.com/professionals/allison-tray-brooklyn-ny",
+          "treatment": "Dermaplane Deluxe",
+          "unit": "per 1 hour session"
+        },
+        {
+          "price": "$495",
+          "source_url": "https://hellorevelle.com/professionals/allison-tray-brooklyn-ny",
+          "treatment": "Remodeling Face Lift",
+          "unit": "per 1 hour session"
+        },
+        {
+          "price": "$350",
+          "source_url": "https://hellorevelle.com/professionals/allison-tray-brooklyn-ny",
+          "treatment": "Back Facial",
+          "unit": "per 1 hour session"
+        },
+        {
+          "price": "$365",
+          "source_url": "https://hellorevelle.com/professionals/allison-tray-brooklyn-ny",
+          "treatment": "Black and Gold Facial",
+          "unit": "per 1 hour session"
+        },
+        {
+          "price": "$375",
+          "source_url": "https://hellorevelle.com/professionals/allison-tray-brooklyn-ny",
+          "treatment": "Ageless Goddess Anti-Aging Facial",
+          "unit": "per 1 hour session"
+        }
+      ],
+      "services": [
+        "Facials (Biologique Recherche, DMK, HydraFacial)",
+        "Laser hair removal",
+        "Microneedling",
+        "Dermaplane",
+        "Chemical peels (Vi Peel)",
+        "Remodeling face lift",
+        "Lash lift",
+        "Lash tint"
+      ],
+      "source_notes": "General facial/laser spa (not Chinese/Korean-focused). Prices were ONLY verified via a directory reading of the clinic's own menu (HelloRevelle, which states these prices are from Tres Belle Spa's menu, updated weekly) \u2014 not a fresh own-site page read today; the clinic's own homepage, read 2026-11-25, showed address/phone but no prices. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "http://www.tresbellespa.com/",
+      "zip": "11217"
+    },
+    {
+      "address": "3121 Ocean Ave, Suite 401, Brooklyn, NY 11235",
+      "city": "Brooklyn",
+      "languages": [],
+      "name": "EndorphinMed Corp",
+      "neighborhood": "Sheepshead Bay",
+      "phone": "(929) 421-0000",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Daxxify",
+        "Xeomin",
+        "Dermal fillers (cheek, chin, lips)",
+        "Thread lifting",
+        "Biorevitalization",
+        "Rejuran",
+        "Mesotherapy",
+        "PRP therapy",
+        "Chemical peels",
+        "BBL photofacial",
+        "MOXI laser",
+        "Laser skin rejuvenation",
+        "Lipolytics",
+        "Acne treatment",
+        "Body contouring",
+        "Massage"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices not published: directory listing states it does not post prices online, and its own website (endorphinmed.com) service pages list treatments without prices. Languages spoken not stated on the site, left blank rather than assumed.",
+      "state": "NY",
+      "website": "https://endorphinmed.com/",
+      "zip": "11235"
+    },
+    {
+      "address": "115 Broadway, Suite 1305, New York, NY 10006",
+      "city": "New York",
+      "languages": [],
+      "name": "Trifecta Med Spa Downtown",
+      "neighborhood": "Financial District",
+      "phone": "(800) 757-4026",
+      "prices": [
+        {
+          "price": "$16",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$16",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Dysport",
+          "unit": "per unit"
+        },
+        {
+          "price": "$14",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Xeomin",
+          "unit": "per unit"
+        },
+        {
+          "price": "$8",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Daxxify",
+          "unit": "per unit"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Dermal filler (RHA2, Juvederm Ultra/UltraPlus, RHA3, RHA4, Restylane, Restylane Kysse, Versa)",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$850",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Juvederm Volbella / Vollure",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$1000",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Juvederm Voluma",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Skinvive",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        },
+        {
+          "price": "$600",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Kybella, 1 vial",
+          "unit": "per vial"
+        },
+        {
+          "price": "$70",
+          "source_url": "https://trifectamedspanyc.com/pricelist",
+          "treatment": "Lip Flip",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Xeomin",
+        "Daxxify",
+        "Dermal fillers",
+        "Kybella",
+        "CoolSculpting Elite",
+        "Ultherapy",
+        "Sofwave",
+        "Laser hair removal",
+        "Microneedling",
+        "Chemical peels",
+        "Skin tightening",
+        "Medical weight loss"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own price list page trifectamedspanyc.com/pricelist, read fresh 2026-11-25. Phone (800) 757-4026 is the Downtown number listed in directories; the site footer also shows (212) 600-4112. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://trifectamedspanyc.com/",
+      "zip": "10006"
+    },
+    {
+      "address": "120 Broadway, New York, NY 10271",
+      "city": "New York",
+      "languages": [],
+      "name": "Peachy \u2014 FiDi",
+      "neighborhood": "Financial District",
+      "phone": "(917) 694-8618",
+      "prices": [
+        {
+          "price": "$425",
+          "source_url": "https://peachystudio.com/pages/fidi-botox",
+          "treatment": "Wrinkle Treatment (Xeomin or Jeuveau, forehead, glabella and crow's feet)",
+          "unit": "flat fee"
+        },
+        {
+          "price": "$525",
+          "source_url": "https://peachystudio.com/pages/fidi-botox",
+          "treatment": "Masseter Treatment (Xeomin or Jeuveau)",
+          "unit": "flat fee"
+        }
+      ],
+      "services": [
+        "Wrinkle Treatment (Botox / Jeuveau / Dysport / Xeomin)",
+        "Masseter Treatment",
+        "Prescription retinoids",
+        "Mineral sunscreen"
+      ],
+      "source_notes": "General wrinkle-prevention studio (not Chinese/Korean-focused). Prices from the clinic's own FiDi page peachystudio.com/pages/fidi-botox, read fresh 2026-11-25. The site notes an additional $150 brand charge for Botox or Dysport per treatment. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://peachystudio.com/pages/fidi-botox",
+      "zip": "10271"
+    },
+    {
+      "address": "180 7th Ave S, New York, NY 10014",
+      "city": "New York",
+      "languages": [],
+      "name": "Spa Jolie NY",
+      "neighborhood": "West Village",
+      "phone": "(212) 229-0399",
+      "prices": [
+        {
+          "price": "$199",
+          "source_url": "https://www.spajolieny.com/venus-legacy/",
+          "treatment": "Venus Legacy",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Venus Legacy",
+        "HydraFacial",
+        "Laser hair removal",
+        "Botox",
+        "Microneedling",
+        "Clear+Brilliant Laser",
+        "Fractional Laser",
+        "CoolSculpting Elite",
+        "Emsculpt",
+        "Facials",
+        "Waxing",
+        "Threading"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Venus Legacy price from the clinic's own Venus Legacy page spajolieny.com/venus-legacy, read fresh 2026-11-25. Other prices on the site at the time were Black Friday BOGO promotions ending Nov 27, 2026, so they were not used. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.spajolieny.com/",
+      "zip": "10014"
+    },
+    {
+      "address": "2046 Adam Clayton Powell Jr Blvd, New York, NY 10027",
+      "city": "New York",
+      "languages": [],
+      "name": "LushBeauty MedSpa",
+      "neighborhood": "Harlem",
+      "phone": "(646) 596-9799",
+      "prices": [
+        {
+          "price": "$300",
+          "source_url": "https://lushbeautymedspa.com/",
+          "treatment": "Botox",
+          "unit": "per area"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://lushbeautymedspa.com/",
+          "treatment": "Lip Filler",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://lushbeautymedspa.com/",
+          "treatment": "Dermal Fillers",
+          "unit": "from, per syringe"
+        },
+        {
+          "price": "$450",
+          "source_url": "https://lushbeautymedspa.com/",
+          "treatment": "Semaglutide",
+          "unit": "per month"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Lip filler",
+        "Morpheus8",
+        "Sculptra",
+        "Laser hair removal",
+        "IPL / BBL",
+        "Microneedling",
+        "RF microneedling",
+        "Chemical peels",
+        "HydraFacial",
+        "Medical facials",
+        "Skin tightening",
+        "Body contouring",
+        "IV therapy",
+        "Medical weight loss"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Address, phone and services from the clinic's own website lushbeautymedspa.com. Prices were verified via a directory reading of the clinic's own menu (checked 2026-10-29, re-checked 2026-11-21), not a fresh page read today, so they are reported honestly as directory-verified; the clinic's homepage also currently promotes a 20% off first Botox offer, which was not used. Languages spoken not stated on the clinic's own site, left blank.",
+      "state": "NY",
+      "website": "https://lushbeautymedspa.com/",
+      "zip": "10027"
+    },
+    {
+      "address": "607 W 168th St, New York, NY 10032",
+      "city": "New York",
+      "languages": [],
+      "name": "Flawless Skin Med Spa",
+      "neighborhood": "Washington Heights",
+      "phone": "(917) 737-2535",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Laser hair removal",
+        "IV therapy",
+        "Microneedling",
+        "PRP"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Address, phone and services from a directory reading of the clinic's own website flawlessskinmedspa.com (checked 2026-10-29), not a fresh page read today. Prices not published: no stable published menu price for this clinic was verified on 2026-11-25; price PDFs found in search for this query belonged to other clinics and were not used. Languages spoken not stated, left blank.",
+      "state": "NY",
+      "website": "https://flawlessskinmedspa.com/",
+      "zip": "10032"
+    },
+    {
+      "address": "11 Saint Marks Place, New York, NY 10003",
+      "city": "New York",
+      "languages": [],
+      "name": "Sworlina Brows",
+      "neighborhood": "East Village",
+      "phone": "(646) 290-8848",
+      "prices": [
+        {
+          "price": "$9",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Eyebrows (threading)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$35",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Full Face (threading)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$20",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Brow Tinting",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$40",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Lash Lift",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Lash Lift & Lash Tint",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$25",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Lash Tint",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Brow Lamination & Tint",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$80",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Four Layer Facial",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$45",
+          "source_url": "https://www.sworlinabrows.com/pricing.html",
+          "treatment": "Herbal Facial",
+          "unit": "per treatment"
+        }
+      ],
+      "services": [
+        "Eyebrow threading",
+        "Facial threading",
+        "Waxing",
+        "Facials",
+        "Brow tinting",
+        "Lash lift",
+        "Lash tint",
+        "Brow lamination",
+        "Cluster lashes",
+        "Head oil massage"
+      ],
+      "source_notes": "General brow/lash studio (not Chinese/Korean-focused). Prices from the clinic's own pricing page sworlinabrows.com/pricing.html, read fresh 2026-11-25. Address and phone from the same page. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.sworlinabrows.com/",
+      "zip": "10003"
+    },
+    {
+      "address": "720 Forest Ave, Staten Island, NY 10310",
+      "city": "Staten Island",
+      "languages": [],
+      "name": "Chi Aesthetics",
+      "neighborhood": "West Brighton",
+      "phone": "(631) 315-3883",
+      "prices": [
+        {
+          "price": "$550",
+          "source_url": "https://www.chiaesthetics.com/services/botox/",
+          "treatment": "Full Face Botox (forehead, frown lines, crow's feet)",
+          "unit": "flat fee, per treatment"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dermal fillers",
+        "Fotona 4D Facelift",
+        "Microneedling",
+        "PDO Threads",
+        "Facials",
+        "Peels",
+        "Laser hair removal",
+        "Body contouring",
+        "IV therapy",
+        "Weight loss"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Full Face Botox price from the clinic's own Botox page chiaesthetics.com/services/botox, read fresh 2026-11-25. Address (West Brighton, Staten Island) and phone from the same page. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.chiaesthetics.com/",
+      "zip": "10310"
+    },
+    {
+      "address": "36 Navy Pier Ct, Staten Island, NY 10304",
+      "city": "Staten Island",
+      "languages": [],
+      "name": "The Beautie Bar",
+      "neighborhood": "Staten Island",
+      "phone": "(718) 581-9881",
+      "prices": [
+        {
+          "price": "$13",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Botox",
+          "unit": "per unit, 35 unit minimum"
+        },
+        {
+          "price": "$11",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Dysport",
+          "unit": "per unit, 35 unit minimum"
+        },
+        {
+          "price": "$425",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Dermal Filler, 1/2 Syringe",
+          "unit": "per 1/2 syringe"
+        },
+        {
+          "price": "$599",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Dermal Filler",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$700",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Radiesse",
+          "unit": "per syringe"
+        },
+        {
+          "price": "$750",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Sculptra",
+          "unit": "per vial"
+        },
+        {
+          "price": "$100",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Lip Flip",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$425",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "The Wrinkle Relaxer (3 areas: forehead, between brows, crow's feet)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$475",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "PRP Facial Rejuvenation",
+          "unit": "per session"
+        },
+        {
+          "price": "$250",
+          "source_url": "https://thebeautiebar.com/services-item/botox-fillers-prp-staten-island/",
+          "treatment": "Fat Dissolving Injection (Deoxycholic acid)",
+          "unit": "per small area"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Dermal fillers (RHA)",
+        "Radiesse",
+        "Sculptra",
+        "PRP Facial",
+        "PRP Hair Restoration",
+        "Fat Dissolving Injection",
+        "Lip Flip"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Prices from the clinic's own services page thebeautiebar.com/services-item/botox-fillers-prp-staten-island, read fresh 2026-11-25. Note: the FAQ text on the same page states $12/unit Botox and $10/unit Dysport, conflicting with the menu header prices of $13/$11 used here; the menu header prices were used. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://thebeautiebar.com/",
+      "zip": "10304"
+    },
+    {
+      "address": "1831 Andrews Ave S, Suite 1, Bronx, NY 10453",
+      "city": "Bronx",
+      "languages": [],
+      "name": "Saged NYC Beauty & Wellness",
+      "neighborhood": "University Heights",
+      "phone": "(347) 503-4580",
+      "prices": [],
+      "services": [
+        "Botox",
+        "Dysport",
+        "Lip fillers",
+        "Sculptra",
+        "PDO thread lifts",
+        "Microneedling",
+        "Chemical peels",
+        "Facials",
+        "IV therapy",
+        "Laser treatments",
+        "Medical weight loss",
+        "Lipo dissolve"
+      ],
+      "source_notes": "General med spa (not Chinese/Korean-focused). Address and phone from the clinic's own website sagednyc.com, read fresh 2026-11-25. Services from a directory reading of the clinic's own services list (checked 2026-10-29). Prices not published: the clinic does not post prices online, per a directory check; a $100 'price from' figure in one directory was not used as it was not a published clinic menu price. The clinic also lists a second Manhattan location at 2067 Broadway #52, New York, NY 10023; only the Bronx location is included here. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "http://www.sagednyc.com/",
+      "zip": "10453"
+    },
+    {
+      "address": "38 W 32nd St, Suite 1310, New York, NY 10001",
+      "city": "New York",
+      "languages": [],
+      "name": "Serene Skin Club",
+      "neighborhood": "Koreatown",
+      "phone": "(213) 493-8597",
+      "prices": [
+        {
+          "price": "$12",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Botox",
+          "unit": "per unit"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Juvederm filler - Lips",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$699",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Juvederm filler - Face (chin, temples or cheeks)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Restylane filler - Lips",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$599",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Restylane filler - Face (chin or cheeks)",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$800",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Sculptra, 1 vial",
+          "unit": "per vial"
+        },
+        {
+          "price": "$1,500",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Sculptra, 2 vials",
+          "unit": "per 2 vials"
+        },
+        {
+          "price": "$599",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Rejuran Red Box",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$599",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Rejuran Blue Box",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$699",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Rejuran Black Box, 2 ml",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$380",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Rejuran Eye (White Box), 1 ml",
+          "unit": "per treatment"
+        },
+        {
+          "price": "$299",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "IV Drip (Sleep Support / Brighten Antioxidant / Brain Fuel / Liver Detox / Immune Boost / Vitality Boost)",
+          "unit": "per drip"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "Hair Growth IV Drip",
+          "unit": "per drip"
+        },
+        {
+          "price": "$399",
+          "source_url": "https://www.sereneskinclub.com/injectables",
+          "treatment": "NAD+ Age Reset IV Drip, 100 mg",
+          "unit": "from, per drip"
+        }
+      ],
+      "services": [
+        "Botox",
+        "Juvederm filler",
+        "Restylane filler",
+        "Sculptra",
+        "Rejuran skin boosters",
+        "Cytocare glow boosters",
+        "Eye boosters (Rejuran Eye, Jalupro)",
+        "PRP + salmon DNA (PN)",
+        "IV therapy",
+        "Facials"
+      ],
+      "source_notes": "Prices from the clinic's own website sereneskinclub.com/injectables, read fresh 2026-11-25. Korean-focused Koreatown studio (Rejuran / glass-skin boosters, Medical Director Margarita Chang, NP). Phone (213) 493-8597 is the text-to-book number on its own site. Distinct clinic from SeoulSkin, Serica and Genesys in the same building at 38-39 W 32nd St - different suite (1310) and different business. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.sereneskinclub.com/",
+      "zip": "10001"
+    },
+    {
+      "address": "505 8th Ave, Suite 23-03, New York, NY 10018",
+      "city": "New York",
+      "languages": [],
+      "name": "JLoo Beauty Experts",
+      "neighborhood": "Midtown",
+      "phone": "(917) 905-4683",
+      "prices": [
+        {
+          "price": "$950",
+          "source_url": "https://www.jloobeautyexperts.com/services/rejuran-nyc",
+          "treatment": "Rejuran I under-eye injection",
+          "unit": "usual price, per session"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://www.jloobeautyexperts.com/services/rejuran-nyc",
+          "treatment": "Microneedling with Rejuran Healing Essence (salmon DNA facial)",
+          "unit": "usual price, per session"
+        },
+        {
+          "price": "$950",
+          "source_url": "https://www.jloobeautyexperts.com/services/rejuran-nyc",
+          "treatment": "Rejuran Healing Essence injection (face)",
+          "unit": "usual price, per session"
+        }
+      ],
+      "services": [
+        "Rejuran (Rejuran I under-eye, Rejuran Healing Essence)",
+        "PRF microneedling",
+        "PRF EzGel",
+        "Botox",
+        "Dermal fillers",
+        "Sculptra",
+        "Chemical peels",
+        "Facials",
+        "Ultherapy PRIME",
+        "Medical weight loss",
+        "IV therapy"
+      ],
+      "source_notes": "Rejuran prices from the clinic's own website jloobeautyexperts.com/services/rejuran-nyc, read fresh 2026-11-25. Only the usual $950/session prices are listed; the first-time client prices on the same page ($499 Rejuran I, $650 Rejuran microneedling/injection) were excluded as introductory offers. Korean regenerative treatment (Rejuran / salmon DNA, glass skin) is a core offering. No other stable per-treatment prices were verified on the clinic's own site today (e.g. Botox per-unit pricing appears only on its booking platform, not its own site, so it was not used). Address and phone from the same page. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://www.jloobeautyexperts.com/",
+      "zip": "10018"
+    },
+    {
+      "address": "1130 Broadway, New York, NY 10010",
+      "city": "New York",
+      "languages": [],
+      "name": "Heyday Skincare - Nomad",
+      "neighborhood": "NoMad",
+      "phone": "(646) 869-3601",
+      "prices": [
+        {
+          "price": "$155",
+          "source_url": "https://www.heydayskincare.com/pages/the-essential-facial",
+          "treatment": "The Essential Facial (50 min)",
+          "unit": "per session, non-member"
+        },
+        {
+          "price": "$425",
+          "source_url": "https://www.heydayskincare.com/pages/the-essential-facial",
+          "treatment": "Renewal Facials (Resurfacing Facial, Microneedling Facial, Elite Laser Facial)",
+          "unit": "per session, non-member"
+        },
+        {
+          "price": "$425",
+          "source_url": "https://www.heydayskincare.com/pages/the-essential-facial",
+          "treatment": "The Full Edit Facial",
+          "unit": "per session, non-member"
+        },
+        {
+          "price": "$150",
+          "source_url": "https://www.heydayskincare.com/pages/the-essential-facial",
+          "treatment": "Boost Enhancements (Clarifying Acne Boost, Illuminize Peel)",
+          "unit": "per enhancement, non-member"
+        },
+        {
+          "price": "$50",
+          "source_url": "https://www.heydayskincare.com/pages/the-essential-facial",
+          "treatment": "Signature Enhancements (Gua Sha, LED Light Therapy, Professional Peel)",
+          "unit": "per enhancement, non-member"
+        },
+        {
+          "price": "$80",
+          "source_url": "https://www.heydayskincare.com/pages/the-essential-facial",
+          "treatment": "Advanced Enhancements (Nano Infusion, Microcurrent, Dermaplaning, Soothing Scalp Revival, Diamond-Tip Microdermabrasion, Hydro Wand Infusion)",
+          "unit": "per enhancement, non-member"
+        }
+      ],
+      "services": [
+        "The Essential Facial (customized 50-min facial)",
+        "Resurfacing Facial",
+        "Microneedling Facial",
+        "Elite Laser Facial",
+        "The Full Edit Facial",
+        "Gua Sha",
+        "LED Light Therapy",
+        "Professional peels",
+        "Nano Infusion",
+        "Microcurrent",
+        "Dermaplaning",
+        "Hydro Wand Infusion"
+      ],
+      "source_notes": "Prices from the clinic's own website heydayskincare.com/pages/the-essential-facial, read fresh 2026-11-25. Non-member prices are listed; monthly/bimonthly member prices also exist on the same page ($125/$130 Essential) and were not listed. The site notes prices may vary by studio. Address 1130 Broadway, NY 10010 and phone (646) 869-3601 from the clinic's Google Business listing, checked 2026-11-25 (not shown on the own-site facial page read today). Languages spoken not stated, left blank.",
+      "state": "NY",
+      "website": "https://www.heydayskincare.com/",
+      "zip": "10010"
+    },
+    {
+      "address": "147 Duane St, New York, NY 10013",
+      "city": "New York",
+      "languages": [],
+      "name": "Glowbar - Tribeca",
+      "neighborhood": "Tribeca",
+      "phone": "(929) 446-4300",
+      "prices": [
+        {
+          "price": "$95",
+          "source_url": "https://glowbar.com/pages/locations-tribeca-new-york",
+          "treatment": "Customized 30-minute facial",
+          "unit": "per session, non-member"
+        },
+        {
+          "price": "$75",
+          "source_url": "https://glowbar.com/pages/locations-tribeca-new-york",
+          "treatment": "Customized 30-minute facial",
+          "unit": "per session, member"
+        }
+      ],
+      "services": [
+        "Customized 30-minute facials",
+        "Dermaplaning",
+        "Extractions",
+        "Cavitation",
+        "High frequency",
+        "Microcurrent",
+        "Chemical peels",
+        "LED light therapy",
+        "Hydrating masks",
+        "Lymphatic drainage",
+        "Cryo globes"
+      ],
+      "source_notes": "Prices from the clinic's own website glowbar.com/pages/locations-tribeca-new-york, read fresh 2026-11-25 (standard pricing: non-member $95, member $75; premium treatments included). Address 147 Duane St, NY 10013 and phone (929) 446-4300 from the same page. Languages spoken not stated on the site, left blank.",
+      "state": "NY",
+      "website": "https://glowbar.com/",
+      "zip": "10013"
+    }
+  ]
+}
