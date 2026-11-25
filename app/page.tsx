@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { dicts, LANGS, WECHAT_ID } from "@/lib/i18n";
 import type { ContactMethod, Lang, Status } from "@/lib/types";
-import { BUSINESS_TYPES, CONTACT_METHODS, SIMPLE_SERVICES } from "@/lib/types";
+import { CONTACT_METHODS, SIMPLE_SERVICES } from "@/lib/types";
 
 function WeChatCopy({ label, copiedLabel }: { label: string; copiedLabel: string }) {
   const [copied, setCopied] = useState(false);
@@ -77,18 +77,16 @@ export default function Home() {
   const [businessName, setBusinessName] = useState("");
   // 2. City and ZIP
   const [cityZip, setCityZip] = useState("");
-  // 3. Business type (pick one)
-  const [businessType, setBusinessType] = useState("");
-  // 4. Services (pick any, one level only)
+  // 3. Services (pick any, one level only)
   const [services, setServices] = useState<string[]>([]);
-  // 5. Your name
+  // 4. Your name
   const [contactName, setContactName] = useState("");
-  // 6. Best way to reach you
+  // 5. Best way to reach you
   const [contactMethod, setContactMethod] = useState<ContactMethod>("phone");
   const [contactValue, setContactValue] = useState("");
-  // 7. Languages (optional, none selected by default)
+  // 6. Languages (optional, none selected by default)
   const [languages, setLanguages] = useState<string[]>([]);
-  // 8. Price-list checkbox (optional)
+  // 7. Price-list checkbox (optional)
   const [priceList, setPriceList] = useState(false);
   // Single required consent checkbox
   const [consent, setConsent] = useState(false);
@@ -110,7 +108,6 @@ export default function Home() {
     if (
       !businessName.trim() ||
       !cityZip.trim() ||
-      !businessType ||
       services.length === 0 ||
       !contactName.trim()
     ) {
@@ -156,7 +153,7 @@ export default function Home() {
           entry_type: "",
           referral_source: "",
           event_support: "",
-          business_type: dicts.en.businessTypes[businessType] ?? businessType,
+          business_type: "", // Field omitted Nov 25, 2026; kept in DB for old records.
           contact_method: contactMethod,
         }),
       });
@@ -324,24 +321,6 @@ export default function Home() {
                   value={cityZip}
                   onChange={(e) => setCityZip(e.target.value)}
                 />
-              </div>
-            </div>
-
-            <div>
-              <span className={labelCls}>{t.formBusinessType}</span>
-              <div className="flex flex-wrap gap-2">
-                {BUSINESS_TYPES.map((b) => (
-                  <label key={b} className={pill(businessType === b)}>
-                    <input
-                      type="radio"
-                      className="sr-only"
-                      name="business_type"
-                      checked={businessType === b}
-                      onChange={() => setBusinessType(b)}
-                    />
-                    {t.businessTypes[b]}
-                  </label>
-                ))}
               </div>
             </div>
 
