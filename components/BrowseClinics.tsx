@@ -29,36 +29,74 @@ interface SeedClinic {
 
 const CLINICS = seedData.clinics as SeedClinic[];
 
-// Loose keyword match from a clinic's service strings to the one-level
-// service categories (SIMPLE_SERVICES). Keywords are lowercase substrings.
-const SERVICE_KEYWORDS: Record<string, string[]> = {
-  "Botox & filler": [
-    "botox", "filler", "xeomin", "daxxify", "juvederm", "sculptra",
-    "radiesse", "skinvive", "lip flip", "masseter", "neurotoxin", "dermal",
-  ],
-  "Skin & laser": [
-    "facial", "laser", "skin", "rejuran", "peel", "microneedling", "prp",
-    "hydrafacial", "photon", "pico", "genesis", "morpheus8", "forma",
-    "rf microneedling", "resurfacing", "chemical", "meso", "pdrn",
-    "exosome", "mts", "ldm", "dermatoxin",
-  ],
-  Lifting: [
-    "ultherapy", "thermage", "oligio", "xerf", "titan", "thread", "pdo",
-    "lifting", "skin tightening", "liquid facelift", "contouring",
-  ],
-  "Brows & lashes": ["brow", "lash", "eyebrow", "eyelash"],
-  "Hair removal": ["hair removal", "laser hair", "gentlemax", "diode"],
-};
+// Classify one service/treatment string into exactly ONE category
+// (SIMPLE_SERVICES). Word-boundary matching plus a precedence order, so
+// look-alikes don't leak across categories:
+//  - "Laser hair removal" is Hair removal, not Skin & laser (bare "laser"
+//    must not claim it), and "threading" is hair removal too.
+//  - "Eyebrow threading" / "Lash lift" are Brows & lashes / Hair removal,
+//    not Lifting — "thread" only counts in "thread lift"/"PDO thread", and
+//    "lift" alone (lash lift, brow lift) is not skin lifting.
+//  - "Skin tightening" is Lifting, not Skin & laser (bare "skin" must not
+//    claim it).
+// Precedence (most specific first): Hair removal, Brows & lashes,
+// Botox & filler, Lifting, Skin & laser, then Other.
+function classifyService(service: string): string {
+  const s = service.toLowerCase();
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  // Word-boundary match, trying both singular and plural ("filler" must
+  // match "Dermal fillers", "facial" must match "Facials"). The trailing
+  // boundary is what keeps "thread" from matching "threading".
+  const has = (...words: string[]) =>
+    words.some((w) =>
+      [w, ...(w.endsWith("s") ? [] : [`${w}s`])].some((f) =>
+        new RegExp(`\\b${esc(f)}\\b`).test(s),
+      ),
+    );
+  if (
+    has(
+      "hair removal", "laser hair", "waxing", "wax", "threading",
+      "electrolysis", "sugaring", "gentlemax", "diode",
+    )
+  )
+    return "Hair removal";
+  if (
+    has(
+      "brow", "lash", "lashes", "eyebrow", "eyelash", "eyelashes",
+      "microblading", "lamination",
+    )
+  )
+    return "Brows & lashes";
+  if (
+    has(
+      "botox", "filler", "xeomin", "daxxify", "juvederm", "sculptra",
+      "radiesse", "skinvive", "lip flip", "masseter", "neurotoxin",
+      "dermal filler",
+    )
+  )
+    return "Botox & filler";
+  if (
+    has(
+      "ultherapy", "thermage", "oligio", "xerf", "titan", "hifu",
+      "thread lift", "pdo", "skin tightening", "liquid facelift",
+      "lifting", "facelift", "contouring",
+    )
+  )
+    return "Lifting";
+  if (
+    has(
+      "facial", "laser", "skin", "rejuran", "peel", "microneedling", "prp",
+      "hydrafacial", "photon", "pico", "genesis", "morpheus8", "forma",
+      "rf microneedling", "resurfacing", "chemical", "meso", "pdrn",
+      "exosome", "mts", "ldm", "dermatoxin",
+    )
+  )
+    return "Skin & laser";
+  return "Other";
+}
 
 function serviceMatchesCategory(service: string, category: string): boolean {
-  const s = service.toLowerCase();
-  if (category === "Other") {
-    // "Other" = a service that fits none of the named categories.
-    return !Object.values(SERVICE_KEYWORDS).some((kws) =>
-      kws.some((k) => s.includes(k)),
-    );
-  }
-  return (SERVICE_KEYWORDS[category] ?? []).some((k) => s.includes(k));
+  return classifyService(service) === category;
 }
 
 // The first number in the price — for a range like "$100–$150" that's the
