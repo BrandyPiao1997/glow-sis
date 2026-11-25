@@ -69,7 +69,7 @@ function classifyService(service: string): string {
     return "Brows & lashes";
   if (
     has(
-      "botox", "filler", "xeomin", "daxxify", "juvederm", "sculptra",
+      "botox", "filler", "xeomin", "dysport", "jeuveau", "daxxify", "juvederm", "sculptra",
       "radiesse", "skinvive", "lip flip", "masseter", "neurotoxin",
       "dermal filler",
     )
@@ -236,6 +236,7 @@ function lowestMatchingPrice(
   query: string,
   service: string,
   sub: string,
+  matchText?: (text: string, q: string) => boolean,
 ): SeedPrice | null {
   const q = query.trim().toLowerCase();
   let rows = clinic.prices;
@@ -246,9 +247,9 @@ function lowestMatchingPrice(
     rows = rows.filter((p) => subTreatmentOf(p.treatment, service) === sub);
   }
   if (q) {
-    const byTreatment = rows.filter((p) =>
-      p.treatment.toLowerCase().includes(q),
-    );
+    const matches = (text: string) =>
+      matchText ? matchText(text, q) : text.toLowerCase().includes(q);
+    const byTreatment = rows.filter((p) => matches(p.treatment));
     if (byTreatment.length > 0) rows = byTreatment;
     else if (!clinic.name.toLowerCase().includes(q)) rows = [];
   }
@@ -278,6 +279,27 @@ export default function BrowseClinics({ t }: { t: Dict }) {
 
   // Translate a taxonomy/service label into the current language.
   const trLabel = (map: Record<string, string>, key: string) => map[key] ?? key;
+
+  // Does a piece of English data (a service or price-treatment name)
+  // match the query in any language? Checks the raw English text, its
+  // Chinese/Korean translation, and the sub-treatment it belongs to
+  // (also in English and translated) — so typing 肉毒素 or 보톡스 finds
+  // Botox rows, and the search box never has to show English.
+  const matchText = (text: string, q: string) => {
+    const lower = text.toLowerCase();
+    if (lower.includes(q)) return true;
+    const chipMap = t.serviceChipNames as Record<string, string>;
+    const chip = chipMap[text];
+    if (chip && chip.toLowerCase().includes(q)) return true;
+    const subMap = t.subTreatmentNames as Record<string, string>;
+    const label = subTreatmentOf(text, classifyService(text));
+    if (label) {
+      if (label.toLowerCase().includes(q)) return true;
+      const tr = subMap[label];
+      if (tr && tr.toLowerCase().includes(q)) return true;
+    }
+    return false;
+  };
 
   // Most-offered treatments across all clinics, by number of clinics
   // offering each sub-treatment — the default "trending" suggestions
@@ -398,14 +420,11 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         if (!hasSub) return false;
       }
       if (q) {
-        const hay = [
-          c.name,
-          ...c.services,
-          ...c.prices.map((p) => p.treatment),
-        ]
-          .join(" ")
-          .toLowerCase();
-        if (!hay.includes(q)) return false;
+        const hit =
+          c.name.toLowerCase().includes(q) ||
+          c.services.some((s) => matchText(s, q)) ||
+          c.prices.some((p) => matchText(p.treatment, q));
+        if (!hit) return false;
       }
       return true;
     });
@@ -417,12 +436,12 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (!q) return 0;
       let score = 0;
       if (c.name.toLowerCase().includes(q)) score += 3;
-      if (c.prices.some((p) => p.treatment.toLowerCase().includes(q))) score += 2;
-      if (c.services.some((s) => s.toLowerCase().includes(q))) score += 1;
+      if (c.prices.some((p) => matchText(p.treatment, q))) score += 2;
+      if (c.services.some((s) => matchText(s, q))) score += 1;
       return score;
     };
     const priceOf = (c: SeedClinic) => {
-      const low = lowestMatchingPrice(c, query, service, sub);
+      const low = lowestMatchingPrice(c, query, service, sub, matchText);
       return low ? parsePriceNum(low.price) : null;
     };
     return list.sort((a, b) => {
@@ -435,7 +454,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (pa !== null && pb === null) return -1;
       return a.name.localeCompare(b.name);
     });
-  }, [query, neighborhood, service, sub, language, pricedOnly]);
+  }, [query, neighborhood, service, sub, language, pricedOnly, t]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -484,7 +503,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 setActiveIdx((i) => Math.max(i - 1, -1));
               } else if (e.key === "Enter" && activeIdx >= 0) {
                 e.preventDefault();
-                setQuery(suggestions[activeIdx].value);
+                setQuery(suggestions[activeIdx].display);
                 setSearchFocused(false);
               } else if (e.key === "Escape") {
                 setSearchFocused(false);
@@ -503,7 +522,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                       type="button"
                       onMouseDown={(e) => e.preventDefault()}
                       onClick={() => {
-                        setQuery(s.value);
+                        setQuery(s.display);
                         setSearchFocused(false);
                       }}
                       onMouseEnter={() => setActiveIdx(i)}
@@ -644,7 +663,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
 
       <div className="mt-4 space-y-4">
         {filtered.map((c) => {
-          const low = lowestMatchingPrice(c, query, service, sub);
+          const low = lowestMatchingPrice(c, query, service, sub, matchText);
           const open = expanded === c.name;
           return (
             <article
