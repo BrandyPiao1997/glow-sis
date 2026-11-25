@@ -468,7 +468,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 aria-pressed={service === s}
                 className={pill(service === s)}
               >
-                {s}
+                {(t.serviceNames as Record<string, string>)[s] ?? s}
               </button>
             ))}
           </div>
@@ -494,7 +494,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                   aria-pressed={sub === label}
                   className={pill(sub === label)}
                 >
-                  {label}
+                  {(t.subTreatmentNames as Record<string, string>)[label] ?? label}
                 </button>
               ))}
             </div>
