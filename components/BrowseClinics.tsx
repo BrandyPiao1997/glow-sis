@@ -312,7 +312,15 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 <div>
                   <h2 className="text-lg font-bold">{c.name}</h2>
                   <p className="mt-0.5 text-sm text-muted">
-                    {c.neighborhood} · {c.address}
+                    {c.neighborhood} ·{" "}
+                    <a
+                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-brand hover:underline"
+                    >
+                      {c.address} ↗
+                    </a>
                   </p>
                   {c.phone && (
                     <p className="mt-1 text-sm text-muted">
