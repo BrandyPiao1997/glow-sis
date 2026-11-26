@@ -348,7 +348,8 @@ const en = {
   // --- Mobile app (PWA) ---
   tabBrowse: "Browse",
   tabCompare: "Compare",
-  tabAi: "AI",
+  tabHome: "Home",
+  tabAi: "AI Assistant",
   tabProfile: "Profile",
   installTitle: "Get the GlowSis app",
   installBody: "Add GlowSis to your home screen for the full app experience.",
@@ -384,6 +385,21 @@ const en = {
   aiComingSoon:
     "The full AI chat is coming soon — for now, your skin test and profile live here.",
   aiChatSoon: "Ask me anything — AI chat is coming soon.",
+  // AI chat (free-text, scripted replies — no LLM, no treatment advice)
+  aiChatTitle: "How can I help you?",
+  aiChatSub: "Ask me anything about treatments, results, or concerns",
+  aiChatPh: "Ask about treatments…",
+  aiChatSend: "Send",
+  aiReplyTreatment:
+    "You can compare {treatment} across clinics on the Home tab — search for {treatment} to see real prices from the clinics' own websites.",
+  aiReplySkinTest:
+    "Want to see what your skin needs? Take the skin test — it takes seconds, and your report becomes the starting point for our chat.",
+  aiReplyPrice:
+    "Prices on GlowSis come from the clinics' own websites, so you can compare the same treatment across clinics on the Home tab. Keep in mind per-unit prices (like Botox per unit) aren't directly comparable to per-treatment prices.",
+  aiReplyHello:
+    "Hi! Tell me what you're curious about — a treatment, a skin concern, or prices. Or take a skin test and I'll use your report as our starting point.",
+  aiReplyDefault:
+    "I'm still learning, so I can't answer that well yet. Try browsing clinics on the Home tab, or take a skin test — I'll use your report to help from there.",
   aiContextTitle: "Your skin report",
   aiRetake: "Retake skin test",
   aiDisclaimer: "AI-generated, for reference only — not a medical diagnosis.",
@@ -803,7 +819,8 @@ const zh: Dict = {
   languages: { English: "英文", Chinese: "中文", Korean: "韩文" },
   tabBrowse: "浏览",
   tabCompare: "对比",
-  tabAi: "AI",
+  tabHome: "首页",
+  tabAi: "AI 助手",
   tabProfile: "我的",
   installTitle: "把 GlowSis 装进手机",
   installBody: "添加到主屏幕，获得完整 App 体验。",
@@ -834,6 +851,20 @@ const zh: Dict = {
   aiStartBrowsing: "开始浏览",
   aiComingSoon: "完整 AI 对话即将上线——目前这里可以做肤质检测和管理档案。",
   aiChatSoon: "有什么想问的？AI 对话即将上线。",
+  aiChatTitle: "有什么可以帮你的？",
+  aiChatSub: "关于项目、效果或肌肤问题，随便问我",
+  aiChatPh: "问问关于项目的事…",
+  aiChatSend: "发送",
+  aiReplyTreatment:
+    "你可以在“首页”比较各家诊所的{treatment}——搜索{treatment}，查看诊所官网公布的真实价格。",
+  aiReplySkinTest:
+    "想看看你的肌肤需要什么？测一测肤质吧，几秒钟就好，报告会成为我们对话的起点。",
+  aiReplyPrice:
+    "GlowSis 上的价格来自诊所自己的官网，你可以在“首页”比较同一项目的价格。注意：按单位计价（如肉毒素每单位）不能直接与按次计价相比。",
+  aiReplyHello:
+    "你好！告诉我你想了解什么——某个项目、肌肤问题，或者价格。也可以先测一测肤质，我会根据你的报告来聊。",
+  aiReplyDefault:
+    "我还在学习中，这个问题暂时答不好。你可以去“首页”浏览诊所，或者先测一测肤质，我会根据你的报告来帮你。",
   aiContextTitle: "你的肌肤报告",
   aiRetake: "重新检测",
   aiDisclaimer: "内容由 AI 生成，仅供参考，不能代替医疗诊断。",
@@ -1228,7 +1259,8 @@ const ko: Dict = {
   languages: { English: "영어", Chinese: "중국어", Korean: "한국어" },
   tabBrowse: "둘러보기",
   tabCompare: "비교",
-  tabAi: "AI",
+  tabHome: "홈",
+  tabAi: "AI 어시스턴트",
   tabProfile: "프로필",
   installTitle: "GlowSis 앱 설치하기",
   installBody: "홈 화면에 추가하면 앱처럼 사용할 수 있어요.",
@@ -1259,6 +1291,20 @@ const ko: Dict = {
   aiStartBrowsing: "둘러보기 시작",
   aiComingSoon: "전체 AI 채팅은 곧 출시돼요 — 지금은 피부 테스트와 프로필 관리를 할 수 있어요.",
   aiChatSoon: "궁금한 게 있나요? AI 채팅은 곧 출시돼요.",
+  aiChatTitle: "무엇을 도와드릴까요?",
+  aiChatSub: "시술, 효과, 피부 고민에 대해 무엇이든 물어보세요",
+  aiChatPh: "시술에 대해 물어보세요…",
+  aiChatSend: "보내기",
+  aiReplyTreatment:
+    "홈 탭에서 여러 클리닉의 {treatment}을(를) 비교해 보세요. {treatment}을(를) 검색하면 각 클리닉 공식 홈페이지의 실제 가격을 볼 수 있어요.",
+  aiReplySkinTest:
+    "피부에 무엇이 필요한지 알고 싶으세요? 피부 테스트를 해보세요. 몇 초면 되고, 리포트가 우리 대화의 시작점이 돼요.",
+  aiReplyPrice:
+    "GlowSis 가격은 각 클리닉 공식 홈페이지에서 가져온 것이에요. 홈 탭에서 같은 시술의 가격을 비교해 보세요. 단위당 가격(예: 보톡스 단위당)은 회당 가격과 직접 비교하기 어려워요.",
+  aiReplyHello:
+    "안녕하세요! 궁금한 걸 알려주세요 — 시술, 피부 고민, 가격 등 무엇이든요. 피부 테스트를 먼저 하면 리포트를 바탕으로 이야기할 수 있어요.",
+  aiReplyDefault:
+    "아직 배우는 중이라 그 질문은 잘 답하지 못해요. 홈 탭에서 클리닉을 둘러보거나 피부 테스트를 해보세요. 리포트를 바탕으로 도와드릴게요.",
   aiContextTitle: "내 피부 리포트",
   aiRetake: "다시 테스트하기",
   aiDisclaimer: "AI가 생성한 내용으로 참고용이며 의학적 진단이 아닙니다.",
