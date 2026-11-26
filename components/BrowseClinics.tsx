@@ -268,10 +268,10 @@ function lowestMatchingPrice(
 
 export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
+  const [city, setCity] = useState("");
   const [neighborhood, setNeighborhood] = useState("");
   const [service, setService] = useState("");
   const [sub, setSub] = useState("");
-  const [language, setLanguage] = useState("");
   const [pricedOnly, setPricedOnly] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -395,22 +395,29 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       .filter((label) => seen.has(label));
   }, [service]);
 
-  const allLanguages = useMemo(
-    () => [...new Set(CLINICS.flatMap((c) => c.languages))].sort(),
-    [],
-  );
+  // Cities, most clinics first; neighborhoods only within the chosen city.
+  const allCities = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const c of CLINICS) counts.set(c.city, (counts.get(c.city) ?? 0) + 1);
+    return [...counts.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name]) => name);
+  }, []);
 
-  const allNeighborhoods = useMemo(
-    () => [...new Set(CLINICS.map((c) => c.neighborhood))].sort(),
-    [],
+  const cityNeighborhoods = useMemo(
+    () =>
+      city
+        ? [...new Set(CLINICS.filter((c) => c.city === city).map((c) => c.neighborhood))].sort()
+        : [],
+    [city],
   );
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     const list = CLINICS.filter((c) => {
       if (pricedOnly && c.prices.length === 0) return false;
+      if (city && c.city !== city) return false;
       if (neighborhood && c.neighborhood !== neighborhood) return false;
-      if (language && !c.languages.includes(language)) return false;
       if (service && !c.services.some((s) => serviceMatchesCategory(s, service)))
         return false;
       if (sub) {
@@ -454,7 +461,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (pa !== null && pb === null) return -1;
       return a.name.localeCompare(b.name);
     });
-  }, [query, neighborhood, service, sub, language, pricedOnly, t]);
+  }, [query, city, neighborhood, service, sub, pricedOnly, t]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -544,17 +551,20 @@ export default function BrowseClinics({ t }: { t: Dict }) {
 
         <div className="mt-5 grid gap-4 sm:grid-cols-3">
           <div>
-            <label className={labelCls} htmlFor="browse_neighborhood">
-              {t.browseNeighborhood}
+            <label className={labelCls} htmlFor="browse_city">
+              {t.browseCity}
             </label>
             <select
-              id="browse_neighborhood"
+              id="browse_city"
               className={inputCls}
-              value={neighborhood}
-              onChange={(e) => setNeighborhood(e.target.value)}
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+                setNeighborhood("");
+              }}
             >
               <option value="">{t.browseAll}</option>
-              {allNeighborhoods.map((n) => (
+              {allCities.map((n) => (
                 <option key={n} value={n}>
                   {n}
                 </option>
@@ -562,19 +572,20 @@ export default function BrowseClinics({ t }: { t: Dict }) {
             </select>
           </div>
           <div>
-            <label className={labelCls} htmlFor="browse_language">
-              {t.browseLanguage}
+            <label className={labelCls} htmlFor="browse_neighborhood">
+              {t.browseNeighborhood}
             </label>
             <select
-              id="browse_language"
+              id="browse_neighborhood"
               className={inputCls}
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
+              value={neighborhood}
+              disabled={!city}
+              onChange={(e) => setNeighborhood(e.target.value)}
             >
-              <option value="">{t.browseAll}</option>
-              {allLanguages.map((l) => (
-                <option key={l} value={l}>
-                  {l}
+              <option value="">{city ? t.browseAll : t.browseSelectCityFirst}</option>
+              {cityNeighborhoods.map((n) => (
+                <option key={n} value={n}>
+                  {n}
                 </option>
               ))}
             </select>

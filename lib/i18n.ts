@@ -37,6 +37,8 @@ const en = {
   browseTrending: "Trending",
   browseSuggestions: "Suggestions",
   browseNeighborhood: "Neighborhood",
+  browseCity: "City",
+  browseSelectCityFirst: "Select a city first",
   browseService: "Service",
   browseTreatment: "Treatment",
   // Category pills and sub-treatment pills are a fixed taxonomy, so their
@@ -389,6 +391,8 @@ const zh: Dict = {
   browseTrending: "热门搜索",
   browseSuggestions: "相关推荐",
   browseNeighborhood: "地区",
+  browseCity: "城市",
+  browseSelectCityFirst: "请先选择城市",
   browseService: "服务",
   browseTreatment: "具体项目",
   serviceNames: {
@@ -713,6 +717,8 @@ const ko: Dict = {
   browseTrending: "인기 검색",
   browseSuggestions: "추천 검색어",
   browseNeighborhood: "지역",
+  browseCity: "도시",
+  browseSelectCityFirst: "도시를 먼저 선택하세요",
   browseService: "서비스",
   browseTreatment: "시술",
   serviceNames: {
