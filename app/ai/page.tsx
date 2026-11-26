@@ -23,6 +23,12 @@ type Msg = {
   role: "assistant" | "user";
   text: string;
   kind?: "skin-test";
+  // When set, the message text comes from the i18n dict at render time,
+  // so switching language re-translates it. Assistant messages seeded or
+  // pushed once used to freeze in the language active at that moment
+  // (Chinese by default), which is why the first two greetings stayed
+  // Chinese in English/Korean. User answers keep their literal text.
+  i18nKey?: string;
 };
 
 type Step = "concerns" | "city" | "budget" | "signin" | "done";
@@ -61,13 +67,13 @@ export default function AiPage() {
           : "signin";
     setStep(nextStep);
     const seed: Msg[] = [
-      { id: msgId++, role: "assistant", text: t.aiGreet1 },
-      { id: msgId++, role: "assistant", text: t.aiGreet2 },
+      { id: msgId++, role: "assistant", text: t.aiGreet1, i18nKey: "aiGreet1" },
+      { id: msgId++, role: "assistant", text: t.aiGreet2, i18nKey: "aiGreet2" },
       { id: msgId++, role: "assistant", text: "", kind: "skin-test" },
     ];
-    if (nextStep === "city") seed.push({ id: msgId++, role: "assistant", text: t.aiQCity });
-    if (nextStep === "budget") seed.push({ id: msgId++, role: "assistant", text: t.aiQBudget });
-    if (nextStep === "signin") seed.push({ id: msgId++, role: "assistant", text: t.aiSignInTitle });
+    if (nextStep === "city") seed.push({ id: msgId++, role: "assistant", text: t.aiQCity, i18nKey: "aiQCity" });
+    if (nextStep === "budget") seed.push({ id: msgId++, role: "assistant", text: t.aiQBudget, i18nKey: "aiQBudget" });
+    if (nextStep === "signin") seed.push({ id: msgId++, role: "assistant", text: t.aiSignInTitle, i18nKey: "aiSignInTitle" });
     setMessages(seed);
     setLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,8 +90,8 @@ export default function AiPage() {
     });
   }
 
-  function push(role: "assistant" | "user", text: string, kind?: Msg["kind"]) {
-    setMessages((m) => [...m, { id: msgId++, role, text, kind }]);
+  function push(role: "assistant" | "user", text: string, kind?: Msg["kind"], i18nKey?: string) {
+    setMessages((m) => [...m, { id: msgId++, role, text, kind, i18nKey }]);
   }
 
   function skipToBrowse() {
@@ -105,7 +111,7 @@ export default function AiPage() {
       .join(" · ");
     push("user", labels);
     updateDraft({ concerns: picked });
-    push("assistant", t.aiQCity);
+    push("assistant", t.aiQCity, undefined, "aiQCity");
     setStep("city");
   }
 
@@ -113,12 +119,12 @@ export default function AiPage() {
     raw: string,
     display: string,
     nextStep: Step,
-    nextQuestion: string,
+    nextQuestionKey: string,
   ) {
     push("user", display);
     if (step === "city") updateDraft({ city: raw });
     if (step === "budget") updateDraft({ budget: raw });
-    push("assistant", nextQuestion);
+    push("assistant", "", undefined, nextQuestionKey);
     setStep(nextStep);
   }
 
@@ -231,8 +237,14 @@ export default function AiPage() {
         </div>
 
         <div className="flex flex-col gap-3">
-          {messages.map((m) =>
-            m.kind === "skin-test" && showSkinTest ? (
+          {messages.map((m) => {
+            // Resolve i18n-keyed assistant messages in the current language
+            // (falls back to the text captured when the message was pushed).
+            const displayText =
+              m.i18nKey != null
+                ? ((t as unknown as Record<string, string>)[m.i18nKey] ?? m.text)
+                : m.text;
+            return m.kind === "skin-test" && showSkinTest ? (
               <div key={m.id} className="rounded-3xl border border-brand bg-brand-soft p-4">
                 <p className="font-bold">{t.aiSkinTestCta}</p>
                 <p className="mt-1 text-sm leading-relaxed text-muted">{t.aiSkinTestSub}</p>
@@ -261,10 +273,10 @@ export default function AiPage() {
                     : "self-end rounded-br-md bg-brand text-white"
                 }`}
               >
-                {m.text}
+                {displayText}
               </div>
-            ),
-          )}
+            );
+          })}
 
           {step === "concerns" && (
             <div className="rounded-3xl border border-line bg-white p-4">
@@ -310,7 +322,7 @@ export default function AiPage() {
                       c,
                       (t.cityNames as Record<string, string>)[c] ?? c,
                       "budget",
-                      t.aiQBudget,
+                      "aiQBudget",
                     )
                   }
                   className={chipCls(false)}
@@ -332,7 +344,7 @@ export default function AiPage() {
                       b,
                       (t.budgetNames as Record<string, string>)[b] ?? b,
                       "signin",
-                      t.aiSignInTitle,
+                      "aiSignInTitle",
                     )
                   }
                   className={chipCls(false)}
@@ -352,7 +364,7 @@ export default function AiPage() {
               <button
                 type="button"
                 onClick={() => {
-                  push("assistant", t.aiDoneTitle);
+                  push("assistant", t.aiDoneTitle, undefined, "aiDoneTitle");
                   setStep("done");
                 }}
                 className="mt-4 text-sm font-semibold text-muted hover:text-ink"
