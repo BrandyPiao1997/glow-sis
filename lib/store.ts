@@ -99,7 +99,59 @@ async function ensurePostgresSchema(): Promise<void> {
     ALTER TABLE applications ADD COLUMN IF NOT EXISTS business_type TEXT NOT NULL DEFAULT '';
     ALTER TABLE applications ADD COLUMN IF NOT EXISTS contact_method TEXT NOT NULL DEFAULT '';
     ALTER TABLE applications ADD COLUMN IF NOT EXISTS website TEXT NOT NULL DEFAULT '';
+    -- User skin profiles (PWA onboarding). localStorage is the source of
+    -- truth; this is only a backup for signed-in users.
+    CREATE TABLE IF NOT EXISTS profiles (
+      user_id TEXT PRIMARY KEY,
+      concerns JSONB NOT NULL DEFAULT '[]'::jsonb,
+      skin_type TEXT NOT NULL DEFAULT '',
+      city TEXT NOT NULL DEFAULT '',
+      budget TEXT NOT NULL DEFAULT '',
+      skin_report JSONB,
+      onboarded BOOLEAN NOT NULL DEFAULT FALSE,
+      source TEXT NOT NULL DEFAULT '',
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
   `);
+}
+
+export interface UserProfileRow {
+  user_id: string;
+  concerns: string[];
+  skin_type: string;
+  city: string;
+  budget: string;
+  skin_report: unknown;
+  onboarded: boolean;
+  source: string;
+}
+
+export async function saveUserProfile(p: UserProfileRow): Promise<void> {
+  await ensurePostgresSchema();
+  const pool = getPool();
+  await pool.query(
+    `INSERT INTO profiles (user_id, concerns, skin_type, city, budget, skin_report, onboarded, source, updated_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())
+     ON CONFLICT (user_id) DO UPDATE SET
+       concerns = EXCLUDED.concerns,
+       skin_type = EXCLUDED.skin_type,
+       city = EXCLUDED.city,
+       budget = EXCLUDED.budget,
+       skin_report = EXCLUDED.skin_report,
+       onboarded = EXCLUDED.onboarded,
+       source = EXCLUDED.source,
+       updated_at = NOW()`,
+    [
+      p.user_id,
+      JSON.stringify(p.concerns),
+      p.skin_type,
+      p.city,
+      p.budget,
+      p.skin_report ? JSON.stringify(p.skin_report) : null,
+      p.onboarded,
+      p.source,
+    ],
+  );
 }
 
 function toApplication(row: Record<string, unknown>, priceRows: PriceRow[]): Application {

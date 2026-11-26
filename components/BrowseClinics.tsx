@@ -182,7 +182,7 @@ function subTreatmentOf(name: string, category: string): string | null {
 // The first number in the price — for a range like "$100–$150" that's the
 // low end, which is what a "from $X" headline should show. (The old version
 // stripped all non-digits, turning "$100–$150" into 100150.)
-function parsePriceNum(price: string): number | null {
+export function parsePriceNum(price: string): number | null {
   const m = price.replace(/,/g, "").match(/\d+(\.\d+)?/);
   if (!m) return null;
   const n = parseFloat(m[0]);
@@ -198,7 +198,7 @@ function parsePriceNum(price: string): number | null {
 // add-on enhancements, and member-only rates. Quantified full-treatment
 // amounts (per 300 shots, per 50 units for a full face, per 2cc syringe,
 // per 2 vials) ARE comparable — they are the price of the whole treatment.
-function isComparablePrice(p: SeedPrice): boolean {
+export function isComparablePrice(p: SeedPrice): boolean {
   const u = p.unit.toLowerCase();
   const t = p.treatment.toLowerCase();
   if (
@@ -231,7 +231,7 @@ function isComparablePrice(p: SeedPrice): boolean {
 // the query matches only the clinic's name, fall back to all rows. Rows
 // that match nothing yield no headline price (the card then shows "See
 // price list" instead of a misleading figure).
-function lowestMatchingPrice(
+export function lowestMatchingPrice(
   clinic: SeedClinic,
   query: string,
   service: string,

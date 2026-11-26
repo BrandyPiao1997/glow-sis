@@ -1,12 +1,31 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { dicts } from "@/lib/i18n";
 import BrowseClinics from "@/components/BrowseClinics";
+import InstallBanner from "@/components/InstallBanner";
 import { SiteFooter, SiteHeader, useSavedLang } from "@/components/site";
+import { PROFILE_KEY } from "@/lib/profile";
 
 export default function Home() {
   const { lang, chooseLang } = useSavedLang();
   const t = dicts[lang];
+  const router = useRouter();
+
+  // First-time users land on the AI assistant chat (conversational
+  // onboarding), not the browse page. Returning users (profile saved with
+  // onboarded: true) open straight to Browse. /browse stays a direct
+  // entry point with no redirect.
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(PROFILE_KEY);
+      const onboarded = raw ? (JSON.parse(raw) as { onboarded?: boolean }).onboarded : false;
+      if (!onboarded) router.replace("/ai");
+    } catch {
+      router.replace("/ai");
+    }
+  }, [router]);
 
   return (
     <div className="flex-1">
@@ -22,6 +41,7 @@ export default function Home() {
           <p className="mt-6 inline-block rounded-full bg-brand-soft px-4 py-2 text-sm font-bold text-brand-dark">
             {t.parityNote}
           </p>
+          <InstallBanner t={t} />
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
               href="#browse"

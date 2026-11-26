@@ -64,3 +64,17 @@ ALTER TABLE applications ADD COLUMN IF NOT EXISTS event_support TEXT NOT NULL DE
 ALTER TABLE applications ADD COLUMN IF NOT EXISTS business_type TEXT NOT NULL DEFAULT '';
 ALTER TABLE applications ADD COLUMN IF NOT EXISTS contact_method TEXT NOT NULL DEFAULT '';
 ALTER TABLE applications ADD COLUMN IF NOT EXISTS website TEXT NOT NULL DEFAULT '';
+
+-- User skin profiles (PWA onboarding). localStorage is the source of truth;
+-- this is only a backup for signed-in users.
+CREATE TABLE IF NOT EXISTS profiles (
+  user_id TEXT PRIMARY KEY,
+  concerns JSONB NOT NULL DEFAULT '[]'::jsonb,
+  skin_type TEXT NOT NULL DEFAULT '',
+  city TEXT NOT NULL DEFAULT '',
+  budget TEXT NOT NULL DEFAULT '',
+  skin_report JSONB,
+  onboarded BOOLEAN NOT NULL DEFAULT FALSE,
+  source TEXT NOT NULL DEFAULT '',
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
