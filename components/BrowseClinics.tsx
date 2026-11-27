@@ -282,6 +282,8 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   const [sub, setSub] = useState("");
   const [pricedOnly, setPricedOnly] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
+  // Clinic whose full service-chip list is shown (collapsed cards show 3).
+  const [allChips, setAllChips] = useState<string | null>(null);
   const [searchFocused, setSearchFocused] = useState(false);
   const [activeIdx, setActiveIdx] = useState(-1);
   const [locStatus, setLocStatus] = useState<"idle" | "locating" | "far" | "error">("idle");
@@ -733,79 +735,60 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         </p>
       )}
 
-      <div className="mt-4 space-y-4">
+      <div className="mt-4 space-y-3 md:space-y-4">
         {filtered.map((c) => {
           const low = lowestMatchingPrice(c, query, service, sub, matchText);
           const open = expanded === c.name;
           return (
             <article
               key={c.name}
-              className="rounded-3xl border border-line bg-white p-5 md:p-6"
+              className="rounded-2xl border border-line bg-white p-3.5 md:rounded-3xl md:p-6"
             >
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <h2 className="text-lg font-bold">{c.name}</h2>
-                  <p className="mt-0.5 text-sm text-muted">
-                    {c.neighborhood} ·{" "}
-                    <a
-                      href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address)}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:text-brand hover:underline"
-                    >
-                      {c.address} ↗
-                    </a>
-                  </p>
-                  {c.phone && (
-                    <p className="mt-1 text-sm text-muted">
-                      {t.browsePhone}:{" "}
-                      <a href={`tel:${c.phone.replace(/[^0-9+]/g, "")}`} className="font-medium text-ink hover:text-brand">
-                        {c.phone}
-                      </a>
-                    </p>
-                  )}
-                  {c.website && (
-                    <p className="mt-1 text-sm">
-                      <a
-                        href={c.website}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="font-medium text-brand hover:text-brand-dark"
-                      >
-                        {t.browseWebsite} ↗
-                      </a>
-                    </p>
-                  )}
-                </div>
-                <div className="text-right">
+              {/* Compact card (Option A): name + price on one line, address
+                  truncated to one line, treatment under it, 3 service chips
+                  + a count, small buttons. Phone/website live in the
+                  expanded price panel, not the collapsed card. */}
+              <div className="flex items-start justify-between gap-3">
+                <h2 className="min-w-0 flex-1 truncate text-base font-bold md:text-lg">
+                  {c.name}
+                </h2>
+                <div className="shrink-0 text-right">
                   {low ? (
-                    <>
-                      <p className="text-lg font-extrabold text-brand-dark">
-                        {t.browseFrom} {low.price}
-                      </p>
-                      <p
-                        className="mt-0.5 max-w-[220px] truncate text-xs text-muted"
-                        title={low.treatment}
-                      >
-                        {low.treatment}
-                      </p>
-                    </>
+                    <p className="text-base font-extrabold whitespace-nowrap text-brand-dark md:text-lg">
+                      {t.browseFrom} {low.price}
+                    </p>
                   ) : c.prices.length > 0 ? (
-                    <p className="max-w-[220px] text-sm font-medium text-muted">
+                    <p className="max-w-[160px] text-xs font-medium text-muted md:max-w-[220px] md:text-sm">
                       {t.browseSeePrices}
                     </p>
                   ) : (
-                    <p className="max-w-[220px] text-sm font-medium text-muted">
+                    <p className="max-w-[160px] text-xs font-medium text-muted md:max-w-[220px] md:text-sm">
                       {t.browseNoPrices}
                     </p>
                   )}
                 </div>
               </div>
+              <p className="mt-0.5 truncate text-xs text-muted md:text-sm">
+                {c.neighborhood} ·{" "}
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-brand hover:underline"
+                >
+                  {c.address} ↗
+                </a>
+              </p>
+              {low && (
+                <p className="mt-0.5 truncate text-xs text-muted" title={low.treatment}>
+                  {low.treatment}
+                </p>
+              )}
 
-              <div className="mt-4">
-                <p className="text-sm font-semibold">{t.browseServices}</p>
+              <div className="mt-3 md:mt-4">
+                <p className="hidden text-sm font-semibold md:block">{t.browseServices}</p>
                 <div className="mt-2 flex flex-wrap gap-1.5">
-                  {c.services.map((s) => (
+                  {(allChips === c.name ? c.services : c.services.slice(0, 3)).map((s) => (
                     <span
                       key={s}
                       className="rounded-full bg-brand-soft px-2.5 py-1 text-xs font-semibold text-brand-dark"
@@ -813,21 +796,39 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                       {(t.serviceChipNames as Record<string, string>)[s] ?? s}
                     </span>
                   ))}
+                  {c.services.length > 3 && allChips !== c.name && (
+                    <button
+                      type="button"
+                      onClick={() => setAllChips(c.name)}
+                      className="rounded-full bg-cream px-2.5 py-1 text-xs font-semibold text-muted hover:text-ink"
+                    >
+                      {t.browseMoreServices.replace("{n}", String(c.services.length - 3))}
+                    </button>
+                  )}
+                  {allChips === c.name && c.services.length > 3 && (
+                    <button
+                      type="button"
+                      onClick={() => setAllChips(null)}
+                      className="rounded-full bg-cream px-2.5 py-1 text-xs font-semibold text-muted hover:text-ink"
+                    >
+                      {t.browseShowLess}
+                    </button>
+                  )}
                 </div>
               </div>
 
               {c.languages.length > 0 && (
-                <p className="mt-3 text-sm text-muted">
+                <p className="mt-2 text-xs text-muted md:mt-3 md:text-sm">
                   {t.browseLanguages}: {c.languages.map((l) => (t.languages as Record<string, string>)[l] ?? l).join(", ")}
                 </p>
               )}
 
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2 md:mt-4">
                 <button
                   type="button"
                   onClick={() => setExpanded(open ? null : c.name)}
                   aria-expanded={open}
-                  className="rounded-full border border-line px-4 py-2 text-sm font-semibold hover:border-brand"
+                  className="rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold hover:border-brand md:px-4 md:py-2 md:text-sm"
                 >
                   {open ? t.browseHidePrices : t.browseViewPrices}
                 </button>
@@ -836,7 +837,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                     href={c.website}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+                    className="rounded-full bg-brand px-3.5 py-1.5 text-xs font-semibold text-white hover:bg-brand-dark md:px-4 md:py-2 md:text-sm"
                   >
                     {t.browseBookConsult} ↗
                   </a>
@@ -844,7 +845,31 @@ export default function BrowseClinics({ t }: { t: Dict }) {
               </div>
 
               {open && (
-                <div className="mt-4 rounded-2xl border border-line bg-cream p-4">
+                <div className="mt-3 rounded-2xl border border-line bg-cream p-4 md:mt-4">
+                  {(c.phone || c.website) && (
+                    <div className="mb-3 space-y-1 border-b border-line pb-3 text-sm">
+                      {c.phone && (
+                        <p className="text-muted">
+                          {t.browsePhone}:{" "}
+                          <a href={`tel:${c.phone.replace(/[^0-9+]/g, "")}`} className="font-medium text-ink hover:text-brand">
+                            {c.phone}
+                          </a>
+                        </p>
+                      )}
+                      {c.website && (
+                        <p>
+                          <a
+                            href={c.website}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-medium text-brand hover:text-brand-dark"
+                          >
+                            {t.browseWebsite} ↗
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                  )}
                   <h3 className="font-bold">{t.browsePriceList}</h3>
                   {c.prices.length === 0 ? (
                     <p className="mt-2 text-sm text-muted">{t.browseNoPrices}</p>
