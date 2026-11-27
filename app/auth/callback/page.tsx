@@ -7,13 +7,22 @@ import { useSavedLang } from "@/components/site";
 import { getSupabase } from "@/lib/supabase";
 import { POST_AUTH_KEY } from "@/lib/auth";
 
-// Auth callback: exchanges the ?code= for a session (OAuth, e.g. Google /
-// Apple when they are enabled), or verifies an email OTP link's
-// ?token_hash=, then sends the user back to where they started sign-in
-// (localStorage glow-sis-post-auth, default /profile). All of the work
-// happens inside the effect, which only runs in the browser — the page
-// must not touch window during prerendering (the build renders it on
-// the server, where window does not exist).
+// Auth callback: finishes sign-in after an email link or an OAuth
+// redirect, then sends the user back to where they started sign-in
+// (localStorage glow-sis-post-auth, default /profile). It accepts
+// three shapes, because Supabase sends the proof differently per
+// flow:
+//   ?token_hash=  email OTP link (verifyOtp, type "email")
+//   ?code=       OAuth code (exchangeCodeForSession)
+//   #access_token=...&refresh_token=...  Supabase's redirect after
+//                verifying a confirmation link — tokens arrive in the
+//                URL fragment, not the query, so the page must read
+//                window.location.hash too (a query-only check shows a
+//                bogus "Missing sign-in code" even though the user is
+//                about to be signed in).
+// All of the work happens inside the effect, which only runs in the
+// browser — the page must not touch window during prerendering (the
+// build renders it on the server, where window does not exist).
 export default function AuthCallbackPage() {
   const { lang } = useSavedLang();
   const t = dicts[lang];
@@ -27,21 +36,7 @@ export default function AuthCallbackPage() {
         setError(t.authNotConfigured);
         return;
       }
-      const params = new URLSearchParams(window.location.search);
-      const tokenHash = params.get("token_hash");
-      const code = params.get("code");
-      if (!code && !tokenHash) {
-        setError("Missing sign-in code.");
-        return;
-      }
-      try {
-        const { error } = tokenHash
-          ? await sb.auth.verifyOtp({ token_hash: tokenHash, type: "email" })
-          : await sb.auth.exchangeCodeForSession(code as string);
-        if (error) {
-          setError(error.message);
-          return;
-        }
+      const goNext = () => {
         let next = "/profile";
         try {
           next = window.localStorage.getItem(POST_AUTH_KEY) ?? "/profile";
@@ -50,6 +45,58 @@ export default function AuthCallbackPage() {
           // Ignore storage errors; fall back to /profile.
         }
         router.replace(next);
+      };
+      const params = new URLSearchParams(window.location.search);
+      const tokenHash = params.get("token_hash");
+      const code = params.get("code");
+      try {
+        if (tokenHash) {
+          const { error } = await sb.auth.verifyOtp({
+            token_hash: tokenHash,
+            type: "email",
+          });
+          if (error) {
+            setError(error.message);
+            return;
+          }
+          goNext();
+          return;
+        }
+        if (code) {
+          const { error } = await sb.auth.exchangeCodeForSession(code);
+          if (error) {
+            setError(error.message);
+            return;
+          }
+          goNext();
+          return;
+        }
+        // Tokens in the URL fragment (#access_token=...&refresh_token=...).
+        const hash = new URLSearchParams(
+          window.location.hash.replace(/^#/, ""),
+        );
+        const accessToken = hash.get("access_token");
+        const refreshToken = hash.get("refresh_token");
+        if (accessToken && refreshToken) {
+          const { error } = await sb.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken,
+          });
+          if (error) {
+            setError(error.message);
+            return;
+          }
+          goNext();
+          return;
+        }
+        // The Supabase client may already have picked the session up
+        // from the URL itself (detectSessionInUrl).
+        const { data } = await sb.auth.getSession();
+        if (data.session) {
+          goNext();
+          return;
+        }
+        setError("Missing sign-in code.");
       } catch (e) {
         setError(e instanceof Error ? e.message : "Sign-in failed.");
       }
