@@ -46,11 +46,17 @@ export function SiteHeader({
   lang,
   chooseLang,
   active,
+  tagline,
 }: {
   t: Dict;
   lang: Lang;
   chooseLang: (next: Lang) => void;
   active: "browse" | "apply" | "ai" | "profile";
+  /** Optional second row under the header bar — the home page passes
+      its hero one-liner here so the tagline lives in the header and
+      the search bar can sit directly underneath. Sticky like the
+      rest of the header, so it stays visible while scrolling. */
+  tagline?: string;
 }) {
   const linkCls = (isActive: boolean) =>
     isActive ? "font-semibold text-ink" : "hover:text-ink";
@@ -97,6 +103,13 @@ export function SiteHeader({
           <LangSwitcher lang={lang} chooseLang={chooseLang} />
         </div>
       </div>
+      {tagline && (
+        <div className="border-t border-line/70">
+          <p className="mx-auto max-w-5xl px-4 py-2 text-center text-[13px] font-semibold leading-snug">
+            {tagline}
+          </p>
+        </div>
+      )}
     </header>
   );
 }

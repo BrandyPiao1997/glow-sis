@@ -31,6 +31,7 @@ const en = {
   homeHeroSub:
     "Browse clinics across the US — real prices from the clinics' own websites, in English, 中文 and 한국어.",
   homeHeroCta: "Own a clinic? List your business — it's free during launch",
+  homeAbout: "About GlowSis",
   browseTitle: "Find a beauty clinic",
   browseSub: "Browse clinics across the US with prices from their own websites.",
   browseSearchPh: "Search clinics or treatments, e.g. Rejuran",
@@ -550,6 +551,7 @@ const zh: Dict = {
   homeHeroTitle: "找到价格透明、值得信赖的美容商家。",
   homeHeroSub: "浏览全美的诊所——价格来自诊所自己的官网，支持英文、中文和韩文。",
   homeHeroCta: "您是商家？免费入驻 GlowSis",
+  homeAbout: "关于 GlowSis",
   browseTitle: "找一家美容诊所",
   browseSub: "浏览全美的诊所，价格来自诊所自己的官网。",
   browseSearchPh: "搜索诊所或项目，例如 Rejuran",
@@ -1024,6 +1026,7 @@ const ko: Dict = {
   homeHeroTitle: "투명한 가격의 신뢰할 수 있는 뷰티 업체를 찾으세요.",
   homeHeroSub: "미국 전역의 클리닉을 둘러보세요 — 가격은 각 업체 공식 홈페이지에서 가져왔으며, 영어, 中文, 한국어로 제공됩니다.",
   homeHeroCta: "업체이신가요? 무료로 입점하세요",
+  homeAbout: "GlowSis 소개",
   browseTitle: "뷰티 클리닉 찾기",
   browseSub: "미국 전역의 클리닉을 둘러보세요. 가격은 각 업체 공식 홈페이지에서 가져왔습니다.",
   browseSearchPh: "클리닉이나 시술 검색, 예: Rejuran",

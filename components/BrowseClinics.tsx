@@ -33,6 +33,10 @@ interface SeedClinic {
 
 const CLINICS = seedData.clinics as SeedClinic[];
 
+/** Clinic count, for pages that show the seed-listing note without
+    importing the seed data themselves. */
+export const CLINIC_COUNT = CLINICS.length;
+
 // classifyService lives in lib/service-taxonomy.ts — the AI chat imports
 // it too, so the treatment → category mapping has one source of truth.
 
@@ -290,7 +294,11 @@ function subsForCategories(categories: string[]): string[] {
   return out;
 }
 
-export default function BrowseClinics({ t }: { t: Dict }) {
+// home: the home-page variant (direction C) — no intro section, the
+// filter card is a single combined location + search bar with
+// sideways-scrolling pills, and the seed note moves to the About
+// section at the bottom of the home page. /browse keeps the default.
+export default function BrowseClinics({ t, home = false }: { t: Dict; home?: boolean }) {
   const [query, setQuery] = useState("");
   // The text the user is typing (updates instantly, so typing never lags)
   // vs. the text the list is actually filtered by (updated 300ms after
@@ -576,7 +584,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
   const labelCls = "block text-sm font-semibold mb-1.5";
   const pill = (selected: boolean) =>
-    `cursor-pointer rounded-full border px-3.5 py-1.5 text-sm font-medium ${
+    `shrink-0 cursor-pointer whitespace-nowrap rounded-full border px-3.5 py-1.5 text-sm font-medium ${
       selected ? "border-brand bg-brand-soft text-brand-dark" : "border-line bg-white hover:border-brand"
     }`;
 
@@ -597,15 +605,237 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     );
   }
 
+  // Search suggestions dropdown, shared by the default search box and
+  // the home page's combined bar. The parent must be `relative`.
+  const suggestionDropdown =
+    searchFocused && suggestions.length > 0 ? (
+      <div className="absolute inset-x-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-line bg-white shadow-lg">
+        <p className="border-b border-line px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted">
+          {query.trim() ? t.browseSuggestions : t.browseTrending}
+        </p>
+        <ul>
+          {suggestions.map((s, i) => (
+            <li key={s.value}>
+              <button
+                type="button"
+                onMouseDown={(e) => e.preventDefault()}
+                onClick={() => {
+                  setQuery(s.display);
+                  setSearchFocused(false);
+                }}
+                onMouseEnter={() => setActiveIdx(i)}
+                className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm ${
+                  i === activeIdx ? "bg-brand-soft" : "hover:bg-cream"
+                }`}
+              >
+                <span className="font-medium">{s.display}</span>
+                {s.kind && (
+                  <span className="shrink-0 text-xs text-muted">{s.kind}</span>
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : null;
+
   return (
     <>
-      <section className="py-5 md:py-6">
-        <h1 className="text-2xl font-extrabold leading-tight tracking-tight md:text-3xl">
-          {t.browseTitle}
-        </h1>
-        <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">{t.browseSub}</p>
-      </section>
+      {!home && (
+        <section className="py-5 md:py-6">
+          <h1 className="text-2xl font-extrabold leading-tight tracking-tight md:text-3xl">
+            {t.browseTitle}
+          </h1>
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">{t.browseSub}</p>
+        </section>
+      )}
 
+      {home ? (
+        <section className="rounded-3xl border border-line bg-white p-4 md:p-5">
+          {/* Direction C: location + search in one bar — the bar is the
+              hero now. No field labels: the pin, the query and the pills
+              are self-evident, and every row saved is a row of results. */}
+          <div className="relative">
+            <div className="flex items-center gap-1 rounded-full border border-line bg-white py-1 pl-1 pr-1 shadow-sm focus-within:border-brand focus-within:ring-2 focus-within:ring-brand-soft">
+              <button
+                type="button"
+                onClick={() => setPickerOpen(true)}
+                aria-label={t.browseLocation}
+                className="flex min-w-0 shrink-0 items-center gap-1 rounded-full px-2 py-2 text-sm font-bold hover:bg-cream"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4 shrink-0 text-brand"
+                  aria-hidden="true"
+                >
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <span className="max-w-[104px] truncate">
+                  {metro || t.browseAllLocations}
+                </span>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4 shrink-0 text-muted"
+                  aria-hidden="true"
+                >
+                  <path d="m6 9 6 6 6-6"></path>
+                </svg>
+              </button>
+              <span className="h-6 w-px shrink-0 bg-line" aria-hidden="true" />
+              <input
+                className="min-w-0 flex-1 bg-transparent px-2 py-2 text-sm outline-none placeholder:text-muted"
+                type="search"
+                placeholder={t.browseSearchPh}
+                value={query}
+                autoComplete="off"
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setActiveIdx(-1);
+                }}
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setTimeout(() => setSearchFocused(false), 150)}
+                onKeyDown={(e) => {
+                  if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    setActiveIdx((i) => Math.min(i + 1, suggestions.length - 1));
+                  } else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    setActiveIdx((i) => Math.max(i - 1, -1));
+                  } else if (e.key === "Enter" && activeIdx >= 0) {
+                    e.preventDefault();
+                    setQuery(suggestions[activeIdx].display);
+                    setSearchFocused(false);
+                  } else if (e.key === "Escape") {
+                    setSearchFocused(false);
+                  }
+                }}
+              />
+              <button
+                type="button"
+                onClick={() => setAppliedQuery(query)}
+                aria-label={t.browseSearchPh}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand text-white hover:bg-brand-dark"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </svg>
+              </button>
+            </div>
+            {suggestionDropdown}
+          </div>
+          {/* Locate me lives under the bar as a quiet text button, so
+              the bar itself stays one clean field. */}
+          <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+            <button
+              type="button"
+              onClick={locateMe}
+              disabled={locStatus === "locating"}
+              className="flex items-center gap-1 text-xs font-semibold text-brand-dark hover:underline disabled:opacity-60"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-3.5 w-3.5 text-brand"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path>
+              </svg>
+              {locStatus === "locating" ? t.browseLocating : t.browseUseLocation}
+            </button>
+            {locStatus === "far" && (
+              <p className="text-xs text-muted">{t.browseLocationFar}</p>
+            )}
+            {locStatus === "error" && (
+              <p className="text-xs text-muted">{t.browseLocationError}</p>
+            )}
+          </div>
+          {/* Service pills scroll sideways instead of wrapping, so the
+              bar + pills stay compact and results start sooner. */}
+          <div className="mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <button
+              type="button"
+              onClick={() => {
+                setServices([]);
+                setSubs([]);
+              }}
+              aria-pressed={services.length === 0}
+              className={pill(services.length === 0)}
+            >
+              {t.browseAll}
+            </button>
+            {SIMPLE_SERVICES.map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => toggleService(s)}
+                aria-pressed={services.includes(s)}
+                className={pill(services.includes(s))}
+              >
+                {(t.serviceNames as Record<string, string>)[s] ?? s}
+              </button>
+            ))}
+          </div>
+          {services.length > 0 && availableSubs.length > 0 && (
+            <div className="mt-2 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <button
+                type="button"
+                onClick={() => setSubs([])}
+                aria-pressed={subs.length === 0}
+                className={pill(subs.length === 0)}
+              >
+                {t.browseAll}
+              </button>
+              {availableSubs.map((label) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => toggleSub(label)}
+                  aria-pressed={subs.includes(label)}
+                  className={pill(subs.includes(label))}
+                >
+                  {(t.subTreatmentNames as Record<string, string>)[label] ?? label}
+                </button>
+              ))}
+            </div>
+          )}
+          <label className="mt-3 flex cursor-pointer items-center gap-2 text-sm font-medium">
+            <input
+              type="checkbox"
+              className="h-4 w-4 accent-[#d6336c]"
+              checked={pricedOnly}
+              onChange={(e) => setPricedOnly(e.target.checked)}
+            />
+            {t.browsePricedOnly}
+          </label>
+        </section>
+      ) : (
       <section className="rounded-3xl border border-line bg-white p-5">
         <div>
           <label className={labelCls} htmlFor="browse_city">
@@ -769,36 +999,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
               }
             }}
           />
-          {searchFocused && suggestions.length > 0 && (
-            <div className="absolute inset-x-0 top-full z-20 mt-2 overflow-hidden rounded-2xl border border-line bg-white shadow-lg">
-              <p className="border-b border-line px-4 py-2 text-xs font-bold uppercase tracking-wider text-muted">
-                {query.trim() ? t.browseSuggestions : t.browseTrending}
-              </p>
-              <ul>
-                {suggestions.map((s, i) => (
-                  <li key={s.value}>
-                    <button
-                      type="button"
-                      onMouseDown={(e) => e.preventDefault()}
-                      onClick={() => {
-                        setQuery(s.display);
-                        setSearchFocused(false);
-                      }}
-                      onMouseEnter={() => setActiveIdx(i)}
-                      className={`flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left text-sm ${
-                        i === activeIdx ? "bg-brand-soft" : "hover:bg-cream"
-                      }`}
-                    >
-                      <span className="font-medium">{s.display}</span>
-                      {s.kind && (
-                        <span className="shrink-0 text-xs text-muted">{s.kind}</span>
-                      )}
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {suggestionDropdown}
         </div>
 
         <div className="mt-5 flex items-end pb-1">
@@ -813,12 +1014,16 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           </label>
         </div>
       </section>
+      )}
 
       {/* Seed-listing note, under the filters instead of above them, so
-          Location and the pills show sooner. */}
-      <p className="mt-4 rounded-2xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
-        {t.browseSeedNote.replace("{count}", String(CLINICS.length))}
-      </p>
+          Location and the pills show sooner. On the home page it lives
+          in the About section at the bottom instead. */}
+      {!home && (
+        <p className="mt-4 rounded-2xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
+          {t.browseSeedNote.replace("{count}", String(CLINICS.length))}
+        </p>
+      )}
 
       <p className="mt-6 text-sm font-semibold" aria-live="polite">
         {filtered.length} {t.browseResults}
