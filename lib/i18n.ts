@@ -478,6 +478,8 @@ const en = {
   // Profile
   profTitle: "Profile",
   profGuest: "You're browsing as a guest.",
+  profNoAccounts:
+    "We don't have accounts set up yet — feel free to keep browsing as a guest, no sign-in needed.",
   profSignedInAs: "Signed in as",
   profSignOut: "Sign out",
   profSignIn: "Sign in",
@@ -944,6 +946,7 @@ const zh: Dict = {
   cmpMax: "最多可对比 3 家诊所。",
   profTitle: "我的",
   profGuest: "你当前以访客身份浏览。",
+  profNoAccounts: "我们还没有开放账号注册 — 现在可以继续以访客身份浏览，无需登录。",
   profSignedInAs: "已登录账号",
   profSignOut: "退出登录",
   profSignIn: "登录",
@@ -1394,6 +1397,7 @@ const ko: Dict = {
   cmpMax: "최대 3곳까지 비교할 수 있어요.",
   profTitle: "프로필",
   profGuest: "게스트로 둘러보고 있어요.",
+  profNoAccounts: "아직 계정 기능은 준비 중이에요 — 로그인 없이 게스트로 편하게 둘러보세요.",
   profSignedInAs: "로그인 계정",
   profSignOut: "로그아웃",
   profSignIn: "로그인",

@@ -65,6 +65,9 @@ export default function ProfilePage() {
             ) : (
               <>
                 <p className="text-sm leading-relaxed text-muted">{t.profGuest}</p>
+                <p className="mt-3 rounded-2xl bg-brand-soft px-4 py-3 text-sm leading-relaxed text-ink">
+                  {t.profNoAccounts}
+                </p>
                 <div className="mt-4">
                   <AuthButtons t={t} returnTo="/profile" />
                 </div>
