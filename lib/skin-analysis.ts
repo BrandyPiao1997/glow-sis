@@ -43,3 +43,27 @@ export async function analyzeSkin(_photo: Blob): Promise<SkinReport> {
     isPlaceholder: true,
   };
 }
+
+// The last skin-test report, kept in localStorage so the AI chat can show
+// it as context. This is the only thing left of the old onboarding profile:
+// there is no account setup or profile creation anymore — the report is
+// just a saved result on this device.
+export const SKIN_REPORT_KEY = "glow-sis-skin-report";
+
+export function loadSkinReport(): SkinReport | null {
+  try {
+    const raw = window.localStorage.getItem(SKIN_REPORT_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as SkinReport;
+  } catch {
+    return null;
+  }
+}
+
+export function saveSkinReport(report: SkinReport): void {
+  try {
+    window.localStorage.setItem(SKIN_REPORT_KEY, JSON.stringify(report));
+  } catch {
+    // Storage unavailable — the report just won't persist.
+  }
+}

@@ -10,9 +10,8 @@ export default function Home() {
   const t = dicts[lang];
 
   // The home URL is the browse page for everyone, first visit or not.
-  // The AI assistant is one tap away on the AI tab / header link, and it
-  // still runs the conversational onboarding for first-time users there.
-  // /browse stays a direct entry point too.
+  // The AI assistant is one tap away on the AI tab / header link — it is
+  // just a chat now, with no profile setup or onboarding flow.
 
   return (
     <div className="flex-1">

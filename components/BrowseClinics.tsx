@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { SIMPLE_SERVICES } from "@/lib/types";
+import { nearestCity } from "@/lib/city-coords";
+import LocationPicker from "@/components/LocationPicker";
 import seedData from "@/data/seed-clinics.json";
 
 interface SeedPrice {
@@ -269,13 +271,43 @@ export function lowestMatchingPrice(
 export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
-  const [neighborhood, setNeighborhood] = useState("");
+  // Neighborhoods within the city, picked in the location picker (Unni-style
+  // checkboxes). Empty = the whole city.
+  const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
+  const [pickerOpen, setPickerOpen] = useState(false);
   const [service, setService] = useState("");
   const [sub, setSub] = useState("");
   const [pricedOnly, setPricedOnly] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [searchFocused, setSearchFocused] = useState(false);
   const [activeIdx, setActiveIdx] = useState(-1);
+  const [locStatus, setLocStatus] = useState<"idle" | "locating" | "far" | "error">("idle");
+
+  // "Locate me": ask the browser for the user's position once, then pick
+  // the nearest city in the data (within 50 miles). Nothing is stored —
+  // it just sets the city filter. Permission denied, timeout, or too far
+  // from every city all fall back to picking a city by hand.
+  const locateMe = () => {
+    if (!("geolocation" in navigator)) {
+      setLocStatus("error");
+      return;
+    }
+    setLocStatus("locating");
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const found = nearestCity(pos.coords.latitude, pos.coords.longitude);
+        if (found) {
+          setCity(found);
+          setNeighborhoods([]);
+          setLocStatus("idle");
+        } else {
+          setLocStatus("far");
+        }
+      },
+      () => setLocStatus("error"),
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 60000 },
+    );
+  };
 
   // Translate a taxonomy/service label into the current language.
   const trLabel = (map: Record<string, string>, key: string) => map[key] ?? key;
@@ -417,7 +449,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     const list = CLINICS.filter((c) => {
       if (pricedOnly && c.prices.length === 0) return false;
       if (city && c.city !== city) return false;
-      if (neighborhood && c.neighborhood !== neighborhood) return false;
+      if (neighborhoods.length > 0 && !neighborhoods.includes(c.neighborhood)) return false;
       if (service && !c.services.some((s) => serviceMatchesCategory(s, service)))
         return false;
       if (sub) {
@@ -461,7 +493,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (pa !== null && pb === null) return -1;
       return a.name.localeCompare(b.name);
     });
-  }, [query, city, neighborhood, service, sub, pricedOnly, t]);
+  }, [query, city, neighborhoods, service, sub, pricedOnly, t]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -484,7 +516,84 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       </section>
 
       <section className="rounded-3xl border border-line bg-white p-5">
-        <div className="relative">
+        <div>
+          <label className={labelCls} htmlFor="browse_city">
+            {t.browseLocation}
+          </label>
+          <div className="flex items-center gap-2">
+            <div className="relative min-w-0 flex-1">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand"
+                aria-hidden="true"
+              >
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <button
+                type="button"
+                id="browse_city"
+                onClick={() => setPickerOpen(true)}
+                aria-label={t.browseLocation}
+                className={`${inputCls} flex w-full items-center gap-2 pl-9 pr-9 text-left`}
+              >
+                <span className="min-w-0 flex-1 truncate font-medium">
+                  {city || t.browseAllLocations}
+                  {city && neighborhoods.length > 0 && (
+                    <span className="font-normal text-muted"> · {neighborhoods.join(" · ")}</span>
+                  )}
+                </span>
+              </button>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </div>
+            <button
+              type="button"
+              onClick={locateMe}
+              disabled={locStatus === "locating"}
+              className="flex shrink-0 items-center gap-1.5 rounded-xl border border-line bg-cream px-3 py-2.5 text-sm font-semibold text-ink hover:border-brand disabled:opacity-60"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4 text-brand"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none"></circle>
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2"></path>
+              </svg>
+              {locStatus === "locating" ? t.browseLocating : t.browseUseLocation}
+            </button>
+          </div>
+          {locStatus === "far" && (
+            <p className="mt-1.5 text-xs text-muted">{t.browseLocationFar}</p>
+          )}
+          {locStatus === "error" && (
+            <p className="mt-1.5 text-xs text-muted">{t.browseLocationError}</p>
+          )}
+        </div>
+
+        <div className="relative mt-5">
           <label className={labelCls} htmlFor="browse_search">
             {t.browseTitle}
           </label>
@@ -549,58 +658,16 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           )}
         </div>
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
-          <div>
-            <label className={labelCls} htmlFor="browse_city">
-              {t.browseCity}
-            </label>
-            <select
-              id="browse_city"
-              className={inputCls}
-              value={city}
-              onChange={(e) => {
-                setCity(e.target.value);
-                setNeighborhood("");
-              }}
-            >
-              <option value="">{t.browseAll}</option>
-              {allCities.map((n) => (
-                <option key={n} value={n}>
-                  {n}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label className={labelCls} htmlFor="browse_neighborhood">
-              {t.browseNeighborhood}
-            </label>
-            <select
-              id="browse_neighborhood"
-              className={inputCls}
-              value={neighborhood}
-              disabled={!city}
-              onChange={(e) => setNeighborhood(e.target.value)}
-            >
-              <option value="">{city ? t.browseAll : t.browseSelectCityFirst}</option>
-              {cityNeighborhoods.map((n) => (
-                <option key={n} value={n}>
-                  {n}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="flex items-end pb-1">
-            <label className="flex cursor-pointer items-center gap-2 text-sm font-medium">
-              <input
-                type="checkbox"
-                className="h-4 w-4 accent-[#d6336c]"
-                checked={pricedOnly}
-                onChange={(e) => setPricedOnly(e.target.checked)}
-              />
-              {t.browsePricedOnly}
-            </label>
-          </div>
+        <div className="mt-5 flex items-end pb-1">
+          <label className="flex cursor-pointer items-center gap-2 text-sm font-medium">
+            <input
+              type="checkbox"
+              className="h-4 w-4 accent-[#d6336c]"
+              checked={pricedOnly}
+              onChange={(e) => setPricedOnly(e.target.checked)}
+            />
+            {t.browsePricedOnly}
+          </label>
         </div>
 
         <div className="mt-5">
@@ -818,6 +885,30 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           );
         })}
       </div>
+
+      {pickerOpen && (
+        <LocationPicker
+          t={t}
+          cities={allCities}
+          neighborhoods={cityNeighborhoods}
+          city={city}
+          selected={neighborhoods}
+          onSelectCity={(c) => {
+            setCity(c);
+            setNeighborhoods([]);
+          }}
+          onToggleNeighborhood={(n) => {
+            if (n === "") {
+              setNeighborhoods([]);
+              return;
+            }
+            setNeighborhoods((prev) =>
+              prev.includes(n) ? prev.filter((x) => x !== n) : [...prev, n],
+            );
+          }}
+          onClose={() => setPickerOpen(false)}
+        />
+      )}
     </>
   );
 }

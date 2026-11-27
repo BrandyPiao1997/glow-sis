@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
-import { POST_AUTH_KEY } from "@/lib/profile";
+import { POST_AUTH_KEY } from "@/lib/auth";
 
 // Google / Apple sign-in buttons (Supabase OAuth).
 // Provider credentials must be created by the owner and enabled in the

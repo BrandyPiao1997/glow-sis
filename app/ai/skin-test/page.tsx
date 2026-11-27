@@ -5,21 +5,9 @@ import { useRouter } from "next/navigation";
 import { dicts } from "@/lib/i18n";
 import { SiteFooter, SiteHeader, useSavedLang } from "@/components/site";
 import SkinRadar from "@/components/SkinRadar";
-import { analyzeSkin, type SkinReport } from "@/lib/skin-analysis";
-import {
-  BUDGETS,
-  CITIES,
-  CONCERNS,
-  SKIN_TYPES,
-  emptyProfile,
-  loadProfile,
-  saveProfile,
-  saveProfileServer,
-  type UserProfile,
-} from "@/lib/profile";
-import { getSupabase } from "@/lib/supabase";
+import { analyzeSkin, saveSkinReport, type SkinReport } from "@/lib/skin-analysis";
 
-type Step = "capture" | "analyzing" | "report" | "questions" | "questionnaire" | "done";
+type Step = "capture" | "analyzing" | "report" | "done";
 
 export default function SkinTestPage() {
   const { lang, chooseLang } = useSavedLang();
@@ -29,11 +17,6 @@ export default function SkinTestPage() {
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [photoBlob, setPhotoBlob] = useState<Blob | null>(null);
   const [report, setReport] = useState<SkinReport | null>(null);
-  const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [qConcerns, setQConcerns] = useState<string[]>([]);
-  const [qSkinType, setQSkinType] = useState("");
-  const [qCity, setQCity] = useState("");
-  const [qBudget, setQBudget] = useState("");
   const cameraRef = useRef<HTMLInputElement>(null);
   const uploadRef = useRef<HTMLInputElement>(null);
 
@@ -54,41 +37,12 @@ export default function SkinTestPage() {
     setStep("report");
   }
 
-  function saveAndFinish(patch: Partial<UserProfile>) {
-    const next = saveProfile({
-      ...(profile ?? loadProfile() ?? emptyProfile()),
-      ...patch,
-      onboarded: true,
-    });
-    setProfile(next);
-    const sb = getSupabase();
-    if (sb) {
-      void sb.auth.getUser().then(({ data }) => {
-        if (data.user) void saveProfileServer(next, data.user.id);
-      });
-    }
-    setStep("done");
-  }
-
+  // The report is saved on this device so the AI chat can show it as
+  // context. No account, no profile setup — just the result.
   function finishReport() {
     if (!report) return;
-    saveAndFinish({
-      skinReport: report,
-      concerns: report.concerns,
-      city: qCity,
-      budget: qBudget,
-      source: "skin-test",
-    });
-  }
-
-  function finishQuestionnaire() {
-    saveAndFinish({
-      concerns: qConcerns,
-      skinType: qSkinType,
-      city: qCity,
-      budget: qBudget,
-      source: "questionnaire",
-    });
+    saveSkinReport(report);
+    setStep("done");
   }
 
   const chipCls = (selected: boolean) =>
@@ -117,15 +71,6 @@ export default function SkinTestPage() {
           >
             ← {t.aiTitle}
           </button>
-          {step === "capture" && (
-            <button
-              type="button"
-              onClick={() => setStep("questionnaire")}
-              className="text-sm font-semibold text-muted hover:text-ink"
-            >
-              {t.stSkip}
-            </button>
-          )}
         </div>
 
         <h1 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
@@ -248,7 +193,7 @@ export default function SkinTestPage() {
             </div>
             <button
               type="button"
-              onClick={() => setStep("questions")}
+              onClick={() => finishReport()}
               className="mt-6 w-full rounded-full bg-brand px-6 py-3.5 text-sm font-bold text-white hover:bg-brand-dark"
             >
               {t.stContinue}
@@ -256,99 +201,10 @@ export default function SkinTestPage() {
           </section>
         )}
 
-        {step === "questions" && (
-          <section className="mt-6 rounded-3xl border border-line bg-white p-5">
-            <p className="font-bold">{t.aiQCity}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {CITIES.map((c) => (
-                <button key={c} type="button" onClick={() => setQCity(c)} className={chipCls(qCity === c)}>
-                  {(t.cityNames as Record<string, string>)[c] ?? c}
-                </button>
-              ))}
-            </div>
-            <p className="mt-6 font-bold">{t.aiQBudget}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {BUDGETS.map((b) => (
-                <button key={b} type="button" onClick={() => setQBudget(b)} className={chipCls(qBudget === b)}>
-                  {(t.budgetNames as Record<string, string>)[b] ?? b}
-                </button>
-              ))}
-            </div>
-            <button
-              type="button"
-              disabled={!qCity || !qBudget}
-              onClick={finishReport}
-              className="mt-6 w-full rounded-full bg-brand px-6 py-3.5 text-sm font-bold text-white hover:bg-brand-dark disabled:opacity-50"
-            >
-              {t.qSave}
-            </button>
-          </section>
-        )}
-
-        {step === "questionnaire" && (
-          <section className="mt-6 rounded-3xl border border-line bg-white p-5">
-            <p className="font-bold">{t.qTitle}</p>
-            <p className="mt-4 text-sm font-bold">{t.aiQConcerns}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {CONCERNS.map((c) => {
-                const selected = qConcerns.includes(c);
-                return (
-                  <button
-                    key={c}
-                    type="button"
-                    onClick={() =>
-                      setQConcerns((prev) =>
-                        selected ? prev.filter((x) => x !== c) : [...prev, c],
-                      )
-                    }
-                    className={chipCls(selected)}
-                  >
-                    {(t.concernNames as Record<string, string>)[c] ?? c}
-                  </button>
-                );
-              })}
-            </div>
-            <p className="mt-6 text-sm font-bold">{t.qSkinType}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {SKIN_TYPES.map((s) => (
-                <button key={s} type="button" onClick={() => setQSkinType(s)} className={chipCls(qSkinType === s)}>
-                  {(t.skinTypeNames as Record<string, string>)[s] ?? s}
-                </button>
-              ))}
-            </div>
-            <p className="mt-6 text-sm font-bold">{t.aiQCity}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {CITIES.map((c) => (
-                <button key={c} type="button" onClick={() => setQCity(c)} className={chipCls(qCity === c)}>
-                  {(t.cityNames as Record<string, string>)[c] ?? c}
-                </button>
-              ))}
-            </div>
-            <p className="mt-6 text-sm font-bold">{t.aiQBudget}</p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {BUDGETS.map((b) => (
-                <button key={b} type="button" onClick={() => setQBudget(b)} className={chipCls(qBudget === b)}>
-                  {(t.budgetNames as Record<string, string>)[b] ?? b}
-                </button>
-              ))}
-            </div>
-            <button
-              type="button"
-              disabled={qConcerns.length === 0 || !qSkinType || !qCity || !qBudget}
-              onClick={finishQuestionnaire}
-              className="mt-6 w-full rounded-full bg-brand px-6 py-3.5 text-sm font-bold text-white hover:bg-brand-dark disabled:opacity-50"
-            >
-              {t.qSave}
-            </button>
-          </section>
-        )}
-
         {step === "done" && (
           <section className="mt-6 rounded-3xl border border-line bg-white p-5 text-center">
             <p className="text-2xl font-extrabold">{t.aiDoneTitle}</p>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              {report ? t.stSaved : t.aiDoneBody}
-            </p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{t.stSaved}</p>
             <div className="mt-6 flex flex-col gap-3">
               <a
                 href="/ai"

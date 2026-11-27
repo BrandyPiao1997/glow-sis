@@ -6,17 +6,17 @@ import { dicts } from "@/lib/i18n";
 import { SiteFooter, SiteHeader, useSavedLang } from "@/components/site";
 import AuthButtons from "@/components/AuthButtons";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
-import { loadProfile, type UserProfile } from "@/lib/profile";
 
+// Account page only: sign in / sign out. There is no profile setup or
+// account creation flow anymore — sign-in is just the Google/Apple
+// buttons below, and everything else in the app works signed out.
 export default function ProfilePage() {
   const { lang, chooseLang } = useSavedLang();
   const t = dicts[lang];
   const [user, setUser] = useState<User | null>(null);
-  const [profile, setProfile] = useState<UserProfile | null>(null);
   const [checked, setChecked] = useState(false);
 
   useEffect(() => {
-    setProfile(loadProfile());
     const sb = getSupabase();
     if (!sb) {
       setChecked(true);
@@ -74,66 +74,6 @@ export default function ProfilePage() {
                   </p>
                 )}
               </>
-            )}
-          </div>
-
-          <div className="mt-6 rounded-3xl border border-line bg-white p-5">
-            <div className="flex items-center justify-between gap-3">
-              <p className="font-bold">{t.profSkinProfile}</p>
-              <a href="/onboarding" className="text-sm font-semibold text-brand">
-                {t.profSetup}
-              </a>
-            </div>
-            {!profile || (!profile.skinReport && profile.concerns.length === 0 && !profile.city) ? (
-              <p className="mt-2 text-sm leading-relaxed text-muted">{t.profNoProfile}</p>
-            ) : (
-              <div className="mt-3 space-y-2 text-sm">
-                {profile.skinReport && (
-                  <p>
-                    <span className="text-muted">{t.stOverall}: </span>
-                    <span className="font-bold">{profile.skinReport.overall}</span>
-                    {profile.skinReport.isPlaceholder ? " · " + t.stSample : ""}
-                  </p>
-                )}
-                {profile.concerns.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {profile.concerns.map((c) => (
-                      <span
-                        key={c}
-                        className="rounded-full bg-brand-soft px-2.5 py-1 text-xs font-semibold text-brand-dark"
-                      >
-                        {(t.concernNames as Record<string, string>)[c] ?? c}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {profile.skinType && (
-                  <p>
-                    <span className="text-muted">{t.qSkinType} </span>
-                    {(t.skinTypeNames as Record<string, string>)[profile.skinType] ??
-                      profile.skinType}
-                  </p>
-                )}
-                {profile.city && (
-                  <p>
-                    <span className="text-muted">{t.aiQCity} </span>
-                    {(t.cityNames as Record<string, string>)[profile.city] ?? profile.city}
-                  </p>
-                )}
-                {profile.budget && (
-                  <p>
-                    <span className="text-muted">{t.aiQBudget} </span>
-                    {(t.budgetNames as Record<string, string>)[profile.budget] ??
-                      profile.budget}
-                  </p>
-                )}
-                <a
-                  href="/ai/skin-test"
-                  className="inline-block pt-1 text-sm font-semibold text-brand"
-                >
-                  {t.aiRetake}
-                </a>
-              </div>
             )}
           </div>
         </section>

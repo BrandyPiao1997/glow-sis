@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { dicts } from "@/lib/i18n";
 import { useSavedLang } from "@/components/site";
 import { getSupabase } from "@/lib/supabase";
-import { POST_AUTH_KEY } from "@/lib/profile";
+import { POST_AUTH_KEY } from "@/lib/auth";
 
 // OAuth callback: exchanges the ?code= for a session, then sends the user
 // back to where they started sign-in (localStorage glow-sis-post-auth,

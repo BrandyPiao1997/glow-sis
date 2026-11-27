@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { LANGS, WECHAT_ID } from "@/lib/i18n";
 import type { Dict } from "@/lib/i18n";
 import type { Lang } from "@/lib/types";
+import { getSupabase } from "@/lib/supabase";
 
 export function Logo({ className = "text-xl" }: { className?: string }) {
   return (
@@ -53,6 +54,19 @@ export function SiteHeader({
 }) {
   const linkCls = (isActive: boolean) =>
     isActive ? "font-semibold text-ink" : "hover:text-ink";
+  // Signed-in state, for the Log in / Sign up button (Unni-style, top
+  // right). Signed out it says "Log in / Sign up" and goes to /profile;
+  // signed in it says "Profile" and goes to the same page.
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  useEffect(() => {
+    const sb = getSupabase();
+    if (!sb) return;
+    sb.auth.getUser().then(({ data }) => setUserEmail(data.user?.email ?? null));
+    const { data: sub } = sb.auth.onAuthStateChange((_event, session) => {
+      setUserEmail(session?.user?.email ?? null);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-cream/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
@@ -74,6 +88,12 @@ export function SiteHeader({
           </a>
         </nav>
         <div className="flex items-center gap-2">
+          <a
+            href="/profile"
+            className="hidden rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink hover:border-brand sm:block"
+          >
+            {userEmail ? t.tabProfile : t.authLoginSignup}
+          </a>
           <LangSwitcher lang={lang} chooseLang={chooseLang} />
         </div>
       </div>
