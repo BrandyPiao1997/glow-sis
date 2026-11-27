@@ -1016,6 +1016,16 @@ export default function BrowseClinics({ t, home = false }: { t: Dict; home?: boo
       </section>
       )}
 
+      {/* "For clinics" entry point on mobile: the header nav is
+          desktop-only, and the home hero CTA is gone, so without this
+          there is no visible way to reach /apply from a phone. */}
+      <a
+        href="/apply"
+        className="mt-3 block text-center text-sm font-semibold text-brand-dark hover:underline md:hidden"
+      >
+        {t.navForClinics} →
+      </a>
+
       {/* Seed-listing note, under the filters instead of above them, so
           Location and the pills show sooner. On the home page it lives
           in the About section at the bottom instead. */}

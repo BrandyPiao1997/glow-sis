@@ -278,50 +278,26 @@ export default function Home() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4">
-        <section className="py-10 md:py-14">
+        {/* Direction B (picked Nov 27, 2026): tight & centered — the pitch
+            is one line, the form follows immediately below, and "How it
+            works" sits under the form. No secondary CTA, no WeChat row
+            (it lives in the footer); the header Apply button still jumps
+            to #apply. */}
+        <section className="py-8 text-center md:py-10">
           <p className="text-xs font-bold uppercase tracking-widest text-brand">{t.heroEyebrow}</p>
-          <h1 className="mt-3 max-w-2xl text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
+          <h1 className="mx-auto mt-3 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
             {t.heroTitle}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-lg">{t.heroSub}</p>
-          <p className="mt-6 inline-block rounded-full bg-brand-soft px-4 py-2 text-sm font-bold text-brand-dark">
-            {t.heroBadge}
-          </p>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted">{t.heroNote}</p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <a href="#apply" className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark">
-              {t.heroCta}
-            </a>
-            <a href="/" className="rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold hover:border-brand">
-              {t.heroBrowseCta}
-            </a>
-          </div>
-          <div className="mt-6 flex flex-wrap items-center gap-2 text-sm text-muted">
-            <span>{t.heroWechatLabel}</span>
-            <WeChatCopy label={t.copy} copiedLabel={t.copied} />
-          </div>
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-relaxed text-muted">{t.heroPitch}</p>
         </section>
 
-        <section id="how" className="scroll-mt-20 pb-4">
-          <h2 className="text-2xl font-extrabold tracking-tight">{t.howTitle}</h2>
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            {steps.map((s) => (
-              <div key={s.n} className="rounded-2xl border border-line bg-white p-5">
-                <p className="text-sm font-extrabold text-brand">{s.n}</p>
-                <p className="mt-1 font-bold">{s.title}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section id="apply" className="scroll-mt-20 py-8">
-          <h2 className="text-2xl font-extrabold tracking-tight">{t.applyTitle}</h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">{t.applySub}</p>
-          <p className="mt-1 text-xs text-muted">{t.applyNote}</p>
+        <section id="apply" className="scroll-mt-20 pt-2 pb-8">
+          <h2 className="text-center text-2xl font-extrabold tracking-tight">{t.applyTitle}</h2>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-sm leading-relaxed text-muted">{t.applySub}</p>
+          <p className="mt-1 text-center text-xs text-muted">{t.applyNote}</p>
 
           {submitted ? (
-            <div id="submitted" className="mt-6 rounded-3xl border-2 border-brand bg-brand-soft p-6">
+            <div id="submitted" className="mx-auto mt-6 max-w-2xl rounded-3xl border-2 border-brand bg-brand-soft p-6">
               <h2 className="text-xl font-extrabold text-brand-dark">{t.successTitle}</h2>
               <p className="mt-2 text-sm leading-relaxed">{t.successBody}</p>
               <p className="mt-3 text-sm">
@@ -346,7 +322,7 @@ export default function Home() {
               <p className="mt-3 text-xs text-muted">{t.trackerNote}</p>
             </div>
           ) : (
-          <form onSubmit={submit} className="mt-6 space-y-6 rounded-3xl border border-line bg-white p-5 md:p-8">
+          <form onSubmit={submit} className="mx-auto mt-6 max-w-2xl space-y-6 rounded-3xl border border-line bg-white p-5 md:p-8">
             <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <label className={labelCls} htmlFor="business_name">{t.formBusinessName}</label>
@@ -529,6 +505,19 @@ export default function Home() {
             </button>
           </form>
           )}
+        </section>
+
+        <section id="how" className="scroll-mt-20 py-8">
+          <h2 className="text-2xl font-extrabold tracking-tight">{t.howTitle}</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {steps.map((s) => (
+              <div key={s.n} className="rounded-2xl border border-line bg-white p-5">
+                <p className="text-sm font-extrabold text-brand">{s.n}</p>
+                <p className="mt-1 font-bold">{s.title}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted">{s.body}</p>
+              </div>
+            ))}
+          </div>
         </section>
 
         <section id="faq" className="scroll-mt-20 py-10">
