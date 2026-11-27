@@ -18,17 +18,20 @@ export default function Home() {
       <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="browse" />
 
       <main className="mx-auto max-w-5xl px-4 pb-12">
-        <section className="py-10 md:py-14">
+        {/* Compact hero: the filter card (Location first) should be
+            visible right away, so the hero stays short — no big empty
+            space between the headline and the filters. */}
+        <section className="py-6 md:py-8">
           <p className="text-xs font-bold uppercase tracking-widest text-brand">{t.homeHeroEyebrow}</p>
-          <h1 className="mt-3 max-w-2xl text-4xl font-extrabold leading-tight tracking-tight md:text-5xl">
+          <h1 className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
             {t.homeHeroTitle}
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted md:text-lg">{t.homeHeroSub}</p>
-          <p className="mt-6 inline-block rounded-full bg-brand-soft px-4 py-2 text-sm font-bold text-brand-dark">
+          <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted md:text-lg">{t.homeHeroSub}</p>
+          <p className="mt-4 inline-block rounded-full bg-brand-soft px-4 py-2 text-sm font-bold text-brand-dark">
             {t.parityNote}
           </p>
           <InstallBanner t={t} />
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-3">
             <a
               href="#browse"
               className="rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"

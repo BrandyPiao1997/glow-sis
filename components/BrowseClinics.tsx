@@ -36,10 +36,6 @@ const CLINICS = seedData.clinics as SeedClinic[];
 // classifyService lives in lib/service-taxonomy.ts — the AI chat imports
 // it too, so the treatment → category mapping has one source of truth.
 
-function serviceMatchesCategory(service: string, category: string): boolean {
-  return classifyService(service) === category;
-}
-
 // Second layer: specific treatments within a category. Each sub-treatment
 // has keyword matchers, first match wins (specific before generic, e.g.
 // "Lip Flip" before "Botox", "Morpheus8" before "Laser"). A name only
@@ -170,24 +166,27 @@ export function isComparablePrice(p: SeedPrice): boolean {
 // comparable price among the treatments the user is actually looking at,
 // not the clinic's overall cheapest treatment. A row matches the search if
 // its treatment name contains the query; it matches a service filter if its
-// treatment falls in that category (same keyword match as the filter). If
-// the query matches only the clinic's name, fall back to all rows. Rows
-// that match nothing yield no headline price (the card then shows "See
-// price list" instead of a misleading figure).
+// treatment falls in any selected category (same keyword match as the
+// filter). If the query matches only the clinic's name, fall back to all
+// rows. Rows that match nothing yield no headline price (the card then
+// shows "See price list" instead of a misleading figure).
 export function lowestMatchingPrice(
   clinic: SeedClinic,
   query: string,
-  service: string,
-  sub: string,
+  services: string[],
+  subs: string[],
   matchText?: (text: string, q: string) => boolean,
 ): SeedPrice | null {
   const q = query.trim().toLowerCase();
   let rows = clinic.prices;
-  if (service) {
-    rows = rows.filter((p) => serviceMatchesCategory(p.treatment, service));
+  if (services.length > 0) {
+    rows = rows.filter((p) => services.includes(classifyService(p.treatment)));
   }
-  if (sub) {
-    rows = rows.filter((p) => subTreatmentOf(p.treatment, service) === sub);
+  if (subs.length > 0) {
+    rows = rows.filter((p) => {
+      const s = subTreatmentOf(p.treatment, classifyService(p.treatment));
+      return s !== null && subs.includes(s);
+    });
   }
   if (q) {
     const matches = (text: string) =>
@@ -271,6 +270,26 @@ const ALL_SERVICES = [
 ];
 const PAGE_SIZE = 30;
 
+// Sub-treatment pills for a set of selected categories, built from the
+// data: only sub-treatments at least one clinic actually offers, in
+// SIMPLE_SERVICES order so the row is stable no matter the tap order.
+function subsForCategories(categories: string[]): string[] {
+  if (categories.length === 0) return [];
+  const seen = new Set<string>();
+  for (const e of ENRICHED_CLINICS) {
+    for (const s of e.services) if (s.sub && categories.includes(s.category)) seen.add(s.sub);
+    for (const p of e.prices) if (p.sub && categories.includes(p.category)) seen.add(p.sub);
+  }
+  const out: string[] = [];
+  for (const cat of SIMPLE_SERVICES) {
+    if (!categories.includes(cat)) continue;
+    for (const s of SUB_TREATMENTS[cat] ?? []) {
+      if (seen.has(s.label) && !out.includes(s.label)) out.push(s.label);
+    }
+  }
+  return out;
+}
+
 export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
   // The text the user is typing (updates instantly, so typing never lags)
@@ -301,8 +320,11 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     }
   }, [metro]);
   const [pickerOpen, setPickerOpen] = useState(false);
-  const [service, setService] = useState("");
-  const [sub, setSub] = useState("");
+  // Multi-select filters: tapping a pill toggles it; "All" clears the
+  // layer. A clinic matches when it offers ANY selected service (and,
+  // when treatments are picked, ANY selected treatment).
+  const [services, setServices] = useState<string[]>([]);
+  const [subs, setSubs] = useState<string[]>([]);
   // Deep links from the AI chat: /browse?q=Microneedling pre-fills the
   // search box (the 300ms debounce above then applies it to the list),
   // and /browse?service=Skin%20%26%20laser selects that Service pill.
@@ -318,7 +340,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     if (q) ids.push(setTimeout(() => setQuery(q), 0));
     const svc = params.get("service")?.trim();
     if (svc && (SIMPLE_SERVICES as readonly string[]).includes(svc)) {
-      ids.push(setTimeout(() => setService(svc), 0));
+      ids.push(setTimeout(() => setServices([svc]), 0));
     }
     return () => ids.forEach((id) => clearTimeout(id));
   }, []);
@@ -425,19 +447,9 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     return out;
   }, [query, popularSubs, t]);
 
-  // Second-layer pills for the selected category, built from the data:
+  // Second-layer pills for the selected categories, built from the data:
   // only sub-treatments at least one clinic actually offers.
-  const availableSubs = useMemo(() => {
-    if (!service) return [];
-    const seen = new Set<string>();
-    for (const e of ENRICHED_CLINICS) {
-      for (const s of e.services) if (s.sub && s.category === service) seen.add(s.sub);
-      for (const p of e.prices) if (p.sub && p.category === service) seen.add(p.sub);
-    }
-    return (SUB_TREATMENTS[service] ?? [])
-      .map((s) => s.label)
-      .filter((label) => seen.has(label));
-  }, [service]);
+  const availableSubs = useMemo(() => subsForCategories(services), [services]);
 
   // Metros, most clinics first.
   const allMetros = useMemo(() => {
@@ -477,8 +489,14 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       const c = e.clinic;
       if (pricedOnly && c.prices.length === 0) continue;
       if (metro && metroOf(c.city) !== metro) continue;
-      if (service && !e.services.some((s) => s.category === service)) continue;
-      if (sub && !e.services.some((s) => s.category === service && s.sub === sub) && !e.prices.some((pr) => pr.category === service && pr.sub === sub)) continue;
+      if (services.length > 0 && !e.services.some((s) => services.includes(s.category))) continue;
+      const svcOk = (cat: string) => services.length === 0 || services.includes(cat);
+      if (
+        subs.length > 0 &&
+        !e.services.some((s) => s.sub !== null && svcOk(s.category) && subs.includes(s.sub)) &&
+        !e.prices.some((pr) => pr.sub !== null && svcOk(pr.category) && subs.includes(pr.sub))
+      )
+        continue;
       let rel = 0;
       if (q) {
         const nameHit = e.nameLower.includes(q);
@@ -494,8 +512,8 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       // rows whose treatment matches the query (falling back to all rows
       // when only the clinic name matches, and to none otherwise).
       let rows = e.prices;
-      if (service) rows = rows.filter((pr) => pr.category === service);
-      if (sub) rows = rows.filter((pr) => pr.sub === sub);
+      if (services.length > 0) rows = rows.filter((pr) => services.includes(pr.category));
+      if (subs.length > 0) rows = rows.filter((pr) => pr.sub !== null && subs.includes(pr.sub));
       if (q) {
         const byTreatment = rows.filter((pr) => matches(pr.lower, pr.raw.treatment, pr.sub));
         if (byTreatment.length > 0) rows = byTreatment;
@@ -521,13 +539,13 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       return a.clinic.name.localeCompare(b.clinic.name);
     });
     return out;
-  }, [appliedQuery, metro, service, sub, pricedOnly, t]);
+  }, [appliedQuery, metro, services, subs, pricedOnly, t]);
 
   // Reset to the first page whenever any filter changes. (Render-time
   // adjustment, per React docs: React re-renders immediately with the
   // reset value before committing, so the list never shows page 2 of an
   // old filter.)
-  const filterKey = `${appliedQuery}|${metro}|${service}|${sub}|${pricedOnly}`;
+  const filterKey = `${appliedQuery}|${metro}|${services.join(",")}|${subs.join(",")}|${pricedOnly}`;
   const [prevFilterKey, setPrevFilterKey] = useState("");
   if (prevFilterKey !== filterKey) {
     setPrevFilterKey(filterKey);
@@ -562,16 +580,30 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       selected ? "border-brand bg-brand-soft text-brand-dark" : "border-line bg-white hover:border-brand"
     }`;
 
+  // Toggling a service off also drops treatments that only lived under
+  // it, so a stale treatment can never filter the list to zero.
+  function toggleService(s: string) {
+    const next = services.includes(s) ? services.filter((x) => x !== s) : [...services, s];
+    setServices(next);
+    if (next.length === 0) setSubs([]);
+    else {
+      const keep = new Set(subsForCategories(next));
+      setSubs((prev) => prev.filter((label) => keep.has(label)));
+    }
+  }
+  function toggleSub(label: string) {
+    setSubs((prev) =>
+      prev.includes(label) ? prev.filter((x) => x !== label) : [...prev, label],
+    );
+  }
+
   return (
     <>
-      <section className="py-8 md:py-10">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
+      <section className="py-5 md:py-6">
+        <h1 className="text-2xl font-extrabold leading-tight tracking-tight md:text-3xl">
           {t.browseTitle}
         </h1>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">{t.browseSub}</p>
-        <p className="mt-4 rounded-2xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
-          {t.browseSeedNote.replace("{count}", String(CLINICS.length))}
-        </p>
       </section>
 
       <section className="rounded-3xl border border-line bg-white p-5">
@@ -655,11 +687,11 @@ export default function BrowseClinics({ t }: { t: Dict }) {
             <button
               type="button"
               onClick={() => {
-                setService("");
-                setSub("");
+                setServices([]);
+                setSubs([]);
               }}
-              aria-pressed={service === ""}
-              className={pill(service === "")}
+              aria-pressed={services.length === 0}
+              className={pill(services.length === 0)}
             >
               {t.browseAll}
             </button>
@@ -667,12 +699,9 @@ export default function BrowseClinics({ t }: { t: Dict }) {
               <button
                 key={s}
                 type="button"
-                onClick={() => {
-                  setService(service === s ? "" : s);
-                  setSub("");
-                }}
-                aria-pressed={service === s}
-                className={pill(service === s)}
+                onClick={() => toggleService(s)}
+                aria-pressed={services.includes(s)}
+                className={pill(services.includes(s))}
               >
                 {(t.serviceNames as Record<string, string>)[s] ?? s}
               </button>
@@ -680,15 +709,15 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           </div>
         </div>
 
-        {service !== "" && availableSubs.length > 0 && (
+        {services.length > 0 && availableSubs.length > 0 && (
           <div className="mt-4">
             <span className={labelCls}>{t.browseTreatment}</span>
             <div className="flex flex-wrap gap-2">
               <button
                 type="button"
-                onClick={() => setSub("")}
-                aria-pressed={sub === ""}
-                className={pill(sub === "")}
+                onClick={() => setSubs([])}
+                aria-pressed={subs.length === 0}
+                className={pill(subs.length === 0)}
               >
                 {t.browseAll}
               </button>
@@ -696,9 +725,9 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 <button
                   key={label}
                   type="button"
-                  onClick={() => setSub(sub === label ? "" : label)}
-                  aria-pressed={sub === label}
-                  className={pill(sub === label)}
+                  onClick={() => toggleSub(label)}
+                  aria-pressed={subs.includes(label)}
+                  className={pill(subs.includes(label))}
                 >
                   {(t.subTreatmentNames as Record<string, string>)[label] ?? label}
                 </button>
@@ -785,6 +814,12 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         </div>
       </section>
 
+      {/* Seed-listing note, under the filters instead of above them, so
+          Location and the pills show sooner. */}
+      <p className="mt-4 rounded-2xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
+        {t.browseSeedNote.replace("{count}", String(CLINICS.length))}
+      </p>
+
       <p className="mt-6 text-sm font-semibold" aria-live="polite">
         {filtered.length} {t.browseResults}
       </p>
@@ -813,9 +848,20 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 </h2>
                 <div className="shrink-0 text-right">
                   {low ? (
-                    <p className="text-base font-extrabold whitespace-nowrap text-brand-dark md:text-lg">
-                      {t.browseFrom} {low.price}
-                    </p>
+                    <>
+                      <p className="text-base font-extrabold whitespace-nowrap text-brand-dark md:text-lg">
+                        {t.browseFrom} {low.price}
+                      </p>
+                      {/* What the price is for, right under the price —
+                          it used to sit under the address, far from the
+                          price, where it read as disconnected. */}
+                      <p
+                        className="ml-auto mt-0.5 max-w-[160px] truncate text-xs text-muted md:max-w-[220px]"
+                        title={low.treatment}
+                      >
+                        {low.treatment}
+                      </p>
+                    </>
                   ) : c.prices.length > 0 ? (
                     <p className="max-w-[160px] text-xs font-medium text-muted md:max-w-[220px] md:text-sm">
                       {t.browseSeePrices}
@@ -838,11 +884,6 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                   {c.address} ↗
                 </a>
               </p>
-              {low && (
-                <p className="mt-0.5 truncate text-xs text-muted" title={low.treatment}>
-                  {low.treatment}
-                </p>
-              )}
 
               <div className="mt-3 md:mt-4">
                 <p className="hidden text-sm font-semibold md:block">{t.browseServices}</p>

@@ -115,7 +115,7 @@ export default function ComparePage() {
               )}
               <div className="grid gap-4 md:grid-cols-3">
                 {selected.map((c) => {
-                  const lowest = lowestMatchingPrice(c, "", "", "");
+                  const lowest = lowestMatchingPrice(c, "", [], []);
                   return (
                     <article
                       key={c.name}
