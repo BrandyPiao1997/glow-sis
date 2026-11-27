@@ -127,6 +127,7 @@ export default function AiPage() {
   const [loaded, setLoaded] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [draft, setDraft] = useState("");
+  const [thinking, setThinking] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -149,14 +150,42 @@ export default function AiPage() {
     setMessages((m) => [...m, { id: msgId++, role, text, kind, i18nKey, actionHref, actionLabelKey }]);
   }
 
-  function sendFreeText(e: React.FormEvent) {
+  // Free-text chat: ask Gemini (via /api/ai-chat, grounded in real clinic
+  // prices) and fall back to the scripted keyword reply when the API is
+  // not configured or fails. The action button still comes from the local
+  // matcher — Gemini only writes the text.
+  async function sendFreeText(e: React.FormEvent) {
     e.preventDefault();
     const text = draft.trim();
-    if (!text) return;
+    if (!text || thinking) return;
     setDraft("");
     push("user", text);
-    const reply = scriptedReply(text, t);
-    push("assistant", reply.text, undefined, undefined, reply.actionHref, reply.actionLabelKey);
+    const fallback = scriptedReply(text, t);
+    const history = messages.slice(-6).map((m) => ({
+      role: m.role,
+      text:
+        m.i18nKey != null
+          ? ((t as unknown as Record<string, string>)[m.i18nKey] ?? m.text)
+          : m.text,
+    }));
+    setThinking(true);
+    try {
+      const res = await fetch("/api/ai-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, lang, history, report }),
+      });
+      if (!res.ok) throw new Error(`ai-chat ${res.status}`);
+      const data = (await res.json()) as { text?: unknown };
+      if (typeof data.text !== "string" || !data.text.trim()) {
+        throw new Error("ai-chat empty");
+      }
+      push("assistant", data.text, undefined, undefined, fallback.actionHref, fallback.actionLabelKey);
+    } catch {
+      push("assistant", fallback.text, undefined, undefined, fallback.actionHref, fallback.actionLabelKey);
+    } finally {
+      setThinking(false);
+    }
   }
 
   if (!loaded) return null;
@@ -258,6 +287,13 @@ export default function AiPage() {
                 </div>
               );
             })}
+            {thinking && (
+              <div className="flex flex-col items-start gap-2">
+                <div className="max-w-[85%] rounded-3xl rounded-bl-md border border-line bg-white px-4 py-3 text-sm leading-relaxed">
+                  <span className="animate-pulse">···</span>
+                </div>
+              </div>
+            )}
             <div ref={bottomRef} />
           </div>
 
