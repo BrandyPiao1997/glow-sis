@@ -6,16 +6,26 @@ import { buildSystemPrompt, findTreatmentFacts } from "@/lib/ai-chat";
 // reaches the browser. Without a key the route answers 503 and the client
 // falls back to its scripted keyword replies, so the chat still works.
 //
-// Model: gemini-3.8-flash. gemini-2.5-flash is retired for new API keys —
-// generateContent 404s with "no longer available to new users" — and
-// Google's error names gemini-3.8-flash as the replacement. 3.5-flash is
-// the fallback when 3.8 is overloaded (it 503s under high demand).
-const GEMINI_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash"];
+// Models: gemini-3.5-flash first, gemini-3.8-flash as the fallback.
+// gemini-2.5-flash is retired for new API keys — generateContent 404s with
+// "no longer available to new users". 3.8-flash 503s under high demand, so
+// 3.5-flash (which has answered every time) goes first.
+//
+// Free-tier generation is SLOW: a full grounded answer took ~19.5s in a
+// direct test, so the per-attempt timeout must be well above 20s (the old
+// 20s timeout aborted every live call and the chat always fell back to
+// scripted replies). Answers are capped at 256 tokens to keep them short
+// and fast. maxDuration 60 gives the two attempts room to run.
+export const maxDuration = 60;
+
+const GEMINI_MODELS = ["gemini-3.5-flash", "gemini-3.8-flash"];
+const FETCH_TIMEOUT_MS = 45000;
 
 type HistoryMsg = { role: "assistant" | "user"; text: string };
 
 export async function POST(req: Request) {
-  const key = process.env.GEMINI_API_KEY;
+  // Trim: a key pasted with a trailing space/newline would be rejected.
+  const key = process.env.GEMINI_API_KEY?.trim();
   if (!key) {
     return NextResponse.json({ error: "not_configured" }, { status: 503 });
   }
@@ -65,16 +75,24 @@ export async function POST(req: Request) {
   const payload = JSON.stringify({
     systemInstruction: { parts: [{ text: systemPrompt }] },
     contents,
-    generationConfig: { temperature: 0.7, maxOutputTokens: 512 },
+    generationConfig: { temperature: 0.7, maxOutputTokens: 256 },
   });
 
-  // Try each model in order; a 503/overload on one falls through to the
-  // next instead of failing the chat. Any other failure fails fast.
+  // One shared deadline for both attempts so the function stays inside
+  // maxDuration. Try each model in order; a 503/overload on one falls
+  // through to the next instead of failing the chat. Any other failure
+  // fails fast.
+  const deadline = Date.now() + 50000;
   for (const model of GEMINI_MODELS) {
+    const remaining = deadline - Date.now();
+    if (remaining <= 2000) break;
     let res: Response;
     try {
       const ctrl = new AbortController();
-      const timer = setTimeout(() => ctrl.abort(), 20000);
+      const timer = setTimeout(
+        () => ctrl.abort(),
+        Math.min(FETCH_TIMEOUT_MS, remaining),
+      );
       res = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
         {
