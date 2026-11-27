@@ -17,6 +17,7 @@ export default function SkinTestPage() {
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [photoBlob, setPhotoBlob] = useState<Blob | null>(null);
   const [report, setReport] = useState<SkinReport | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const cameraRef = useRef<HTMLInputElement>(null);
   const uploadRef = useRef<HTMLInputElement>(null);
 
@@ -31,10 +32,16 @@ export default function SkinTestPage() {
 
   async function analyze() {
     if (!photoBlob) return;
+    setError(null);
     setStep("analyzing");
-    const result = await analyzeSkin(photoBlob);
-    setReport(result);
-    setStep("report");
+    try {
+      const result = await analyzeSkin(photoBlob);
+      setReport(result);
+      setStep("report");
+    } catch {
+      setError(t.stError);
+      setStep("capture");
+    }
   }
 
   // The report is saved on this device so the AI chat can show it as
@@ -93,7 +100,7 @@ export default function SkinTestPage() {
 
             {photoUrl && (
               <div className="mt-6">
-                {/* Preview only — the photo is never uploaded or stored. */}
+                {/* Preview only — the photo is sent to Perfect Corp for analysis when you tap Analyze. */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={photoUrl}
@@ -101,6 +108,12 @@ export default function SkinTestPage() {
                   className="mx-auto max-h-72 rounded-3xl object-cover"
                 />
               </div>
+            )}
+
+            {error && (
+              <p className="mt-6 rounded-2xl border border-line bg-white px-4 py-3 text-sm leading-relaxed text-muted">
+                {error}
+              </p>
             )}
 
             <div className="mt-6 flex flex-col gap-3">

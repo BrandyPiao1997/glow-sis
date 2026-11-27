@@ -1,17 +1,11 @@
-// Skin analysis — integration point for the Perfect Corp skin analysis API.
-// There are NO provider credentials yet, so analyzeSkin() is a clearly-marked
-// STUB: it returns a SAMPLE report (isPlaceholder: true) after a short delay
-// so the UI flow (capture → analyzing → report → chat context) can be built
-// and tested. The report screen labels placeholder results as a sample and
-// never presents them as a real scan.
-//
-// TODO (when credentials exist): replace the body of analyzeSkin() with a
-// call to the Perfect Corp skin analysis API
-// (https://yce.perfectcorp.com/id/ai-api/products/skin-analysis-api):
-// upload the photo, read its 28 diagnostics, map them onto our 4 dimensions
-// (sensitivity, skin tone, skin texture, skin age) + top concerns, and
-// return a real SkinReport with isPlaceholder: false. The report screen
-// renders from a SkinReport object, so this is a one-function change.
+// Skin analysis — Perfect Corp YouCam skin analysis API, via the server
+// route POST /api/skin-analysis (the key lives in PERFECTCORP_API_KEY on
+// the server and never reaches the browser). The route uploads the photo,
+// runs the v2.1 task with 13 SD concerns, polls for the result, and maps
+// the scores onto our 4 dimensions (sensitivity, skin tone, skin texture,
+// skin age) + top concerns, returning a real SkinReport with
+// isPlaceholder: false. On failure analyzeSkin() throws and the skin-test
+// page shows an error instead of a fake sample report.
 export interface SkinDimensionScores {
   sensitivity: number; // 0–100
   skinTone: number; // 0–100
@@ -27,21 +21,39 @@ export interface SkinReport {
   /** "Better than X% of users" line from the report screen. */
   betterThanPct: number;
   analyzedAt: string; // ISO timestamp
-  /** True while analyzeSkin() is the stub — UI must label it a sample. */
+  /** True only for a sample report — the UI labels it as such. */
   isPlaceholder: boolean;
 }
 
-export async function analyzeSkin(_photo: Blob): Promise<SkinReport> {
-  // Simulate the analyzing state; the photo is not uploaded anywhere.
-  await new Promise((resolve) => setTimeout(resolve, 1800));
-  return {
-    overall: 77,
-    dimensions: { sensitivity: 79, skinTone: 75, skinTexture: 81, skinAge: 74 },
-    concerns: ["redness", "pigmentation", "pores"],
-    betterThanPct: 85,
-    analyzedAt: new Date().toISOString(),
-    isPlaceholder: true,
-  };
+export async function analyzeSkin(photo: Blob): Promise<SkinReport> {
+  const form = new FormData();
+  form.append("photo", photo, "selfie.jpg");
+  const res = await fetch("/api/skin-analysis", { method: "POST", body: form });
+  const started = (await res.json().catch(() => null)) as {
+    task_id?: string;
+    error?: string;
+  } | null;
+  if (!res.ok || !started?.task_id) {
+    throw new Error(started?.error ?? "analysis_failed");
+  }
+  // A scan takes about 2 minutes on Perfect Corp's side, so poll the
+  // status endpoint instead of waiting on one long request.
+  for (let i = 0; i < 40; i++) {
+    await new Promise((r) => setTimeout(r, 5000));
+    const poll = await fetch(
+      `/api/skin-analysis?task_id=${encodeURIComponent(started.task_id)}`,
+    );
+    const data = (await poll.json().catch(() => null)) as {
+      task_status?: string;
+      error?: string;
+      overall?: number;
+    } | null;
+    if (!poll.ok) throw new Error(data?.error ?? "analysis_failed");
+    if (data?.task_status === "running") continue;
+    if (typeof data?.overall === "number") return data as unknown as SkinReport;
+    throw new Error("analysis_failed");
+  }
+  throw new Error("analysis_timeout");
 }
 
 // The last skin-test report, kept in localStorage so the AI chat can show
