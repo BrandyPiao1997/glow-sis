@@ -88,6 +88,10 @@ type ScriptedReply = {
 function scriptedReply(q: string, t: Dict): ScriptedReply {
   const s = q.toLowerCase().trim();
   const has = (...words: string[]) => words.some((w) => s.includes(w));
+  // Named treatment in the query, if any — used by the price branch too,
+  // so "microneedling cost?" still carries the treatment to browse.
+  const treatment = TREATMENT_KEYWORDS.find((tk) => tk.match.some((m) => s.includes(m)));
+  const treatmentLabel = treatment?.label;
   // Skin test
   if (
     has(
@@ -125,24 +129,28 @@ function scriptedReply(q: string, t: Dict): ScriptedReply {
       "얼마",
     )
   ) {
-    return { text: t.aiReplyPrice, actionHref: "/browse", actionLabelKey: "aiStartBrowsing" };
+    return {
+      text: t.aiReplyPrice,
+      actionHref: "/browse",
+      actionLabelKey: "aiStartBrowsing",
+      actionQuery: treatmentLabel,
+    };
   }
   // Named treatment → point to browse/search, never advise on it.
-  for (const tk of TREATMENT_KEYWORDS) {
-    if (tk.match.some((m) => s.includes(m))) {
-      const label =
-        (t.subTreatmentNames as Record<string, string>)[tk.label] ??
-        (t.serviceNames as Record<string, string>)[tk.label] ??
-        tk.label;
-      return {
-        text: t.aiReplyTreatment.replaceAll("{treatment}", label),
-        actionHref: "/browse",
-        actionLabelKey: "aiStartBrowsing",
-        // Canonical English label — the seed treatment names are English,
-        // so this is what browse matches on.
-        actionQuery: tk.label,
-      };
-    }
+  if (treatment) {
+    const tk = treatment;
+    const label =
+      (t.subTreatmentNames as Record<string, string>)[tk.label] ??
+      (t.serviceNames as Record<string, string>)[tk.label] ??
+      tk.label;
+    return {
+      text: t.aiReplyTreatment.replaceAll("{treatment}", label),
+      actionHref: "/browse",
+      actionLabelKey: "aiStartBrowsing",
+      // Canonical English label — the seed treatment names are English,
+      // so this is what browse matches on.
+      actionQuery: tk.label,
+    };
   }
   // Greeting (word-boundary match so "hi" doesn't fire inside "this").
   if (/\b(hi|hello|hey)\b/.test(s) || has("你好", "您好", "안녕")) {
@@ -433,7 +441,10 @@ export default function AiPage() {
       push("assistant", data.text, undefined, fallback.actionHref, fallback.actionLabelKey, {
         cards: cards.length > 0 ? cards : undefined,
         treatmentLabel: cards.length > 0 ? cards[0].treatment : undefined,
-        actionQuery: fallback.actionQuery,
+        // Prefer the treatment the answer actually shows cards for
+        // (covers paraphrase questions the keyword matcher misses),
+        // else the treatment named in the question.
+        actionQuery: cards.length > 0 ? cards[0].treatment : fallback.actionQuery,
       });
     } catch {
       push("assistant", fallback.text, undefined, fallback.actionHref, fallback.actionLabelKey, {
