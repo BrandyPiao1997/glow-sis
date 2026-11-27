@@ -7,6 +7,26 @@ The buttons are built and the callback (`/auth/callback`) is wired — but
 then the buttons show a clear "sign-in isn't set up yet" state instead of
 crashing.
 
+## AI chat (Gemini)
+
+The AI tab is backed by Gemini (model `gemini-2.5-flash`) through a
+server-side route, `app/api/ai-chat/route.ts`. The key never reaches the
+browser. Without it the chat falls back to scripted keyword replies.
+
+1. Go to Google AI Studio (https://aistudio.google.com) and sign in with
+   the Google account used for the project (brandypiao2021@gmail.com).
+2. **Get API key → Create API key** (free tier; no billing needed to start).
+3. In Vercel → glow-sis → Settings → Environment Variables, add
+   `GEMINI_API_KEY` = the key, for Production + Preview, then redeploy.
+4. Test: ask the AI tab "what is botox" — it should answer with real
+   clinic prices, not the "I'm still learning" fallback.
+
+Notes: the free tier has daily request limits, so the chat falls back to
+scripted replies when the key is rate-limited or the call fails. Answers
+are grounded in real clinic prices from `data/seed-clinics.json` (the
+route only quotes those facts, never invents prices) and never diagnose
+or recommend a treatment.
+
 Order of work: **Google first (free), Apple once the $99/year Apple
 Developer Program enrollment clears** — a free Apple account cannot create
 the Services ID or signing key that Sign in with Apple needs.
