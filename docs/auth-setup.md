@@ -9,7 +9,7 @@ crashing.
 
 ## AI chat (Gemini)
 
-The AI tab is backed by Gemini (model `gemini-2.5-flash`) through a
+The AI tab is backed by Gemini (model `gemini-3.8-flash`) through a
 server-side route, `app/api/ai-chat/route.ts`. The key never reaches the
 browser. Without it the chat falls back to scripted keyword replies.
 

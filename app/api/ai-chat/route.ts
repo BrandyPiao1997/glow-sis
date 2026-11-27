@@ -5,8 +5,12 @@ import { buildSystemPrompt, findTreatmentFacts } from "@/lib/ai-chat";
 // The API key lives in GEMINI_API_KEY (Vercel env, server-only) and never
 // reaches the browser. Without a key the route answers 503 and the client
 // falls back to its scripted keyword replies, so the chat still works.
-const GEMINI_MODEL = "gemini-2.5-flash";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+//
+// Model: gemini-3.8-flash. gemini-2.5-flash is retired for new API keys —
+// generateContent 404s with "no longer available to new users" — and
+// Google's error names gemini-3.8-flash as the replacement. 3.5-flash is
+// the fallback when 3.8 is overloaded (it 503s under high demand).
+const GEMINI_MODELS = ["gemini-3.8-flash", "gemini-3.5-flash"];
 
 type HistoryMsg = { role: "assistant" | "user"; text: string };
 
@@ -58,46 +62,60 @@ export async function POST(req: Request) {
     { role: "user", parts: [{ text: message }] },
   ];
 
-  let res: Response;
-  try {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 20000);
-    res = await fetch(GEMINI_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-goog-api-key": key,
-      },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        contents,
-        generationConfig: { temperature: 0.7, maxOutputTokens: 512 },
-      }),
-      signal: ctrl.signal,
-    });
-    clearTimeout(timer);
-  } catch (err) {
-    console.error("POST /api/ai-chat fetch failed:", err);
-    return NextResponse.json({ error: "ai_failed" }, { status: 502 });
+  const payload = JSON.stringify({
+    systemInstruction: { parts: [{ text: systemPrompt }] },
+    contents,
+    generationConfig: { temperature: 0.7, maxOutputTokens: 512 },
+  });
+
+  // Try each model in order; a 503/overload on one falls through to the
+  // next instead of failing the chat. Any other failure fails fast.
+  for (const model of GEMINI_MODELS) {
+    let res: Response;
+    try {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 20000);
+      res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-goog-api-key": key,
+          },
+          body: payload,
+          signal: ctrl.signal,
+        },
+      );
+      clearTimeout(timer);
+    } catch (err) {
+      console.error(`POST /api/ai-chat fetch failed (${model}):`, err);
+      continue;
+    }
+    if (res.status === 503) {
+      console.error(`POST /api/ai-chat overloaded (${model}), trying next model`);
+      continue;
+    }
+    if (!res.ok) {
+      console.error("POST /api/ai-chat Gemini error:", model, res.status);
+      return NextResponse.json({ error: "ai_failed" }, { status: 502 });
+    }
+    let data: unknown;
+    try {
+      data = await res.json();
+    } catch {
+      return NextResponse.json({ error: "ai_failed" }, { status: 502 });
+    }
+    const parts = (
+      data as { candidates?: { content?: { parts?: { text?: string }[] } }[] }
+    ).candidates?.[0]?.content?.parts
+      ?.map((p) => p.text ?? "")
+      .join("")
+      .trim();
+    if (!parts) {
+      return NextResponse.json({ error: "ai_failed" }, { status: 502 });
+    }
+    return NextResponse.json({ text: parts.slice(0, 1200) });
   }
-  if (!res.ok) {
-    console.error("POST /api/ai-chat Gemini error:", res.status);
-    return NextResponse.json({ error: "ai_failed" }, { status: 502 });
-  }
-  let data: unknown;
-  try {
-    data = await res.json();
-  } catch {
-    return NextResponse.json({ error: "ai_failed" }, { status: 502 });
-  }
-  const parts = (
-    data as { candidates?: { content?: { parts?: { text?: string }[] } }[] }
-  ).candidates?.[0]?.content?.parts
-    ?.map((p) => p.text ?? "")
-    .join("")
-    .trim();
-  if (!parts) {
-    return NextResponse.json({ error: "ai_failed" }, { status: 502 });
-  }
-  return NextResponse.json({ text: parts.slice(0, 1200) });
+  return NextResponse.json({ error: "ai_failed" }, { status: 502 });
 }
