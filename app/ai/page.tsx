@@ -40,9 +40,11 @@ type Msg = {
   i18nKey?: string;
   // Optional follow-up action rendered under an assistant message
   // (e.g. "Start browsing" → /browse). actionLabelKey resolves from the
-  // i18n dict at render time.
+  // i18n dict at render time. actionQuery, when set, is appended as
+  // ?q= so browse opens already searched for that treatment.
   actionHref?: string;
   actionLabelKey?: string;
+  actionQuery?: string;
   // Real treatment cards for this answer (from /api/ai-chat).
   cards?: Card[];
   // Treatment label the follow-up chips refer to, e.g. "Microneedling".
@@ -75,7 +77,13 @@ const TREATMENT_KEYWORDS: { match: string[]; label: string }[] = [
   { match: ["prp"], label: "PRP" },
 ];
 
-type ScriptedReply = { text: string; actionHref?: string; actionLabelKey?: string };
+type ScriptedReply = {
+  text: string;
+  actionHref?: string;
+  actionLabelKey?: string;
+  // Canonical treatment name (EN) to pre-fill browse with, e.g. "Microneedling".
+  actionQuery?: string;
+};
 
 function scriptedReply(q: string, t: Dict): ScriptedReply {
   const s = q.toLowerCase().trim();
@@ -130,6 +138,9 @@ function scriptedReply(q: string, t: Dict): ScriptedReply {
         text: t.aiReplyTreatment.replaceAll("{treatment}", label),
         actionHref: "/browse",
         actionLabelKey: "aiStartBrowsing",
+        // Canonical English label — the seed treatment names are English,
+        // so this is what browse matches on.
+        actionQuery: tk.label,
       };
     }
   }
@@ -321,7 +332,7 @@ export default function AiPage() {
     i18nKey?: string,
     actionHref?: string,
     actionLabelKey?: string,
-    extra?: { cards?: Card[]; treatmentLabel?: string },
+    extra?: { cards?: Card[]; treatmentLabel?: string; actionQuery?: string },
   ) {
     setMessages((m) => {
       const id = m.reduce((max, x) => Math.max(max, x.id), -1) + 1;
@@ -422,9 +433,12 @@ export default function AiPage() {
       push("assistant", data.text, undefined, fallback.actionHref, fallback.actionLabelKey, {
         cards: cards.length > 0 ? cards : undefined,
         treatmentLabel: cards.length > 0 ? cards[0].treatment : undefined,
+        actionQuery: fallback.actionQuery,
       });
     } catch {
-      push("assistant", fallback.text, undefined, fallback.actionHref, fallback.actionLabelKey);
+      push("assistant", fallback.text, undefined, fallback.actionHref, fallback.actionLabelKey, {
+        actionQuery: fallback.actionQuery,
+      });
     } finally {
       setThinking(false);
     }
@@ -461,6 +475,12 @@ export default function AiPage() {
             t.aiFollowPrice,
           ]
         : [];
+    // "Start browsing" for a treatment opens browse already searched
+    // for it: /browse?q=Microneedling. Other actions link plain.
+    const actionHref =
+      m.actionHref && m.actionQuery
+        ? `${m.actionHref}?q=${encodeURIComponent(m.actionQuery)}`
+        : m.actionHref;
     return (
       <div
         key={m.id}
@@ -475,9 +495,9 @@ export default function AiPage() {
         >
           {displayText}
         </div>
-        {m.role === "assistant" && m.actionHref && actionLabel && (
+        {m.role === "assistant" && actionHref && actionLabel && (
           <a
-            href={m.actionHref}
+            href={actionHref}
             className="rounded-full border border-brand bg-white px-4 py-2 text-sm font-semibold text-brand hover:bg-brand-soft"
           >
             {actionLabel}

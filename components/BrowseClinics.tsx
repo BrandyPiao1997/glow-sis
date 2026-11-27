@@ -344,6 +344,19 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     const id = setTimeout(() => setAppliedQuery(query), 300);
     return () => clearTimeout(id);
   }, [query]);
+  // Deep link from the AI chat: /browse?q=Microneedling pre-fills the
+  // search box (the 300ms debounce above then applies it to the list).
+  // Read on mount only, from window.location — the server and first
+  // client render agree on the empty query, so there is no hydration
+  // mismatch, and no Suspense boundary (which useSearchParams would
+  // need around the whole list) is required.
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q")?.trim();
+    if (q) {
+      const id = setTimeout(() => setQuery(q), 0);
+      return () => clearTimeout(id);
+    }
+  }, []);
   // Infinite scroll: only the first page is rendered; more loads when the
   // sentinel at the bottom of the list scrolls into view. No button.
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
