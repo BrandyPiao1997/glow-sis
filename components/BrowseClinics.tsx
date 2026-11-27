@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { SIMPLE_SERVICES } from "@/lib/types";
 import { nearestCity } from "@/lib/city-coords";
+import { metroOf } from "@/lib/metros";
 import LocationPicker from "@/components/LocationPicker";
 import seedData from "@/data/seed-clinics.json";
 
@@ -270,7 +271,10 @@ export function lowestMatchingPrice(
 
 export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
-  const [city, setCity] = useState("");
+  // Metro area filter ("" = all). Clinics are filed under their real
+  // municipality, but the picker groups them: Los Angeles covers its
+  // dozens of small cities, New York is one municipality.
+  const [metro, setMetro] = useState("");
   const [pickerOpen, setPickerOpen] = useState(false);
   const [service, setService] = useState("");
   const [sub, setSub] = useState("");
@@ -281,9 +285,10 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   const [locStatus, setLocStatus] = useState<"idle" | "locating" | "far" | "error">("idle");
 
   // "Locate me": ask the browser for the user's position once, then pick
-  // the nearest city in the data (within 50 miles). Nothing is stored —
-  // it just sets the city filter. Permission denied, timeout, or too far
-  // from every city all fall back to picking a city by hand.
+  // the nearest city in the data (within 50 miles) and select its metro
+  // area. Nothing is stored — it just sets the location filter. Permission
+  // denied, timeout, or too far from every city all fall back to picking
+  // a city by hand.
   const locateMe = () => {
     if (!("geolocation" in navigator)) {
       setLocStatus("error");
@@ -294,7 +299,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       (pos) => {
         const found = nearestCity(pos.coords.latitude, pos.coords.longitude);
         if (found) {
-          setCity(found);
+          setMetro(metroOf(found));
           setLocStatus("idle");
         } else {
           setLocStatus("far");
@@ -423,10 +428,13 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       .filter((label) => seen.has(label));
   }, [service]);
 
-  // Cities, most clinics first.
-  const allCities = useMemo(() => {
+  // Metros, most clinics first.
+  const allMetros = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const c of CLINICS) counts.set(c.city, (counts.get(c.city) ?? 0) + 1);
+    for (const c of CLINICS) {
+      const m = metroOf(c.city);
+      counts.set(m, (counts.get(m) ?? 0) + 1);
+    }
     return [...counts.entries()]
       .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
       .map(([name]) => name);
@@ -436,7 +444,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     const q = query.trim().toLowerCase();
     const list = CLINICS.filter((c) => {
       if (pricedOnly && c.prices.length === 0) return false;
-      if (city && c.city !== city) return false;
+      if (metro && metroOf(c.city) !== metro) return false;
       if (service && !c.services.some((s) => serviceMatchesCategory(s, service)))
         return false;
       if (sub) {
@@ -480,7 +488,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (pa !== null && pb === null) return -1;
       return a.name.localeCompare(b.name);
     });
-  }, [query, city, service, sub, pricedOnly, t]);
+  }, [query, metro, service, sub, pricedOnly, t]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -530,7 +538,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
                 className={`${inputCls} flex w-full items-center gap-2 pl-9 pr-9 text-left`}
               >
                 <span className="min-w-0 flex-1 truncate font-medium">
-                  {city || t.browseAllLocations}
+                  {metro || t.browseAllLocations}
                 </span>
               </button>
               <svg
@@ -873,9 +881,9 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       {pickerOpen && (
         <LocationPicker
           t={t}
-          cities={allCities}
-          city={city}
-          onSelectCity={(c) => setCity(c)}
+          cities={allMetros}
+          city={metro}
+          onSelectCity={(c) => setMetro(c)}
           onClose={() => setPickerOpen(false)}
         />
       )}
