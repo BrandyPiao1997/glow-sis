@@ -7,16 +7,19 @@ import { loadSkinReport, type SkinReport } from "@/lib/skin-analysis";
 import { nearestCity } from "@/lib/city-coords";
 import { metroOf } from "@/lib/metros";
 
-// AI tab — hybrid redesign (direction C, picked Nov 27, 2026):
-// Unni-style landing first ("How can I help you?" + Recent Chats + a big
-// composer with camera/location), then a SoYoung-style thread: the skin
-// report as a compact context card pinned at the top, suggestion pills,
-// and real treatment cards (clinic + price + booking link, from
-// /api/ai-chat's `cards`, grounded in the seed data) under answers, with
-// follow-up chips. The thread persists on-device in localStorage so the
-// landing can offer it back as a Recent Chat; nothing about the chat is
-// stored server-side. The AI itself is unchanged (Groq first, Gemini
-// backup, scripted replies as fallback).
+// AI tab — hybrid redesign (direction C, picked Nov 27, 2026), revised the
+// same day at Brandy's request: the tab opens straight into the chat
+// thread (greeting + suggestion pills), so it looks like a chat the minute
+// you land — no skin-test banner anywhere. The Unni-style landing
+// (greeting + Recent Chats) is still there one tap back, and the skin test
+// lives only in the composer's camera button. In the thread the skin
+// report shows as a compact context card pinned at the top, answers get
+// real treatment cards (clinic + price + booking link, from
+// /api/ai-chat's `cards`, grounded in the seed data), with follow-up
+// chips. The thread persists on-device in localStorage so the landing can
+// offer it back as a Recent Chat; nothing about the chat is stored
+// server-side. The AI itself is unchanged (Groq first, Gemini backup,
+// scripted replies as fallback).
 
 type Card = {
   clinic: string;
@@ -242,7 +245,7 @@ export default function AiPage() {
   // sent with each chat request so answers prefer nearby clinics.
   const [metro, setMetro] = useState("");
   const [locating, setLocating] = useState(false);
-  const [view, setView] = useState<"home" | "thread">("home");
+  const [view, setView] = useState<"home" | "thread">("thread");
   const [messages, setMessages] = useState<Msg[]>([]);
   const [draft, setDraft] = useState("");
   const [thinking, setThinking] = useState(false);
@@ -262,7 +265,17 @@ export default function AiPage() {
             at: m.at ?? saved.updatedAt,
           }));
           setMessages(loadedMsgs);
+        } else {
+          // No saved thread: the tab opens straight into the chat with
+          // the greeting, so it looks like a chat the minute you land.
+          setMessages([
+            { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
+          ]);
         }
+      } else {
+        setMessages([
+          { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
+        ]);
       }
     } catch {
       // Storage unavailable — search nationwide, start fresh.
@@ -336,13 +349,17 @@ export default function AiPage() {
   }
 
   function newChat() {
-    setMessages([]);
     try {
       window.localStorage.removeItem(THREAD_KEY);
     } catch {
       // Ignore.
     }
-    setView("home");
+    // Fresh thread, still in the chat — the landing (with Recent Chats)
+    // is one tap back.
+    setMessages([
+      { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
+    ]);
+    setView("thread");
   }
 
   // "Locate me": ask the browser for the user's position once, then pick
@@ -582,18 +599,7 @@ export default function AiPage() {
                 </span>
                 <span className="shrink-0 text-sm font-semibold text-brand">{t.aiRetake}</span>
               </button>
-            ) : (
-              <div className="mt-6 rounded-3xl border border-line bg-white p-5 shadow-sm">
-                <p className="font-bold">{t.aiSkinTestCta}</p>
-                <p className="mt-1 text-sm leading-relaxed text-muted">{t.aiSkinTestSub}</p>
-                <a
-                  href="/ai/skin-test"
-                  className="mt-4 inline-block rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark"
-                >
-                  {t.aiSkinTestCta}
-                </a>
-              </div>
-            )}
+            ) : null}
 
             <div className="mt-auto pt-8">
               <Composer
@@ -652,18 +658,7 @@ export default function AiPage() {
                   {t.aiRetake}
                 </a>
               </div>
-            ) : (
-              <div className="mt-4 rounded-3xl border border-line bg-white p-4">
-                <p className="text-sm font-bold">{t.aiSkinTestCta}</p>
-                <p className="mt-1 text-xs leading-relaxed text-muted">{t.aiSkinTestSub}</p>
-                <a
-                  href="/ai/skin-test"
-                  className="mt-3 inline-block rounded-full bg-brand px-5 py-2.5 text-xs font-bold text-white hover:bg-brand-dark"
-                >
-                  {t.aiSkinTestCta}
-                </a>
-              </div>
-            )}
+            ) : null}
 
             <div className="mt-5 flex flex-col gap-3">
               {messages.map(renderMessage)}
