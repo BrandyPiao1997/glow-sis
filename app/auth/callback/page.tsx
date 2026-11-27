@@ -10,32 +10,34 @@ import { POST_AUTH_KEY } from "@/lib/auth";
 // Auth callback: exchanges the ?code= for a session (OAuth, e.g. Google /
 // Apple when they are enabled), or verifies an email OTP link's
 // ?token_hash=, then sends the user back to where they started sign-in
-// (localStorage glow-sis-post-auth, default /profile). Reads the query
-// from window.location directly so no Suspense boundary is needed.
+// (localStorage glow-sis-post-auth, default /profile). All of the work
+// happens inside the effect, which only runs in the browser — the page
+// must not touch window during prerendering (the build renders it on
+// the server, where window does not exist).
 export default function AuthCallbackPage() {
   const { lang } = useSavedLang();
   const t = dicts[lang];
   const router = useRouter();
-  const [error, setError] = useState(() => {
-    if (!getSupabase()) return t.authNotConfigured;
-    const params = new URLSearchParams(window.location.search);
-    return params.get("code") || params.get("token_hash")
-      ? ""
-      : "Missing sign-in code.";
-  });
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    const sb = getSupabase();
-    if (!sb) return;
-    const params = new URLSearchParams(window.location.search);
-    const tokenHash = params.get("token_hash");
-    const code = params.get("code");
-    if (!code && !tokenHash) return;
-    const exchange = tokenHash
-      ? sb.auth.verifyOtp({ token_hash: tokenHash, type: "email" })
-      : sb.auth.exchangeCodeForSession(code as string);
-    exchange
-      .then(({ error }) => {
+    void (async () => {
+      const sb = getSupabase();
+      if (!sb) {
+        setError(t.authNotConfigured);
+        return;
+      }
+      const params = new URLSearchParams(window.location.search);
+      const tokenHash = params.get("token_hash");
+      const code = params.get("code");
+      if (!code && !tokenHash) {
+        setError("Missing sign-in code.");
+        return;
+      }
+      try {
+        const { error } = tokenHash
+          ? await sb.auth.verifyOtp({ token_hash: tokenHash, type: "email" })
+          : await sb.auth.exchangeCodeForSession(code as string);
         if (error) {
           setError(error.message);
           return;
@@ -48,8 +50,10 @@ export default function AuthCallbackPage() {
           // Ignore storage errors; fall back to /profile.
         }
         router.replace(next);
-      })
-      .catch((e) => setError(e instanceof Error ? e.message : "Sign-in failed."));
+      } catch (e) {
+        setError(e instanceof Error ? e.message : "Sign-in failed.");
+      }
+    })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
