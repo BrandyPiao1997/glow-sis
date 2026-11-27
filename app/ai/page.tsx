@@ -8,19 +8,20 @@ import { nearestCity } from "@/lib/city-coords";
 import { metroOf } from "@/lib/metros";
 import { classifyService } from "@/lib/service-taxonomy";
 
-// AI tab — hybrid redesign (direction C, picked Nov 27, 2026), revised the
-// same day at Brandy's request: the tab opens straight into the chat
-// thread (greeting + suggestion pills), so it looks like a chat the minute
-// you land — no skin-test banner anywhere. The Unni-style landing
-// (greeting + Recent Chats) is still there one tap back, and the skin test
-// lives only in the composer's camera button. In the thread the skin
-// report shows as a compact context card pinned at the top, answers get
-// real treatment cards (clinic + price + booking link, from
-// /api/ai-chat's `cards`, grounded in the seed data), with follow-up
-// chips. The thread persists on-device in localStorage so the landing can
-// offer it back as a Recent Chat; nothing about the chat is stored
-// server-side. The AI itself is unchanged (Groq first, Gemini backup,
-// scripted replies as fallback).
+// AI tab — hybrid redesign (direction C, picked Nov 27, 2026), revised
+// Nov 27 at Brandy's request: the tab always lands on the fresh landing
+// (greeting + Recent Chats + composer), never straight into the old
+// conversation. The last real conversation is kept aside as the Recent
+// Chat and resumes only when tapped; starting a new chat — sending from
+// the landing, or New Chat — archives the current thread first, so it
+// stays one tap away. No skin-test banner anywhere; the skin test lives
+// only in the composer's camera button. In the thread the skin report
+// shows as a compact context card pinned at the top, answers get real
+// treatment cards (clinic + price + booking link, from /api/ai-chat's
+// `cards`, grounded in the seed data), with follow-up chips. Threads
+// persist on-device in localStorage only; nothing about the chat is
+// stored server-side. The AI itself is unchanged (Groq first, Gemini
+// backup, scripted replies as fallback).
 
 type Card = {
   clinic: string;
@@ -160,6 +161,7 @@ function scriptedReply(q: string, t: Dict): ScriptedReply {
 }
 
 const THREAD_KEY = "glow-sis-ai-thread";
+const RECENT_KEY = "glow-sis-ai-recent";
 const METRO_KEY = "glow-sis-metro";
 
 type SavedThread = { title: string; updatedAt: string; messages: Msg[] };
@@ -264,8 +266,11 @@ export default function AiPage() {
   // sent with each chat request so answers prefer nearby clinics.
   const [metro, setMetro] = useState("");
   const [locating, setLocating] = useState(false);
-  const [view, setView] = useState<"home" | "thread">("thread");
+  const [view, setView] = useState<"home" | "thread">("home");
   const [messages, setMessages] = useState<Msg[]>([]);
+  // The last real conversation, kept aside for the landing's Recent
+  // Chat card — it resumes only when tapped, never on entry.
+  const [recentThread, setRecentThread] = useState<SavedThread | null>(null);
   const [draft, setDraft] = useState("");
   const [thinking, setThinking] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -275,36 +280,84 @@ export default function AiPage() {
     setReport(loadSkinReport());
     try {
       setMetro(window.localStorage.getItem(METRO_KEY) ?? "");
-      const raw = window.localStorage.getItem(THREAD_KEY);
-      if (raw) {
-        const saved = JSON.parse(raw) as SavedThread;
-        if (Array.isArray(saved.messages) && saved.messages.length > 0) {
-          const loadedMsgs = saved.messages.map((m) => ({
-            ...m,
-            at: m.at ?? saved.updatedAt,
-          }));
-          setMessages(loadedMsgs);
-        } else {
-          // No saved thread: the tab opens straight into the chat with
-          // the greeting, so it looks like a chat the minute you land.
-          setMessages([
-            { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
-          ]);
+      // The tab always lands fresh: the last real conversation is kept
+      // aside as the Recent Chat instead of being loaded into the
+      // thread. Prefer the stored thread; fall back to the archived
+      // recent one (e.g. after New Chat replaced the thread key with
+      // a greeting-only thread). Greeting-only threads are not real
+      // conversations and are not kept.
+      const readThread = (key: string): SavedThread | null => {
+        try {
+          const raw = window.localStorage.getItem(key);
+          if (!raw) return null;
+          const saved = JSON.parse(raw) as SavedThread;
+          if (
+            !Array.isArray(saved.messages) ||
+            !saved.messages.some((m) => m.role === "user")
+          ) {
+            return null;
+          }
+          return {
+            ...saved,
+            messages: saved.messages.map((m) => ({ ...m, at: m.at ?? saved.updatedAt })),
+          };
+        } catch {
+          return null;
         }
-      } else {
-        setMessages([
-          { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
-        ]);
+      };
+      const recent = readThread(THREAD_KEY) ?? readThread(RECENT_KEY);
+      if (recent) {
+        setRecentThread(recent);
+        try {
+          window.localStorage.setItem(RECENT_KEY, JSON.stringify(recent));
+        } catch {
+          // Ignore storage errors; the in-state copy still works.
+        }
       }
     } catch {
       // Storage unavailable — search nationwide, start fresh.
     }
+    setMessages(greetingMessages());
+    setView("home");
   }
 
-  // Persist the thread on-device so the landing can offer it back as a
-  // Recent Chat. Nothing about the chat is stored server-side. The write
-  // is skipped when localStorage already holds the same JSON, so opening
-  // the page doesn't reset the Recent Chat's timestamp.
+  // A fresh thread is just the greeting (the suggestion pills show
+  // while the thread has only this one message).
+  function greetingMessages(): Msg[] {
+    return [
+      { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
+    ];
+  }
+
+  // Keep the current conversation aside as the Recent Chat (in state
+  // and on-device), so starting fresh never loses it. Greeting-only
+  // threads are not real conversations and are not kept.
+  function archiveCurrent() {
+    if (!messages.some((m) => m.role === "user")) return;
+    const saved: SavedThread = {
+      title: threadTitle(messages),
+      updatedAt: messages[messages.length - 1].at ?? new Date().toISOString(),
+      messages: messages.slice(-30),
+    };
+    setRecentThread(saved);
+    try {
+      window.localStorage.setItem(RECENT_KEY, JSON.stringify(saved));
+    } catch {
+      // Ignore storage errors; the in-state copy still works.
+    }
+  }
+
+  // Back to the landing: the thread on screen becomes the Recent Chat.
+  function goHome() {
+    archiveCurrent();
+    setView("home");
+  }
+
+  // Persist the thread on-device; on the next visit it is offered back
+  // as the landing's Recent Chat. Nothing about the chat is stored
+  // server-side. The write is skipped when localStorage already holds
+  // the same JSON, and a greeting-only thread is never written, so
+  // opening the page doesn't clobber the stored conversation.
   useEffect(() => {
     if (!hydrated) return;
     try {
@@ -312,6 +365,11 @@ export default function AiPage() {
         if (window.localStorage.getItem(THREAD_KEY) !== null) {
           window.localStorage.removeItem(THREAD_KEY);
         }
+        return;
+      }
+      if (!messages.some((m) => m.role === "user")) {
+        // A fresh greeting-only thread is not a conversation — don't
+        // let it clobber the stored thread on the next visit.
         return;
       }
       const saved: SavedThread = {
@@ -361,13 +419,17 @@ export default function AiPage() {
   }
 
   function openThread() {
-    if (messages.length === 0) {
-      push("assistant", "", "aiGreeting");
+    // Resume the kept-aside conversation; the landing stays fresh.
+    if (recentThread) {
+      setMessages(recentThread.messages);
     }
     setView("thread");
   }
 
   function newChat() {
+    // Starting over archives the current conversation as the Recent
+    // Chat first, so it stays one tap away on the landing.
+    archiveCurrent();
     try {
       window.localStorage.removeItem(THREAD_KEY);
     } catch {
@@ -375,9 +437,7 @@ export default function AiPage() {
     }
     // Fresh thread, still in the chat — the landing (with Recent Chats)
     // is one tap back.
-    setMessages([
-      { id: 0, role: "assistant", text: "", at: new Date().toISOString(), i18nKey: "aiGreeting" },
-    ]);
+    setMessages(greetingMessages());
     setView("thread");
   }
 
@@ -415,6 +475,12 @@ export default function AiPage() {
     const raw = (text ?? draft).trim();
     if (!raw || thinking) return;
     setDraft("");
+    // Sending from the landing always starts a new conversation: the
+    // thread on screen (if any) is archived as the Recent Chat first.
+    if (view === "home") {
+      archiveCurrent();
+      setMessages(greetingMessages());
+    }
     setView("thread");
     push("user", raw);
     const fallback = scriptedReply(raw, t);
@@ -458,14 +524,10 @@ export default function AiPage() {
 
   if (!hydrated) return null;
 
-  // Recent Chat, derived from the thread itself — no extra state.
-  const recent =
-    messages.length > 0
-      ? {
-          title: threadTitle(messages),
-          updatedAt: messages[messages.length - 1].at ?? new Date().toISOString(),
-        }
-      : null;
+  // Recent Chat, from the kept-aside thread — never the thread on screen.
+  const recent = recentThread
+    ? { title: recentThread.title, updatedAt: recentThread.updatedAt }
+    : null;
 
   const showPills = view === "thread" && messages.length <= 1;
   const suggestions = [t.aiSuggPores, t.aiSuggSensitive, t.aiSuggLines, t.aiSuggPigment];
@@ -650,7 +712,7 @@ export default function AiPage() {
             <div className="flex items-center justify-between gap-3">
               <button
                 type="button"
-                onClick={() => setView("home")}
+                onClick={goHome}
                 aria-label="Back"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white text-lg font-bold hover:border-brand"
               >
