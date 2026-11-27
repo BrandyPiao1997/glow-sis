@@ -271,9 +271,6 @@ export function lowestMatchingPrice(
 export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
   const [city, setCity] = useState("");
-  // Neighborhoods within the city, picked in the location picker (Unni-style
-  // checkboxes). Empty = the whole city.
-  const [neighborhoods, setNeighborhoods] = useState<string[]>([]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [service, setService] = useState("");
   const [sub, setSub] = useState("");
@@ -298,7 +295,6 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         const found = nearestCity(pos.coords.latitude, pos.coords.longitude);
         if (found) {
           setCity(found);
-          setNeighborhoods([]);
           setLocStatus("idle");
         } else {
           setLocStatus("far");
@@ -427,7 +423,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       .filter((label) => seen.has(label));
   }, [service]);
 
-  // Cities, most clinics first; neighborhoods only within the chosen city.
+  // Cities, most clinics first.
   const allCities = useMemo(() => {
     const counts = new Map<string, number>();
     for (const c of CLINICS) counts.set(c.city, (counts.get(c.city) ?? 0) + 1);
@@ -436,20 +432,11 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       .map(([name]) => name);
   }, []);
 
-  const cityNeighborhoods = useMemo(
-    () =>
-      city
-        ? [...new Set(CLINICS.filter((c) => c.city === city).map((c) => c.neighborhood))].sort()
-        : [],
-    [city],
-  );
-
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     const list = CLINICS.filter((c) => {
       if (pricedOnly && c.prices.length === 0) return false;
       if (city && c.city !== city) return false;
-      if (neighborhoods.length > 0 && !neighborhoods.includes(c.neighborhood)) return false;
       if (service && !c.services.some((s) => serviceMatchesCategory(s, service)))
         return false;
       if (sub) {
@@ -493,7 +480,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       if (pa !== null && pb === null) return -1;
       return a.name.localeCompare(b.name);
     });
-  }, [query, city, neighborhoods, service, sub, pricedOnly, t]);
+  }, [query, city, service, sub, pricedOnly, t]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -544,9 +531,6 @@ export default function BrowseClinics({ t }: { t: Dict }) {
               >
                 <span className="min-w-0 flex-1 truncate font-medium">
                   {city || t.browseAllLocations}
-                  {city && neighborhoods.length > 0 && (
-                    <span className="font-normal text-muted"> · {neighborhoods.join(" · ")}</span>
-                  )}
                 </span>
               </button>
               <svg
@@ -890,22 +874,8 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         <LocationPicker
           t={t}
           cities={allCities}
-          neighborhoods={cityNeighborhoods}
           city={city}
-          selected={neighborhoods}
-          onSelectCity={(c) => {
-            setCity(c);
-            setNeighborhoods([]);
-          }}
-          onToggleNeighborhood={(n) => {
-            if (n === "") {
-              setNeighborhoods([]);
-              return;
-            }
-            setNeighborhoods((prev) =>
-              prev.includes(n) ? prev.filter((x) => x !== n) : [...prev, n],
-            );
-          }}
+          onSelectCity={(c) => setCity(c)}
           onClose={() => setPickerOpen(false)}
         />
       )}
