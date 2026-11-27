@@ -5,16 +5,19 @@ import type { Dict } from "@/lib/i18n";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { POST_AUTH_KEY } from "@/lib/auth";
 
-// Email sign-in with a 6-digit code (Supabase OTP). No password, no social
-// login. The user types their email, gets a code, types it back, and is
-// signed in. Google / Apple live in AuthButtons.tsx but are hidden for now
-// because neither works yet — see docs/auth-setup.md.
+// Email sign-in with a magic link (Supabase OTP). No password, no social
+// login. The user types their email, gets a sign-in link, taps it, and
+// is signed in — /auth/callback finishes the session from the link.
+// Why a link, not a 6-digit code: Supabase's Free plan locks email
+// template editing, so the sign-in email can't include the code
+// ({{ .Token }}); it only ever carries the link. Google / Apple live in
+// AuthButtons.tsx but are hidden for now because neither works yet —
+// see docs/auth-setup.md.
 export default function EmailOtpAuth({ t }: { t: Dict }) {
   const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
-  const [busy, setBusy] = useState<"send" | "verify" | null>(null);
+  const [busy, setBusy] = useState(false);
 
   if (!isSupabaseConfigured()) {
     return (
@@ -25,7 +28,7 @@ export default function EmailOtpAuth({ t }: { t: Dict }) {
     );
   }
 
-  async function sendCode() {
+  async function sendLink() {
     const trimmed = email.trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
       setError(t.authInvalidEmail);
@@ -34,7 +37,7 @@ export default function EmailOtpAuth({ t }: { t: Dict }) {
     const sb = getSupabase();
     if (!sb) return;
     setError("");
-    setBusy("send");
+    setBusy(true);
     try {
       window.localStorage.setItem(POST_AUTH_KEY, "/profile");
       const { error } = await sb.auth.signInWithOtp({
@@ -53,33 +56,7 @@ export default function EmailOtpAuth({ t }: { t: Dict }) {
     } catch (e) {
       setError(e instanceof Error ? e.message : "Sign-in failed.");
     } finally {
-      setBusy(null);
-    }
-  }
-
-  async function verify() {
-    const token = code.trim();
-    if (token.length !== 6) {
-      setError(t.authInvalidCode);
-      return;
-    }
-    const sb = getSupabase();
-    if (!sb) return;
-    setError("");
-    setBusy("verify");
-    try {
-      const { error } = await sb.auth.verifyOtp({
-        email,
-        token,
-        type: "email",
-      });
-      if (error) setError(error.message);
-      // On success the profile page's onAuthStateChange picks up the
-      // session and swaps this form for the signed-in view.
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Sign-in failed.");
-    } finally {
-      setBusy(null);
+      setBusy(false);
     }
   }
 
@@ -96,61 +73,39 @@ export default function EmailOtpAuth({ t }: { t: Dict }) {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === "Enter") void sendCode();
+              if (e.key === "Enter") void sendLink();
             }}
             placeholder={t.authEmailPh}
             className="w-full rounded-full border border-line bg-white px-5 py-3 text-sm outline-none focus:border-brand"
           />
           <button
             type="button"
-            disabled={busy !== null}
-            onClick={() => void sendCode()}
+            disabled={busy}
+            onClick={() => void sendLink()}
             className="w-full rounded-full bg-brand px-6 py-3.5 text-sm font-bold text-white hover:bg-brand-dark disabled:opacity-50"
           >
-            {busy === "send" ? t.authSending : t.authSendCode}
+            {busy ? t.authSending : t.authSendLink}
           </button>
         </>
       ) : (
         <>
           <p className="rounded-2xl bg-brand-soft px-4 py-3 text-sm leading-relaxed text-ink">
-            {t.authCodeSent.replace("{email}", email)}
+            {t.authLinkSent.replace("{email}", email)}
           </p>
-          <input
-            type="text"
-            inputMode="numeric"
-            autoComplete="one-time-code"
-            maxLength={6}
-            value={code}
-            onChange={(e) => setCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") void verify();
-            }}
-            placeholder={t.authCodePh}
-            className="w-full rounded-full border border-line bg-white px-5 py-3 text-center text-lg font-bold tracking-[0.3em] outline-none focus:border-brand"
-          />
-          <button
-            type="button"
-            disabled={busy !== null}
-            onClick={() => void verify()}
-            className="w-full rounded-full bg-brand px-6 py-3.5 text-sm font-bold text-white hover:bg-brand-dark disabled:opacity-50"
-          >
-            {busy === "verify" ? t.authVerifying : t.authVerify}
-          </button>
           <div className="flex justify-between text-sm">
             <button
               type="button"
-              disabled={busy !== null}
-              onClick={() => void sendCode()}
+              disabled={busy}
+              onClick={() => void sendLink()}
               className="font-semibold text-brand-dark hover:underline disabled:opacity-50"
             >
               {t.authResend}
             </button>
             <button
               type="button"
-              disabled={busy !== null}
+              disabled={busy}
               onClick={() => {
                 setSent(false);
-                setCode("");
                 setError("");
               }}
               className="font-semibold text-muted hover:underline disabled:opacity-50"

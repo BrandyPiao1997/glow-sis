@@ -1,10 +1,18 @@
-# GlowSis sign-in setup (email OTP first)
+# GlowSis sign-in setup (email link first)
 
-Sign-in is email + 6-digit code (Supabase OTP) on the profile page
+Sign-in is email + magic link (Supabase OTP) on the profile page
 (`/profile`), built into Supabase — no extra provider account needed. The
-code is sent by Supabase's built-in email service, which works for testing
-but has tight rate limits; before launch, set a custom SMTP sender in
-Supabase → Authentication → Settings → SMTP Settings.
+user types their email, gets a sign-in link, taps it, and
+`/auth/callback` finishes the session (it accepts `?token_hash=`,
+`?code=`, and `#access_token=` in the URL fragment, because Supabase's
+redirect carries the tokens in the fragment). Why a link, not a 6-digit
+code: on Supabase's Free plan the email templates can't be edited, so
+the sign-in email can't include the code (`{{ .Token }}`) — it only
+ever carries the link. A code flow would need custom SMTP set up or a
+Pro upgrade. The link is sent by Supabase's built-in email service,
+which works for testing but has tight rate limits; before launch, set a
+custom SMTP sender in Supabase → Authentication → Settings → SMTP
+Settings.
 
 Google and Apple sign-in buttons exist in `components/AuthButtons.tsx`
 (Supabase OAuth) but are hidden for now because neither works yet — Google
