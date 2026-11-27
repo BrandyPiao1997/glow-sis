@@ -1,10 +1,13 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import type { User } from "@supabase/supabase-js";
 import { dicts } from "@/lib/i18n";
 import { SiteFooter, SiteHeader, useSavedLang } from "@/components/site";
+import EmailOtpAuth from "@/components/EmailOtpAuth";
 import SkinRadar from "@/components/SkinRadar";
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { analyzeSkin, saveSkinReport, type SkinReport } from "@/lib/skin-analysis";
 
 type Step = "capture" | "analyzing" | "report" | "done";
@@ -20,6 +23,27 @@ export default function SkinTestPage() {
   const [error, setError] = useState<string | null>(null);
   const cameraRef = useRef<HTMLInputElement>(null);
   const uploadRef = useRef<HTMLInputElement>(null);
+
+  // The test needs an account: a logged-out user gets the sign-in
+  // prompt instead of the camera. After sign-in /auth/callback sends
+  // them back here (EmailOtpAuth's postAuthPath), and the auth listener
+  // below swaps the gate for the test without a reload.
+  const [user, setUser] = useState<User | null>(null);
+  // If Supabase isn't configured there is no session to check for.
+  const [authChecked, setAuthChecked] = useState(() => !isSupabaseConfigured());
+
+  useEffect(() => {
+    const sb = getSupabase();
+    if (!sb) return;
+    sb.auth.getUser().then(({ data }) => {
+      setUser(data.user);
+      setAuthChecked(true);
+    });
+    const { data: sub } = sb.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => sub.subscription.unsubscribe();
+  }, []);
 
   function onPhoto(file: File | undefined) {
     if (!file) return;
@@ -45,7 +69,8 @@ export default function SkinTestPage() {
   }
 
   // The report is saved on this device so the AI chat can show it as
-  // context. No account, no profile setup — just the result.
+  // context and the Profile tab can show the result tile. The photo
+  // itself is never stored — see stPrivacy.
   function finishReport() {
     if (!report) return;
     saveSkinReport(report);
@@ -84,6 +109,16 @@ export default function SkinTestPage() {
           {t.stTitle}
         </h1>
 
+        {authChecked && !user ? (
+          <section className="mt-6 rounded-3xl border border-line bg-white p-5 md:p-8">
+            <p className="text-xl font-extrabold">{t.stAuthTitle}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{t.stAuthSub}</p>
+            <div className="mt-5">
+              <EmailOtpAuth t={t} postAuthPath="/ai/skin-test" />
+            </div>
+          </section>
+        ) : authChecked ? (
+          <>
         {step === "capture" && (
           <section className="mt-6">
             <div className="rounded-3xl border border-line bg-white p-5">
@@ -231,9 +266,17 @@ export default function SkinTestPage() {
               >
                 {t.stBrowse}
               </a>
+              <a
+                href="/profile"
+                className="w-full rounded-full border border-line bg-white px-6 py-3.5 text-sm font-semibold hover:border-brand"
+              >
+                {t.stViewProfile}
+              </a>
             </div>
           </section>
         )}
+          </>
+        ) : null}
 
         <p className="mt-6 text-xs leading-relaxed text-muted">{t.aiDisclaimer}</p>
       </main>

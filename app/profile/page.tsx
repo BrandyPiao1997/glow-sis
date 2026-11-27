@@ -6,18 +6,31 @@ import { dicts } from "@/lib/i18n";
 import { SiteFooter, SiteHeader, useSavedLang } from "@/components/site";
 import EmailOtpAuth from "@/components/EmailOtpAuth";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
+import { loadSkinReport, type SkinReport } from "@/lib/skin-analysis";
 
-// Account page only: sign in / sign out. Sign-in is email + 6-digit code
-// (EmailOtpAuth). Google / Apple buttons live in AuthButtons.tsx but are
-// hidden for now because neither provider works yet; phone OTP is skipped
-// for now (it needs a paid Twilio SMS setup). Everything else in the app
-// works signed out.
+// Account page: sign in / sign out, plus the skin-test result tile
+// once a test is finished (the report lives on this device — see
+// lib/skin-analysis). Sign-in is an email link (EmailOtpAuth). Google /
+// Apple buttons live in AuthButtons.tsx but are hidden for now because
+// neither provider works yet; phone OTP is skipped for now (it needs a
+// paid Twilio SMS setup). The skin test needs an account (gated at
+// /ai/skin-test); everything else in the app works signed out.
 export default function ProfilePage() {
   const { lang, chooseLang } = useSavedLang();
   const t = dicts[lang];
   const [user, setUser] = useState<User | null>(null);
   // If Supabase isn't configured there is no session to check for.
   const [checked, setChecked] = useState(() => !isSupabaseConfigured());
+  // The finished skin-test report, if one is saved on this device —
+  // shown as the result tile below the account card.
+  const [report, setReport] = useState<SkinReport | null>(null);
+
+  useEffect(() => {
+    // The state update rides in a setTimeout so the effect body itself
+    // doesn't set state synchronously (the repo's eslint rejects that).
+    const id = window.setTimeout(() => setReport(loadSkinReport()), 0);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const sb = getSupabase();
@@ -76,6 +89,46 @@ export default function ProfilePage() {
               </>
             )}
           </div>
+
+          {report && (
+            <div className="mt-6 rounded-3xl border border-line bg-white p-5">
+              <p className="text-sm font-bold">{t.aiContextTitle}</p>
+              <div className="mt-4 flex items-center gap-4">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-[3px] border-[#7dd3c8] text-lg font-extrabold">
+                  {report.overall}
+                </span>
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-semibold">
+                    {t.stBetterThan.replace("{pct}", String(report.betterThanPct))}
+                  </p>
+                  <div className="mt-1.5 flex flex-wrap gap-1.5">
+                    {report.concerns.map((c) => (
+                      <span
+                        key={c}
+                        className="rounded-full bg-brand-soft px-2 py-0.5 text-[11px] font-semibold text-brand-dark"
+                      >
+                        {(t.concernNames as Record<string, string>)[c] ?? c}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                <a
+                  href="/ai/skin-test"
+                  className="rounded-full border border-line px-4 py-2 text-sm font-semibold hover:border-brand"
+                >
+                  {t.aiRetake}
+                </a>
+                <a
+                  href="/ai"
+                  className="rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark"
+                >
+                  {t.stBackToChat}
+                </a>
+              </div>
+            </div>
+          )}
         </section>
       </main>
       <SiteFooter t={t} />

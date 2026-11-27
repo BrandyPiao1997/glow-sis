@@ -13,7 +13,10 @@ import { POST_AUTH_KEY } from "@/lib/auth";
 // ({{ .Token }}); it only ever carries the link. Google / Apple live in
 // AuthButtons.tsx but are hidden for now because neither works yet —
 // see docs/auth-setup.md.
-export default function EmailOtpAuth({ t }: { t: Dict }) {
+// postAuthPath: where /auth/callback sends the user after sign-in —
+// "/profile" by default; the skin-test gate passes "/ai/skin-test"
+// so the user lands back at the test they were starting.
+export default function EmailOtpAuth({ t, postAuthPath = "/profile" }: { t: Dict; postAuthPath?: string }) {
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
@@ -39,7 +42,7 @@ export default function EmailOtpAuth({ t }: { t: Dict }) {
     setError("");
     setBusy(true);
     try {
-      window.localStorage.setItem(POST_AUTH_KEY, "/profile");
+      window.localStorage.setItem(POST_AUTH_KEY, postAuthPath);
       const { error } = await sb.auth.signInWithOtp({
         email: trimmed,
         options: {
