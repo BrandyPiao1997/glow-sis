@@ -7,11 +7,24 @@ The buttons are built and the callback (`/auth/callback`) is wired — but
 then the buttons show a clear "sign-in isn't set up yet" state instead of
 crashing.
 
-## AI chat (Gemini)
+## AI chat (Groq + Gemini)
 
-The AI tab is backed by Gemini (model `gemini-3.5-flash` first, `gemini-3.8-flash` as the fallback) through a
-server-side route, `app/api/ai-chat/route.ts`. The key never reaches the
-browser. Without it the chat falls back to scripted keyword replies.
+The AI tab is backed by two providers through a server-side route,
+`app/api/ai-chat/route.ts`, tried in order: Groq first
+(`openai/gpt-oss-120b`, fast and free), then Gemini (model
+`gemini-3.5-flash` first, `gemini-3.8-flash` as the fallback). The keys
+never reach the browser. Without either key the chat falls back to
+scripted keyword replies.
+
+Groq setup (free, no credit card):
+
+1. Go to the Groq console (https://console.groq.com) and sign up.
+2. **API Keys → Create API Key** (free plan: 1,000 requests and 200,000
+   tokens a day per model).
+3. In Vercel → glow-sis → Settings → Environment Variables, add
+   `GROQ_API_KEY` = the key, for Production + Preview, then redeploy.
+
+Gemini setup:
 
 1. Go to Google AI Studio (https://aistudio.google.com) and sign in with
    the Google account used for the project (brandypiao2021@gmail.com).
@@ -21,11 +34,13 @@ browser. Without it the chat falls back to scripted keyword replies.
 4. Test: ask the AI tab "what is botox" — it should answer with real
    clinic prices, not the "I'm still learning" fallback.
 
-Notes: the free tier has daily request limits, so the chat falls back to
-scripted replies when the key is rate-limited or the call fails. Answers
-are grounded in real clinic prices from `data/seed-clinics.json` (the
-route only quotes those facts, never invents prices) and never diagnose
-or recommend a treatment.
+Notes: the free tiers have daily request limits, so the chat falls back to
+the next provider, then to scripted replies, when a key is rate-limited
+or a call fails. Answers are grounded in real clinic prices from
+`data/seed-clinics.json` (the route only quotes those facts, never
+invents prices) and never diagnose or recommend a treatment. Groq sits
+behind Cloudflare, which blocks bot-like User-Agents (HTTP 403 error
+code 1010), so the route sends a plain `User-Agent: GlowSis/1.0`.
 
 Order of work: **Google first (free), Apple once the $99/year Apple
 Developer Program enrollment clears** — a free Apple account cannot create
