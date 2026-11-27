@@ -185,8 +185,10 @@ function subTreatmentOf(name: string, category: string): string | null {
 // The first number in the price — for a range like "$100–$150" that's the
 // low end, which is what a "from $X" headline should show. (The old version
 // stripped all non-digits, turning "$100–$150" into 100150.)
-export function parsePriceNum(price: string): number | null {
-  const m = price.replace(/,/g, "").match(/\d+(\.\d+)?/);
+export function parsePriceNum(price: string | number): number | null {
+  // Coerce: a batch once shipped numeric prices (11 instead of "$11") and
+  // broke the build here, so never trust the type.
+  const m = String(price).replace(/,/g, "").match(/\d+(\.\d+)?/);
   if (!m) return null;
   const n = parseFloat(m[0]);
   return Number.isFinite(n) ? n : null;
