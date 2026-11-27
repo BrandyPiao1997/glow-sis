@@ -6,6 +6,7 @@ import { SiteHeader, useSavedLang } from "@/components/site";
 import { loadSkinReport, type SkinReport } from "@/lib/skin-analysis";
 import { nearestCity } from "@/lib/city-coords";
 import { metroOf } from "@/lib/metros";
+import { classifyService } from "@/lib/service-taxonomy";
 
 // AI tab — hybrid redesign (direction C, picked Nov 27, 2026), revised the
 // same day at Brandy's request: the tab opens straight into the chat
@@ -40,11 +41,11 @@ type Msg = {
   i18nKey?: string;
   // Optional follow-up action rendered under an assistant message
   // (e.g. "Start browsing" → /browse). actionLabelKey resolves from the
-  // i18n dict at render time. actionQuery, when set, is appended as
-  // ?q= so browse opens already searched for that treatment.
+  // i18n dict at render time. actionService, when set, is appended as
+  // ?service= so browse opens with that Service pill selected.
   actionHref?: string;
   actionLabelKey?: string;
-  actionQuery?: string;
+  actionService?: string;
   // Real treatment cards for this answer (from /api/ai-chat).
   cards?: Card[];
   // Treatment label the follow-up chips refer to, e.g. "Microneedling".
@@ -81,8 +82,8 @@ type ScriptedReply = {
   text: string;
   actionHref?: string;
   actionLabelKey?: string;
-  // Canonical treatment name (EN) to pre-fill browse with, e.g. "Microneedling".
-  actionQuery?: string;
+  // Service category (e.g. "Skin & laser") to select on browse.
+  actionService?: string;
 };
 
 function scriptedReply(q: string, t: Dict): ScriptedReply {
@@ -133,7 +134,7 @@ function scriptedReply(q: string, t: Dict): ScriptedReply {
       text: t.aiReplyPrice,
       actionHref: "/browse",
       actionLabelKey: "aiStartBrowsing",
-      actionQuery: treatmentLabel,
+      actionService: treatmentLabel ? classifyService(treatmentLabel) : undefined,
     };
   }
   // Named treatment → point to browse/search, never advise on it.
@@ -147,9 +148,8 @@ function scriptedReply(q: string, t: Dict): ScriptedReply {
       text: t.aiReplyTreatment.replaceAll("{treatment}", label),
       actionHref: "/browse",
       actionLabelKey: "aiStartBrowsing",
-      // Canonical English label — the seed treatment names are English,
-      // so this is what browse matches on.
-      actionQuery: tk.label,
+      // Service category for the treatment — browse selects that pill.
+      actionService: classifyService(tk.label),
     };
   }
   // Greeting (word-boundary match so "hi" doesn't fire inside "this").
@@ -340,7 +340,7 @@ export default function AiPage() {
     i18nKey?: string,
     actionHref?: string,
     actionLabelKey?: string,
-    extra?: { cards?: Card[]; treatmentLabel?: string; actionQuery?: string },
+    extra?: { cards?: Card[]; treatmentLabel?: string; actionService?: string },
   ) {
     setMessages((m) => {
       const id = m.reduce((max, x) => Math.max(max, x.id), -1) + 1;
@@ -441,14 +441,15 @@ export default function AiPage() {
       push("assistant", data.text, undefined, fallback.actionHref, fallback.actionLabelKey, {
         cards: cards.length > 0 ? cards : undefined,
         treatmentLabel: cards.length > 0 ? cards[0].treatment : undefined,
-        // Prefer the treatment the answer actually shows cards for
-        // (covers paraphrase questions the keyword matcher misses),
-        // else the treatment named in the question.
-        actionQuery: cards.length > 0 ? cards[0].treatment : fallback.actionQuery,
+        // Prefer the category of the treatment the answer actually shows
+        // cards for (covers paraphrase questions the keyword matcher
+        // misses), else the treatment named in the question.
+        actionService:
+          cards.length > 0 ? classifyService(cards[0].treatment) : fallback.actionService,
       });
     } catch {
       push("assistant", fallback.text, undefined, fallback.actionHref, fallback.actionLabelKey, {
-        actionQuery: fallback.actionQuery,
+        actionService: fallback.actionService,
       });
     } finally {
       setThinking(false);
@@ -486,11 +487,12 @@ export default function AiPage() {
             t.aiFollowPrice,
           ]
         : [];
-    // "Start browsing" for a treatment opens browse already searched
-    // for it: /browse?q=Microneedling. Other actions link plain.
+    // "Start browsing" for a treatment opens browse with that Service
+    // pill selected: /browse?service=Skin%20%26%20laser. Other actions
+    // link plain.
     const actionHref =
-      m.actionHref && m.actionQuery
-        ? `${m.actionHref}?q=${encodeURIComponent(m.actionQuery)}`
+      m.actionHref && m.actionService
+        ? `${m.actionHref}?service=${encodeURIComponent(m.actionService)}`
         : m.actionHref;
     return (
       <div

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { SIMPLE_SERVICES } from "@/lib/types";
+import { classifyService } from "@/lib/service-taxonomy";
 import { nearestCity } from "@/lib/city-coords";
 import { metroOf } from "@/lib/metros";
 import LocationPicker from "@/components/LocationPicker";
@@ -32,71 +33,8 @@ interface SeedClinic {
 
 const CLINICS = seedData.clinics as SeedClinic[];
 
-// Classify one service/treatment string into exactly ONE category
-// (SIMPLE_SERVICES). Word-boundary matching plus a precedence order, so
-// look-alikes don't leak across categories:
-//  - "Laser hair removal" is Hair removal, not Skin & laser (bare "laser"
-//    must not claim it), and "threading" is hair removal too.
-//  - "Eyebrow threading" / "Lash lift" are Brows & lashes / Hair removal,
-//    not Lifting — "thread" only counts in "thread lift"/"PDO thread", and
-//    "lift" alone (lash lift, brow lift) is not skin lifting.
-//  - "Skin tightening" is Lifting, not Skin & laser (bare "skin" must not
-//    claim it).
-// Precedence (most specific first): Hair removal, Brows & lashes,
-// Botox & filler, Lifting, Skin & laser, then Other.
-function classifyService(service: string): string {
-  const s = service.toLowerCase();
-  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  // Word-boundary match, trying both singular and plural ("filler" must
-  // match "Dermal fillers", "facial" must match "Facials"). The trailing
-  // boundary is what keeps "thread" from matching "threading".
-  const has = (...words: string[]) =>
-    words.some((w) =>
-      [w, ...(w.endsWith("s") ? [] : [`${w}s`])].some((f) =>
-        new RegExp(`\\b${esc(f)}\\b`).test(s),
-      ),
-    );
-  if (
-    has(
-      "hair removal", "laser hair", "waxing", "wax", "threading",
-      "electrolysis", "sugaring", "gentlemax", "diode",
-    )
-  )
-    return "Hair removal";
-  if (
-    has(
-      "brow", "lash", "lashes", "eyebrow", "eyelash", "eyelashes",
-      "microblading", "lamination",
-    )
-  )
-    return "Brows & lashes";
-  if (
-    has(
-      "botox", "filler", "xeomin", "dysport", "jeuveau", "daxxify", "juvederm", "sculptra",
-      "radiesse", "skinvive", "lip flip", "masseter", "neurotoxin",
-      "dermal filler",
-    )
-  )
-    return "Botox & filler";
-  if (
-    has(
-      "ultherapy", "thermage", "oligio", "xerf", "titan", "hifu",
-      "thread lift", "pdo", "skin tightening", "liquid facelift",
-      "lifting", "facelift", "contouring",
-    )
-  )
-    return "Lifting";
-  if (
-    has(
-      "facial", "laser", "skin", "rejuran", "peel", "microneedling", "prp",
-      "hydrafacial", "photon", "pico", "genesis", "morpheus8", "forma",
-      "rf microneedling", "resurfacing", "chemical", "meso", "pdrn",
-      "exosome", "mts", "ldm", "dermatoxin",
-    )
-  )
-    return "Skin & laser";
-  return "Other";
-}
+// classifyService lives in lib/service-taxonomy.ts — the AI chat imports
+// it too, so the treatment → category mapping has one source of truth.
 
 function serviceMatchesCategory(service: string, category: string): boolean {
   return classifyService(service) === category;
@@ -344,19 +282,6 @@ export default function BrowseClinics({ t }: { t: Dict }) {
     const id = setTimeout(() => setAppliedQuery(query), 300);
     return () => clearTimeout(id);
   }, [query]);
-  // Deep link from the AI chat: /browse?q=Microneedling pre-fills the
-  // search box (the 300ms debounce above then applies it to the list).
-  // Read on mount only, from window.location — the server and first
-  // client render agree on the empty query, so there is no hydration
-  // mismatch, and no Suspense boundary (which useSearchParams would
-  // need around the whole list) is required.
-  useEffect(() => {
-    const q = new URLSearchParams(window.location.search).get("q")?.trim();
-    if (q) {
-      const id = setTimeout(() => setQuery(q), 0);
-      return () => clearTimeout(id);
-    }
-  }, []);
   // Infinite scroll: only the first page is rendered; more loads when the
   // sentinel at the bottom of the list scrolls into view. No button.
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
@@ -378,6 +303,25 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [service, setService] = useState("");
   const [sub, setSub] = useState("");
+  // Deep links from the AI chat: /browse?q=Microneedling pre-fills the
+  // search box (the 300ms debounce above then applies it to the list),
+  // and /browse?service=Skin%20%26%20laser selects that Service pill.
+  // Read on mount only, from window.location — the server and first
+  // client render agree on the empty filters, so there is no hydration
+  // mismatch, and no Suspense boundary (which useSearchParams would
+  // need around the whole list) is required. An unknown service value
+  // is ignored, so a bad link never breaks the page.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ids: ReturnType<typeof setTimeout>[] = [];
+    const q = params.get("q")?.trim();
+    if (q) ids.push(setTimeout(() => setQuery(q), 0));
+    const svc = params.get("service")?.trim();
+    if (svc && (SIMPLE_SERVICES as readonly string[]).includes(svc)) {
+      ids.push(setTimeout(() => setService(svc), 0));
+    }
+    return () => ids.forEach((id) => clearTimeout(id));
+  }, []);
   const [pricedOnly, setPricedOnly] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   // Clinic whose full service-chip list is shown (collapsed cards show 3).
@@ -705,6 +649,64 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           )}
         </div>
 
+        <div className="mt-5">
+          <span className={labelCls}>{t.browseService}</span>
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                setService("");
+                setSub("");
+              }}
+              aria-pressed={service === ""}
+              className={pill(service === "")}
+            >
+              {t.browseAll}
+            </button>
+            {SIMPLE_SERVICES.map((s) => (
+              <button
+                key={s}
+                type="button"
+                onClick={() => {
+                  setService(service === s ? "" : s);
+                  setSub("");
+                }}
+                aria-pressed={service === s}
+                className={pill(service === s)}
+              >
+                {(t.serviceNames as Record<string, string>)[s] ?? s}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {service !== "" && availableSubs.length > 0 && (
+          <div className="mt-4">
+            <span className={labelCls}>{t.browseTreatment}</span>
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setSub("")}
+                aria-pressed={sub === ""}
+                className={pill(sub === "")}
+              >
+                {t.browseAll}
+              </button>
+              {availableSubs.map((label) => (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setSub(sub === label ? "" : label)}
+                  aria-pressed={sub === label}
+                  className={pill(sub === label)}
+                >
+                  {(t.subTreatmentNames as Record<string, string>)[label] ?? label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="relative mt-5">
           <label className={labelCls} htmlFor="browse_search">
             {t.browseTitle}
@@ -781,64 +783,6 @@ export default function BrowseClinics({ t }: { t: Dict }) {
             {t.browsePricedOnly}
           </label>
         </div>
-
-        <div className="mt-5">
-          <span className={labelCls}>{t.browseService}</span>
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setService("");
-                setSub("");
-              }}
-              aria-pressed={service === ""}
-              className={pill(service === "")}
-            >
-              {t.browseAll}
-            </button>
-            {SIMPLE_SERVICES.map((s) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() => {
-                  setService(service === s ? "" : s);
-                  setSub("");
-                }}
-                aria-pressed={service === s}
-                className={pill(service === s)}
-              >
-                {(t.serviceNames as Record<string, string>)[s] ?? s}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {service !== "" && availableSubs.length > 0 && (
-          <div className="mt-4">
-            <span className={labelCls}>{t.browseTreatment}</span>
-            <div className="flex flex-wrap gap-2">
-              <button
-                type="button"
-                onClick={() => setSub("")}
-                aria-pressed={sub === ""}
-                className={pill(sub === "")}
-              >
-                {t.browseAll}
-              </button>
-              {availableSubs.map((label) => (
-                <button
-                  key={label}
-                  type="button"
-                  onClick={() => setSub(sub === label ? "" : label)}
-                  aria-pressed={sub === label}
-                  className={pill(sub === label)}
-                >
-                  {(t.subTreatmentNames as Record<string, string>)[label] ?? label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
       </section>
 
       <p className="mt-6 text-sm font-semibold" aria-live="polite">
