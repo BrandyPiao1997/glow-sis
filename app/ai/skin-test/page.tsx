@@ -107,7 +107,7 @@ export default function SkinTestPage() {
 
   return (
     <div className="flex-1">
-      <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="browse" />
+      <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="ai" />
       <main className="mx-auto max-w-5xl px-4 pb-12">
         <div className="flex items-center justify-between py-4">
           <button

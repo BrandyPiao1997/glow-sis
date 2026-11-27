@@ -42,7 +42,7 @@ export default function ProfilePage() {
 
   return (
     <div className="flex-1">
-      <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="browse" />
+      <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="profile" />
       <main className="mx-auto max-w-5xl px-4 pb-12">
         <section className="py-8 md:py-10">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">

@@ -272,7 +272,7 @@ export default function AiPage() {
     const report = profile.skinReport;
     return (
       <div className="flex-1">
-        <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="browse" />
+        <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="ai" />
         <main className="mx-auto max-w-5xl px-4 pb-12">
           <section className="pt-8 md:pt-10">
             <h1 className="text-3xl font-extrabold leading-tight tracking-tight md:text-4xl">
@@ -409,7 +409,7 @@ export default function AiPage() {
   // --- First-time user: conversational onboarding ---
   return (
     <div className="flex-1">
-      <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="browse" />
+      <SiteHeader t={t} lang={lang} chooseLang={chooseLang} active="ai" />
       <main className="mx-auto max-w-5xl px-4 pb-12">
         <div className="flex items-center justify-between py-4">
           <h1 className="text-xl font-extrabold tracking-tight">{t.aiTitle}</h1>

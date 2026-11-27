@@ -49,7 +49,7 @@ export function SiteHeader({
   t: Dict;
   lang: Lang;
   chooseLang: (next: Lang) => void;
-  active: "browse" | "apply";
+  active: "browse" | "apply" | "ai" | "profile";
 }) {
   const linkCls = (isActive: boolean) =>
     isActive ? "font-semibold text-ink" : "hover:text-ink";
@@ -62,6 +62,12 @@ export function SiteHeader({
         <nav className="hidden items-center gap-5 text-sm font-medium text-muted md:flex">
           <a href="/" className={linkCls(active === "browse")}>
             {t.navBrowse}
+          </a>
+          <a href="/ai" className={linkCls(active === "ai")}>
+            {t.tabAi}
+          </a>
+          <a href="/profile" className={linkCls(active === "profile")}>
+            {t.tabProfile}
           </a>
           <a href="/apply" className={linkCls(active === "apply")}>
             {t.navForClinics}
