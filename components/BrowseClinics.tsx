@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Dict } from "@/lib/i18n";
 import { SIMPLE_SERVICES } from "@/lib/types";
 import { nearestCity } from "@/lib/city-coords";
@@ -271,8 +271,83 @@ export function lowestMatchingPrice(
   return best;
 }
 
+// ---- Precomputed search data (built once at load, not per keystroke) ----
+// classifyService / subTreatmentOf build fresh RegExps on every call, so
+// calling them per clinic per keystroke was the expensive part. Each
+// distinct service / treatment string is classified exactly once here,
+// and every later filter / sort / suggestion pass works off these cheap
+// lowercase strings and cached category/sub labels.
+interface EnrichedService {
+  raw: string;
+  lower: string;
+  category: string;
+  sub: string | null;
+}
+interface EnrichedPrice {
+  raw: SeedPrice;
+  lower: string;
+  category: string;
+  sub: string | null;
+  comparable: boolean;
+  num: number | null;
+}
+interface EnrichedClinic {
+  clinic: SeedClinic;
+  nameLower: string;
+  services: EnrichedService[];
+  prices: EnrichedPrice[];
+}
+const ENRICHED_CLINICS: EnrichedClinic[] = (() => {
+  const cache = new Map<string, { category: string; sub: string | null }>();
+  const metaFor = (name: string) => {
+    let m = cache.get(name);
+    if (!m) {
+      const category = classifyService(name);
+      m = { category, sub: subTreatmentOf(name, category) };
+      cache.set(name, m);
+    }
+    return m;
+  };
+  return CLINICS.map((clinic) => ({
+    clinic,
+    nameLower: clinic.name.toLowerCase(),
+    services: clinic.services.map((raw) => {
+      const { category, sub } = metaFor(raw);
+      return { raw, lower: raw.toLowerCase(), category, sub };
+    }),
+    prices: clinic.prices.map((raw) => {
+      const { category, sub } = metaFor(raw.treatment);
+      return {
+        raw,
+        lower: raw.treatment.toLowerCase(),
+        category,
+        sub,
+        comparable: isComparablePrice(raw),
+        num: parsePriceNum(raw.price),
+      };
+    }),
+  }));
+})();
+const ALL_SERVICES = [
+  ...new Set(ENRICHED_CLINICS.flatMap((e) => e.services.map((s) => s.raw))),
+];
+const PAGE_SIZE = 30;
+
 export default function BrowseClinics({ t }: { t: Dict }) {
   const [query, setQuery] = useState("");
+  // The text the user is typing (updates instantly, so typing never lags)
+  // vs. the text the list is actually filtered by (updated 300ms after
+  // the user stops typing). 2s would feel broken; 300ms is the usual
+  // pause-typing delay.
+  const [appliedQuery, setAppliedQuery] = useState("");
+  useEffect(() => {
+    const id = setTimeout(() => setAppliedQuery(query), 300);
+    return () => clearTimeout(id);
+  }, [query]);
+  // Infinite scroll: only the first page is rendered; more loads when the
+  // sentinel at the bottom of the list scrolls into view. No button.
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
   // Metro area filter ("" = all). Clinics are filed under their real
   // municipality, but the picker groups them: Los Angeles covers its
   // dozens of small cities, New York is one municipality.
@@ -317,42 +392,15 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   // Translate a taxonomy/service label into the current language.
   const trLabel = (map: Record<string, string>, key: string) => map[key] ?? key;
 
-  // Does a piece of English data (a service or price-treatment name)
-  // match the query in any language? Checks the raw English text, its
-  // Chinese/Korean translation, and the sub-treatment it belongs to
-  // (also in English and translated) — so typing 肉毒素 or 보톡스 finds
-  // Botox rows, and the search box never has to show English.
-  const matchText = (text: string, q: string) => {
-    const lower = text.toLowerCase();
-    if (lower.includes(q)) return true;
-    const chipMap = t.serviceChipNames as Record<string, string>;
-    const chip = chipMap[text];
-    if (chip && chip.toLowerCase().includes(q)) return true;
-    const subMap = t.subTreatmentNames as Record<string, string>;
-    const label = subTreatmentOf(text, classifyService(text));
-    if (label) {
-      if (label.toLowerCase().includes(q)) return true;
-      const tr = subMap[label];
-      if (tr && tr.toLowerCase().includes(q)) return true;
-    }
-    return false;
-  };
-
   // Most-offered treatments across all clinics, by number of clinics
   // offering each sub-treatment — the default "trending" suggestions
   // shown before the user types anything.
   const popularSubs = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const c of CLINICS) {
+    for (const e of ENRICHED_CLINICS) {
       const seen = new Set<string>();
-      for (const s of c.services) {
-        const label = subTreatmentOf(s, classifyService(s));
-        if (label) seen.add(label);
-      }
-      for (const p of c.prices) {
-        const label = subTreatmentOf(p.treatment, classifyService(p.treatment));
-        if (label) seen.add(label);
-      }
+      for (const s of e.services) if (s.sub) seen.add(s.sub);
+      for (const p of e.prices) if (p.sub) seen.add(p.sub);
       for (const label of seen) counts.set(label, (counts.get(label) ?? 0) + 1);
     }
     return [...counts.entries()]
@@ -394,19 +442,17 @@ export default function BrowseClinics({ t }: { t: Dict }) {
         }
       }
     }
-    // Clinic service names.
-    const services = new Set<string>();
-    for (const c of CLINICS) for (const s of c.services) services.add(s);
-    for (const s of services) {
+    // Clinic service names (precomputed distinct list, not rebuilt per keystroke).
+    for (const s of ALL_SERVICES) {
       const display = trLabel(chipMap, s);
       if (s.toLowerCase().includes(q) || display.toLowerCase().includes(q)) {
         push(s, display, t.browseService);
       }
     }
     // Clinic names.
-    for (const c of CLINICS) {
-      if (c.name.toLowerCase().includes(q)) {
-        push(c.name, c.name, "");
+    for (const e of ENRICHED_CLINICS) {
+      if (e.nameLower.includes(q)) {
+        push(e.clinic.name, e.clinic.name, "");
       }
     }
     return out;
@@ -417,15 +463,9 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   const availableSubs = useMemo(() => {
     if (!service) return [];
     const seen = new Set<string>();
-    for (const c of CLINICS) {
-      for (const s of c.services) {
-        const label = subTreatmentOf(s, service);
-        if (label) seen.add(label);
-      }
-      for (const p of c.prices) {
-        const label = subTreatmentOf(p.treatment, service);
-        if (label) seen.add(label);
-      }
+    for (const e of ENRICHED_CLINICS) {
+      for (const s of e.services) if (s.sub && s.category === service) seen.add(s.sub);
+      for (const p of e.prices) if (p.sub && p.category === service) seen.add(p.sub);
     }
     return (SUB_TREATMENTS[service] ?? [])
       .map((s) => s.label)
@@ -444,55 +484,108 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       .map(([name]) => name);
   }, []);
 
+  // Filter + rank in ONE pass per clinic, over the debounced query.
+  // The old version re-computed relevance and the lowest matching price
+  // inside the sort comparator, so the same expensive work ran O(n log n)
+  // times. Here each clinic is scored once, then the sort is a cheap
+  // comparison of two numbers.
   const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    const list = CLINICS.filter((c) => {
-      if (pricedOnly && c.prices.length === 0) return false;
-      if (metro && metroOf(c.city) !== metro) return false;
-      if (service && !c.services.some((s) => serviceMatchesCategory(s, service)))
-        return false;
+    const q = appliedQuery.trim().toLowerCase();
+    const chipMap = t.serviceChipNames as Record<string, string>;
+    const subMap = t.subTreatmentNames as Record<string, string>;
+    const matches = (lower: string, raw: string, sub: string | null) => {
+      if (!q) return false;
+      if (lower.includes(q)) return true;
+      const chip = chipMap[raw];
+      if (chip && chip.toLowerCase().includes(q)) return true;
       if (sub) {
-        const hasSub =
-          c.services.some((s) => subTreatmentOf(s, service) === sub) ||
-          c.prices.some((p) => subTreatmentOf(p.treatment, service) === sub);
-        if (!hasSub) return false;
+        if (sub.toLowerCase().includes(q)) return true;
+        const tr = subMap[sub];
+        if (tr && tr.toLowerCase().includes(q)) return true;
       }
+      return false;
+    };
+    const out: { clinic: SeedClinic; low: SeedPrice | null; rel: number; priceNum: number | null }[] = [];
+    for (const e of ENRICHED_CLINICS) {
+      const c = e.clinic;
+      if (pricedOnly && c.prices.length === 0) continue;
+      if (metro && metroOf(c.city) !== metro) continue;
+      if (service && !e.services.some((s) => s.category === service)) continue;
+      if (sub && !e.services.some((s) => s.category === service && s.sub === sub) && !e.prices.some((pr) => pr.category === service && pr.sub === sub)) continue;
+      let rel = 0;
       if (q) {
-        const hit =
-          c.name.toLowerCase().includes(q) ||
-          c.services.some((s) => matchText(s, q)) ||
-          c.prices.some((p) => matchText(p.treatment, q));
-        if (!hit) return false;
+        const nameHit = e.nameLower.includes(q);
+        const priceHit = e.prices.some((pr) => matches(pr.lower, pr.raw.treatment, pr.sub));
+        const serviceHit = e.services.some((sv) => matches(sv.lower, sv.raw, sv.sub));
+        if (!nameHit && !priceHit && !serviceHit) continue;
+        if (nameHit) rel += 3;
+        if (priceHit) rel += 2;
+        if (serviceHit) rel += 1;
       }
-      return true;
+      // Lowest comparable price for this search/filter, same rule as
+      // lowestMatchingPrice: rows matching the service/sub filter, then
+      // rows whose treatment matches the query (falling back to all rows
+      // when only the clinic name matches, and to none otherwise).
+      let rows = e.prices;
+      if (service) rows = rows.filter((pr) => pr.category === service);
+      if (sub) rows = rows.filter((pr) => pr.sub === sub);
+      if (q) {
+        const byTreatment = rows.filter((pr) => matches(pr.lower, pr.raw.treatment, pr.sub));
+        if (byTreatment.length > 0) rows = byTreatment;
+        else if (!e.nameLower.includes(q)) rows = [];
+      }
+      let low: SeedPrice | null = null;
+      let priceNum: number | null = null;
+      for (const pr of rows) {
+        if (!pr.comparable || pr.num === null) continue;
+        if (priceNum === null || pr.num < priceNum) {
+          priceNum = pr.num;
+          low = pr.raw;
+        }
+      }
+      out.push({ clinic: c, low, rel, priceNum });
+    }
+    out.sort((a, b) => {
+      if (a.rel !== b.rel) return b.rel - a.rel;
+      if (a.priceNum !== null && b.priceNum !== null && a.priceNum !== b.priceNum)
+        return a.priceNum - b.priceNum;
+      if (a.priceNum === null && b.priceNum !== null) return 1;
+      if (a.priceNum !== null && b.priceNum === null) return -1;
+      return a.clinic.name.localeCompare(b.clinic.name);
     });
-    // Rank: search relevance first, then price low to high.
-    // Relevance: name match (3) > treatment match (2) > service match (1).
-    // Price: the clinic's lowest comparable price for the current search/filter;
-    // clinics with no comparable price sort last, then alphabetical for stability.
-    const relevance = (c: SeedClinic) => {
-      if (!q) return 0;
-      let score = 0;
-      if (c.name.toLowerCase().includes(q)) score += 3;
-      if (c.prices.some((p) => matchText(p.treatment, q))) score += 2;
-      if (c.services.some((s) => matchText(s, q))) score += 1;
-      return score;
-    };
-    const priceOf = (c: SeedClinic) => {
-      const low = lowestMatchingPrice(c, query, service, sub, matchText);
-      return low ? parsePriceNum(low.price) : null;
-    };
-    return list.sort((a, b) => {
-      const rel = relevance(b) - relevance(a);
-      if (rel !== 0) return rel;
-      const pa = priceOf(a);
-      const pb = priceOf(b);
-      if (pa !== null && pb !== null && pa !== pb) return pa - pb;
-      if (pa === null && pb !== null) return 1;
-      if (pa !== null && pb === null) return -1;
-      return a.name.localeCompare(b.name);
-    });
-  }, [query, metro, service, sub, pricedOnly, t]);
+    return out;
+  }, [appliedQuery, metro, service, sub, pricedOnly, t]);
+
+  // Reset to the first page whenever any filter changes. (Render-time
+  // adjustment, per React docs: React re-renders immediately with the
+  // reset value before committing, so the list never shows page 2 of an
+  // old filter.)
+  const filterKey = `${appliedQuery}|${metro}|${service}|${sub}|${pricedOnly}`;
+  const [prevFilterKey, setPrevFilterKey] = useState("");
+  if (prevFilterKey !== filterKey) {
+    setPrevFilterKey(filterKey);
+    setVisibleCount(PAGE_SIZE);
+  }
+
+  // What is actually rendered: the first page of the filtered list.
+  const visible = filtered.slice(0, visibleCount);
+  // Infinite scroll: when the sentinel at the bottom of the rendered
+  // list comes into view (a little early, so the next page is ready by
+  // the time the user reaches the bottom), render the next page.
+  useEffect(() => {
+    const el = sentinelRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setVisibleCount((v) => Math.min(v + PAGE_SIZE, filtered.length));
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [visibleCount, filtered.length]);
 
   const inputCls =
     "w-full rounded-xl border border-line bg-white px-3 py-2.5 text-sm outline-none focus:border-brand focus:ring-2 focus:ring-brand-soft";
@@ -736,8 +829,7 @@ export default function BrowseClinics({ t }: { t: Dict }) {
       )}
 
       <div className="mt-4 space-y-3 md:space-y-4">
-        {filtered.map((c) => {
-          const low = lowestMatchingPrice(c, query, service, sub, matchText);
+        {visible.map(({ clinic: c, low }) => {
           const open = expanded === c.name;
           return (
             <article
@@ -904,6 +996,12 @@ export default function BrowseClinics({ t }: { t: Dict }) {
           );
         })}
       </div>
+
+      {/* Infinite-scroll sentinel: when this scrolls into view, the next
+          page of results renders. No button, nothing to tap. */}
+      {visibleCount < filtered.length && (
+        <div ref={sentinelRef} aria-hidden="true" className="h-1" />
+      )}
 
       {pickerOpen && (
         <LocationPicker
