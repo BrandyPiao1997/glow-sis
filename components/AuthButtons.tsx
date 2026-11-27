@@ -5,10 +5,11 @@ import type { Dict } from "@/lib/i18n";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 import { POST_AUTH_KEY } from "@/lib/auth";
 
-// Google / Apple sign-in buttons (Supabase OAuth).
-// Provider credentials must be created by the owner and enabled in the
-// Supabase dashboard — see docs/auth-setup.md. Until the env vars exist,
-// the buttons show a "not configured yet" state instead of crashing.
+// Google / Apple sign-in buttons (Supabase OAuth). Hidden for now: neither
+// provider works yet (Google fails the code exchange, Apple needs the $99
+// Developer Program). Not rendered on /profile — email OTP is the sign-in
+// for now. Kept for later; provider credentials must be created by the
+// owner and enabled in the Supabase dashboard — see docs/auth-setup.md.
 export default function AuthButtons({
   t,
   returnTo = "/profile",

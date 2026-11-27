@@ -4,24 +4,24 @@ import { useEffect, useState } from "react";
 import type { User } from "@supabase/supabase-js";
 import { dicts } from "@/lib/i18n";
 import { SiteFooter, SiteHeader, useSavedLang } from "@/components/site";
-import AuthButtons from "@/components/AuthButtons";
+import EmailOtpAuth from "@/components/EmailOtpAuth";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 
-// Account page only: sign in / sign out. There is no profile setup or
-// account creation flow anymore — sign-in is just the Google/Apple
-// buttons below, and everything else in the app works signed out.
+// Account page only: sign in / sign out. Sign-in is email + 6-digit code
+// (EmailOtpAuth). Google / Apple buttons live in AuthButtons.tsx but are
+// hidden for now because neither provider works yet; phone OTP is skipped
+// for now (it needs a paid Twilio SMS setup). Everything else in the app
+// works signed out.
 export default function ProfilePage() {
   const { lang, chooseLang } = useSavedLang();
   const t = dicts[lang];
   const [user, setUser] = useState<User | null>(null);
-  const [checked, setChecked] = useState(false);
+  // If Supabase isn't configured there is no session to check for.
+  const [checked, setChecked] = useState(() => !isSupabaseConfigured());
 
   useEffect(() => {
     const sb = getSupabase();
-    if (!sb) {
-      setChecked(true);
-      return;
-    }
+    if (!sb) return;
     sb.auth.getUser().then(({ data }) => {
       setUser(data.user);
       setChecked(true);
@@ -65,11 +65,8 @@ export default function ProfilePage() {
             ) : (
               <>
                 <p className="text-sm leading-relaxed text-muted">{t.profGuest}</p>
-                <p className="mt-3 rounded-2xl bg-brand-soft px-4 py-3 text-sm leading-relaxed text-ink">
-                  {t.profNoAccounts}
-                </p>
                 <div className="mt-4">
-                  <AuthButtons t={t} returnTo="/profile" />
+                  <EmailOtpAuth t={t} />
                 </div>
                 {!configured && (
                   <p className="mt-3 text-xs leading-relaxed text-muted">

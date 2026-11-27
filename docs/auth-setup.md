@@ -1,11 +1,17 @@
-# GlowSis sign-in setup (Google + Apple)
+# GlowSis sign-in setup (email OTP first)
 
-The app ships with Google and Apple sign-in buttons (Supabase OAuth) on the
-AI chat (`/ai`), the profile page (`/profile`), and the onboarding flow.
-The buttons are built and the callback (`/auth/callback`) is wired — but
-**sign-in will not work until the owner completes the steps below**. Until
-then the buttons show a clear "sign-in isn't set up yet" state instead of
-crashing.
+Sign-in is email + 6-digit code (Supabase OTP) on the profile page
+(`/profile`), built into Supabase — no extra provider account needed. The
+code is sent by Supabase's built-in email service, which works for testing
+but has tight rate limits; before launch, set a custom SMTP sender in
+Supabase → Authentication → Settings → SMTP Settings.
+
+Google and Apple sign-in buttons exist in `components/AuthButtons.tsx`
+(Supabase OAuth) but are hidden for now because neither works yet — Google
+fails the code exchange, Apple needs the $99/year Developer Program.
+Phone OTP is skipped for now: it needs a paid Twilio SMS setup in Supabase.
+Facebook is also a built-in Supabase provider if wanted later; WeChat has
+no Supabase provider and would need a custom integration.
 
 ## AI chat (Groq + Gemini)
 
@@ -41,6 +47,15 @@ or a call fails. Answers are grounded in real clinic prices from
 invents prices) and never diagnose or recommend a treatment. Groq sits
 behind Cloudflare, which blocks bot-like User-Agents (HTTP 403 error
 code 1010), so the route sends a plain `User-Agent: GlowSis/1.0`.
+
+Semantic search: when a question matches no treatment keyword, the route
+embeds it with `gemini-embedding-001` (128 dims, same `GEMINI_API_KEY`)
+and searches the prebuilt index `data/seed-embeddings.json`, so
+paraphrases still get grounded in real prices. Rebuild the index after
+the seed data changes with `python3 scripts/build-embeddings.py` (it
+resumes from the existing file). A `metro` in the request body (saved by
+the browse page in localStorage as `glow-sis-metro`) prefers in-metro
+clinics.
 
 Order of work: **Google first (free), Apple once the $99/year Apple
 Developer Program enrollment clears** — a free Apple account cannot create

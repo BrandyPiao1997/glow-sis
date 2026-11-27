@@ -7,29 +7,34 @@ import { useSavedLang } from "@/components/site";
 import { getSupabase } from "@/lib/supabase";
 import { POST_AUTH_KEY } from "@/lib/auth";
 
-// OAuth callback: exchanges the ?code= for a session, then sends the user
-// back to where they started sign-in (localStorage glow-sis-post-auth,
-// default /profile). Reads the code from window.location directly so no
-// Suspense boundary is needed.
+// Auth callback: exchanges the ?code= for a session (OAuth, e.g. Google /
+// Apple when they are enabled), or verifies an email OTP link's
+// ?token_hash=, then sends the user back to where they started sign-in
+// (localStorage glow-sis-post-auth, default /profile). Reads the query
+// from window.location directly so no Suspense boundary is needed.
 export default function AuthCallbackPage() {
   const { lang } = useSavedLang();
   const t = dicts[lang];
   const router = useRouter();
-  const [error, setError] = useState("");
+  const [error, setError] = useState(() => {
+    if (!getSupabase()) return t.authNotConfigured;
+    const params = new URLSearchParams(window.location.search);
+    return params.get("code") || params.get("token_hash")
+      ? ""
+      : "Missing sign-in code.";
+  });
 
   useEffect(() => {
     const sb = getSupabase();
-    if (!sb) {
-      setError(t.authNotConfigured);
-      return;
-    }
-    const code = new URLSearchParams(window.location.search).get("code");
-    if (!code) {
-      setError("Missing sign-in code.");
-      return;
-    }
-    sb.auth
-      .exchangeCodeForSession(code)
+    if (!sb) return;
+    const params = new URLSearchParams(window.location.search);
+    const tokenHash = params.get("token_hash");
+    const code = params.get("code");
+    if (!code && !tokenHash) return;
+    const exchange = tokenHash
+      ? sb.auth.verifyOtp({ token_hash: tokenHash, type: "email" })
+      : sb.auth.exchangeCodeForSession(code as string);
+    exchange
       .then(({ error }) => {
         if (error) {
           setError(error.message);
