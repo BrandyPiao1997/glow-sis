@@ -1,10 +1,22 @@
 import { NextResponse } from "next/server";
-import { buildSystemPrompt, findTreatmentFacts } from "@/lib/ai-chat";
+import { buildSystemPrompt, findTreatmentCards, findTreatmentFacts } from "@/lib/ai-chat";
+import { chunksToFacts, searchVectors } from "@/lib/vector-search";
 
 // POST /api/ai-chat — multi-provider chat for the AI tab.
 // Chain: Groq first, then Gemini, then the client's scripted keyword
 // replies. If one provider fails or hits its limit, the next takes over
 // and the user never sees the difference.
+//
+// Retrieval is hybrid. Keyword facts (findTreatmentFacts) run first;
+// when they come back empty, the message is embedded with
+// gemini-embedding-001 (128 dims) and vector-searched against the
+// prebuilt index (data/seed-embeddings.json, built by
+// scripts/build-embeddings.py) so paraphrases and questions no keyword
+// list covers still get grounded in real clinic prices. A `metro` in
+// the request body prefers in-metro chunks. If the embedding call fails
+// or GEMINI_API_KEY is missing, the chat proceeds with no facts, as
+// before — the model then answers from general knowledge and is told
+// not to invent prices.
 //
 // Groq (openai/gpt-oss-120b) goes first because it is fast (answers in
 // seconds) and its free plan is generous: 1,000 requests and 200,000
@@ -45,6 +57,41 @@ async function fetchWithTimeout(
   }
 }
 
+async function embedQuery(
+  text: string,
+  key: string,
+  timeoutMs: number,
+): Promise<number[] | null> {
+  try {
+    const res = await fetchWithTimeout(
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-goog-api-key": key,
+        },
+        body: JSON.stringify({
+          model: "models/gemini-embedding-001",
+          content: { parts: [{ text }] },
+          outputDimensionality: 128,
+        }),
+      },
+      timeoutMs,
+    );
+    if (!res.ok) {
+      console.error("POST /api/ai-chat embed error:", res.status);
+      return null;
+    }
+    const data = (await res.json()) as { embedding?: { values?: number[] } };
+    const values = data.embedding?.values;
+    return values && values.length === 128 ? values : null;
+  } catch (err) {
+    console.error("POST /api/ai-chat embed failed:", err);
+    return null;
+  }
+}
+
 export async function POST(req: Request) {
   // Trim: a key pasted with a trailing space/newline would be rejected.
   const groqKey = process.env.GROQ_API_KEY?.trim();
@@ -58,11 +105,12 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "Invalid JSON body." }, { status: 400 });
   }
-  const { message, lang, history, report } = body as {
+  const { message, lang, history, report, metro } = body as {
     message?: unknown;
     lang?: unknown;
     history?: unknown;
     report?: unknown;
+    metro?: unknown;
   };
   if (typeof message !== "string" || !message.trim() || message.length > 1000) {
     return NextResponse.json({ error: "Invalid message." }, { status: 400 });
@@ -80,18 +128,40 @@ export async function POST(req: Request) {
         .slice(-6)
     : [];
 
-  const facts = findTreatmentFacts(message);
-  const systemPrompt = buildSystemPrompt(
-    language,
-    facts,
-    report && typeof report === "object" ? (report as never) : null,
-  );
-
+  let facts = findTreatmentFacts(message);
+  // Structured cards for the chat UI — same grounding as the facts above,
+  // cheapest first. The client renders them as treatment cards under the
+  // answer; when no keyword matched there are no cards to show.
+  const { cards } = findTreatmentCards(message);
   // One shared deadline for all attempts so the function stays inside
   // maxDuration. Every failure falls through to the next provider instead
   // of failing the chat.
   const deadline = Date.now() + 50000;
   const remaining = () => deadline - Date.now();
+
+  // Semantic fallback: keyword facts missed, so embed the message and
+  // search the clinic index. A metro in the request prefers in-metro
+  // chunks; with no in-metro match it falls back to nationwide.
+  if (facts.facts.length === 0 && geminiKey && remaining() > 17000) {
+    const queryVec = await embedQuery(
+      message,
+      geminiKey,
+      Math.min(15000, remaining()),
+    );
+    if (queryVec) {
+      const metroStr = typeof metro === "string" && metro.trim() ? metro.trim() : undefined;
+      const hits = searchVectors(queryVec, { metro: metroStr, topK: 5, minScore: 0.3 });
+      if (hits.length > 0) {
+        facts = chunksToFacts(hits);
+      }
+    }
+  }
+
+  const systemPrompt = buildSystemPrompt(
+    language,
+    facts,
+    report && typeof report === "object" ? (report as never) : null,
+  );
 
   // Groq first: OpenAI-compatible chat completions. Groq sits behind
   // Cloudflare, which blocks requests with a bot-like User-Agent (HTTP
@@ -127,7 +197,7 @@ export async function POST(req: Request) {
         };
         const text = data.choices?.[0]?.message?.content?.trim();
         if (text) {
-          return NextResponse.json({ text: text.slice(0, 1200) });
+          return NextResponse.json({ text: text.slice(0, 1200), cards });
         }
       } else {
         console.error("POST /api/ai-chat Groq error:", res.status);
@@ -194,7 +264,7 @@ export async function POST(req: Request) {
       if (!parts) {
         continue;
       }
-      return NextResponse.json({ text: parts.slice(0, 1200) });
+      return NextResponse.json({ text: parts.slice(0, 1200), cards });
     }
   }
 

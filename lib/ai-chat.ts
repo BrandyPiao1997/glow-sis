@@ -8,6 +8,7 @@ type SeedPrice = { treatment: string; price: string | number; unit: string; sour
 type SeedClinic = {
   name: string;
   city: string;
+  website?: string;
   services: string[];
   prices: SeedPrice[];
 };
@@ -86,6 +87,48 @@ export function findTreatmentFacts(message: string): { label: string | null; fac
   }
   rows.sort((a, b) => a.num - b.num);
   return { label: hit.label, facts: rows.slice(0, 5).map((r) => r.line) };
+}
+
+export type TreatmentCard = {
+  clinic: string;
+  city: string;
+  treatment: string;
+  price: string;
+  website: string | null;
+};
+
+// Same grounding as findTreatmentFacts, but structured so the chat UI can
+// render real treatment cards (clinic, price, booking link) instead of
+// burying the prices in prose. Cheapest first, top 3.
+export function findTreatmentCards(message: string): {
+  label: string | null;
+  cards: TreatmentCard[];
+} {
+  const s = message.toLowerCase();
+  const hit = TREATMENT_KEYWORDS.find((tk) => tk.match.some((m) => s.includes(m)));
+  if (!hit) return { label: null, cards: [] };
+  const needle = hit.label.toLowerCase();
+  const rows: { num: number; card: TreatmentCard }[] = [];
+  for (const c of seed.clinics as SeedClinic[]) {
+    for (const p of c.prices) {
+      if (!p.treatment.toLowerCase().includes(needle)) continue;
+      if (!isComparablePrice(p)) continue;
+      const n = parsePriceNum(p.price);
+      if (n === null) continue;
+      rows.push({
+        num: n,
+        card: {
+          clinic: c.name,
+          city: c.city,
+          treatment: p.treatment,
+          price: `${p.price}${p.unit ? ` ${p.unit}` : ""}`,
+          website: typeof c.website === "string" ? c.website : null,
+        },
+      });
+    }
+  }
+  rows.sort((a, b) => a.num - b.num);
+  return { label: hit.label, cards: rows.slice(0, 3).map((r) => r.card) };
 }
 
 const LANG_NAME: Record<string, string> = { en: "English", zh: "Chinese", ko: "Korean" };

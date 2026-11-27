@@ -352,6 +352,16 @@ export default function BrowseClinics({ t }: { t: Dict }) {
   // municipality, but the picker groups them: Los Angeles covers its
   // dozens of small cities, New York is one municipality.
   const [metro, setMetro] = useState("");
+  // Remember the picked metro for the AI tab, which searches near it.
+  // Cleared when "All locations" is chosen.
+  useEffect(() => {
+    try {
+      if (metro) window.localStorage.setItem("glow-sis-metro", metro);
+      else window.localStorage.removeItem("glow-sis-metro");
+    } catch {
+      // Storage unavailable — the AI tab just searches nationwide.
+    }
+  }, [metro]);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [service, setService] = useState("");
   const [sub, setSub] = useState("");
